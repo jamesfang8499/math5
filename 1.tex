@@ -1,0 +1,334 @@
+\chapter{直线和平面}
+\section{空间图形}
+在初中几何课中，我们讨论的几何图形和几何问题，主
+要局限在一个平面上。然而，我们生活着的现实世界却是具
+有长、宽、高的所谓“三维空间”。而平面只是我们生活空
+间的某个断面。我们日常所见的形体，如桌椅、房屋、球、
+漏斗等等，它们并不局限在一个平面上，都是立体的。为了
+精确地认识这些实际存在的形体，以便为我们的生产和生活
+服务，我们必须学习有关空间图形的知识。
+
+我们知道平面图形是同一平面上的点的集合，而\textbf{空间图
+形却是不全在同一平面上的点的集合}。例如正方体、三棱
+锥、圆柱、球等都是空间图形。空间图形也叫立体图形。我
+们将在平面几何知识的基础上，来研究空间图形的性质、画
+法以及有关的计算和应用。
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.4]{fig/1-1.png}
+    \caption{}
+\end{figure}
+
+空间图形是在平面上（纸上）画出来的表示立体的图。
+如在图1.1中，各图都表示出了某种立体。这种图形叫直
+观图。除了用直观图表示立体以外，还有其他表示立体的方
+法，如展开图和投影图等等。下面我们作些简要的介绍。
+
+\subsection{直观图}
+\subsubsection{水平放置的平面图形的画法}
+当我们把一个正方形和圆放置在水平位置观察时，我们
+的视觉会产生一些变化，总觉得它们像平行四边形和椭圆。
+它们会变成怎样的平行四边形和椭圆呢？由于观察的角度不
+同，会有不同的形状，这就涉及到了水平平面图形的画法问
+题，下面就是较常用的两种画法。
+
+第一种画法
+
+\begin{example}
+    画正方形的直观图。
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex,scale=1.5]
+     \begin{scope}
+\draw[<->](1.5,0)node[right]{$X$}--(0,0)--(0,1.5)node[right]{$Y$};
+\draw(0,0)node[below]{$A$}--(1,0)node[below]{$B$}--(1,1)node[right]{$C$}--(0,1)node[left]{$D$};
+\node at (.8,-.5,0){$(1)$};
+\end{scope}   
+\begin{scope}[xshift=3cm, x={(0:1cm)},y={(45:.5cm)},z={(90:1cm)}]
+    \draw[<->](2,0,0)node[right]{$X'$}--(0,0,0)--(0,2,0)node[right]{$Y'$};
+    \draw(0,0,0)node[below]{$A'$}--(1,0,0)node[below]{$B'$}--(1,1,0)node[right]{$C'$}--(0,1,0)node[left]{$D'$};
+    \node at (1.5,-1.414,0){$(2)$};
+    \end{scope}      
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\textbf{画法}
+\begin{enumerate}
+    \item 在正方形$ABCD$上，分别取$AB$、$AD$为$X$轴
+和$Y$轴，它们互相垂直于$A$点。
+
+画对应的$X'$轴和$Y'$轴，使$\angle X'A'Y'=45^{\circ}$.
+\item 在$X'$轴上截取$A'B'=AB$, 在$Y'$轴上截取
+$A'D'=\frac{1}{2}AD$
+
+\item 以$A'B'$、$A'D'$为邻边画平行四边形
+$A'B'C'D'$就是正方形$ABCD$的直观图。（图1.2）。
+\end{enumerate}
+
+\begin{example}
+    画正五边形的直观图。
+\end{example}
+
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex,scale=1.2]
+     \begin{scope}
+\draw[<-](0,4)node[right]{$Y$}--(0,-.5); 
+\draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw(-1,0)node[below]{$A$}--(1,0)node[below]{$B$}--(1.62,1.9)node[right]{$C$}--(0,3.08)node[right]{$D$}--(-1.62,1.9)node[left]{$E$}--(-1,0);
+\draw[dashed](-1.62,1.9)--(-1.62,0)node[below]{$E_1$};
+\draw[dashed](1.62,1.9)--(1.62,0)node[below]{$C_1$};
+\node at (.25,-.25){$O$};
+\node at (0,-1){$(1)$};
+\end{scope}   
+\begin{scope}[xshift=5cm, x={(0:1cm)},y={(45:.5cm)},z={(90:1cm)}]
+    \draw[<-](0,6)node[right]{$Y'$}--(0,-1); 
+    \draw[->](-2,0)--(3,0)node[right]{$X'$};
+    \draw(-1,0)node[below]{$A'$}--(1,0)node[below]{$B'$}--(1.62,1.9)node[right]{$C'$}--(0,3.08)node[right]{$D'$}--(-1.62,1.9)node[left]{$E'$}--(-1,0);
+    \draw[dashed](-1.62,1.9)--(-1.62,0)node[below]{$E'_1$};
+    \draw[dashed](1.62,1.9)--(1.62,0)node[below]{$C'_1$};
+    \node at (.25,-.5){$O'$};
+    \node at (1,-2.828,0){$(2)$};
+    \end{scope}      
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\textbf{画法}
+\begin{enumerate}
+    \item 取正五边形$ABCDE$的$AB$所在直线为$X$轴，
+    取$AB$的中垂线为$Y$轴（$Y$轴必过$D$点），两轴交于$O$点．
+    （图1.3(1)）
+
+    画对应的$X'$轴，$Y'$轴，使$\angle X'O'Y'=45^{\circ}$
+    \item 作$CC_1\bot X$轴于$C_1$, 作$EE_1\bot X$轴于$E_1$, 在
+    $X'$轴上取$A'B'=AB$, 且使$O'$为$A'B'$中点，并在$X'$轴
+    上分别取$C'_1$点和$E'_1$点，使$O'C'_1=OC_1$, $O'E'_1=OE_1$.
+    \item 在$Y'$轴上截取$O'D'=\frac{1}{2}OD$, 并引$E'_1E'\parallel
+    O'Y'$, 且使$E'_1E=\frac{1}{2}E_1E$, 引$C_1'C'\parallel O'Y'$, 且使
+    $C'_1C'=\frac{1}{2}C_1C$.
+    \item 连结$A'E'$、$E'D'$、$D'C'$、$C'B'$, 则五边
+    形$A'B'C'D'E'$就是正五边形$ABCDE$的直观图。（图
+    1.3(2)）
+\end{enumerate}
+
+通过上面例题，我们可以得出这种画法的规则如下：
+\begin{enumerate}
+\item 在图形上取互相垂直的$X$轴、$Y$轴，并画出与之
+对应的$X'$轴，$Y'$轴，使$\angle X'O'Y'=45^{\circ}$（或$135^{\circ}$）, $X'$
+轴和$Y'$轴所确定的平面表示水平平面。
+\item 图形中平行于$X$轴或$Y$轴的线段（包括在轴上的
+线段）分别画成平行于$X'$轴和$Y'$轴的线段。
+\item 平行于$X$轴的线段，长度不变；平行于$Y$轴的线
+段，长度变为原来的一半。
+\end{enumerate}
+
+第二种画法
+
+\begin{example}
+   画圆的直观图 
+
+   圆的直观图是一个椭圆，常采用如下近似画法：
+\begin{enumerate}
+    \item 取$\odot O$的一对互相垂直的直径$AB$, $CD$分别为$X$
+轴、$Y$轴，并画出对应的$X'$轴、$Y'$轴，使$\angle X'O'Y'=120^{\circ}$.
+\item 在$O'X'$上取$O'A'=OA$, 并取$A'$关于$O'$的对称
+点$B'$, 然后在$O'Y'$轴上取$O'C'=OC$, 并取$C'$关于$O'$的对
+称点$D'$.
+\item 过$A'$、$B'$作$O'Y'$的平行线，过$C'$、$D'$作$O'X'$
+的平行线，所作四条直线交出一个菱形，设$E$、$F$是菱形关
+于$O'$点对称的顶点。
+\item 连$ED'$, $FA'$, 交于$G$; 连$EB'$、$FC'$交于$H$.
+\item 以$E$为心，以$ED'$为半径，作$\wideparen{D'B'}$, 以$F$为心，
+以$FA'$为半径作$\wideparen{A'C'}$, 以$G$为心，以$GA'$为半径作$\wideparen{D'A}$,
+以$H$为心，以$HC'$半径作$\wideparen{B'C'}$, 则此四弧连接成一个近似椭
+圆．（图1.4(2)）
+\end{enumerate}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex,scale=1.1]
+     \begin{scope}
+\draw[<-](0,2)node[right]{$Y$}--(0,-2); 
+\draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw(-1.5,-1.5)--(-1.5,1.5)--(1.5,1.5)--(1.5,-1.5)--(-1.5,-1.5);
+\draw (0,0) circle (1.5);
+\node at (-1.7,0)[above]{$A$};
+\node at (1.7,0)[above]{$B$};
+\node at (0,1.7)[left]{$C$};
+\node at (0,-1.7)[left]{$D$};
+\node at (-.25,-.25){$O$};
+\node at (0,-2.5){$(1)$};
+\end{scope}   
+\begin{scope}[xshift=6cm, x={(-150:1cm)},y={(150:1cm)}]
+    \draw[->](0,2.5)--(0,-2.5)node[right]{$Y'$}; 
+    \draw[->](-2.5,0)--(2.5,0)node[left]{$X'$};
+    \draw(-1.5,-1.5)--(-1.5,1.5)--(1.5,1.5)--(1.5,-1.5)--(-1.5,-1.5);
+    \draw (0,0) circle (1.5);
+    \node at (-1.5,0)[above]{$B'$};
+    \node  at (1.5,0)[below]{$A'$};
+    \node  at (0,1.5) [left]{$D'$};
+    \node  at (0,-1.5)[below]{$C'$};
+    \node  at (-.25,-.25){$O'$};
+    \node  at (.55,.65){$G$};
+    \node  at (-.65,-.55){$H$};
+    \draw[dashed](0,1.5)--(1.5,-1.5)node[below]{$E$}--(-1.5,0);
+    \draw[dashed](1.5,0)--(-1.5,1.5)node[above]{$F$}--(0,-1.5);
+    \node at (2.25,-2.5){$(2)$};
+    \end{scope}      
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+从上述画法中，我们看出圆的中心$O$, 变成了椭圆的中
+心$O'$, 圆的一对互相垂直的直径（如$AB$、$CD$）变成椭圆
+的一对直径（如$A'B'$, $C'D'$），它们叫做椭圆的共轭直
+径，实际上如果知道了一对椭圆的共轭直径，就可以把椭圆
+近似地画出来了。
+
+更省事的办法是用椭圆模板（图1.5）经过椭圆的一对
+共轭直径端点来画椭圆。
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.7]{fig/1-5.png}
+    \caption{}
+\end{figure}
+
+从上例中可以看到：\textbf{第二种画法与第一种画法不同的，只
+是$\angle X'O'Y'=120^{\circ}$；并且平行于$Y$轴的线段的长度不变}．
+
+注意：直观图画好以后，要擦去辅助线。
+\end{example}
+
+\begin{ex}
+\begin{enumerate}
+\item 任意画一个三角形，然后用两种方法画出它们的直观图。
+\item 任意画一个长方形，然后用两种方法画出它们的直观图。
+\item 已知椭圆的一对共轭直径$AA'$、$BB'$, 近似地画出这个
+椭圆。
+\item 画一个边长为1.5cm的正六边形，然后用两种方法画出
+它的直观图。
+\end{enumerate}
+
+（注意：以上练习只要求精确而美观地画出图形，不要
+求写作法。）
+\end{ex}
+
+\subsubsection{空间形体的直观图}
+\begin{example}
+    画一个长、宽、高分别为3cm, 2cm和1.5cm的长
+方体的直观图。
+\end{example}
+
+第一种画法：
+\begin{enumerate}
+    \item 在水平平面上画$X'$轴和$Y'$轴，两轴交于$O'$点，
+    且使$\angle X'O'Y'=135^{\circ}$.
+    \item 在$O'X'$上取$O'P'=1$cm, 在$O'Y'$上取$O'S'=
+    3$cm, 作$S'R'\parallel O'X'$, $P'R'\parallel O'Y'$, 则平行四边形$O'P'R'S'$
+    为已知长方体的底面的直观图。
+    \item 过$O'$点作$Z'$轴垂直于$Y'$轴，并在$O'Z'$上取$OO'
+    =1.5$cm, 过$P'$、$R'$、$S'$分别作$PP'\parallel O'Z'$, $RR' \parallel O'Z'$,
+    $SS'\parallel O'Z'$, 并且，$PP'=RR'=SS'=1.5$cm.
+    \item 连$OP$、$PR$、$RS$、$SO$, 则$PRSO-P'R'S'O'$
+    为已知长方体的直观图。（图1.6）    
+\end{enumerate}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex]
+ \tkzDefPoints{0/0/O', 3/0/S', 2.25/-.75/R', -.75/-.75/P', 0/1.5/O}
+\tkzDefPointsBy[translation = from O' to O](S',P',R'){S,P,R}
+\tkzDrawPolygon(P,R,S,O)
+\tkzDrawSegments[dashed](O,O' O',P' O',S')
+\tkzDrawSegments(P',R' R',S' P,P' R,R' S,S')
+\draw[->](O)--(0,2.5)node[right]{$Z'$};
+\draw[->](S')--(4,0)node[right]{$Y'$};
+\tkzLabelPoints[above left](P,R,S,O)
+\tkzLabelPoints[below right](P',R',S',O')       
+\draw[->](P')--(-1.5,-1.5)node[right]{$X'$};
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+第二种画法
+\begin{enumerate}
+    \item 作$\angle X'O'Y'=120^{\circ}$, 并取$X'$轴和$Y'$轴的对称
+    轴$Z'$轴为铅直线。
+    \item 作已知长方体底面的直观图$O'P'R'S'$; 在
+    $O'Z'$上取$OO'=1.5$cm.
+    \item 分别过$P'$、$R'$、$S'$作$O'Z'$的平行线$PP'$、$RR'$、
+    $SS'$、并使$PP'=RR'=SS'=OO'$.
+    \item 连结$OP$、$PR$、$RS$、$SO$, 则$OPRS-O'P'R'S'$为已知长方体的直观图。（图1.7）
+\end{enumerate}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex]
+\tkzDefPoints{0/0/O', 0/1.5/O}
+\tkzDefPoint(-150:2){P'} \tkzDefPoint(-30:3){S'}
+\tkzDefPointsBy[translation = from O' to O](S',P'){S,P}
+\tkzDefPointsBy[translation = from O' to P'](S'){R'}
+\tkzDefPointsBy[translation = from O to P](S){R}
+\tkzDrawPolygon(O,S,R,P)
+\tkzDrawSegments[dashed](O,O' O',P' O',S')
+\tkzDrawSegments(P',P R',R  S,S' P',R' R',S')
+\tkzLabelPoints[below](P', R',S',O')
+\tkzLabelPoints[above](P,R,S)        
+\tkzLabelPoints[above right](O) 
+\draw[->](O)--(0,2.5)node[right]{$Z'$};  
+\draw[->](P')--(-150:3)node[right]{$X'$};
+\draw[->](S')--(-30:4)node[right]{$Y'$};
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+通过例1.4我们看到，画空间形体的直观图规则是在平面
+图形的直观图画法的基础上发展起来的。\textbf{它多了一个$Z'$轴，
+并且平行于$Z'$轴的线段的平行性和长度都不变。在第一种
+画法中，$O'X'$, $O'Y'$, $O'Z'$中，$\angle X'O'Y'=135^{\circ}$,
+ $\angle Z'O'Y'=90^{\circ}$, 并使$O'Z'$在铅直位置。第二种画法中，
+使$\angle X'O'Y'=\angle Y'O'Z'=\angle X'O'Z'=120^{\circ}$, 且使$O'Z'$轴
+居铅直位置．在两种画法中，平行于$O'X'$轴和$O'Y'$轴的线
+段长度的变化与画平面图形的直观图的规定相同}。在图中，
+$X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
+示直立的平面。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{集合运算}
+\subsection{复习}
+关于集合的初步知识，我们在初中几何中已经学过了，
+现在简要地复习一下要点：

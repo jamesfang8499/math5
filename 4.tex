@@ -1,0 +1,137 @@
+\chapter{向量几何初步}
+在第三章，我们学习了向量运算与运算律，这一章我们
+要用向量代数的方法来研究几何学，把对几何学的研究推进
+到有效能算的定量的水平。
+
+\section{平行与相似}
+\subsection{直线的向量方程}
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, yscale=1.5]
+    \tkzDefPoints{2/.5/A, .5/2/P, 0/0/O}
+    \tkzDefMidPoint(A,P)
+    \tkzGetPoint{B}
+\draw[<->,  thick](P)--(O)--(A);
+\draw[->,  thick](O)--(B);
+\tkzDrawLines[add =.25 and .25](A,P)
+\tkzLabelPoints[right](A,B,P)
+\tkzLabelPoint[below](O){$O$}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+给定空间任意两点$A$、$B$(图4.1), 由平行向量基本定理可知，对空
+间中一点$P$与$A$、$B$两点共线的充要条件是存在一实数$t$, 使
+\[\Vec{AP}=t\Vec{AB}\]
+对空间任一点$O$, 这个条件还可
+写为
+\[\Vec{OP}-\Vec{OA}=t\left(\Vec{OB}-\Vec{OA}\right)\]
+\begin{equation}
+    \Vec{OP}=(1-t)\Vec{OA}+t\Vec{OB}
+\end{equation}
+这就是说，如果$P$点在直线$AB$上，则一定存在实数$t$使(4.1)
+式成立，反之，任给一实数$t$, 由等式(4.1)所确定的$P$点也
+一定在直线$AB$上，方程(4.1)通常叫做\textbf{直线$AB$的向量方
+程}。其中\textbf{参数}$t$的几何意义是，$|t|=|\Vec{AP}|:|\Vec{AB}|$, 当$P$点在
+射线$AB$上，$t\ge 0$. 当$P$在射线$AB$的反向延长线上，$t<0$.
+
+由直线$AB$的向量方程(4.1)可知，如果
+\[\Vec{OP}=x\Vec{OA}+y\Vec{OB}\]
+那么点$P$在直线$AB$上的充要条件是$x+y=1$
+
+\begin{example}
+    已知$\vec{a},\vec{b}$是两个线性无关的向量，
+$\Vec{OA}=\alpha\vec{a}$, $\Vec{OB}=\beta\vec{b}\quad (\alpha\ne 0,\;\beta\ne 0)$，$\Vec{OC}=x\vec{a}+y\vec{b}$（图4.2），
+则$A$、$B$、$C$三点共线的充要条件是
+\[\frac{x}{\alpha}+\frac{y}{\beta}=1\]
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex]
+  \draw(0,0)--(-40:4);
+\draw[->](0,-3)node[below]{$O$}--(-40:.5)node[right]{$B$}node[below left]{$\beta\vec{b}$};
+\draw[->](0,-3)--(-40:1.5)node[right]{$C$};
+\draw[->](0,-3)--(-40:2.5)node[right]{$A$}node[below]{$\alpha\vec{a}$};  
+
+\tkzDefPoint(0,-3){O}
+\tkzDefPoint(-40:.5){B}
+\tkzDefPoint(-40:2.5){A}
+\tkzDefMidPoint(O,B) \tkzGetPoint{B1}
+\tkzDefMidPoint(O,A) \tkzGetPoint{A1}
+\draw[->](O)--(A1)node[right]{$\vec{a}$};
+\draw[->](O)--(B1)node[left]{$\vec{b}$};
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+    由直线的向量方程可知，点$C$在直线$AB$上的充要条
+    件是存在实数$t$使
+\[\Vec{OC}=(1-t)\Vec{OA}+t\Vec{OB}\]
+即\[\Vec{OC}=(1-t)\alpha\vec{a}+t\beta\vec{b}\]
+但已知$\Vec{OC}=x\vec{a}+y\vec{b}$且$\vec{a}\nparallel\vec{b}$，所以
+\[x=(1-t)\alpha,\qquad y=t\beta\]
+消去$t$则可得$A$、$B$、$C$三点共线的充要条件为
+\[\frac{x}{\alpha}+\frac{y}{\beta}=1\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
