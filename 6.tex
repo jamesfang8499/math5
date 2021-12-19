@@ -364,6 +364,7 @@ $e=\frac{c}{a}\approx 0.125$
 \tkzDefPoints{-1.414/0/F_1, 1.414/0/F_2, 2/1.732/P}
 \tkzDrawSegments[thick](F_1,P F_2,P)
 \tkzLabelPoints[below](F_1, F_2)
+\tkzLabelPoints[above](P)
 \node at (0,0)[below left]{$O$};
 \end{tikzpicture}
     \caption{}
@@ -682,63 +683,319 @@ $\frac{x^2}{9}-\frac{y^2}{16}=1$, 求出它的共领双曲线方程并
 
 下面，我们根据抛物线的定义来建立抛物线的方程。
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.8]
+ \draw[->](-1,0)--(4,0)node[right]{$X$};
+\draw[->](0,-3)--(0,3)node[right]{$Y$};
+\draw[thick](-.5,-3)--(-.5,0)node[above left]{$D$}--(-.5,3)node[left]{$\ell$};
+\draw[domain=-2.5:2.5, samples=100, very thick]plot({0.5*\x*\x}, \x);
+\draw[thick](-.5,2)--(2,2)node[below right]{$P(x,y)$}--(.5,0)node[below]{$F$};
+\node at (0,0)[below left]{$O$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
+设焦点为$F$, 准线为$\ell$ (图
+6.10)，过$F$点作$\ell$的垂线与$\ell$相交于$D$点，取射线$DF$的方向
+作为$X$轴的正方向，以$\overline{DF}$的垂直平分线为$Y$轴，设$F$到$\ell$的距离为$p$, 即$\overline{DF}=p$, 则
+\[F\left(\frac{p}{2},0\right),\qquad D\left(-\frac{p}{2},0\right)\]
+准线$\ell$的方程为
+\[x=-\frac{p}{2}\]
 
+设$P(x,y)$是抛物线上任一点，它到焦点$F$的距离等
+于它到$\ell$的距离。即
+\[\sqrt{\left(x-\frac{p}{2}\right)^2+y^2}=\left|x+\frac{p}{2}\right|\]
+将上式两边平方，并化简得
+\begin{equation}
+    y^2=2px\qquad (p>0)
+\end{equation}
+这就是说，凡是在抛物线上的点，它的坐标都适合这一方
+程；反过来，设$P(x_1,y_1)$的坐标满足方程(6.9), 则
+$y_1^2=2px_1$. 点$P(x_1,y_1)$与焦点$F$的距离
+\[\begin{split}
+    PF=\sqrt{\left(x_1-\frac{p}{2}\right)^2+y^2_1}&=\sqrt{\left(x_1-\frac{p}{2}\right)^2+2px_1}\\
+    &=\sqrt{\left(x_1+\frac{p}{2}\right)^2}=\left|x_1+\frac{p}{2}\right|
+\end{split}\]
+这就是点$P$到准线的距离，这就证明了，凡坐标适合方程(6.9)
+的点，都在抛物线上。
 
+由以上证明，所以方程(6.9)是所求的抛物线方程，并
+把方程(6.9)叫做\textbf{抛物线的标准方程}。它表示的抛物线的焦
+点$F$在$X$轴的正半轴上且坐标是$\left(\frac{p}{2},0\right)$
+准线方程是$x=-\frac{p}{2}$。
 
+如果抛物线的焦点和准线分别取
+\[\begin{split}
+F\left(-\frac{p}{2},0\right),\quad x=\frac{p}{2}&\qquad \text{(图6.11)}\\
+F\left(0,\frac{p}{2}\right),\quad y=-\frac{p}{2}&\qquad \text{(图6.12)}\\
+F\left(-\frac{p}{2},0\right),\quad y=\frac{p}{2}&\qquad \text{(图6.13)}\\
+\end{split}\]
+可分别类似地得到抛物线标准方程为
+\[y^2=-2px,\qquad x^2=2py,\qquad x^2=-2py\]
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=.6]
+\draw[->](-3.5,0)--(2,0)node[right]{$X$};
+\draw[->](0,-3)--(0,3)node[left]{$Y$};
+\draw[thick](.5,-2.8)--(.5,2.8);
+\draw[domain=-2.5:2.5, samples=100, very thick]plot({-0.5*\x*\x}, \x);
+\node at (-.5,0) [below]{$F$};
+\tkzDrawPoint (-.5,0) 
+\node at (0,0)[below right]{$O$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=.6]
+\draw[->](-3,0)--(3,0)node[right]{$X$};
+\draw[->](0,-1)--(0,4)node[left]{$Y$};
+\draw[thick](-2.8,-.5)--(2.8,-.5);
+\draw[domain=-2.5:2.5, samples=100, very thick]plot(\x,{0.5*\x*\x});
+\node at (0,.5) [left]{$F$};
+\tkzDrawPoint (0,.5) 
+\node at (0,0)[below right]{$O$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.6]
+\draw[->](-3,0)--(3,0)node[right]{$X$};
+\draw[->](0,-4)--(0,1.5)node[left]{$Y$};
+\draw[thick](-2.8,.5)--(2.8,.5);
+\draw[domain=-2.5:2.5, samples=100, very thick]plot(\x,{-0.5*\x*\x});
+\node at (0,-.5) [right]{$F$};
+\tkzDrawPoint (0,-.5) 
+\node at (0,0)[below left]{$O$}; 
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
+下面我们用抛物线的标准方程来研究抛物线的形状。
 
+首先，在方程(6.9)中，含有$y$的平方，故把$-y$代替$y$对
+方程没有影响，这表明曲线是\textbf{以$X$轴为对称轴的轴对称形}。
+我们把这条轴叫做\textbf{抛物线的轴}。轴和抛物线的交点叫做\textbf{抛物
+线的顶点}。
 
+其次，由方程(6.9)可知$x\ge 0$, 当$x$增大时，$y$的绝
+对值也跟着增大，因此抛物线在$Y$轴的右方，向上、向下无
+限伸展。设$P(x,y)$是抛物线上任一点，直线$OP$的倾角为
+$\alpha$, 则
+\[\tan\alpha=\frac{y}{x}=\frac{y^2}{xy}=\frac{2px}{xy}=\frac{2p}{y}\]
+其中$p$是常数，当$y$无限增大时，$\frac{2p}{y}$
+无限接近于零，这说
+明，抛物线上动点$P(x,y)$无限远离原点时，$P(x,y)$点
+到$X$轴的距离无限增大，而$\Vec{OP}$的方向与$X$轴正向之间的方
+向差却趋于零，这是抛物线与双曲线的重要区别之一。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{example}
+    已知抛物线的焦点$F(2,0)$, 求它的标准方
+程。
+\end{example}
 
 
 \begin{solution}
-    
+    因为焦点$F(2,0)$在$X$轴上，
+$\frac{p}{2}=2$, $p=4$, 
+所以抛物线标准方程是
+\[y^2=8x\]
+\end{solution}
+
+
+
+\begin{example}
+    已知抛物线的标准方程是$y^2=-4x$, 求它的焦点
+坐标和准线方程。
+\end{example}
+
+\begin{solution}
+    因为$p=-2$, 所以焦点的坐标是$(-1,0)$, 
+准线方程是$x=1$.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 根据下列抛物线方程，求出焦点的坐标，准线方程，并
+    画出草图。
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $y^2=10x$  
+\item $y^2=-10x$
+\item $x^2=12y$  
+\item $y^2=-8x$
+\end{enumerate}
+\end{multicols}
+
+    \item 证明：抛物线$y^2=2px$纵坐标中点的轨迹方程，是
+$y^2=\frac{p}{2}x$
+    \item 由下列已知条件，求抛物线的标准方程。
+\begin{enumerate}
+\item 焦点与顶点的距离等于3;
+\item 焦点$F$的坐标是$(5,0)$;
+\item $X$轴是对称轴，抛物线通过原点和点$(1,-4)$;
+\item $Y$轴是对称轴，焦点在$(0,2)$;
+\item $Y$轴是对称轴，通过原点和点$(6,-2)$.
+\end{enumerate}
+
+    \item 在抛物线$y^2=8x$上，求到原点距离等于20的点的坐
+    标。
+    \item 已知抛物线焦点$F(2,1)$, 准线方程是$x+y+1=0$，由抛物线的定义，求它的方程。
+\end{enumerate}
+\end{ex}
+
+\subsection{椭圆与双曲线的准线}
+由抛物线的定义可知，抛物线上任一点到一定点（焦
+点）的距离与它到一条定直线（准线）的距离之比等于常数
+1, 这一节，我们将证明对椭圆和双曲线也存在着这样的定
+直线，使椭圆和双曲线上任一点到焦点的距离与到定直线的
+距离之比等于一常数，并且这个常数正好等于它们的离心率$e$。
+
+设$P(x_1,y_1)$是椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$上任一点，我们在前面曾得到公式
+\begin{align}
+    \overline{PF_1}=a+\frac{c}{a}x_1\\
+    \overline{PF_2}=a-\frac{c}{a}x_1
+\end{align}
+把(6.10)式右边变形可得
+\[\overline{PF_1}=\frac{c}{a}\left(x_1+\frac{a^2}{c}\right)=e\left(x_1+\frac{a^2}{c}\right)\]
+即：$\frac{\overline{PF_1}}{d_1}=e$，其中$d_1=x_1+\frac{a^2}{c}$。同样(6.11)式也可化为$\frac{\overline{PF_2}}{d_2}=e$，其中$d_2=-x_1+\frac{a^2}{c}$。
+
+由计算点$P(x_1,y_1)$分别到直线$\ell_1:\; x+\frac{a^2}{c}=0$和
+$\ell_2:\; x-\frac{a^2}{c}=0$的距离可知，$d_1,d_2$正好分别是$P(x_1,y_1)$到$\ell_1$与$\ell_2$的距离，这说明\textbf{椭圆上任一点$P(x_1,y_1)$到焦点$F_1(-c,0)$($F_2(c,0)$)的距离与它到定直线
+$\ell_1$ ($\ell_2$) 的距离的比是一个常数}（等于离心率$e$），两条
+直线
+\[\ell_1:\; x=-\frac{a^2}{c},\qquad \ell_2:\; x=\frac{a^2}{c}\]
+分别叫做椭圆的左准线和右准线（图6.14）。
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw[->](-3.5,0)--(3.5,0)node[right]{$X$};
+\draw[->](0,-1.5)--(0,2.5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[very thick](0,0) ellipse [x radius=2, y radius=1];
+\tkzDefPoints{1.732/0/F_2, -1.732/0/F_1, 1.5/.66/P}
+\foreach \x/\xtext in {2.31/\ell_2,-2.31/\ell_1}
+{
+    \draw(\x,-1.5)--(\x,2)node[right]{$\xtext$};
+}
+\tkzDrawSegments[thick](P,F_1 P,F_2)
+\tkzLabelPoints[below](F_1,F_2)
+\tkzDrawPoints(F_1,F_2,P)
+\tkzLabelPoints[above](P)
+\draw(1.5,1.2)--(1.5,1.6);
+\draw[<->](-2.31,1.4)--node[above]{$d_1$}(1.5,1.4);
+\draw[<->](2.31,1.4)--node[above]{$d_2$}(1.5,1.4);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+反过来，我们也可证明：与定点$F_1(-c,0)$ ($F_2(c,0)$)
+的距离和定直线$\ell_1:\; x=-\frac{a^2}{c}$ ($\ell_2:\; x=\frac{a^2}{c}$) 的距离的比等于
+常数$e\; (0<e<1)$的点必在椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$上。
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
+\draw[->](0,-2.5)--(0,3)node[right]{$Y$};    
+\draw[domain=-2:2, samples=100, very thick]plot({sqrt(1+\x*\x)}, \x);
+\draw[domain=-2:2, samples=100, very thick]plot({-sqrt(1+\x*\x)}, \x);
+\tkzDefPoints{-1.414/0/F_1, 1.414/0/F_2, 2/1.732/P}
+\tkzDrawSegments[thick](F_1,P F_2,P)
+\tkzLabelPoints[below](F_1, F_2)
+\tkzDrawPoints(F_1, F_2, P)
+\tkzLabelPoints[above left](P)
+\node at (0,0)[below left]{$O$};
+
+\foreach \x/\xtext in {0.707/\ell_2,-0.707/\ell_1}
+{
+    \draw(\x,-2)--(\x,2.5)node[right]{$\xtext$};
+}
+\draw[thick](P)--(-0.707,1.732);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+类比上述对椭圆的分析，同样也可证明，双曲线$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$也有两条准线（图6.15）：
+左准线$\ell_1:\; x=-\frac{a^2}{c}$；左准线$\ell_2:\; x=\frac{a^2}{c}$。并且具有如下特征性质。
+
+双曲线$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$上任一点$P(x_1,y_1)$到焦点$F_1(-c,
+0)$ ($F_2(c,0)$) 的距离和到定直线$\ell_1$ ($\ell_2$) 的距离的比
+是一个常数（等于离心率$e$）；反之也对。
+
+总结以上讨论和抛物线的定义，我们可给圆锥曲线一个
+统一的定义如下：
+
+\textbf{圆锥曲线是与一定点的距离和定直线的距离的比等于常
+数$e$的点的轨迹，当$0<e<1$时是椭圆；$e>1$时是双曲线；
+$e=1$时是抛物线}，定点叫做圆锥曲线的焦点，定直线叫做
+圆锥曲线的准线。椭圆和双曲线有两个焦点和两条准线，抛
+物线只有一个焦点和一条准线。
+
+\begin{example}
+    求椭圆$x+4y^2=100$的准线方程。
+\end{example}
+
+\begin{solution}
+    已知椭圆的标准方程为$\frac{x^2}{100}+\frac{y^2}{25}=1$，因此：
+\[a=10,\qquad b=5,\qquad c=\sqrt{c^2-b^2}=5\sqrt{3}\]
+所以已知椭圆的准线方程为
+\[\ell_1:\; x=-\frac{a^2}{c}=-\frac{20\sqrt{3}}{3},\qquad \ell_2:\; x=\frac{20\sqrt{3}}{3}\]
 \end{solution}
 
 \begin{example}
-    
+    求双曲线$x^2-y^2=1$的准线方程。
 \end{example}
 
 
 
 \begin{solution}
-    
+在已知双曲线方程中，$a=1$, $b=1$, 因此，
+\[c=\sqrt{a^2+b^2}=\sqrt{2}\]
+所以已知双曲线的准线方程为
+\[\ell_1:\; x=-\frac{a^2}{c}=-\frac{\sqrt{2}}{2},\qquad  \ell_2:\; x=\frac{\sqrt{2}}{2}\]
 \end{solution}
 
-\begin{example}
-    
-\end{example}
+\begin{ex}
+\begin{enumerate}
+    \item 求椭圆$3x^2+4y^2=36$的焦点的坐标和准线方程并画出
+    草图。
+    \item 求双曲线$2x^2-3y^2=6$的焦点的坐标和准线方程并画
+    出草图。
+    \item 求下列每个椭圆或双曲线的准线方程
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $16x^2+25y^2=400$
+    \item $x^2+2y^2=4$
+    \item $x^2-5y^2=10$
+    \item $4x^2-3y^2=36$
+\end{enumerate}
+\end{multicols}
+\end{enumerate} 
+\end{ex}
+
+
+\subsection{圆锥曲线的切线}
+我们知道，与圆只有一个公共点的直线叫做圆的切线，
+但这个定义不能推广为一般曲线的切线的定义，如图6.16
+所示，直线$\ell_1$虽然与曲线只有一个公共点，但它不是曲线的
+“切线”，直线$\ell_2$虽与曲线有两个公共点，但它与曲线“相
+切”。
 
 
 
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
 
 
 
-\begin{solution}
-    
-\end{solution}
+
+
+
+
 
 \begin{example}
     
