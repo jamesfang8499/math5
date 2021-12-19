@@ -1394,6 +1394,520 @@ $A$、$B$两点间的球面距离。
     球的切面。
 \end{blk}
 
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-29.png}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+    设平面$\alpha$是球$O$的切面，
+    $K$点是切点，$KO=R$, (图2.29)
+    如果$OK$不垂直平面$\alpha$, 作$OK'\bot$
+    平面$\alpha$于$K'$, 则$OK>OK'$, 即$R>OK'$, $K'$点在球面的内部，这样，平面$\alpha$与球$O$必相交，这
+与$\alpha$是球$O$的切面相矛盾，所以$OK\bot\alpha$.
+\end{proof}
+
+\begin{blk}
+  {逆定理} 垂直于球半径且过半径外瑞的平面必是球的切
+面。  
+\end{blk}
+
+\begin{proof}
+在平面$\alpha$上另取任一点$K'$, 连结$OK'$, 因为$OK$是
+平面$\alpha$的垂线，而$OK'$是平面$\alpha$的斜线，所以$OK'>OK$· 
+因为$K\in\alpha$, 所以$K'$点在球面外，也就是说，平面$\alpha$上除$K$点外的任何点都不在球面上，即平面$\alpha$与球面只有一个公共
+点$K$, 所以平面$\alpha$是球$O$的切面。
+\end{proof}
+
+把上面正、逆定理合成一个定理，即
+
+\begin{blk}
+    {定理} 一个平面是一个球的切面的充要条件是这个平面
+经过这个球的一条半径的外端而且和这条半径垂直。
+\end{blk}
+
+综上所述，可知，如果球的半径为$R$, 球心$O$到平面的距
+离为$d$, 则平面$\alpha$与球$O$有下列位置关系：
+\begin{enumerate}
+\item 如果$d<R$, 那么平面$\alpha$与球$O$相交，截面是个圆，
+它的半径$r=\sqrt{R^2-d^2}$
+\item 如果$d=R$, 那么平面$\alpha$与球$O$相切。
+\item 如果$d>R$, 那么平面$\alpha$与球$O$没有公共点，这时
+称平面$\alpha$与球$O$相离。
+\end{enumerate}
+
+\begin{example}
+    设$A$地位于北纬$45^{\circ}$, 由
+于地球自转，在一小时内$A$点转了多少路程？（地球的半径大约为6370公
+里）
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-30.png}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    如图2.30, 设点$O$是地球的
+    球心，$OA$是地球的半径，$M$是北纬
+    $45^{\circ}$圈的中心，$AM$是北纬$45^{\circ}$圈的半
+    径，$OM$是地球球心到北纬$45^{\circ}$圈所在平面的距离，那么
+在直角$\triangle AMO$中，
+$\angle OAM=\angle AOB=45^{\circ}$
+
+$\therefore\quad AM=AO\cos45^{\circ}\approx 6370\x0.7071\approx 4504$
+
+因为地球自转一周的时间为24小时，所以地球自转一小
+时转过的角度为$\frac{2\pi}{24}=\frac{\pi}{12}$（弧度），于是，$A$地在一小时内转
+过的路程即为北纬$45^{\circ}$圈的$\frac{\pi}{12}$弧度的弧长，即
+\[\frac{\pi}{12}\x 4504\approx \frac{3.1416}{12}\x 4504\approx 1179\]
+
+答：$A$地在一小时内转过的路程约为1179公里。
+\end{solution}
+
+\begin{example}
+    已知球面上$A$、$B$两点的球面距离为$5\pi$cm, 过这
+两点的半径的夹角$\angle AOB$是50度，求这个球的半径。
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-31.png}
+    \caption{}
+\end{figure}
+
+
+\begin{solution}
+    如图2.31, $O$为球心，过半径
+$OA$和$OB$作平面，则这个平面所截
+的圆为大圆，在这个圆上已知圆心角
+$\angle AOB=50^{\circ}$, $AB=5\pi$cm. 设球的半
+径为$R$, 则
+\[5\pi=\left(\frac{50\pi}{180}\right)\cdot R\quad \Rightarrow\quad R=18\]
+
+答：这个球的半径为18cm.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求证：经过球上同一个切点的所有切线的集合是球的切
+    面。
+    \item 求证：两球相交的交线是一个圆。
+    \item 求证：一动点与两个定点的距离的平方和为一个常数，
+    则动点的轨迹是一个球。
+    \item 试证：球面任意三点$A$、$B$、$C$都不可能共线．
+    \item 
+    首都北京位于北纬$40^{\circ}$, 已知地球半径约为6370公里，
+    求首都所在的纬度圈半径。（精确到10公里）
+\end{enumerate}
+\end{ex}
+
+\subsection{多面体和旋转体}
+\begin{blk}
+{定义} 由几个多边形\footnote{注：这里所说的多边形包括它内部的平面部分。}围成的封闭的几何体叫多面体。
+围成多面体的各个多边形叫做多面体的面，各相邻面的公共
+边叫多面体的棱，相交于同一顶点的侧面组成一个多面角，
+各多面角的顶点叫做多面体的顶点。不在同一个面内的两个
+顶点的连线叫做多面体的对角线。图2.32的各图表示的都是
+多面体。    
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{0/.5/A, 1/-.1/B, 3/.5/C, 1.3/1/D}
+\tkzDefPoints{0.75/2.5/A', 1.4/1.8/B', 2.2/1.9/C', 2.6/2.5/D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawSegments(A,A' B,B' C',C C,D' A,B B,C)
+\tkzDrawSegments[dashed](D,C D,A D,D' D,A')
+\node at (1,-.5){(1)};
+\end{scope}
+\begin{scope}[xshift=4cm]
+\tkzDefPoints{0/0/A, 2/0/B, 2/2/C, 0/2/D, .75/.75/A'}
+\tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon(D,C',B)
+\tkzDrawPolygon(A,D,D',C',B',B)
+\tkzDrawSegments[dashed](A',B' A',A A',D')
+\node at (1,-.5){(2)};
+\end{scope}
+\begin{scope}[xshift=8cm]
+    \tkzDefPoints{0/0/A, 3/0/B, 3/1.5/C, 0/1.5/D, .75/.75/A'}
+    \tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+    \tkzDrawPolygon(A,B,C,D)
+    \tkzDrawSegments[dashed](A',B' A',A A',D')
+    \tkzDrawSegments(B,B' C',C D,D' C',D' C',B')
+    \node at (1.5,-.5){(3)};
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+前面讲过的棱柱、棱锥、棱台都是多面体。
+
+\begin{blk}
+    {定义} 使平面内的曲线（也包括直线在内），围绕这个
+平面里的一条直线旋转一周，回到原来位置这时所成的曲面
+叫旋转面，由旋转面围成的几何体叫转旋体。前面讲过的
+圆柱、圆锥、圆台和球分别是由矩形、直角三角形、直角梯
+形和半圆以一条直角边（或直径）所在直线为轴，旋转一周
+而形成的旋转体（图2.33）。
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\draw(0,0)--(0,4);
+\draw[dashed](0,1) ellipse[x radius=1, y radius=.4];
+\draw[dashed](0,3) ellipse[x radius=1, y radius=.4];
+\draw[thick](0,1) rectangle (-1,3);
+\draw[dashed](1,1)--(1,3);
+\draw[->](-.2,0.25) arc [x radius=.2, y radius=.1, start angle =180, end angle =180+270];
+\end{scope}
+\begin{scope}[xshift=3cm]
+    \draw(0,0)--(0,4);
+\draw[dashed](0,1) ellipse[x radius=1, y radius=.4];
+\draw[thick](0,1)--(-1,1)--(0,3);
+\draw[dashed](1,1)--(0,3);
+\draw[->](-.2,0.25) arc [x radius=.2, y radius=.1, start angle =180, end angle =180+270];
+\end{scope}
+\begin{scope}[xshift=6cm]
+    \draw(0,0)--(0,4);
+\draw[dashed](0,1) ellipse[x radius=1, y radius=.4];
+\draw[dashed](0,3) ellipse[x radius=.5, y radius=.2];
+\draw[thick](0,1)--(-1,1)--(-.5,3)-- (0,3);
+\draw[dashed](1,1)--(.5,3);
+\draw[->](-.2,0.25) arc [x radius=.2, y radius=.1, start angle =180, end angle =180+270];
+\end{scope}
+\begin{scope}[xshift=9cm]
+    \draw(0,0)--(0,4);
+    \draw[dashed](0,2) ellipse[x radius=1.5, y radius=.4];
+    \draw[dashed](0,2) circle (1.5);
+    \draw[thick](0,3.5) arc (90:270:1.5);
+    \draw[->](-.2,0.25) arc [x radius=.2, y radius=.1, start angle =180, end angle =180+270];
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+多面体的面至少有四个顶点，多面体依照它的面数分别
+称为\textbf{四面体、五面体、……$n$面体}等等。
+
+多面体中最简单的是凸多面体，所谓凸多面体是指对它
+的每个面所在的平面来说，该多面体的其余所有各面都在这
+个平面的同侧。前面讲过的棱柱、棱锥、棱台都是凸多面体。像图2.34所画的多面体就不是凸多面体。
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-34.png}
+    \caption{}
+\end{figure}
+
+\begin{blk}
+    {定义}如果一个凸多面体所有的面都
+是全等的正多边形，并且在通过每一顶的
+棱数相同，那么这样的凸多面体就叫正多面体。
+\end{blk}
+
+\begin{blk}
+    {定理} 正多面体只有五种。
+\end{blk}
+
+\begin{proof}
+    设正多面体的各个面是正$n$边形，而且通过每
+    一个顶点有$m$条棱，那么以正多面体每一个顶点为顶点的多
+    面角中有$m$个面角，由于每个面角是正多边形的一个内角。所
+    以，它等于$\frac{(n-2)\x 180^{\circ}}{n}$，
+    那么$m$个面角之和为：
+\[\frac{(n-2)\x 180^{\circ}}{n}\x m\]
+因为正多面体是凸多面体，故
+\[\frac{(n-2)\x 180^{\circ}}{n}\x m<360^{\circ}\]
+即：
+\begin{equation}
+    (n-2)m<2n
+\end{equation}
+
+但因最小凸多面体为4面体，那么它的每个面必为三角
+形。所以，
+\begin{equation}
+    n\ge 3,\qquad m\ge 3
+\end{equation}
+
+为了求出满足(2.3)、(2.4)两式的正整数来，我们把
+(2.3)式变形为：
+\[(m-2)(n-2)<4\]
+那么$(m-2)$和$(n-2)$只能取值于3, 2, 1。因此，$m,n$的值只限于下列五种。
+\begin{center}
+\begin{tabular}{c|ccccc}
+    \hline
+   $ m$&3&3&3&4&5\\
+   \hline
+$n$&3&4&5&3&3\\
+\hline
+\end{tabular}
+\end{center}
+这五种正多面体分别是正四面体、正六面体、正八面
+体、正十二面体和正20面体。（图2.35的(I)—(V)）
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-35.png}
+    \caption{}
+\end{figure}
+\end{proof}
+
+\begin{ex}
+\begin{enumerate}
+    \item 试证：以正六面体各面中心为顶点，可成一个正八面
+    体。
+    \item 试证：以正八面体各面中心为顶点，可成一个正六面体。
+    \item \begin{enumerate}
+        \item 说出正四面体、正六面体、正八面体、正十二面
+    体、正二十面体各多少个顶点数，棱数和面数。
+    \item 如果以$F$表示正多面体的面数，$V$表示顶点数，以
+    $E$表示棱数，那么你能发现$F$、$V$和$E$的关系式吗？
+\end{enumerate}
+\item 正四面体是正三棱锥吗？正三棱锥是正四体吗？正六面
+    体是立方体吗？正方体是正六面体吗？
+\end{enumerate}
+\end{ex}
+
+\subsection{补充例题}
+\begin{example}
+    已知正六棱柱的侧面为正方形，底面边长为$a$, 求棱柱各对角面的面积（图2.36）。
+\end{example}
+
+\begin{solution}
+    连结$AC$、$AD$、$A_1C_1$、$A_1D_1$. 
+在正六边形$ABCDEF$中，
+
+$\because\quad AB=BC=a,\quad \angle ABC=120^{\circ}$
+
+$\therefore\quad AC=\sqrt{a^2+a^2-2a\cdot a\cos120^{\circ}}=\sqrt{3}a$
+
+$\because\quad ACC_1A_1$是正六棱柱的对角面，
+
+$\therefore\quad ACC_1A_1$是矩形。
+
+$\therefore\quad S_{\text{矩形}ACC_1A_1}=A_1A\cdot AC=a\cdot\sqrt{3}a=\sqrt{3}a^2$
+
+同理，$ADD_1A_1$是矩形
+
+$\because\quad AD=2a$
+
+$\therefore\quad S_{\text{矩形}ADD_1A_1}=A_1A\cdot AD=a\cdot 2a=2a^2$
+\end{solution}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 2/0/C, 3.5/.75/D, 3.25/1.5/E, 1.25/1.5/F, -.25/.75/A, 0/2/B_1}
+\tkzDefPointsBy[translation= from B to B_1](C,D,E,F,A){C_1,D_1,E_1,F_1,A_1}
+\tkzDrawPolygon(B_1,C_1,D_1,E_1,F_1,A_1)
+\tkzDrawSegments(A,A_1 B,B_1 C,C_1 D,D_1 A_1,D_1 A_1,C_1)
+\tkzDrawSegments[dashed](E,E_1 F,F_1 A,D A,C A,F F,E E,D)
+\tkzLabelPoints[below right](B,C,B_1, C_1)
+\tkzDrawSegments(A,B B,C C,D)
+\tkzLabelPoints[right](D_1, D)
+\tkzLabelPoints[left](A,A_1)
+\tkzLabelPoints[above](E_1,F_1)
+\tkzLabelPoints[above left](E,F)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 4/.5/C, 1.5/-1/B, 2/3/V, 2/-.21/O}
+\tkzDrawPolygon(V,A,B,C)
+\tkzDefMidPoint(V,A) \tkzGetPoint{D}
+\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+\tkzDrawSegments[dashed](A,C D,M A,M C,D V,O)
+\tkzDrawSegments(D,B V,M V,B)
+\tkzLabelPoints[left](V,D,A)
+\tkzLabelPoints[right](M,C)
+\tkzLabelPoints[below](B,O)
+\fill[pattern=north east lines](D)--(B)--(C);
+
+
+\end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+\begin{example}
+    正三棱锥$V-ABC$中的底面边长为$a$, 侧棱和底
+面的夹角为$\alpha$, $D$为侧棱$VA$上一点，截面$DBC$与底面$ABC$
+所成的角等于侧棱和高所成的角，求
+此截面面积（图2.37）。
+\end{example}
+
+
+\begin{solution}
+    设$O$点为底面中心，则$VO\bot$
+底面，取$BC$边的中点$M$, 由于$O$是正
+三角形$ABC$的中心，所以$O$点也是正
+$\triangle ABC$的内心、重心和垂心。因此，
+$A$、$O$、$M$三点共线
+
+$\because\quad VO\bot$底面于$O$点，
+
+$\therefore\quad AO$为棱$VA$在底面上的射影，
+
+$\therefore\quad \angle VAO=\alpha$，
+
+$\because\quad AM\bot BC$于$M$。
+
+$\therefore\quad AV\bot BC$\qquad （三垂线定理）
+
+$\therefore\quad BC\bot$截面$AVM$
+
+又$\because\quad $截面$VAM\cap$截面$BDC=DM$, 
+
+$\therefore\quad DM\bot BC,\qquad \angle AMD$为二面角$D-BC-A$的平面角。
+
+已知$\angle AMD=\angle AVO=90^{\circ}-\alpha$，
+又在$\triangle ADM$中，$\angle ADM=(90^{\circ}-\alpha)+\alpha=90^{\circ}$
+
+$\therefore\quad \triangle ADM$是直角三角形，
+
+$\because\quad AM=a\cos 30^{\circ}=\frac{\sqrt{3}}{2}a$
+
+$\therefore\quad DM=AM\sin\alpha=\frac{\sqrt{3}}{2}a\sin\alpha$
+
+$\therefore\quad $截面$\triangle BDC$的面积
+\[S_{\triangle BDC}=\frac{1}{2}BC\cdot DM=\frac{1}{2}a\cdot \left(\frac{\sqrt{3}}{2}a\sin\alpha\right)=\frac{\sqrt{3}}{4}a^2\sin\alpha\]
+
+答：截面$\triangle BDC$的面积为
+$\frac{\sqrt{3}}{4}a^2\sin\alpha$
+\end{solution}
+
+\begin{example}
+    正三棱锥$S-ABC$的底边
+    长为$a$, 侧棱长为$b$. 
+    
+\begin{enumerate}
+\item 作一截面和$SC$, $AB$平行。
+    \item 求证：此截面为矩形。
+    \item 如果截面是正方形，求此截面面积。
+\end{enumerate}
+\end{example}
+
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+    
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+\begin{enumerate}
+    \item 截面作法分析：如图2.38, 设截面平面为$\alpha$, 
+    
+$\because\quad \alpha\parallel AB$
+
+$\therefore\quad \alpha\cap$平面$ABC=ED\parallel AB$
+
+又$\because\quad $侧棱$SA$、$SB$分别过$A$、$B$,
+
+$\therefore\quad \alpha\cap$平面$SAB=FG\parallel AB$,
+
+又$\because\quad \alpha\parallel SC$，点$E$、$F$既在$\alpha$上，又在平面$SAC$上，
+
+$\therefore\quad \alpha\cap$平面$SAC=EF\parallel SC$.
+
+同理：$\alpha\cap$平面$BSC=GD\parallel SC$.
+
+\item 截面的作法。由上面的分析可得如下作法：
+\begin{enumerate}
+    \item 在底边$BC$上任取一点$D$, 过$D$在$\triangle ABC$内作$DE\parallel AB$
+    交$AC$于$E$, 在$\triangle SAC$内，作$EF\parallel SC$, 交$SA$于$F$,
+    \item  过$F$在$\triangle SAB$内作$FG\parallel AB$, 交$SB$于$G$, 
+    \item 连结$DG$, 则四边形$DEFG$所围平面部分为所求截
+    面。
+\end{enumerate}
+
+\item 证明四边形$DEFG$是矩形。
+
+
+$\because\quad $由作法可知，$DE\parallel AB$, $GF\parallel AB$, 
+
+$\therefore\quad DE\parallel GF$.
+
+又$\because\quad EF\parallel SC$
+
+$\therefore\quad SC\parallel \alpha$
+
+$\because\quad $平面$\alpha$和平面$SBC$交线为$DG$,
+
+$\therefore\quad SC\parallel DG$,
+
+$\therefore\quad$ 四边形$DEFG$为平行四边形。
+
+又$\because\quad $正棱锥的侧棱$SC$与对边$AB$垂直，
+（见上例所证$VA\bot BC$）而$EF\parallel SC$, $ED\parallel AB$,
+
+$\therefore\quad \angle FED$为二异面直线$SC$和$AB$所成的角，
+
+$\therefore\quad \angle FED=90^{\circ}$
+
+$\therefore\quad $ 四边形$DEFG$为矩形。
+
+\item 如果$DEFG$为正方形，求它的面积。
+设正方形$DEFG$的边长为$x$, 则
+$DE=DG=x$
+
+又$\because\quad $棱锥底面是正三角形，
+
+$\therefore\quad \triangle  CDE$也是正三角形，
+
+$\therefore\quad CD=DE=DG=x,\quad BD=a-x$,
+
+在$\triangle BSC$中，
+
+$\because\quad DG\parallel SC$,
+
+$\therefore\quad \frac{BC}{BC}=\frac{GD}{SC}$
+即
+\[\frac{a-x}{a}=\frac{x}{b}\quad \Rightarrow\quad x=\frac{ab}{a+b}\]
+所以正方形$DEFG$的面积
+\[S_{\text{正方形}DEFG}=\left(\frac{ab}{a+b}\right)^2\]
+
+答：正方形$DEFG$的面积为
+$\left(\frac{ab}{a+b}\right)^2$
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+    经过棱台（或圆台）高的中点，作平行底面的平
+面，截棱台（或圆台）所得的截面叫作棱台（或圆台）的中
+截面，如果棱台（或圆台）的上下底的面积分别为$S_1$, $S_2$,
+中截面的面积为$S_0$, 那么求证：$\sqrt{S_0}=\frac{1}{2}\left(\sqrt{S_1}+\sqrt{S_2}\right)$。
+（图2.39(1)、(2)）
+\end{example}
+
+\begin{proof}
+    延长棱台的各侧棱得到棱锥，设棱锥顶点$S$到
+    上底面的距离为$a$, 棱台的高为$2h$, (图2.39(2))。设棱
+    锥的高$SO_2$, 交棱台上、下两底面于$O_1$和$O_2$交中截面于$O_0$,
+    连$B_1O_1$、$B_0O_0$、$B_2O_2$，易知，
+$B_1O_1\parallel B_0O_0\parallel B_2O_2$，故有
+\[\frac{S_0}{S_1}=\frac{(a+h)^2}{a^2},\qquad \frac{S_2}{S_1}=\frac{(a+h)^2}{a^2}\]
+即：
+\[\frac{\sqrt{S_0}}{\sqrt{S_1}}=\frac{a+h}{a}=1\x \frac{h}{a},\qquad \frac{\sqrt{S_2}}{\sqrt{S_1}}=\frac{a+2h}{a}=1+\frac{2h}{a}\]
+从两式中消去$\frac{h}{a}$，得
+\[\frac{2\sqrt{S_0}}{\sqrt{S_1}}-\frac{\sqrt{S_2}}{\sqrt{S_1}}=1\]
+因此：$\sqrt{S_0}=\frac{1}{2}\left(\sqrt{S_1}+\sqrt{S_2}\right)$
+
+同理可以证明圆台的中截面面积也为上式。
+\end{proof}
 
 
 
@@ -1404,13 +1918,28 @@ $A$、$B$两点间的球面距离。
 
 
 
+\begin{example}
+    如图2.40, 球$O$和二面角$\alpha-AB-\beta$的两个面$\alpha$、$\beta$
+分别相切于$C$、$D$两点，如$C,D$两点的距离为$\sqrt{3}a$, 并且
+$\angle DCO=30^{\circ}$, 求球$O$的半径及二面角的大小。
+\end{example}
+
+\begin{example}
+    
+\end{example}
 
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{solution}
+    
+\end{solution}
 
-
-
-
+\begin{solution}
+    
+\end{solution}
 
 
 
