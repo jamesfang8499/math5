@@ -354,26 +354,355 @@ $e=\frac{c}{a}\approx 0.125$
 \end{blk}
 
 根据双曲线的定义，我们来求它的方程：
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, yscale=.7]
+\draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
+\draw[->](0,-2.5)--(0,2.5)node[right]{$Y$};    
+\draw[domain=-2:2, samples=100, very thick]plot({sqrt(1+\x*\x)}, \x);
+\draw[domain=-2:2, samples=100, very thick]plot({-sqrt(1+\x*\x)}, \x);
+\tkzDefPoints{-1.414/0/F_1, 1.414/0/F_2, 2/1.732/P}
+\tkzDrawSegments[thick](F_1,P F_2,P)
+\tkzLabelPoints[below](F_1, F_2)
+\node at (0,0)[below left]{$O$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+设$F_1$、$F_2$是双曲线的两个焦点，取射线$F_1F_2$的方向作
+为$X$轴的正方向，$\overline{F_1F_2}$的垂直平分线作为$Y$轴（图6.6）。
+若$\overline{F_1F_2}=2c$, 则两焦点的坐标分别为$F_1(-c,0)$, $F_2
+(c,0)$. 
+
+再设$P(x,y)$是双曲线上任一点，则由双曲线的定义
+有
+\[|\overline{PF_1}-\overline{PF_2}|=2a\]
+因$\overline{PF_1}=\sqrt{(x+c)^2+y^2}$, $\overline{PF_2}=
+\sqrt{(x-c)^2+y^2}$, 
+代入上式，得方程
+\[\sqrt{(x+c)^2+y^2}-\sqrt{(x-c)^2+y^2}=\pm 2a\]
+去根号，整理得
+\begin{equation*}
+    (a^2-c^2)x^2+a^2y^2=a^2(a^2-c^2)
+\end{equation*}
+这个式子和上节得到的椭圆方程(6.1)在外形上完全一样，
+这里，由双曲线的定义$2c>2a$, 即
+\[c>a\]
+所以$a^2-c^2<0$, 故设$a^2-c^2=-b^2\; (b>0)$, 代入(6.1)
+式得
+\[-b^2x^2+a^2y^2=-a^2b^2\]
+两边同除$-a^2b^2$得
+\begin{equation}
+    \boxed{\frac{x^2}{a^2}-\frac{y^2}{b^2}=1}
+\end{equation}
+
+由上述推导过程说明，凡在双曲线上的点，它的坐标一
+定满足方程(6.5); 反过来，
+设$P_1(x_1,y_1)$的坐标满足方程(6.5), 则
+\[\begin{split}
+    \frac{x^2_1}{a^2}-\frac{y^2_1}{b^2}&=1\\
+    \overline{P_1F_1}&=\sqrt{(x_1+c)^2+y_1^2}
+\end{split}\]
+但
+\[y^2_1=b^2\left(\frac{x_1^2}{a^2}-1\right)=(c^2-a^2)\left(\frac{x_1^2}{a^2}-1\right)\]
+代入上式，化简可得
+\begin{equation}
+    \overline{P_1F_1}=\left|\frac{c}{a}x_1+a\right|
+\end{equation}
+同理可求
+\begin{equation}
+    \overline{P_1F_2}=\left|\frac{c}{a}x_1-a\right|
+\end{equation}
+
+因为$c>a$, $|x|\ge a$, 所以$\left|\frac{c}{a}x_1\right|>a$，
+$\frac{c}{a}x_1+a$及$\frac{c}{a}x_1-a$与$\frac{c}{a}x_1$同号。
+
+当$x_1>0$时
+\[\overline{P_1F_1}=\frac{c}{a}x_1+a,\qquad \overline{P_1F_2}=\frac{c}{a}x_1-a\]
+因此，
+\[\overline{P_1F_1}-\overline{P_1F_2}=2a\]
+
+当$x_1<0$时，
+\[\overline{P_1F_1}=-\left(\frac{c}{a}x_1+a\right),\qquad \overline{P_1F_2}=-\left(\frac{c}{a}x_1-a\right)\]
+因此，
+\[\overline{P_1F_1}-\overline{P_1F_2}=-2a\]
+
+这就证明了，凡坐标适合方程(6.5)的点都在双曲线
+上，由以上证明，所以方程(6.5)是所求的双曲线的方程，
+并且我们把方程(6.5)叫做\textbf{双曲线的标准方程}，它所表示的
+双曲线的焦点在$X$轴上，焦点是$F_1(-c,0)$、$F_2(c,0)$。
+这里$c^2=a^2+b^2$.
+
+如果取$F_1$、$F_2$的连线作为$Y$轴，取$F_1F_2$的垂直平分
+线作为$X$轴，在这一坐标系中，仿上面的方法可得双曲线的
+方程为
+\begin{equation}
+    \boxed{\frac{y^2}{a^2}-\frac{x^2}{b^2}=1}
+\end{equation}
+只要将方程(6.5)中的$x$与$y$对调就可得到方程(6.8), 这一
+方程也叫做双曲线的标准方程，它表示双曲线的焦点在$Y$轴
+上，焦点是$F_1(0,-c)$, $F_2(0,c)$, $c^2=a^2+b^2$.
+
+下面我们用双曲线的标准方程研究它的几何形状。
+
+首先，与椭圆方程一样，方程(6.5)中只含有$x$、$y$的
+平方，故把其中一个坐标变号，对于方程没有影响，这就表
+明，如果点$M(x,y)$在双曲线上，那么$M_1(x,-y)$、$M_2(-x,
+-y)$、$M_3(-x,y)$等也都在双曲线上，所以，双曲线是以
+$X$轴或$Y$轴为对称轴的轴对称图形，又是以坐标原点为对称
+中心的中心对称图形，对称中心又叫做双曲线的中心，其
+次，由方程(6.5)得
+\[\frac{x^2}{a^2}\ge 1,\qquad x^2\ge a^2\]
+则$x\ge a$或$x\le -a$。这说明双曲线在两条直线$x=a$, $x=-a$所夹平面区域的外侧，最后我们讨论双曲线在第I象限内的性态，在第I象
+限，方程(6.5)可写为
+\[y=\frac{b}{a}\sqrt{x^2-a^2}\qquad (x\ge a)\]
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, yscale=.7]
+\draw[->](-3.5,0)--(3.5,0)node[right]{$X$};
+\draw[->](0,-3.5)--(0,3.5)node[right]{$Y$};    
+\draw[domain=-2.8:2.8, samples=100, very thick]plot({sqrt(1+\x*\x)}, \x);
+\draw[domain=-2.8:2.8, samples=100, very thick]plot({-sqrt(1+\x*\x)}, \x);
+\draw(-3,3)--(3,-3);
+\draw(3,3)--(-3,-3);
+\draw(-1,-1) rectangle (1,1);
+\node at (0,0)[below left]{$O$};
+\node at (-1,0)[below left]{$A_1$};
+\node at (1,0)[below right]{$A_2$};
+\node at (0,1)[above right]{$B_2$};
+\node at (0,-1)[below right]{$B_1$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+当$x=a$时，$y=0$, 当$x$由$a$递增且趋向$\infty$, $y$也由0递
+增趋向，方程的轨迹趋向无穷远（图6.7），但由于
+\[y=\frac{b}{a}\sqrt{x^2-a^2}=\frac{b}{a}x\sqrt{1-\left(\frac{a}{x}\right)^2}<\frac{b}{a}x\]
+即
+\[\frac{b}{a}x-\frac{b}{a}\sqrt{x^2-a^2}>0\]
+所以，当$x$由$a$趋向$\infty$时，相应的$y$值愈来愈接近$\frac{b}{a}x$, 而
+又不会大于$\frac{b}{a}x$，
+这说明，双曲线在第I象限的部分永远在
+射线$y=\frac{b}{a}x\; (x\ge 0)$的下方并且逐渐接近于射线$y=\frac{b}{a}x\; (x\ge 0)$. 由对称性，可推知双曲线在其它象限的性态
+（图6.7）。
+
+直线$y=\frac{b}{a}x$和$y=-\frac{b}{a}x$叫做\textbf{双曲线的渐近线}。
+
+令$y=0$, $x=\pm a$, 点$A_1(-a,0)$, $A_2(a,0)$叫
+做双曲线的顶点，$\overline{A_1A_2}$叫做双曲线的\textbf{实轴}，它的长等于
+$2a$, $a$叫做双曲线的实半轴长。
+
+令$x=0$, $y=\pm b\sqrt{-1}$, 这说明双曲线和$Y$轴没有
+交点。在$Y$轴上作$B_1(0,-b)$, $B_2(0,b)$, $\overline{B_1B_2}$叫做双
+曲线的虚轴，它的长等于$2b$, $b$叫做双曲线虚半轴长（图6
+.7）。实轴和虚轴等长的双曲线叫做\textbf{等轴双曲线}。
+
+以已知双曲线的虚轴为实轴，实轴为虚轴所得到的双曲
+线叫做原双曲线的\textbf{共轭双曲线}。由这个定义可知，双曲线
+$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$与$\frac{x^2}{a^2}-\frac{y^2}{b^2}=-1$
+是互为共轭双曲线（图6.8）。
+
+作为练习，请同学证明：双曲线和它的共轭双曲线有相
+词的渐近线。
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.7]
+ \draw[->](-3.5,0)--(3.5,0)node[right]{$X$};
+\draw[->](0,-3.5)--(0,3.5)node[right]{$Y$};    
+\node at (0,0)[below left]{$O$};
+\draw[domain=-2.8:2.8, samples=100, very thick]plot({sqrt(1+\x*\x)}, \x);
+\draw[domain=-2.8:2.8, samples=100, very thick]plot({-sqrt(1+\x*\x)}, \x);
+\draw(-3,3)--(3,-3);
+\draw(3,3)--(-3,-3);
+\draw[domain=-2.8:2.8, samples=100, dashed]plot(\x, {sqrt(1+\x*\x)});
+\draw[domain=-2.8:2.8, samples=100, dashed]plot( \x, {-sqrt(1+\x*\x)});
 
 
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
-
-
-
-
+和定义椭圆的离心率$e$一样，对于双曲线，比值
+\[e=\frac{c}{a}=\frac{\sqrt{a^2+b^2}}{a}=\sqrt{1+\left(\frac{b}{a}\right)^2}\]
+也叫做双曲线的离心率，因为$c>a$, 所以双曲线的离心率
+$e>1$, 容易看出，$\frac{b}{a}$越大，$e$越大；反之，$e$越大，
+$\frac{b}{a}$也越大，渐近线$y=\pm \frac{b}{a}x$的斜率的绝对值也越大，这时双曲
+线的开口增大越快。
 
 
 \begin{example}
-    
+    设双曲线两焦点间的距离等于8, 顶点间的距离
+等于6, 实轴在$X$轴上，求双曲线的标准方程，离心率，渐
+近线方程并画草图。
 \end{example}
 
 \begin{solution}
-    
+    依题意$2c=8$, $2a=6$, 所以$c=4$, $a=3$,
+\[    b^2=c^2-a^2=16-9=7,\qquad  b=\sqrt{7}\]
+    所求双曲线方程为
+\[\frac{x^2}{9}-\frac{y^2}{7}=1\]
+离心率$e=\frac{c}{a}=\frac{4}{3}$，渐近线方程为
+\[y=\frac{\sqrt{7}}{3}x,\qquad y=-\frac{\sqrt{7}}{3}x\]
+
+作图：如图6.9所示
+\begin{enumerate}
+\item 在$X$轴上作$A_1(-3,
+0)$, $A_2(3,0)$, 在$Y$轴上作$B_1(0,-\sqrt{7})$、$B_2(0,
+\sqrt{7})$, 过$A_1$、$A_2$、$B_1$、$B_2$作矩形$ABCD$, 直线$OA$, 
+$OB$为双曲线的渐近线。
+\item 算出一些满足所求双曲线方程的点的坐标：
+\begin{center}
+\begin{tabular}{ccccc}
+\hline
+$x$ & $\pm 4$ & $\pm 5$ & $\pm 6$ & $\pm 7$\\
+\hline
+$y$ &  $\pm 2.3$ & $\pm 3.5$ & $\pm 4.6$ & $\pm 5.6$\\
+\hline
+\end{tabular}
+\end{center}
+描点连线，使曲线与渐近线逐渐接近，就可得到双曲线的草图。
+\end{enumerate}
 \end{solution}
 
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.4]
+ \draw[->](-8.5,0)--(8.5,0)node[right]{$X$};
+\draw[->](0,-8.5)--(0,8.5)node[right]{$Y$};    
+\node at (0,0)[below left]{$O$};
+
+\draw[domain=-7:7, samples=100, very thick]plot({sqrt(9+9/7*\x*\x)}, \x);
+\draw[domain=-7:7, samples=100, very thick]plot({-sqrt(9+9/7*\x*\x)}, \x);
+\draw(-3*3,2.65*3)--(3*3,-2.65*3);
+\draw(3*3,2.65*3)--(-3*3,-2.65*3);
+\draw(-3,-2.65) rectangle(3,2.65);
+
+\tkzDefPoints{-3/-2.65/C, 3/-2.65/D, -3/2.65/B, 3/2.65/A}
+\tkzDefPoints{-3/0/A_1, 3/0/A_2, 0/2.65/B_2, 0/-2.65/B_1}
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](C,D)
+\tkzLabelPoints[above left](B_2)
+\tkzLabelPoints[below left](B_1)
+\tkzLabelPoints[below left](A_2)
+\tkzLabelPoints[below right](A_1)
+
+\tkzDefPoints{4/0/F_2, -4/0/F_1}
+\tkzLabelPoints[below](F_1,F_2)
+\tkzDrawPoints(F_1,F_2,A_1,A_2,B_1,B_2)
+
+\tkzDefPoints{4/2.3/A1, 5/3.5/A2, 6/4.6/A3, 7/5.6/A4}
+\tkzDrawPoints(A1,A2,A3,A4)
+\tkzDefPoints{4/-2.3/A1, 5/-3.5/A2, 6/-4.6/A3, 7/-5.6/A4}
+\tkzDrawPoints(A1,A2,A3,A4)
+\tkzDefPoints{-4/2.3/A1, -5/3.5/A2, -6/4.6/A3, -7/5.6/A4}
+\tkzDrawPoints(A1,A2,A3,A4)
+\tkzDefPoints{-4/-2.3/A1, -5/-3.5/A2, -6/-4.6/A3, -7/-5.6/A4}
+\tkzDrawPoints(A1,A2,A3,A4)
+
+\foreach \x in {-7,-6,...,7}
+{
+    \draw(\x,0)--(\x,.2);
+    \draw(0,\x)--(.2,\x);
+}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+
 \begin{example}
-    
+    证明：双曲线上任一点到两条渐近线的距离的乘积等于常数$\frac{a^2b^2}{a^2+b^2}$
 \end{example}
+
+\begin{proof}
+    已知双曲线$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$，它的两条渐近线方程为
+\[\ell_1:\; bx+ay=0,\qquad \ell_2:\; bx-ay=0\]
+设$P(x_1,y_1)$为双曲线上任一点，$P$到$\ell_1$的距离记为$d_1$，$P$
+到$\ell_2$的距离记为$d_2$，则：
+\[d_1=\frac{|bx_1+ay_1|}{\sqrt{a^2+b^2}},\qquad d_2=\frac{|bx_1-ay_1|}{\sqrt{a^2+b^2}}\]
+\[d_1\cdot d_2=\frac{|bx_1+ay_1|}{\sqrt{a^2+b^2}}\cdot \frac{|bx_1-ay_1|}{\sqrt{a^2+b^2}}=\frac{|b^2x^2_1-a^2y^2_1|}{{a^2+b^2}}\]
+但
+\[|b^2x^2_1-a^2y^2_1|=a^2b^2\]
+所以
+\[d_1\cdot d_2=\frac{a^2b^2}{a^2+b^2}\]    
+\end{proof}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求适合下列条件的双曲线的标准方程。
+\begin{enumerate}
+\item 实轴长为12, 虚轴长为$2\sqrt{13}$, 
+    焦点在$X$轴上；
+    \item 实轴长为5, 虚轴长为3, 焦点在$Y$轴上；
+    \item 焦距是10, 两顶点间的距离是8; 
+    实轴在$X$轴上；
+    \item 实轴长等于4, 且经过点$A(2,4)$, 实轴在$X$
+    轴上；
+    \item 实轴长等于4, 且经过点$A(2,4)$, 实轴在$Y$轴
+    上。
+\end{enumerate}
+\item 求下列双曲线的实轴和虚轴长，顶点和焦点的坐标，离
+心率和渐近线方程。
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $x^2-y^2=1$
+    \item $\frac{x^2}{5}-\frac{y^2}{9}=1$
+    \item $4x^2-y^2=16$
+    \item $x^2-y^2=-1$
+    \item $\frac{x^2}{25}-y^2=-1$
+\end{enumerate}
+\end{multicols}
+
+\item 画出双曲线$\frac{x^2}{16}-\frac{y^2}{9}=1$的草图。
+\item 等轴双曲线的一个焦点$F_1(-4,0)$, 求它的标准方
+程。
+\item 证明：
+\begin{enumerate}
+\item 双曲线和它的共轭双曲线有共同的渐近
+线；
+\item 双曲线和它的共轭双曲线的四个焦点在同一个圆
+上。
+\end{enumerate}
+
+\item 已知双曲线
+$\frac{x^2}{9}-\frac{y^2}{16}=1$, 求出它的共领双曲线方程并
+求共轭双曲线的焦点的坐标，渐近线方程和离心率。
+\end{enumerate}
+\end{ex}
+
+\subsection{抛物线的标准方程和形状}
+\begin{blk}
+   {定义}
+平面内与一定点和一条定直线的距离相等的点的轨迹叫做抛物线。定点叫做抛物线的焦点，定直线叫做抛物
+线的准线。
+\end{blk}
+
+下面，我们根据抛物线的定义来建立抛物线的方程。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
