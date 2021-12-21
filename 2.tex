@@ -1802,7 +1802,17 @@ $\frac{\sqrt{3}}{4}a^2\sin\alpha$
 \begin{figure}[htp]
     \centering
 \begin{tikzpicture}
-    
+\tkzDefPoints{0/0/A, 4/0/B, 2.5/3/S, 2.7/1.5/C}
+\tkzDefPointWith[linear, K=.7](A,C)\tkzGetPoint{E}
+\tkzDefPointWith[linear, K=.7](B,C)\tkzGetPoint{D}
+\tkzDefPointWith[linear, K=.7](A,S)\tkzGetPoint{F}
+\tkzDefPointWith[linear, K=.7](B,S)\tkzGetPoint{G}
+\tkzDrawPolygon(A,B,S)
+\tkzDrawPolygon[dashed](F,G,D,E)
+\tkzDrawSegments[dashed](S,C A,C B,C)
+\tkzLabelPoints[below](A,B,D,E)
+\tkzLabelPoints[above](F,G,S)
+\node at (C)[above left]{$C$};
 \end{tikzpicture}
     \caption{}
 \end{figure}
@@ -1893,6 +1903,60 @@ $\left(\frac{ab}{a+b}\right)^2$
 （图2.39(1)、(2)）
 \end{example}
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{-1.2/1.2/A_2, 0/0/B_2, 3/0/C_2, 4/1.1/D_2, 1.8/1.7/E_2, 1.5/6/S, 1.5/.85/O_2}
+\tkzDefPointWith[linear, K=.4](S,A_2)\tkzGetPoint{A_1}
+\tkzDefPointWith[linear, K=.4](S,B_2)\tkzGetPoint{B_1}
+\tkzDefPointWith[linear, K=.4](S,C_2)\tkzGetPoint{C_1}
+\tkzDefPointWith[linear, K=.4](S,D_2)\tkzGetPoint{D_1}
+\tkzDefPointWith[linear, K=.4](S,E_2)\tkzGetPoint{E_1}
+\tkzDefPointWith[linear, K=.4](S,O_2)\tkzGetPoint{O_1}
+
+\tkzDefPointWith[linear, K=.5](A_1,A_2)\tkzGetPoint{A_0}
+\tkzDefPointWith[linear, K=.5](B_1,B_2)\tkzGetPoint{B_0}
+\tkzDefPointWith[linear, K=.5](C_1,C_2)\tkzGetPoint{C_0}
+\tkzDefPointWith[linear, K=.5](D_1,D_2)\tkzGetPoint{D_0}
+\tkzDefPointWith[linear, K=.5](E_1,E_2)\tkzGetPoint{E_0}
+\tkzDefPointWith[linear, K=.5](O_1,O_2)\tkzGetPoint{O_0}
+
+\fill[pattern=north east lines](A_0)--(B_0)--(C_0)--(D_0)--(E_0)--(A_0);
+\tkzDrawSegments(A_1,B_1 B_1,C_1 C_1,D_1)
+\tkzDrawSegments[dashed](A_1,E_1 E_1,D_1)
+\tkzDrawSegments(A_0,B_0 B_0,C_0 C_0,D_0)
+\tkzDrawSegments[dashed](A_0,E_0 E_0,D_0)
+\tkzDrawSegments(A_2,B_2 B_2,C_2 C_2,D_2)
+\tkzDrawSegments[dashed](A_2,E_2 E_2,D_2  S,O_2 S,E_2)
+\tkzDrawSegments(A_1,A_2 B_1,B_2 C_1,C_2 D_1,D_2)
+\tkzDrawSegments[dashed](S,A_1 S,B_1  S,C_1  S,D_1  S,E_1)
+\tkzLabelPoints[below left](B_1,B_2,B_0, A_1,A_2,A_0)
+\tkzLabelPoints[below right](C_1,C_2,C_0, D_1,D_2,D_0,E_2)
+\tkzLabelPoints[above](S,E_1,E_0)
+\tkzDrawSegments[dashed](O_1,B_1 O_0,B_0 O_2,B_2)
+\tkzLabelPoints[left](O_1,O_0, O_2)
+    \tkzDrawPoints(O_1,O_0, O_2)
+\node at (1.5,-.5){(1)};
+\end{scope}
+\begin{scope}[xshift=7cm]
+    \node at (1.5,-.5){(2)};
+\draw(1.5,4) ellipse [x radius=1.5, y radius=1.5*.3];
+\draw[dashed](1.5,1) ellipse [x radius=2, y radius=2*.3];
+\draw[dashed](1.5,2.5) ellipse [x radius=1.75, y radius=1.75*.3];
+\draw(3.5,1) arc [x radius=2, y radius=2*.3, start angle =0, end angle =-180];
+\draw(3.25,2.5) arc [x radius=1.75, y radius=1.75*.3, start angle =0, end angle =-180];
+
+\fill[pattern=north east lines](1.5,2.5) ellipse [x radius=1.75, y radius=1.75*.3];
+\draw(0,4)--(-.5,1);
+\draw(1.5,4)node[left]{$S_1$}--node[above]{$r_1$}(3,4)--(3.5,1);
+\draw[dashed](1.5,4)--(1.5,1)node[left]{$S_2$}--node[above]{$r_2$}(3.5,1);
+\draw[dashed](1.5,2.5)node[left]{$S_0$}--node[above]{$r_0$}(3.25,2.5);
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
 \begin{proof}
     延长棱台的各侧棱得到棱锥，设棱锥顶点$S$到
     上底面的距离为$a$, 棱台的高为$2h$, (图2.39(2))。设棱
@@ -1910,51 +1974,88 @@ $B_1O_1\parallel B_0O_0\parallel B_2O_2$，故有
 \end{proof}
 
 
-
-
-
-
-
-
-
-
 \begin{example}
     如图2.40, 球$O$和二面角$\alpha-AB-\beta$的两个面$\alpha$、$\beta$
 分别相切于$C$、$D$两点，如$C,D$两点的距离为$\sqrt{3}a$, 并且
 $\angle DCO=30^{\circ}$, 求球$O$的半径及二面角的大小。
 \end{example}
 
+\begin{figure}[htp]
+    \centering
+ \includegraphics[scale=.6]{fig/2-40.png}   
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    因球$O$在平面$\alpha$和$\beta$上的切点
+分别是$C$、$D$, 过$OC$、$OD$作平面交
+$AB$于$E$,
+
+$\because\quad OC\bot\alpha,\quad OD\bot\beta$
+
+$\therefore\quad OC\bot AB,\quad OD\bot AB$
+
+$\therefore\quad AB\bot$平面$CED$.
+
+$\therefore\quad AB\bot EC$于$E$, $AB\bot ED$于$E$,
+
+$\therefore\quad \angle CED$是二面角$\alpha-AB-\beta$的平
+面角
+
+又在$\triangle OCD$中，
+
+$\because\quad CD=\sqrt{3}a,\quad \angle DCO=30^{\circ},\quad 
+OC=OD$
+
+因此
+\begin{equation}
+    \angle COD=120^{\circ}
+\end{equation}
+$\therefore\quad \frac{CD}{\sin120^{\circ}}=\frac{OD}{\sin30^{\circ}}$
+即：
+\[\frac{\sqrt{3}a}{\frac{\sqrt{3}}{2}}=\frac{OD}{\frac{1}{2}}\]
+$\therefore\quad OD=a$
+又：$O,C,D,E$四点共面，由(2.5), 有$\angle CED=60^{\circ}$,
+
+$\therefore\quad $二面角$\alpha-AB-\beta$为$60^{\circ}$.
+
+答：球$O$的半径为$a$, 二面角$\alpha-AB-\beta$为$60^{\circ}$.
+\end{solution}
+
+
 \begin{example}
-    
+    球面通过多面体所有顶点的球叫做多面体的外接
+球。求棱长为$a$的正四面体外接球的半径。（图2.41）
 \end{example}
 
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-41.png}
+    \caption{}
+\end{figure}
 
 \begin{solution}
-    
+设球$O$为正四面体$ABCD$的
+外接球，所以，$OA=OB=OC=OD$, 
+这样，$A-BCD$和$O-BCD$都是正三
+棱锥。
+
+设这两个正三棱锥的高分别为
+$AO_1$和$OO_2$, 因为这两个正三棱锥的
+底面是同一个正三角形$BCD$, 所以
+$O_1$和$O_2$都是$\triangle BCD$的中心，所以$O_1$
+和$O_2$必重合，所以$A$、$O$、$O_1$三点共
+线，连$BO_1$, 因为$BO_1=\frac{\sqrt{3}}{3}a$, 所以
+\[AO_1=\sqrt{AB^2-BO_1^2}=\sqrt{a^2-\left(\frac{\sqrt{3}}{3}a\right)^2}=\frac{\sqrt{6}}{3}a\]
+$\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
+
+设球$O$的半径为$R$, 那么在直角三角形$BOO_1$中，有
+\[BO^2-BO_1^2=(AO_1-OA)^2\]
+即\[R^2-\left(\frac{\sqrt{3}}{3}a\right)^2=\left(\frac{\sqrt{6}}{3}a-R\right)^2\]
+解得$R=\frac{\sqrt{6}}{4}a$
+
+答：棱长为$a$的正四面体的外接球的半径为$\frac{\sqrt{6}}{4}a$
 \end{solution}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \subsection*{习题2.1}
 
@@ -2103,14 +2204,690 @@ $120^{\circ}$, 这两个切点的球面距离是$12\pi$cm, 求这个球的半
 N$）
 \end{blk}
 
-斜棱柱有时需要延长某些侧棱，以使
-和截棱柱的平面相交，得到直截面。
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+\tkzDefPoints{0.5/0/A_1, 1/-.5/B_1, 2.5/-.3/C_1, 3.2/.5/D_1, 2/.6/E_1, 0.7/4/A}
+\tkzDefPointsBy[translation = from A_1 to A](B_1,C_1,D_1,E_1){B,C,D,E}
+\tkzDrawPolygon(A,B,C,D,E)
+\tkzDrawPolygon[dashed](A_1,B_1,C_1,D_1,E_1)
+\tkzDrawSegments(A,A_1  B,B_1  C,C_1  D,D_1 A_1,B_1 B_1,C_1 C_1,D_1)
+\tkzDrawSegments[dashed](E_1,E)
+\tkzLabelPoints[below left](A,B,A_1,B_1)
+\tkzLabelPoints[below right](C,D,C_1,D_1)
+\tkzLabelPoints[below](E_1)
+\tkzLabelPoints[above](E)
 
-\begin{blk}
-    {定理} 棱柱的侧面积等于侧棱长和直
+\tkzDefPointWith[linear, K=.48](A_1,A)\tkzGetPoint{F}
+\tkzDefPointWith[linear, K=.55](B_1,B)\tkzGetPoint{G}
+\tkzDefPointWith[linear, K=.52](C_1,C)\tkzGetPoint{L}
+\tkzDefPointWith[linear, K=.5](D_1,D)\tkzGetPoint{M}
+\tkzDefPointWith[linear, K=.47](E_1,E)\tkzGetPoint{N}
+
+\fill[pattern=north west lines](F)--(G)--(L)--(M)--(N)--(F);
+\draw[dashed](M)--(N)node[above right]{$N$}--(F);
+\draw(F)node[left]{$F$}--(G)node[below left]{$G$}--(L)node[below right]{$L$}--(M)node[right]{$M$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+斜棱柱有时需要延长某些侧棱，以使和截棱柱的平面相交，得到直截面。
+
+\begin{blk}{定理}
+    棱柱的侧面积等于侧棱长和直
 截面周长的乘积。
 \end{blk}
 
+\begin{proof}
+如图2.42, 设棱柱为$AC_1$, 它
+的直截面为$FGL\cdots N$, 因为棱柱的各个侧
+面都是平行四边形，它的侧棱和截面的各
+边都垂直，如果设$\ell$是棱柱$AC_1$的侧棱
+长，$S_{\text{棱柱侧}}$表示棱柱的侧面积，则
+\[\begin{split}
+    S_{\text{棱柱侧}}&=\ell\cdot FG+\ell\cdot GL+\cdots+\ell\cdot NF\\
+    &=\ell(FG+GL+\cdots+NF)=\ell\cdot p
+\end{split}\]
+其中：$p$是直截面周长。
+
+棱柱的侧面积也可以从它的表面展开图得出，图2.43是
+斜棱柱与直棱柱的侧面展开图。
+
+直棱柱的侧面展开图是矩形，（图2.43(2)）这个矩形的
+长为直棱柱底面周长$p$, 宽等于直棱柱的高$h$. 
+
+斜棱柱的侧面展开图如图2.43(1)所示，将直线$FG\cdots F$
+（即直截面周长展开所在的直线）下方的部分图形向上平
+移，使$AB$与$A_1B_1$, $BC$与$B_1C_1$，$EA$与$E_1A_1$分别重合，便
+拼得一个矩形。这个矩形的长为棱柱直截面的周长，它的宽
+等于斜棱柱的侧棱，因此矩形的面积就是斜棱柱的面积。
+\end{proof}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=.8]
+\begin{scope}
+\tkzDefPoints{0/0/A, 1/.4/B, 1.75/.4/C, 2.5/.5/D,3.9/.1/E,5/-.2/F, 0/3/A_1}
+\tkzDefPointsBy[translation = from A to A_1](B,C,D,E,F){B_1,C_1,D_1,E_1,F_1}
+\tkzDrawPolygon(A,B,C,D,E,F,F_1,E_1,D_1,C_1,B_1,A_1)
+\tkzDrawSegments(B,B_1 C,C_1 D,D_1 E,E_1)
+\tkzLabelPoints[below](A,B,C,D,E)
+\tkzLabelPoints[above](A_1,B_1,C_1,D_1,E_1)
+\node at (5,-.2)[below]{$A$};
+\node at (5,-.2+3)[above]{$A_1$};
+
+\draw(0,2)node[left]{$F$}--(5,2)node[right]{$F$};
+
+\foreach \x/\xtext in {1/G,1.75/L,2.5/M,3.9/N} 
+{
+    \node at (\x,2)[above left]{$\xtext$};
+}
+\node at (2.5,-1){(1)};
+\end{scope}
+\begin{scope}[xshift=7cm]
+\draw(0,0) rectangle (6,3);
+\foreach \x/\xtext in {1.5/B,2.5/C,3.7/D,5/E}
+{
+    \draw(\x,0)node[below]{$\xtext$}--(\x,3)node[above]{$\xtext_1$};
+}
+\node at (0,0)[below]{$A$}; \node at (6,0)[below]{$A$};
+\node at (0,3)[above]{$A_1$}; \node at (6,3)[above]{$A_1$};
+\node at (3,-1){(2)};
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+
+\begin{blk}{推论}
+\begin{enumerate}
+    \item 直棱柱的侧面积等于底面周长与高的积。
+    \item 如果设$n$为正棱柱底边边数，$b$为底边长，$h$为正
+    棱柱的高，则
+  \[  S_{\text{正棱柱侧}}=nbh\]
+    \item 如果$A$为棱柱底面面积，那么棱柱的全面积为它
+    的侧面积与两底面积的和，即
+\[    S_{\text{棱柱全}}=S_{\text{棱柱侧}}+2A\]
+    \item 如果$a,b,c$表长方体的三度，那么
+    \[S_{\text{长方体全}}=2(ab+bc+ca)\]
+    \item 如果$a$表示正方体的棱长，那么
+   \[ S_{\text{正方体全}}=6a^2\]
+\end{enumerate}
+\end{blk}
+
+圆柱的侧面积，计算公式同样可由它的表面展开图得
+出。圆柱的侧面展开图是一个矩形，（图2.44）这个矩形的
+长是圆柱底面圆的周长，宽是圆柱侧面的母线长（即高）。
+因此我们可以得到计算圆柱侧面积的下述定理
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\draw[dashed] (0,0) ellipse [x radius=1, y radius=.4];
+\draw (0,2) ellipse [x radius=1, y radius=.4];
+\draw(-1,0)--(-1,2);
+\draw(1,0)--node[right]{$\ell$}(1,2)--node[fill=white]{$R$}(0,2);
+\draw[dashed](0,2)--(0,0)--(1,0);
+\draw(1,0) arc [x radius=1, y radius=.4, start angle =0, end angle =-180];
+\end{scope}    
+\begin{scope}[xshift=3cm]
+\draw (0,0) rectangle (2*pi,2);
+\draw(2,3) circle (1);
+\draw(2,-1) circle (1);
+\draw(2*pi,2)--(2*pi+.5,2); \draw(2*pi,0)--(2*pi+.5,0);
+\draw[<->] (0,0.8)--node[fill=white]{$2\pi R$} (2*pi,.8);
+\draw[<->] (2*pi+.3,0)--node[fill=white]{$\ell$} (2*pi+.3,2);
+\draw[->](2,-1)--node[above]{$R$}+(-15:1);
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{blk}
+    {定理} 如果圆柱底面半径是$R$, 周长是$C$, 侧面母线长
+是$\ell$, 那么它的侧面积计算公式是：
+\[S_{\text{圆柱侧}}=C\cdot \ell=2\pi R\ell\]
+\end{blk}
+
+\begin{blk}
+    {推论} 圆柱的全面积等于它的侧面积与两底面积的和，
+即
+\[S_{\text{圆柱全}}=S_{\text{圆柱侧}}+2S_{\text{底}}\]
+其中，$S_{\text{底}}$表示圆柱底面的面积。
+\end{blk}
+
+\begin{example}
+    一正棱柱的对角线长是9cm, 全面积是$144{\rm cm^2}$, 求
+这棱柱底面的边长和侧棱的长。（图2.45）
+\end{example}
+
+\begin{solution}
+设棱柱底面边长是$x$cm, 侧棱长为$y$cm, 根据已知条件，有
+\begin{numcases}{}
+    2x^2+y^2=9\\
+4xy+2x^2=144
+\end{numcases}
+$(2.6)+(2.7)$, 得
+\[4x^2+4xy+y^2=152\]
+即：$(2x+y)^2=152$ 两边开方，得
+\[2x+y=15\]
+(2.7)的两边除以2, 有
+\begin{equation}
+    2xy+x^2=72
+\end{equation}
+$(2.6)-(2.8)$, 有
+\[x^2-2xy+y^2=9\]
+即$(x-y)^2=9$, 两边开方，得$x-y=\pm 3$
+\[\begin{cases}
+    2x+y=15\\x-y=3
+\end{cases},\qquad \begin{cases}
+    2x+y=15\\x-y=-3
+\end{cases}\]
+解得：
+\[\begin{cases}
+    x=6\\y=3
+\end{cases},\qquad \begin{cases}
+    x=4\\y=7
+\end{cases}\]
+
+答：棱柱底面边长为6cm, 侧棱为3cm, 或底面边长为
+4cm, 侧棱为7cm.
+\end{solution}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A, 2/0/B, 2.5/.5/C, .5/.5/D, 0/3/A'}
+    \tkzDefPointsBy[translation = from A to A'](B,C,D){B',C',D'}
+    \tkzDrawPolygon[dashed](A,B,C,D)
+    \tkzDrawPolygon[thick](A',B',C',D')
+    \tkzDrawSegments[thick](A',A B,B' C,C' A,B B,C)
+    \tkzDrawSegments[dashed](A,C A',C C,D D,D')
+    
+    \draw(0,0)--(0,-.5);\draw(2,0)--(2,-.5);
+    \draw(2.5,.5)--(3,.5);
+    \draw(2.5,3.5)--(3,3.5);
+    \draw[<->](0,-.3)--node[fill=white]{$x$}(2,-.3);
+    \draw[<->](2.8,3.5)--node[fill=white]{$y$}(2.8,.5);
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A, 2/0/B, 1.5/.8/C, 2/2.5/A_1}
+    \tkzDefPointsBy[translation = from A to A_1](B,C){B_1,C_1}
+    \tkzDrawPolygon[dashed](A,B,C)
+    \tkzDrawPolygon[thick]( A_1,B_1,C_1)
+    \tkzDrawSegments[thick](A_1,A B,B_1  A,B)
+   
+\tkzLabelPoints[right](B,B_1)
+\tkzLabelPoints[above](C,C_1)
+\tkzDefPointBy[projection= onto A--A_1](B) \tkzGetPoint{D}
+\tkzDrawSegments[dashed](C,C_1 C,D)
+\tkzDrawPolygon[thick](B,D)
+\tkzLabelPoints[left](A,A_1,D)
+\tkzMarkRightAngle[size=.2](A,D,B)
+
+
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    斜三棱柱$ABC-A_1B_1C_1$的底面是边长为$a$的正三
+角形，侧棱的长度为$b$, 一条侧棱$AA_1$和底面相邻两边$AB$、
+$AC$都成$45^{\circ}$角，求这三棱柱的侧面积（图2.46）
+\end{example}
+
+\begin{solution}
+作$BD\bot A_1A$于$D$（$D$点
+也可能在$AA_1$的延长线上）连结
+$DC$.
+
+$\because\quad \triangle ABC$是正三角形，
+
+$\therefore\quad AB=AC=BC=a$,
+
+又$\because\quad \angle A_1AB=\angle A_1AC=45^{\circ}$, $AD=AD$
+
+$\therefore\quad \triangle ADB\cong \triangle ADC$
+
+$\therefore\quad \angle ADC=\angle ADB=90^{\circ}$
+
+$\therefore\quad A_1A\bot$平面$BCD$
+
+$\therefore\quad \triangle BCD$为棱柱的直截面。
+
+$\because\quad BD=DC=\frac{\sqrt{2}}{2}a$
+
+$\therefore\quad \triangle BCD$的周长$p=2\x\frac{\sqrt{2}}{2}a+a=(\sqrt{2}+1)a$
+
+$\because\quad $棱柱的侧棱为$b$,
+
+$\therefore\quad S_{\text{斜棱柱侧}}=p\cdot b=(\sqrt{2}+1)ab$
+
+答：斜棱柱$ABC-A_1B_1C_1$的侧面积为$(\sqrt{2}+1)ab$.
+
+问：
+\begin{enumerate}
+    \item 当$a,b$有什么关系时，$D$点与$A_1$重合？$D$点落在$AA_1$的延长线上？
+    \item 思考本题是否还有别的解法。
+\end{enumerate}
+\end{solution}
+
+
+
+\begin{example}
+    圆柱的轴截面的对角线为$d$, 它与底面所成的角为
+$\beta$,
+\begin{enumerate}
+    \item 求圆柱的侧面积，
+    \item $\beta$为何值时，圆柱的侧面
+积最大，这个最大值是多少？
+\end{enumerate}
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1.3]
+\draw[dashed](0,0) ellipse [x radius=1cm, y radius=.4cm];
+\draw[thick](0,2.5) ellipse [x radius=1cm, y radius=.4cm];
+\draw[thick](-1,0)node[left]{$A$}--(-1,2.5)node[left]{$A_1$}--(1,2.5)node[right]{$B_1$}--(1,0)node[right]{$B$};
+\draw[thick](1,0) arc [x radius=1cm, y radius=.4cm, start angle =0, end angle =-180];
+\draw[dashed](1,0)--(-1,0)--node[above]{$d$}(1,2.5);
+\node at (0,0)[below]{$O$}; \node at (0,2.5)[below]{$O_1$};
+\draw(-.75,0) arc (0:51.34:.25)node[right]{$\beta$};
+\tkzDrawPoint(0,0)\tkzDrawPoint(0,2.5)
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{solution}
+    如图2.47, 已知圆柱$AA_1$, $B_1A$
+    是其轴截面的一条对角线。因为$B_1A$与圆
+    柱底面所成的角为$\beta$, 而$B_1B$垂直底面，所
+    以$\angle B_1BA=90^{\circ}$, $\angle B_1AB=\beta$, 由$AB_1=d$,
+    
+$\therefore\quad B_1B=d\sin\beta$\quad 底面半径$OB=\frac{1}{2}d\cos\beta$
+
+$\therefore\quad$ 底面圆周长$C=2\pi\cdot \frac{d}{2}\cos\beta=\pi d\cos\beta$
+
+\[\begin{split}
+    S_{\text{圆柱侧}}=C\cdot B_1B&=\pi d\cos\beta\cdot d\sin\beta\\ 
+&=\pi d^2\cos\beta\cdot \sin\beta=\frac{1}{2}\pi d^2\sin2\beta
+\end{split}\]
+又$\because\quad |\sin2\beta|\le 1$
+
+$\therefore\quad $当$\sin2\beta=1$时，即$2\beta=\frac{\pi}{2},\quad \beta=\frac{\pi}{4}$
+时，$ S_{\text{圆柱侧}}=\frac{1}{2}\pi d^2$最大。
+
+答：圆柱的侧面积为$\frac{1}{2}\pi d^2\sin2\beta$；当$\beta=\frac{\pi}{4}$时，圆柱的侧面积最大，这个最大值
+是$\frac{1}{2}\pi d^2$。
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 一长方体的三度之比为1:2:3, 其全面积为88, 求三度之
+    长。
+    \item 一直平行六面体的侧棱长为9cm, 底面相邻两边的长分
+    别是7cm和11cm, 夹角是$45^{\circ}$, 求此平行六面体的全面
+    积。
+    \item 试证：两个等高圆柱侧面积的比等于它们半径的比。
+    \item \begin{enumerate}
+    \item 通过等边圆柱两底中心的轴截面面积为9, 求它
+    的侧面积。
+    \item 等边圆柱的全面积为$24\pi$, 
+    求它底面的半径。
+    \end{enumerate}
+
+    \item 按照如图所示的两个视图，
+    说明它们所表示的物体的形
+    状，并画出它们的直观图，
+    分别求出它们的全面积（视
+    图(1)、(2)中所标尺寸单位为mm）。
+\end{enumerate} 
+\end{ex}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\draw(0,0) rectangle (2,1.5);
+\draw(0,2)--(2,2)--(0,3.5)--(0,2);
+\draw(2.5,2) rectangle (4,3.5);
+\node at (2.5,-1){(1)};
+
+\draw(0,0)--(0,-.5);   \draw(2,0)--(2,-.5);
+\draw[<->](0,-.3)--node[fill=white]{$40$}(2,-.3);
+
+\draw(2,0)--(2.5,0);  \draw(2,1.5)--(2.5,1.5);
+\draw[<->](2.3,0)--node[fill=white, rotate=90]{$30$}(2.3,1.5);
+
+\draw(4,2)--(4.5,2);  \draw(4,3.5)--(4.5,3.5);
+\draw[<->](4.3,2)--node[fill=white, rotate=90]{$30$}(4.3,3.5);
+\end{scope}
+\begin{scope}[xshift=9cm, yshift=1cm]
+\draw(1,0)--(60:1)--(120:1)--(-1,0)--(-120:1)--(-60:1)--(1,0);
+\draw[dashdotted](-2,0)--(2,0);
+\draw[dashdotted](0,-1.5)--(0,4);
+\draw(-1,1.5) rectangle (1,3.5);
+\draw(-.5,1.5)--(-.5,3.5);\draw(.5,1.5)--(.5,3.5);
+
+\draw(1,1.5)--(1.5,1.5);  \draw(1,3.5)--(1.5,3.5);
+\draw[<->](1.3,1.5)--node[fill=white, rotate=90]{$100$}(1.3,3.5);
+\draw[|<->|](-.5,-1.25)--node[fill=white]{50}(.5,-1.25);
+\draw[|<->|](1+.3,-.15)--node[fill=white, rotate=60]{50}+(-120:1);
+\node at (0,-2){(2)};
+\end{scope}
+\end{tikzpicture}
+    \caption*{第5题}
+\end{figure}
+
+\subsection{棱锥和圆锥的侧面积和全面积}
+
+棱锥的侧面积等
+于它的各个侧面面积之和，棱锥的全面积等于它的侧面积和
+底面积的和。
+
+设正棱锥的底面边长为$a$, 而它的斜高为$\ell$, 那么它的一
+个侧面的面积就等于$\frac{1}{2}a\ell$，而所有侧面面积的和：
+\[S_{\text{正棱锥侧}}=\frac{1}{2}na\ell\]
+
+设p是底面周长，则$p=na$, 
+所以，
+\[S_{\text{正棱锥侧}}=\frac{1}{2}p\ell\]
+由此可得下面定理。
+
+\begin{blk}
+    {定理} 如果正棱锥的底面周长是$p$, 斜高是$\ell$, 那么它的
+    侧面积计算公式是：
+    \[S_{\text{正棱锥侧}}=\frac{1}{2}p\ell\]
+\end{blk}
+
+\begin{blk}
+    {推论} 正棱锥的全面积等于它的侧面积与底面积之和。
+\end{blk}
+
+如果把圆锥侧面沿着它的一条母线展开在平面上，如图
+2.48所示，圆锥侧面的展开图是一个扇形，这个扇形的弧长
+等于圆锥的底面周长$C$, 如果底面半径为$R$, 则$C=2\pi R$, 扇
+形的半径等于圆锥的母线$\ell$, 而这个扇形的面积就是圆锥的
+侧面积。由此可得下面定理。
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\draw[dashed] (0,0) ellipse [x radius=1, y radius=.4];
+\draw[thick](-1,0)--(0,3)--node[right]{$\ell$}(1,0);
+\draw[dashed](0,3)--(0,0)--node[above]{$R$}(1,0);
+\draw(0,2.5) arc (90:90-18.43:.5) node[below]{$\tfrac{\alpha}{2}$};
+\draw[thick](1,0) arc  [x radius=1, y radius=.4, start angle =0, end angle =-180];
+\end{scope}
+\begin{scope}[xshift=4cm, yshift=3cm]
+\draw(0,0)--(3.16,0) arc (0:-114:3.16)--(0,0);
+\draw(0,0)--(0,.5); \draw(3.16,0)--(3.16,.5);
+\draw[<->](0,.3)--node[fill=white]{$\ell$}(3.16,.3);
+\draw (.25,0)arc (0:-114:.25)node[below right]{$\theta$};
+\draw(3.16,0)--(3.8,0);
+\draw(-114:3.16)--(-114:3.8);
+\draw[<->](3.6,0) arc (0:-114:3.6);
+\node at (-100:3.6)[fill=white, right]{$C=2\pi R$};
+\draw(-30:3.16+1) circle (1);
+\draw[->](-30:3.16+1)--node[above]{$R$}+(-15:1);
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{blk}
+    {定理}如果圆锥底面半径是$R$, 周长是$C$, 侧面母线长
+是$\ell$, 那么它的侧面积计划公式是
+\[S_{\text{圆锥侧}}=\frac{1}{2}C\ell =\pi R\ell\]
+\end{blk}
+
+\begin{blk}
+    {推论1} 圆锥的全面积等于它的侧面积和底面积之和。即
+    \[S_{\text{圆锥全}}=\pi R\ell +\pi R^2=\pi R(\ell+R)\]
+\end{blk}
+
+\begin{blk}
+    {推论2} 如果设圆锥的展开面扇形的中心角为$\theta$, 圆锥
+    的轴截面的顶角为$\alpha$, 那么
+    \[\theta=\frac{2\pi R}{\ell}=2\pi \frac{R}{\ell}(\text{弧度})\]
+或
+\[\theta=360^{\circ}\frac{R}{\ell}=360^{\circ}\sin\frac{\alpha}{2}\]
+\end{blk}
+
+\begin{example}
+    已知三棱锥$V-ABC$中，直角$\triangle ABC$的两条直角
+边$AB=6$cm, $BC=8$cm, 高$VO=12$cm, 并且$O$点是$\triangle ABC$的
+内心，求棱锥的全面积。
+\end{example}
+
+
+\begin{solution}
+    如图2.49, 过$\triangle ABC$的
+内心$O$作$OD\bot AB$于$D$, $OE\bot BC$
+于$E$, $OF\bot AC$于$F$, 连结$VD$、
+$VE$、$VF$.
+
+$\because \quad VO\bot$底面$ABC$,
+
+$\therefore\quad OD$是$VD$在底面$ABC$上
+的射影，由三垂线定理，有$VD\bot AB$.
+
+同理，$VE\bot BC$, $VF\bot AC$
+
+$\because\quad OD=OE=OF=\frac{S_{\triangle ABC}}{\tfrac{1}{2}(AB+BC+AC)}=\frac{24}{12}=2$
+
+$\therefore\quad VD=VE=VF=2\sqrt{37}$
+
+$\therefore\quad S_{\triangle VAB}=\frac{1}{2}AB\cdot VD=\frac{1}{2}\cdot 6\cdot 2\sqrt{37}=6\sqrt{37}$
+\[\begin{split}
+    S_{\triangle VBC}&=\frac{1}{2}BC\cdot VE=\frac{1}{2}\cdot 8\cdot 2\sqrt{37}=8\sqrt{37}\\
+S_{\triangle VAC}&=\frac{1}{2}AC\cdot VF=\frac{1}{2}\cdot 10\cdot 2\sqrt{37}=10\sqrt{37}
+\end{split}\]
+因此：
+\[\begin{split}
+    S_{\text{三棱锥全}}&=S_{\triangle ABC}+S_{\triangle VAB}+S_{\triangle VBC}+S_{\triangle VAC}\\
+&=24+6\sqrt{37}+8\sqrt{37}+10\sqrt{37}\\
+&=24+24\sqrt{37}\approx 169.9({\rm cm^2})
+\end{split}\]
+
+答：这个三棱锥的全面积约为$169.9{\rm cm^2}$.
+\end{solution}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 3/0/B, 4.5/1.8/C, 2.5/4/V, 2.5/.5/O}
+\tkzDrawPolygon(A,B,C,V)
+\tkzDrawSegments[dashed](A,C V,O)
+
+\tkzDefPointWith[linear, K=.7](A,B)  \tkzGetPoint{D}
+\tkzDefPointWith[linear, K=.55](C,B)  \tkzGetPoint{E}
+\tkzDefPointWith[linear, K=.38](A,C)  \tkzGetPoint{F}
+
+\tkzDrawSegments[dashed](D,O O,E O,F V,F)
+\tkzDrawSegments (V,D V,E V,B)
+\tkzLabelPoints[below](A,B,D,O)
+\tkzLabelPoints[above](V,F)
+\tkzLabelPoints[right](C,E)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\draw[thick](0,0)--(3,0)--(1.5,4)--(0,0);
+\draw[thick](.75,2) rectangle (3-.75,0);
+\draw[dashdotted](1.5,0)--(1.5,4);
+\draw(-1,0)--(0,0);  \draw(-1,4)--(1.5,4);
+\draw[<->](-.75,0)--node[fill=white]{$H$}(-.75,4);
+\draw(1.5,0)--(1.5,-.5); \draw(3,0)--(3,-.5); 
+\draw[<->](1.5,-.3)--node[fill=white]{$R$}(3,-.3);
+\draw[<->](1.2,0)--node[fill=white]{$x$}(1.2,2);
+\draw[<->](1.5,1.5)--node[below]{$r$}(3-.75,1.5);
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    已知一个圆锥的底面半径为$R$, 高为$H$, 在其中有
+一个高为$x$内接圆柱。
+\begin{enumerate}
+    \item 求圆柱的侧面积。
+    \item $x$为何值时，圆柱的侧面积最大？
+\end{enumerate}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}
+    \item 画圆锥及其内接圆柱的轴截面图（图2.50）
+    
+    设内接圆柱的底面半径为$r$, 圆锥的底面半径为$R$. 那么内接
+    圆柱的侧面积
+ \[   S_{\text{圆柱侧}}=2\pi rx\]
+又$\because\quad \frac{r}{R}=\frac{H-x}{H}$
+
+$\therefore\quad r=R-\frac{R}{H}x$
+
+$\therefore\quad S_{\text{圆柱侧}} =2\pi Rx-\frac{2\pi R}{H}x^2$
+
+\item 因为$S_{\text{圆柱侧}}$的表示式中，$x^2$的系数小于零，所以
+    这个二次函数有最大值，当这个二次函数达到最大值时，圆
+    柱的侧面积最大。这时圆柱的高是
+\[x=-\frac{2\pi R}{-2\cdot \frac{2\pi R}{H}}=\frac{H}{2}\]
+
+答：当圆柱的高是已知高一半时，它的侧面积最大。
+\end{enumerate}    
+\end{solution}
+
+\begin{example}
+    若圆锥的侧面积等于和它等高、等底的圆柱的侧
+面积时，求圆锥轴截面顶角的度数。
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw(0,0)--(-1.5,3)--(-3,0)--(0,0);
+\draw[dashed](-1.5,0)--(-1.5,3);
+\draw[dashed](-3,3)--(2,3);
+\draw[dashed](0,0)--(2,0);
+\draw (2,0) rectangle (5,3);
+
+\draw(-1.5,0)--(-1.5,-.5);\draw(0,0)--(0,-.5);
+\draw[<->](-1.5,-.3)--node[fill=white]{$r$}(0,-.3);
+\draw[|<->|](30:.2)--node[right]{$\ell$}+(180-63.43:3.35);
+\draw(3.5,0)--(3.5,-.5);\draw(5,0)--(5,-.5);
+\draw[<->](3.5,-.3)--node[fill=white]{$r$}(5,-.3);
+
+\draw(5,0)--(5+.5,0);\draw(5,3)--(5+.5,3);
+\draw[<->](5.3,0)--node[fill=white]{$h$}(5.3,3);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    如图2.51, 设圆锥、圆柱的高为$h$, 底面半径为$r$, 则
+\[\begin{split}
+    S_{\text{圆柱侧}}&=2\pi rh\\
+S_{\text{圆锥侧}} &=\pi r\ell=\pi r\sqrt{h^2+r^2}
+\end{split}\]
+根据已知条件，
+\[\begin{split}
+    2\pi rh&=\pi r\sqrt{h^2+r^2}\\
+\frac{h}{\sqrt{h^2+r^2}}&=\frac{1}{2}
+\end{split}\]
+即：$\cos\frac{\alpha}{2}=\frac{1}{2}$，$0^{\circ}<\alpha<180^{\circ}$
+
+$\therefore\quad \frac{\alpha}{2}=60^{\circ},\qquad \alpha=120^{\circ}$
+
+答：轴截面顶角等于$120^{\circ}$.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 正四棱锥的底面边长是$a$, 高是$2a$, 计算它的全面积。
+    \item 一个正三棱锥的侧面都是直角三角形，底面边长是$a$, 
+    求它的全面积。
+    \item 圆锥母线和底面夹角是$30^{\circ}$, 求它的侧面展开图的圆心
+    角。
+    \item 将半径为$r$的薄圆铁板沿它的三条半径截成全等的三个
+    扇形，作成三个圆锥筒，求圆锥筒的高（不计接头）。
+    \item 
+    将一个半圆卷成圆锥的侧面，求这圆锥母线和高的夹
+    角。
+    \item 求底面边长为$2a$, 高为$2a$的正四棱锥的内切圆锥的侧面
+    积。
+    \item 已知正三棱锥$V-ABC$, 底
+    面每边长为$a$, 侧棱和底面
+    所成的角为$45^{\circ}$, 求它的全
+    面积。
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/6ti.png}
+    \caption*{第6题}
+\end{figure}
+
+\subsection{棱台和圆台的侧面积和全面积 }
+棱台的每个侧面都是梯形，所有这些侧面面积之和就
+是棱台的侧面积，棱台的全面积
+等于它的侧面积和两个底面积的
+和。
+
+如果棱台是正棱台，那么它的每个侧面都是全等的等腰
+梯形，设它的上、下底边长分别是$a'$和$a$, 边数是$n$, 斜高是
+$h'$, 那么它的侧面积是
+\[n\cdot \frac{1}{2}(a'+a)h'=\frac{1}{2}(na+na')h'\]
+
+由于$na'$、$na$分别是上、下底的周长，设$na'=p'$, 
+$na=p$, 我们就得到下面定理。
+
+\begin{blk}
+   {定理} 如果正棱台的上、下底的周长分别为$p'$和$p$, 斜
+高是$h'$, 那么它的侧面积的计算公式是 
+\[S_{\text{正棱台侧}}=\frac{1}{2}(p+p')h'\]
+\end{blk}
+
+显然，在正棱台的侧面积计算公式中，如果$p'=p$, 就
+得到正棱柱的计算公式：
+\[S_{\text{正棱柱侧}}=ph'\]
+这里$h'$为高。
+
+如果$p'=0$, 就得到正棱锥的侧面积计算公式：
+\[S_{\text{正棱锥侧}}=\frac{1}{2}ph'\]
+
+\begin{blk}
+   {推论} 正棱台的全面积等于它的侧面积和两个底面积的
+和。 
+\end{blk}
+
+圆台的侧面展开图以看成是两个圆锥侧面展开图的
+差，通常把这种图形叫做扇环。如图2.52所示。
+
+
+
+圆台的侧面展开图是一个大扇形去掉一个小扇形。大扇
+形的弧长是圆台下底的圆周长$C_1$, 小扇形弧长是圆台上底圆
+周长$C$, 设圆台的母线$AA_1=\ell$, 上、下底半径分别是$R_1$和
+$R$, 于是
 
 
 
@@ -2128,6 +2905,27 @@ N$）
 
 
 
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+
+\begin{solution}
+    
+\end{solution}
+
+
+\begin{solution}
+    
+\end{solution}
 
 
 
@@ -2135,13 +2933,30 @@ N$）
 
 
 
+\begin{ex}
+\begin{enumerate}
+    \item 正四棱台两底面边长分别为8m和2m, 高是4m, 求它的
+    全面积。
+    \item 正三棱台的两底的边长分别为6dm和12dm, 高为1dm,
+    求它的侧面积。
+    \item 一个正三棱台的上、下底面的边长分别是$a,b$, 侧面与
+    底面成$60^{\circ}$的二面角，求它的全面积。
+    \item 正四棱台的上、下两底面边长分别为$a,b$, 其侧面面积
+    等于两底面积之和，求此棱台的高。
+    \item 一个圆台的高为3cm, 一个底面半径是另一个底面半径
+    的2倍，母线和下底的夹角为$45^{\circ}$, 求它的侧面积．
+    \item 一个圆台的全面积等于$572\pi{\rm cm^2}$, 两底半径分别是6cm和14cm, 求这圆台的高。
+\end{enumerate}
+\end{ex}
 
+\subsection{球面积和它的部分面积} 
 
-
-
-
-
-
+前面我们求圆柱、圆锥，
+圆台的侧面积公式都是利用它们的展开图求出的，由于球面
+不能展成平面图形，所以球的表面积计算公式无法用展开图
+求出，我们得另想计算方法。古希腊的几何学家欧都克斯为
+我们提供了一个在数学上非常有应用价值的逼近法来解决这
+个问题。
 
 
 
