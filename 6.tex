@@ -987,53 +987,388 @@ $e=1$时是抛物线}，定点叫做圆锥曲线的焦点，定直线叫做
 “切线”，直线$\ell_2$虽与曲线有两个公共点，但它与曲线“相
 切”。
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\includegraphics[scale=.7]{fig/6-16.png}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\includegraphics[scale=.7]{fig/6-17.png}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
+下面我们来阐述一般曲线的切线的定义，并由这个定义
+推导圆锥曲线的切线方程。
 
+\begin{blk}
+   {定义} 设$P_1$为曲线上一点，过$P_1$引割线$P_1P_2$交曲线
+于另一点$P_2$, 当$P_2$沿曲线无限趋近于点$P_1$时，割线$P_1P_2$
+的极限位置$P_1T$叫做曲线在$P_1$点的切线（图6.17）。 
+\end{blk}
 
+已知椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$，
+设$P_1(x_1,y_1)$是椭圆上一定点，$P_2(x_2,y_2)$是椭圆上任
+一点，则椭圆的割线$P_1P_2$的方程为
+\begin{equation}
+    y-y_1=\frac{y_2-y_1}{x_2-x_1}(x-x_1)=\frac{y^2_2-y^2_1}{(x_2-x_1)(y_2+y_1)}(x-x_1)
+\end{equation}
+由于点$P_1(x_1,y_1)$, $P_2(x_2,y_2)$都在已给的椭圆上，
+所以
+\[y^2_1=b^2\left(1-\frac{x^2_1}{a^2}\right),\qquad y^2_2=b^2\left(1-\frac{x^2_2}{a^2}\right)\]
+两式相减得
+\[y_2^2-y_1^2=\frac{b^2}{a^2}(x^2_2-x^2_1)\]
+代入(6.12)化简即可得
+\[y-y_1=\frac{b^2}{a^2}\cdot \frac{x_2+x_1}{y_2+y_1}(x-x_1)\]
+当$P_2$与$P_1$重合时，即$x_2=x_1$, $y_2=y_1$, 上式变为
+\[y-y_1=\frac{b^2}{a^2}\cdot \frac{x_1}{y_1}(x-x_1)\]
+或
+\[\frac{x_1x}{a^2}+\frac{y_1y}{b^2}=\frac{x_1^2}{a^2}+\frac{y_1^2}{b^2}\]
+即：
+\begin{equation}
+    \boxed{\frac{x_1x}{a^2}+\frac{y_1y}{b^2}=1}
+\end{equation}
+(6.13)式就是椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$
+在点$P_1(x_1,y_1)$的切线方程。
 
+同理可证，双曲线
+$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$
+在点$P_1(x_1,y_1)$处的切线方程为
+\begin{equation}
+    \boxed{\frac{x_1x}{a^2}-\frac{y_1y}{b^2}=1}
+\end{equation}
 
+抛物线$y^2=2px$在点$P_1(x_1,y_1)$处的切线方程为
+\begin{equation}
+    \boxed{y_1y=p(x+x_1)}
+\end{equation}
 
+经过切点$P_1(x_1,y_1)$与切线垂直的直线叫做曲线在点
+$P_1$的\textbf{法线}。
 
-
+根据法线的定义可知，法线的方向向量可取切线的法向
+量，因此可得椭圆、双曲线、抛物线的在$P_1(x_1,y_1)$点的
+法线方程分别为
+\begin{align}
+    \frac{x-x_1}{b^2x_1}&=\frac{y-y_1}{a^2y_1}\\
+    \frac{x-x_1}{b^2x_1}&=\frac{y-y_1}{-a^2y_1}\\
+    \frac{x-x_1}{p}&=\frac{y-y_1}{-y_1}
+\end{align}
 
 
 \begin{example}
-    
+    求椭圆：$2x^2+3y^2=35$在其上一点$P(2,3)$
+的切线方程。
+\end{example}
+
+\begin{solution}
+    已知椭圆化为标准方程为
+\[\frac{x^2}{\dfrac{35}{2}}+\frac{y^2}{\dfrac{35}{3}}=1\]
+所以，已知椭圆在点$P(2,3)$的切线方程为
+\[\frac{2x}{\dfrac{35}{2}}+\frac{3y}{\dfrac{35}{3}}=1\]
+整理得：$4x+9y=35$
+\end{solution}
+
+\begin{example}
+    设双曲线$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$
+在其上任一点$P_0(x_0,y_0)$的切线与双曲线的两条渐近线分别相交于$A$、$B$两点（图6.18），求证$\triangle OAB$的面积等于常数$ab$.
 \end{example}
 
 
 
 \begin{solution}
-    
+已知双曲线在$P_0(x_0,y_0)$的切线方程为
+\[\frac{x_0x}{a^2}-\frac{y_0y}{b^2}=1\]
+将它分别与渐近线方程$y=-\frac{b}{a}x$,
+$y=\frac{b}{a}x$联立求解，就可分别得到
+\[A\left(\frac{a^2b}{bx_0+ay_0},\frac{-ab^2}{bx_0+ay_0}\right),\qquad B\left(\frac{a^2b}{bx_0-ay_0},\frac{ab^2}{bx_0-ay_0}\right)\]
+所以
+\[\begin{split}
+    S_{\triangle OAB}&=\frac{1}{2}\begin{vmatrix}
+        \frac{a^2b}{bx_0+ay_0}& \frac{-ab^2}{bx_0+ay_0}\\
+        \frac{a^2b}{bx_0-ay_0}& \frac{ab^2}{bx_0-ay_0}
+\end{vmatrix}\\
+&=\frac{1}{2}\left(\frac{a^3b^3}{b^2x^2_0-a^2y_0^2}+\frac{a^3b^3}{b^2x^2_0-a^2y_0^2}\right)\\
+&=\frac{a^3b^3}{b^2x^2_0-a^2y_0^2}=\frac{a^3b^3}{a^2b^2}=ab
+\end{split}\]
 \end{solution}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+ \draw[->](-1,0)--(4,0)node[right]{$X$};
+\draw[->](0,-3)--(0,3)node[right]{$Y$};    
+\node at (0,0)[below left]{$O$};
+\draw(3,3)--(0,0)--(3,-3);
+\draw[domain=-2.5:2.5, samples=100, thick]plot({sqrt(1+\x*\x)},\x);
+\draw[domain=-.5:3, samples=10, thick]plot(\x, {-0.89+1.34*\x});
+
+\tkzDefPoints{1.5/1.12/P_0, .38/-.38/A, 2.62/2.62/B}
+\tkzDrawPoints(P_0,A,B)
+\tkzLabelPoints[right](P_0)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below](A)
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+ \draw[->](-2,0)--(3,0)node[right]{$X$};
+\draw[->](0,-3)--(0,3)node[right]{$Y$};    
+\node at (0,0)[below left]{$O$};\node at (-.5,0)[below left]{$T$};
+\draw(-.5,-2.5)--(-.5,2.5);
+\draw[domain=-2.2:2.2, samples=100, thick]plot({0.5*\x*\x}, \x);      
+\draw(-1,1.414)--(2.5,1.414)node[right]{$E$};
+\tkzDefPoints{1/1.414/M, 0.5/0/F, 2/0/N, 2.5/1.414/E}
+\tkzDrawSegments(M,F M,N)
+\tkzDrawPoints(M,F,N)
+\tkzLabelPoints[below](F,N)\tkzLabelPoints[above](M)
+\draw[domain=-2:3, samples=100]plot(\x, {0.707*\x+0.707});  
+\tkzMarkAngles[mark=none, size=.3](M,N,F F,M,N)
+\tkzMarkAngles[mark=none, size=.4](N,M,E)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
 \begin{example}
+    设$F$是抛物线$y^2=2px$的焦点，$M$是抛物线上任
+    一点，$MT$是抛物线在点$M$的切线，$MN$是法线并与$X$轴相
+    交于$N$点，直线$ME$平行$X$轴（图6.19),
     
+    求证：$\angle FMN=\angle NME$.
 \end{example}
 
-
-
 \begin{solution}
-    
+设$M(x_1,y_1)$, 则由在$M$点的切线方程可得在
+$M$点的法线方程为
+\[y-y_1=-\frac{y_1}{p}(x-x_1)\]
+令$y=0$，
+得$N(x_1+p,0)$, 
+所以
+\[\overline{FN}=x_1+p-\frac{p}{2}= x_1+\frac{p}{2}\]
+又由抛物线的定义可知，$\overline{MF}$等于$M$点到准线$x=-\frac{p}{2}$的距离，即
+\[\overline{FM}=x_1+\frac{p}{2}\]
+所以
+$\overline{FN}=\overline{FM},\quad \angle FMN=\angle FNM$, 
+但$\angle FNM=\angle NME$，
+所以
+\[\angle FMN=\angle NME\]
 \end{solution}
 
+例6.12所证结论告诉我们，如果一族平行光线照射到抛物
+线上，经抛物线反射都通过焦点，抛物线这种光学性质有许
+多用途，例如太阳能灶的聚光镜，把太阳光线（看作平行）
+集中到焦点上，在焦点产生高温，探照灯把放在焦点处光
+源发出的光线经镜面反射后成为平行光线等。
+
+我们同样可以证明，椭圆和双曲线具有如下性质。
+\begin{itemize}
+    \item 椭圆的法线平分切点与两个焦点连线所成的角（图6.20）。
+    \item 双曲线的法线平分切点与两个焦点连线所成角的邻补角
+（图6.21）。
+\end{itemize}
+
+我们把证明留给同学。作为练习。
+    
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\draw[->](-2.5,0)--(2.75,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2.5)node[right]{$Y$};
+\draw[thick](0,0) ellipse [x radius=2, y radius=1.25];        
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{1.5/0/F_2, -1.5/0/F_1, 1.25/0.976/M}
+\tkzDrawPoints(F_1,F_2,M)\tkzLabelPoints[below](F_1,F_2)
+\tkzLabelPoints[above](M)
+\tkzDrawSegments(F_1,M F_2,M)
+\draw[domain=-1:2.5, samples=10]plot(\x, {1.6-0.5*\x});
+\draw[domain=.76:1.25, samples=10]plot(\x, {2*\x-1.524});
+
+\tkzDefPoints{.76/0/S1}
+\tkzMarkAngle[mark=none, size=.35](F_1,M,S1)
+\tkzMarkAngle[mark=none, size=.45](S1,M,F_2)
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+\draw[->](-2.5,0)--(4.5,0)node[right]{$X$};
+\draw[->](0,-2.5)--(0,3)node[right]{$Y$};    
+\draw[domain=-2:2, samples=100, thick]plot({sqrt(1+\x*\x)}, \x);
+\draw[domain=-2:2, samples=100, thick]plot({-sqrt(1+\x*\x)}, \x);
+\tkzDefPoints{-1.414/0/F_1, 1.414/0/F_2, 2/1.732/M}
+\tkzDrawSegments(F_2,M)
+\tkzDrawLines[add=.25 and .35](F_1,M)
+\tkzLabelPoints[below](F_1, F_2)
+\tkzDrawPoints(F_1, F_2, M)
+\tkzLabelPoints[above left](M)
+\node at (0,0)[below left]{$O$};
+\draw[domain=.2:2.5, samples=10]plot(\x, {1.155*\x-0.577});
+\draw(M)--+(-40.9:3);
+\tkzDefPoints{4/0/S1, 2.828/2.15/S2}
+\tkzMarkAngle[mark=none, size=.35](F_2,M,S1)
+\tkzMarkAngle[mark=none, size=.5](S1,M,S2)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+    
+上述性质说明，椭圆和双曲线具有类似于抛物线的光学
+性质，由椭圆一个焦点射出的光线照射到椭圆上，经过反射
+后都通过另一焦点（图6.22），在双曲线一个焦点发出的
+光线，照射到双曲线上，经过反射，会使光线散开，如同光
+线从另一个焦点发出来的光线一样（图6.23）。
+
+    
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\draw[thick](0,0) ellipse [x radius=2, y radius=1.25];        
+\tkzDefPoints{1.5/0/F_2, -1.5/0/F_1}
+\tkzLabelPoints[right](F_1, F_2)
+\tkzDefPoints{-1/1.08/S1, -1/-1.08/S2, 0/1.25/S3, 0/-1.25/S4}
+\tkzDrawSegments[->](F_1,S1 F_1,S2 F_1,S3 F_1,S4 S1,F_2  S2,F_2  S3,F_2  S4,F_2)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2.5)node[right]{$Y$};   
+\draw[domain=-2:2, samples=100, thick]plot({sqrt(1+\x*\x)}, \x);
+\draw[domain=-2:2, samples=100, thick]plot({-sqrt(1+\x*\x)}, \x);
+\tkzDefPoints{-1.414/0/F_1, 1.414/0/F_2}
+\tkzDefPoints{-1.2/.66/S1, -1.4/.98/S2, -1.6/1.25/S3, -1.2/-.66/S4, -1.4/-.98/S5, -1.6/-1.25/S6}
+\tkzDrawSegments[dashed](F_2,S1 F_2,S2 F_2,S3 F_2,S4 F_2,S5 F_2,S6)
+\tkzDrawSegments[thick,->](F_1,S1 F_1,S2 F_1,S3 F_1,S4 F_1,S5 F_1,S6)
+\tkzLabelPoints[below](F_2)
+\tkzLabelPoints[below left](F_1)
+\node at (0,0)[below left]{$O$};
+\foreach \x in {1,2,...,6}
+{
+    \tkzDefPointWith[linear, K=1.5](F_2,S\x) \tkzGetPoint{D\x}
+\tkzDrawSegments[thick,->](S\x,D\x)
+}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{ex}
+\begin{enumerate}
+    \item 证明本小节的双曲线的切线方程(6.14)。
+    \item 证明本小节的抛物线的切线方程(6.15)。
+    \item 已知如下各曲线上一点的坐标，求在这点的切线和法线
+    方程。
+\begin{enumerate}
+    \item $\frac{x^2}{225}+\frac{y^2}{25}=1,\qquad (9,4)$
+    \item $2x^2+3y^2=14,\qquad (1,-2)$
+    \item $4x^2-y^2=15,\qquad (2,-1)$
+    \item $y^2=3x,\qquad (12,6)$
+\end{enumerate}
+
+    \item 求抛物线$y^2=4x$在点$(36,12)$的切线在$X$轴上的截
+    距。
+    \item 已知椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$
+  在$P_1(x_1,y_1)$的切线与过两顶
+    点$A_1,A_2$且垂直于$X$轴的两条直线分别相交于$C$、$D$
+    两点，求证：$\overline{A_1C}\cdot \overline{A_2D}=b^2$.
+    \item 求证：双曲线两条渐近线之间的切线段被切点等分。
+\end{enumerate}
+\end{ex}
+
+\subsection{圆锥曲线的直径}
+\begin{blk}
+  {定义} 通过椭圆（双曲线）中心的直线，叫做\textbf{椭圆（双
+曲线）的直径}，与抛物线的轴平行的直线叫做\textbf{抛物线的直径}。
+
+如果一条直线与圆锥曲线相交于两点，那么交点间的线
+段叫做\textbf{圆锥曲线的弦}（图6.24）。  
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+
+    \caption{}
+\end{figure}
 
 
+\begin{blk}
+  {定理} 圆锥曲线的平行弦的中点在直径上。
+\end{blk}
 
+我们以椭圆为例加以证明，关于双曲线和抛物线的情况
+留给同学作为练习。
 
+已知椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$, 求证它的一族平行弦的中点在它的一条直径上（图6.24(1)）。
 
+\begin{proof}
+    如果平行弦垂直于对称轴，那么，由椭圆的对称
+性，定理显然成立。我们来证明一般情况。
+设平行弦所在的平行线系方程为
+$y=kx+c,\qquad k\ne 0$。
+代入已知椭圆方程整理得
+\[(b^2+a^2k^2)x^2+2a^2kcx+a^2(c^2-b^2)=0\]
+设这个二次方程的两个根为$x_1,x_2$, 则：
+\[x_1+x_2=-\frac{2a^2kc}{b^2+a^2k^2}\]
+因此平行弦中点的横坐标
+\[x=\frac{x_1+x_2}{2}=-\frac{a^2kc}{b^2+a^2k^2}\]
+代入直线系方程得中点的纵坐标
+\[y=-\frac{b^2c}{b^2+a^2k^2}\]
+于是
+\[\frac{y}{x}=-\frac{b^2}{a^2k}\]
+所以平行弦中点的坐标都在直线$y=-\frac{b^2}{a^2k}x$
+上，这条直线通过椭圆中心，因此它是椭圆的直径。
+\end{proof}
 
+已知椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$的一族平行弦平行于直径$y=kx$，则直径$y=k'x,\quad \left(k'=-\frac{b^2}{a^2k}\right)$
+叫做$y=kx$的\textbf{共轭直径}。
 
+上述定理也就是说，与一条直径平行的弦的中点都在它
+的共轭直径上。显然直径的共轭性是相互的（图6.25）。
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+       
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+      
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
+\begin{example}
+    $P_0(x_0,y_0)$是椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$与它的一条
+直径$y=kx$的交点，求证椭圆在$P_0(x_0,y_0)$的切线平行于
+这条直径的共轭直径（图6.26）。
+\end{example}
 
-
-
-
-
-
-
-
+\begin{proof}
+    椭圆在$(x_0,y_0)$点的切线方程是$\frac{x_0x}{a^2}+\frac{y_0y}{b^2}=1$，它的斜率$k'=-\frac{x_0b^2}{a^2y_0}$，
+    但$(x_0,y_0)$在已知直径上，所以
+\[\frac{y_0}{x_0}=k,\qquad k'=-\frac{b^2}{a^2k}\]
+又已知直径$y=kx$的共轭直径是
+$y=-\frac{b^2}{a^2k}x$，所以切线
+与共轭直径平行。
+\end{proof}
 
 
 \begin{ex}
@@ -1161,8 +1496,202 @@ $X$轴的垂线，设垂足为$N$, 求证：
 $P$的新坐标$(x',y')$与原坐标
 $(x,y)$之间的关系（图6.27）。
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw[->](-1,0)--(3,0)node[right]{$X$};
+\draw[->](-1,1)--(3,1)node[right]{$X'$};
+\draw[->](0,-1)--(0,4)node[right]{$Y$};
+\draw[->](1,-1)--(1,4)node[right]{$Y'$};
+\node at (0,0)[below left]{$O$};
+\node at (1,1)[below right]{$O'$};
+\draw[->, thick](0,0)--(1,1);
+\draw[->, thick](0,0)--(2.1,3.3)node[right]{$P$};
+\draw[->, thick](1,1)--(2.1,3.3);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+设$O'$在坐标系$OXY$中的
+坐标为$(h,k)$, 则在坐标系$OXY$中
+\[\Vec{OO'}=(h,k),\qquad \Vec{OP}=(x,y),\qquad \Vec{O'P}=(x',y')\]
+因为$\Vec{OP}=\Vec{OO'}+\Vec{O'P}$，所以
+\[(x,y)=(h,k)+(x',y')\]
+即：
+\begin{equation}
+    x=x'+h,\qquad y=y'+k
+\end{equation}
+或
+\begin{equation}
+    x'=x-h,\qquad y'=y-k
+\end{equation}
+公式(6.19), (6.20)叫做\textbf{平移公式}或\textbf{移轴公式}。
 
 
+\begin{example}
+    给定一坐标系$OXY$, 平移坐标轴，原点移到
+    $O'(3,2)$, 求$A(5,6)$的新坐标。
+\end{example}
+
+\begin{solution}
+把$A$、$O'$点的坐标代入平移公式(6.20), 得
+    \[x'=5-3=2,\qquad y'=6-2=4\]
+    即点$A$在新坐标系$O'X'Y'$中的坐标为$(2,4)$.     
+\end{solution}
+
+
+
+\begin{example}
+    平移坐标轴，化简圆的方程$x^2+y^2+2x-6y+6=0$
+\end{example}
+
+\begin{solution}
+    把已知圆的方程配方得
+\begin{equation}
+    (x+1)^2+(y-3)^2=4
+\end{equation}
+设它上面任一点的新坐标为
+$(x',y')$, 平移坐标轴使
+\[x'=x+1,\qquad y'=y-3\]
+即：$x=x'-1,\qquad y=y'+3$，代入(6.21)，得到新方程为(图6.28)
+\[{x'}^2+{y'}^2=4\]
+\end{solution}
+
+从例6.15可以看出，适当地
+变换坐标系，可以使曲线的方程简化。由于曲线的几何性质
+与我们选取的坐标系无关。所以，我们研究曲线时，总是想
+法选择能使曲线方程最为简单的坐标系，以便于我们研究曲
+线的性质。
+
+\begin{example}
+    
+\end{example}
+
+
+
+\begin{solution}
+    
+\end{solution}
+
+
+
+
+
+\begin{example}
+    
+\end{example}
+
+
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+
+
+\begin{solution}
+    
+\end{solution}
+
+
+
+
+
+
+
+\begin{example}
+    
+\end{example}
+
+
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+
+
+\begin{solution}
+    
+\end{solution}
+
+
+\begin{ex}
+\begin{enumerate}
+    \item 写出下列平移坐标轴，使原点移到$(h,k)$, 再旋转$\theta$角的一般坐标变换公式：
+\begin{enumerate}
+    \item $(h,k)=(1,1),\qquad \theta=\frac{\pi}{4}$
+    \item $(h,k)=(-5,-3),\qquad \theta=120^{\circ}$
+    \item $(h,k)=(0,3),\qquad \theta=-\frac{\pi}{2}$
+\end{enumerate}
+
+\item 给定坐标系$OXY$, 移轴使原点移到$O'(2,1)$, 再旋
+    转$\frac{\pi}{4}$
+    角，写出曲线在新坐标系中的方程：
+\begin{enumerate}
+    \item $2x-y-3=0$
+    \item $x^2+6xy+y^2-10x-14y+9=0$
+\end{enumerate}
+\item     讨论线性分式函数$y=\frac{x+1}{x-1}$
+的图象。
+\item 取两条互相垂直的直线$x+2y+1=0$, $2x-y-3=0$, 
+作新坐标轴，写出坐标变换公式。
+\end{enumerate}
+\end{ex}
+
+\subsection*{习题6.2}
+\begin{enumerate}
+    \item 给定坐标系$OXY$, 已知$P(2,1)$, 移轴将原点分别移
+    到下列各点，求$P$点的新坐标。
+\begin{multicols}{3}
+    \begin{enumerate}
+        \item $(0,3)$
+        \item $(3,4)$
+        \item $(-2,-6)$
+    \end{enumerate}
+\end{multicols}
+
+    \item 一定点$P$在坐系$OXY$与$O'X'Y'$中的坐标分别是
+    $(2,5)$, $(-4,3)$且两坐标系的坐标轴方向相同，
+    试求每一坐标系的原点相对于另一坐标系中的坐标。
+    \item 利用配方因式分解证明下列各方程都表示一对直线，并
+    作平移变换，化简这些方程：
+\begin{enumerate}
+\item $x^2-y^2-4x+6y-5=0$
+\item $4x^2-9y^2+8x+18y-5=0$
+\item $4x^2-16y^2-12x+9=0$
+\end{enumerate}
+
+    \item 转轴到怎样的角度后，才可使点$(2,0)$的两个坐标分
+    量相等。
+    \item 利用移变换消去方程$xy-x-y=1$中的一次项。
+    \item 证明：方程$x^2+y^2=r^2$不因旋转坐标轴而变形。
+    \item 取两条互相垂直的直线
+  \[  ax+by+c_1=0,\qquad -bx+ay+c_2=0\]
+    作新坐标系的坐标轴，建立新旧坐标系的变换公式。
+    \item 取直线$x+y=0$, $x-y=0$, 分别为新坐标系的
+    $X'$轴和$Y'$轴，求在新坐标系下曲线$x^2-y^2=a^2$的方程。
+\end{enumerate}
+
+\section{一般二元二次方程的讨论}
+\subsection{在坐标变换下二元二次方程系数的变换}
+一般二元二次方程可写为如下形式
+\begin{equation}
+    Ax^2+2Bxy+Cy^2+2Dx+2Ey+F=0
+\end{equation}
+方程的系数$A$、$B$、$C$中至少有一个不等于零，系数中析出
+因子2, 是为了以后演算的方便。凡坐标满足方程（1)的点
+的轨迹叫做\textbf{二次曲线}。
+
+对方程（1), 我们进行平移和旋转变换，令
 
 
 
@@ -1357,7 +1886,7 @@ $\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$在$P$点的法线分别与$X$轴，$Y$轴
 角。
 \item 求椭圆$\frac{x^2}{6}+\frac{y^2}{3}=1$
 的外切正方形的边长。
-\item 已知椭圆的轴平行于坐标轴且与X轴相切于点$(7,0)$, 
+\item 已知椭圆的轴平行于坐标轴且与$X$轴相切于点$(7,0)$, 
 与$Y$轴相切于点$(0,4)$. 求这椭圆的方程。
 \item 在抛物线$x^2=ay\; (a>0)$上求一点$N$, 使它到$M(0,ka)$
 （$k>0$且为定值）的距离最小；又当$a$变化时，求$N$点的

@@ -50,13 +50,169 @@ $(x,y,z)$叫$P$点的\textbf{空间坐标}。简称坐标。$P$
 记作$P(x,y,z)$. $x$、$y$、$z$分别叫做$P$点
 的$X$坐标，$Y$坐标，$Z$坐标。
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+    \draw[->](0,2.6)--(0,4)node[right]{$Z$};
+    \draw[->](0,0)--(4.5,0)node[right]{$Y$};  
+    \draw[->](0,0)--(-1.5,-1.5)node[left]{$X$};
+\draw[->, very thick](0,0)--node[right]{$\eZ$}(0,1);
+\draw[->, very thick](0,0)--(1,0)node[below]{$\eY$};
+\draw[->, very thick](0,0)--(-.5,-.5)node[right]{$\eX$};
+\node at (0,0)[below right]{$O$};
+\tkzDefPoints{-1/1/A, 2/1/B, 3.3/1.75/C, .3/1.75/D, -1/2/A'}
+\tkzDefPointsBy[translation = from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon[thick](A',B',C',D')
+\tkzDrawPolygon[dashed](A,B,C,D)
+\tkzDrawSegments[dashed](D,D')
+\tkzDrawSegments[thick](A,A' B,B'  A,B)
+\draw[dashed](0,1)--(0,2.6);
+\draw[very thick, ->](B)--node[below]{$a_x\eX$}(C);
+\draw[very thick, ->](C)--node[right]{$a_z\eZ$}(C');
+\draw[very thick, ->](C')--node[above]{$a_y\eY$}(D');
+\draw[thick, ->, dashed](B)--node[below]{$\vec{a}$}(D');
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+如果沿$X$轴、$Y$轴、$Z$轴的正方向分别引单位向量$\eX$、$\eY$、$\eZ$(图8.3), 那么对空间任一向量$\vec{a}$, 存在唯一的有序数组
+$(a_x,a_y,a_z)$使
+\[\vec{a}=a_x\eX+a_y\eY+a_z\eZ\]
+$(a_x,a_y,a_z)$就叫做$\vec{a}$在
+$OXYZ$中的坐标。并简记作
+\[\vec{a}=(a_x,a_y,a_z)\]
+其中$a$叫做$\vec{a}$在$X$轴上的坐标分量。
+$a_y$叫做$\vec{a}$在$Y$轴上的坐标分量。$a_z$叫做$\vec{a}$在$Z$轴上的坐标分量。
+
+如果$\vec{a}=a_x\eX+a_y\eY+a_z\eZ$，那么分别对这个表示式两
+边对$\eX,\eY,\eZ$取内积运算，就可得到
+\[\begin{split}
+    a_x&=\eX\cdot \vec{a}=|\vec{a}|\cos\langle \eX,\vec{a} \rangle \\
+    a_y&=\eY\cdot \vec{a}=|\vec{a}|\cos\langle \eY,\vec{a} \rangle \\
+    a_z&=\eZ\cdot \vec{a}=|\vec{a}|\cos\langle \eZ,\vec{a} \rangle \\
+\end{split}\]
+
+如果$\langle \eX,\vec{a} \rangle=\alpha$, $\langle \eY,\vec{a} \rangle=\beta$, $\langle \eZ,\vec{a} \rangle=\gamma$, 那
+么$\alpha$、$\beta$、$\gamma$确定了$\vec{a}$在空间中的方向。$\alpha$、$\beta$、$\gamma$叫做
+$\vec{a}$的方向角，$\cos\alpha$、$\cos\beta$、$\cos\gamma$叫做$\vec{a}$的方向余弦，于是
+$\vec{a}$的单位向量
+\[\vec{a}_0=(\cos\alpha, \cos\beta, \cos\gamma)\]
+
+对空间任一点$P$, 它被相对于$O$点的位置向量所唯一确
+定（图8.4）。设
+\[\Vec{OP}=x\eX+y\eY+z\eZ\]
+由上述点的坐标和向量坐标的定
+义，$\Vec{OP}$的坐标$(x,y,z)$
+也就是$P$点的坐标；反之$P$点的
+坐标也是$\Vec{OP}$的坐标。由此可
+见，给定了原点$O$和三个互相垂
+直且构成右手系的单位向量$\eX,\eY,\eZ$，坐标系$OXYZ$也就完全确定了。因此，坐标系
+$OXYZ$也可用$[O:\eX,\eY,\eZ]$来表示，$\eX,\eY,\eZ$叫
+做$OXYZ$的基向量。
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\tkzDefPoints{0/0/A, 2/0/B, 2/2.5/C, 0/2.5/D, -.8/-.8/A'}
+\tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawPolygon[dashed](A,B,C,D)
+\tkzDrawSegments(B,C C,D B,B' C,C' D,D')
+\tkzDrawSegments[dashed](A,B A,D  A,A')
+\draw[->](A')--(-1.5,-1.5)node[left]{$X$};
+\draw[->](B)--(3,0)node[right]{$Y$};
+\draw[->](D)--(0,3.5)node[right]{$Z$};
+\draw[->, dashed](A)--(C');
+\draw[->, very thick](0,0)--(0,1)node[left]{$\eZ$};
+\draw[->, very thick](0,0)--node[above]{$\eY$}(1,0);
+\draw[->, very thick](0,0)--(-.5,-.5)node[above]{$\eX$};
+\node at (0,0)[below right]{$O$};
+\node at (C')[right]{$P$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+已知$A(x_1,y_1,z_1)$, $B(x_2,y_2,z_2)$, 则：
+\[\begin{split}
+   \Vec{AB}&=\Vec{OB}-\Vec{OA}\\
+&=x_2\eX+y_2\eY+z_2\eZ-(x_1\eX+y_1\eY+z_1\eZ)\\
+&=(x_2-x_1)\eX+(y_2-y_1)\eY+(z_2-z_1)\eZ\\
+&=(x_2-x_1, y_2-y_1, z_2-z_1)
+\end{split}\]
+这就是说\textbf{一个向量的坐标，等于表示它的有向线段终点的坐
+标减去起点的坐标}。例如，已知$A(2,-1,5)$、$B(3,
+2,-7)$, 则
+\[\Vec{AB}=[3-2,\; 2-(-1),\; -7-5]=(1,3,-12)\]
+
+\begin{ex}
+\begin{enumerate}
+    \item 问在$OXYZ$中，哪个坐标平面与$X$轴垂直，哪个坐标
+    平面与$Y$轴垂直，哪个坐标平面与$Z$轴垂直？
+    \item 写出点$P(2,4,3)$在$OXYZ$的三个坐标平面上投
+    影点的坐标。
+    \item 求点$P(3,5,4)$关于坐标平面$OXY$的对称点的坐
+    标。
+    \item 点$P$在$OXYZ$中的坐标平面$OXY$上，若$P$点在平面
+    直角坐标系$OXY$中的坐标是$(2,3)$, 求它在
+    $OXYZ$中的坐标。
+    \item 写出基向量$\eX,\eY,\eZ$的坐标。
+    \item 已知$\vec{a}=12$, $\langle\eX ,\vec{a}\rangle=30^{\circ}$, $\langle\eY ,\vec{a}\rangle=45^{\circ}$, $\langle\eZ ,\vec{a}\rangle=60^{\circ}$，
+求$\vec{a}$的坐标。
+    \item 已知$P(-3,2,4)$, $Q(5,7,-2)$, 求$\Vec{PQ}$与$\Vec{QP}$的坐标。
+    \item 已知$A(2,-1,5)$, $B(3,2,-1)$用基向量$\eX,\eY,\eZ$表示向量$\Vec{AB}$.
+\end{enumerate}
+\end{ex}
 
+\subsection{向量的坐标运算}
 
+\begin{blk}{定理}
+     如果$\vec{a}=(a_x,a_y,a_z)$, $\vec{b}=(b_x, b_y,b_z)$, 
+$\vec{c}=(c_x,c_y,c_z)$, 那么
+\[\begin{split}
+    \vec{a}\pm \vec{b}&=(a_x,a_y,a_z)\pm (b_x,b_y,b_z)
+=(a_x\pm b_x,a_y\pm b_y,a_z\pm b_z)\\
+\lambda\vec{a}&=\lambda(a_x, a_y,a_z)=(\lambda a_x,\lambda 
+a_y,\lambda a_z)\\
+\vec{a}\cdot \vec{b}&=(a_x, a_y, a_z)\cdot (b_x,b_y,b_z)
+=a_xb_x+a_yb_y+a_zb_z\\
+\end{split}\]
+\[\vec{a}\x \vec{b}=\begin{vmatrix}
+  \eX&\eY&\eZ\\
+  a_x&a_y&a_z\\
+  b_x&b_y&b_z  
+\end{vmatrix},\qquad \left(\vec{a},\vec{b},\vec{c}\right)=\begin{vmatrix}
+    a_x&a_y&a_z\\
+    b_x&b_y&b_z\\  
+    c_x&c_y&c_z
+\end{vmatrix}\]
+\end{blk}
 
 
+证明留给同学作为练习。
 
+下面我们研究如何用向量的坐标来表示向量垂直、平行
+与共面的条件。
 
+已知$\vec{a}\parallel \vec{b}\quad (\vec{b}\ne 0)$的充要条件是存在一实数$\lambda$，使
+$$\vec{a}=\lambda\vec{b}$$
+如果
+$\vec{a}=(a_x,a_y,a_z)$, $\vec{b}=(b_x,b_y,b_z)$, 那么上面
+条件用坐标表示，即为
+\begin{equation}
+    a_x=\lambda b_x,\qquad  a_y=\lambda b_y,\qquad  a_z=\lambda b_z
+\end{equation}
+或
+\begin{equation}
+    a_x:b_x=a_y:b_y=a_z:b_z
+\end{equation}
+这就是说\textbf{两个向量平行的充要条件是它们的坐标成比例}。
 
+已知$\vec{a}\bot \vec{b}\quad \Longleftrightarrow \quad \vec{a}\cdot \vec{b}=0$
+用坐标表示，即为
+\begin{equation}
+    \vec{a}\bot \vec{b}\quad \Longleftrightarrow \quad a_xb_x+a_yb_y+a_zb_z=0
+\end{equation}
 
 
 
@@ -213,64 +369,184 @@ $(x,y,z)$叫$P$点的\textbf{空间坐标}。简称坐标。$P$
 
 
 
+\begin{ex}
+\begin{enumerate}
+    \item 求通过点$P_0(-1,2,-3)$且平行于向量$\vec{s}=(2,3,-5)$
+    的直线方程。
+    \item 求通过$P_0(2,3,1)$, $P_1(-1,-2,3)$的直线方程。
+    \item 求通过点$(2,3,1)$且和$X$轴平行的直线方程。
+    \item 求过点$(2,-3,7)$, 其方向向量为$(2,0,3)$的直
+    线方程。
+    \item 求直线$2x-6=4-y=2-5$的方向向量。
+    \item 求平行于两平面$x-2y+5z+2=0$和$3x+y-z
+    +5=0$的交线，且通过原点的直线方程。
+\end{enumerate}
+\end{ex}
 
 
+\subsection{球面方程}
+空间一动点$P(x,y,z)$在以$A(a,b,c)$为球
+心，$R$为半径的球面上的充要条件是
+\[|\Vec{OP}-\Vec{OA}|=R\]
+或
+\[(\Vec{OP}-\Vec{OA})\cdot (\Vec{OP}-\Vec{OA})=R^2\]
+换用坐标表示，条件可写为
+\begin{equation}
+    (x-a)^2+(y-b)^2+(z-c)^2=R^2
+\end{equation}
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw[<->](0,4)node[right]{$Z$}--(0,0)node[below right]{$O$}--(3.5,0)node[right]{$Y$};
+\draw[->](0,0)--(-1,-1)node[right]{$X$};
+\tkzDefPoints{1.5/1.75/A, 0/0/O, 1/2.62/P}
 
+\draw[thick](A) circle (1);
+\draw[dashed](A) ellipse[x radius=1, y radius=.4];
+\draw[thick](2.5,1.75) arc [x radius=1, y radius=.4,start angle =0, end angle =-180];
+\tkzDrawSegments[dashed, ->](O,P A,P O,A)
+\tkzLabelPoints[right](A)
+\tkzLabelPoints[above](P)
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
 
+方程(8.10)就是以$A(a,b,c)$为球心，以$R$为半径的\textbf{球面
+方程}。当$A$点在原点，球面方程变为
+\[    x^2+y^2+z^2=R^2\]
 
 
 
+\begin{ex}
+\begin{enumerate}
+    \item 求以$A(1,2,-2)$为球心，3为半径的球面方程。
+    \item 求球心在原点，半径等于5的球面方程。
+    \item 设一动点$Q$在以$A(0,4,0)$为球心，2为半径的球面
+    上变动，求$\overline{OQ}$中点的轨迹。
+\end{enumerate}
+\end{ex}
 
+\subsection*{习题8.2}
+\begin{enumerate}
+    \item 求满足以下条件的平面方程。
+\begin{enumerate}
+\item 通过点$P_0(5,3,4)$且垂直于向量$\vec{n}=(1,1,1)$;
+\item 通过坐标原点且垂直于$\vec{n}=\left(-\frac{1}{3},\frac{2}{3},-\frac{2}{3}\right)$；
+\item 垂直于$\vec{n}=\left(\frac{1}{2},\frac{\sqrt{3}}{2},0\right)$且与原点的距离等于5.
+\end{enumerate}
 
+    \item 说出如下方程表示的平面的几何特征。
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $x=2$ \item $x=y$ \item $x+y+z=1$
+\end{enumerate}
+\end{multicols}
 
+    \item 求证通过三点$A(a,0,0)$, $B(0,b,0)$, $C(0,
+    0,c)$的平面方程为
+\[\frac{x}{a}+\frac{y}{b}+\frac{z}{c}=1\] 
 
+\item 如图，试写出长方体$ABC
+D-A'B'C'D'$的各侧面，底面的平面方程以及各
+棱所在的直线方程。已知
+$\overline{AB}=a$, $\overline{AD}=b$, 
+$\overline{AA'}=c$.
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=1.3]
+    \tkzDefPoints{0/0/A, -.5/-.5/B, 1/-.5/C, 1.5/0/D, 0/2/A'}
+    \tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+    \tkzDrawPolygon[thick](A',B',C',D')
+    \tkzDrawPolygon[dashed](A,B,C,D)
+    \tkzDrawSegments[thick](B,C C,D B,B' C,C' D,D')
+    \tkzDrawSegments[dashed](A,B A,D  A,A')
+    \draw[->](B)--(-1,-1)node[left]{$X$};
+    \draw[->](D)--(2.5,0)node[right]{$Y$};
+    \draw[->](A')--(0,3)node[right]{$Z$};
+    \node at (0,0)[left]{$O$};
+\tkzLabelPoints[below](B,C,A,D)
+\tkzLabelPoints[left](B',A')
+\tkzLabelPoints[right](C',D')
+\end{tikzpicture}
+    \caption*{第4题}
+\end{figure}
 
 
+\item 分别求两点$P_1(3,9,1)$, $P_2(4,1,5)$到平面$S:\;
+x-2y+2z-3=0$的距离。
+\item 求两条直线
+\[\begin{split}
+    \ell_1:&\quad \frac{x-1}{3}=\frac{y+2}{6}=\frac{z-5}{2}\\
+    \ell_2:&\quad \frac{x}{2}=\frac{y-3}{9}=\frac{z+1}{6}\\
+\end{split}\]
+的夹角。
+\item 求通过点$(1,-1,2)$并与已知平面：$x+y+z=1$
+垂直的直线方程。并求这条直线与平面交点的坐标。
+\item 在直线$\ell:\; x=1+2t,\; y=8+t,\; z=8+3t$上求
+一点使它和原点的距离等于35.
+\item 求满足下列条件的球面方程。
+\begin{multicols}{2}
+    \begin{enumerate}
+    \item 球心在$(-2,3,-6)$, 半径是7
+    \item 球心在$(4,0,0)$, 半径是2
+    \item 球心在$(0,-4,3)$, 半径是5
+    \item 球心在$(0,-5,0)$, 半径是2
+    \item 球心在$\left(\frac{2}{3},-\frac{1}{3},0\right)$，
+半径是1
+\end{enumerate}
+\end{multicols}
 
+\item 求球面：$x^2+y^2+z^2+4x-6y-2z+5=0$的球心和
+半径。
+\end{enumerate}
 
+\section*{复习题八}
+\begin{enumerate}
+\item 已知点$P(3,-1,2)$和$M(a,b,c)$, 求$P$、$M$两点
+分别关于坐标平面、坐标轴以及原点的对称点的坐标。
+\item 求点$P(2,5,6)$到坐标原点以及三条坐标轴的距离。
+\item 已知$\Vec{OA}=(6,2,9)$，求$\Vec{OA}$与三个坐标平面的夹角．
+\item 已知$A(-2,1,3)$, $B(0,-1,2)$，求与$A$、$B$两点
+距离相等点的轨迹方程。
+\item 已知$A(a,0,0)$, $B(0,b,0)$, $C(0,0,c)$, 原
+点到平面$(A,B,C)$的距离为$d$, 求证
+\[\frac{1}{a^2}+\frac{1}{b^2}+\frac{1}{c^2}=\frac{1}{d^2}\]
+\item 在$Z$轴上求一点，使得到$A(-4,1,7)$, $B(3,5,-2)$两点的距离相等。
+\item 已知四面体$ABCD$，且$A(x_1,y_1,z_1)$, $B(x_2,
+y_2,z_2)$, $C(x_3,y_3, z_3)$, $D(x_4, y_4,z_4)$, 
+求它的重心的坐标。
+\item 已知$\vec{a}=(a_1,a_2,a_3)$, $\vec{b}=(b_1,b_2,b_3)$, 求证：以$\vec{a}$, $\vec{b}$为邻边的平行四边形面积
+\[S=\sqrt{\begin{vmatrix}
+    a_2&a_3\\b_2&b_3
+\end{vmatrix}^2+\begin{vmatrix}
+    a_3&a_1\\b_3&b_1
+\end{vmatrix}^2+\begin{vmatrix}
+    a_1&a_2\\b_1&b_2
+\end{vmatrix}^2}\]
 
+\item 已知点$P(1,3,5)$和$\vec{a}(-2,1,1)$. 求通过$P$点
+具有方向$\vec{a}$的直线与平面$2x+3y-z=1$的交点。
 
+\item 求通过如下三点的平面方程。
+\begin{enumerate}
+    \item $(2,1,1),\qquad (3,-1,1),\qquad (4,1,-1)$
+    \item $(-2,3,-1),\qquad (2,2,3),\qquad (-4,-1,1)$
+    \item $(-5,-1,-2),\qquad (1,2,-1),\qquad (3,-1,2)$
+\end{enumerate}
 
+\item 求下列通过已知点$P$且以$\vec{a}$为方向向量的直线方程。
+\begin{multicols}{2}
+    \begin{enumerate}
+    \item $P(2,1,3),\quad \vec{a}=(1,1,-2)$
+    \item $P(-5,3,4),\quad \vec{a}=(-2,2,1)$
+    \item $P(4,-3,2),\quad \vec{a}=(5,0,3)$
+    \item $P(0,0,0),\quad \vec{a}=(2,-3,5)$
+    \item $P(a,b,c),\quad \vec{a}=(\ell,m,n)$
+\end{enumerate}
+\end{multicols}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{enumerate}
 
