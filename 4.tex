@@ -112,147 +112,1313 @@ $\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{OA_1}=\alpha_1\vec{a}$, $\Vec{OA_2
 \[x=\alpha_1\alpha_2\frac{\beta_2-\beta_1}{\alpha_2\beta_2-\alpha_1\beta_1},\qquad y=\beta_1\beta_2\frac{\alpha_2-\alpha_1}{\alpha_2\beta_2-\alpha_1\beta_1}\]
 \end{solution}
 
+\begin{ex}
+\begin{enumerate}
+    \item 已知$\vec{a}$、$\vec{b}$线性无关，$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{AP_1}=\frac{1}{3}\Vec{AB}$,
+    $\Vec{AP_2}=\frac{1}{2}\Vec{AB}$, $\Vec{AP_3}=\frac{3}{2}\Vec{AB}$,
+    试用向量$\vec{a}$、$\vec{b}$表示
+    $\Vec{OP_1},\Vec{OP_2},\Vec{OP_3}$.
+
+    \item 已知$\vec{a}$、$\vec{b}$线性无关，$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $P$点满足
+    $\Vec{AP}=\mu \Vec{PB}\;  (\mu\in\mathbb{R})$, $P$点叫做$AB$的\textbf{定比分点}。求证：
+\[\Vec{OP}=\frac{1}{1+\mu}\vec{a}+\frac{\mu}{1+\mu}\vec{b}\]
+    \item 已知$\vec{a}$、$\vec{b}$线性无关，$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$，$\Vec{AP_1}=\frac{1}{2}\Vec{P_1B}$,
+    $\Vec{AP_2}=-\frac{1}{2}\Vec{P_2B}$, $\Vec{AP_3}=-\frac{3}{2}\Vec{P_3B}$, 
+    试用向量$\vec{a}$、$\vec{b}$表
+    示$\Vec{OP_1},\Vec{OP_2},\Vec{OP_3}$.
+    \item 已知$\vec{a}$、$\vec{b}$不平行且$\Vec{OP_1}=
+    x_1\vec{a}+y_1\vec{b}$, $\Vec{OP_2}=x_2\vec{a}+y_2\vec{b}$, 
+    $P$点在直线$P_1P_2$上且以$k$为比值定比分割$\Vec{P_1P_2}$,
+    若$\Vec{OP}=x\vec{a}+y\vec{b}$, 
+    试用$k$、$x_1$、
+    $x_2$、$y_1$、$y_2$表示$x$、$y$.
+    \item 如果$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{OC}=\vec{c}$, 那么，$A$、$B$、
+    $C$三点共线的充要条件是存在三个不全为零的实数$\alpha$、
+    $\beta$、$\gamma$使
+  \[  \alpha\vec{a}+\beta\vec{b}+\gamma\vec{c}=0\quad \text{且}\quad \alpha+\beta+\gamma=0\]
+    （提示：应用直线的向量方程(4.1)）
+\end{enumerate}
+\end{ex}
+
+\subsection{几何证明举例}
+ 在上一章我们已详细的分析了平
+行、相似与向量的加法、倍积运算之间的密切关系，下面我们
+举例说明向量加法与倍积运算在几何证题中的应用。
+
 
 \begin{example}
+    证明三角形中位线定理。
+
+已知：在$\triangle ABC$中，$D$、$E$分别是$\overline{AB}$、$\overline{AC}$的中点。
+
+求证：$DE\parallel BC$, 且$\overline{DE}=\frac{1}{2}\overline{BC}$ （图4.4）
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.7]
+\tkzDefPoints{0/0/B, 4/0/C, 3/4/A}
+\tkzDefMidPoint(A,B) \tkzGetPoint{D}
+\tkzDefMidPoint(A,C) \tkzGetPoint{E}
+\tkzDrawSegments[->, thick](A,B A,C D,E B,C)
+\tkzLabelPoints[below](B,C)
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[right](E)
+\tkzLabelPoints[above](A)
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+    因$D$、$E$分别是$\overline{AB}$、$\overline{AC}$的中点，所以
+\[\Vec{AD}=\frac{1}{2} \Vec{AB},\qquad \Vec{AE}=\frac{1}{2}\Vec{AC}\]
+\[\Vec{DE}=\Vec{AE}-\Vec{AD}=\frac{1}{2}\left(\Vec{AC}-\Vec{AB}\right)=\frac{1}{2}\Vec{BC}\]
+即：$DE\parallel BC$,  $\overline{DE}=\frac{1}{2}\overline{BC}$
+\end{proof}
+
+由例4.3的证明，大致可以看出用向量运算证明几何题的
+主要步骤：
+\begin{enumerate}
+\item 选择基底向量
+$\Vec{AB}$、$\Vec{AC}$, 
+把已知条件（$D$、$E$
+是$\Vec{AB}$、$\Vec{AC}$的中点）写为向量形式（$\Vec{AD}=\frac{1}{2}\Vec{AB}$, $\Vec{AE}=\frac{1}{2}\Vec{AC}$）
+\item 进行向量运算，算出结果（$\Vec{DE}=\frac{1}{2}\Vec{BC}$）
+\item 把结果转化为几何结论。
+\end{enumerate}
+
+对例4.3的进一步分析，我们还会看到，证明中应用了倍
+积分配律和向量平行的条件，这正好与几何中应用平行四边
+形定理（或相似形定理）相对应。
+
+\begin{example}
+ 已知五边形$ABCDE$, $M$、$N$、$P$、$Q$分别是$\overline{AB}$、
+ $\overline{CD}$、$\overline{BC}$、$\overline{DE}$的中点，$K$、$L$是$\overline{MN}$与$\overline{PQ}$的中点，求
+证：$\overline{KL}=\frac{1}{4}\overline{AE}$ 且$KL\parallel AE$(图4.5).
+\end{example}
+
+\begin{proof}
+    在平面上任选一点$O$作为基点，则
+\[\begin{split}
+    \overline{KL}&=\overline{OL}-\overline{OK}=\frac{1}{2}\left(\overline{OP}+\overline{OQ}\right)-\frac{1}{2}\left(\overline{OM}+\overline{ON}\right)\\
+&=\frac{1}{2}\left[\frac{1}{2}\left(\overline{OB}+\overline{OC}\right)+\frac{1}{2}\left(\overline{OD}+\overline{OE}\right)\right]-\frac{1}{2}\left[\frac{1}{2}\left(\overline{OA}+\overline{OB}\right)+\frac{1}{2}\left(\overline{OC}+\overline{OD}\right)\right]\\
+&=\frac{1}{4}\left(\overline{OB}+\overline{OC}+\overline{OD}+\overline{OE}\right)-\frac{1}{4}\left(\overline{OA}+\overline{OB}+\overline{OC}+\overline{OD}\right)\\
+&=\frac{1}{4}\left(\overline{OE}-\overline{OA}\right)=\frac{1}{4}\overline{AE}
+\end{split}\]
+即：$KL\parallel AE$且$\overline{KL}=\frac{1}{4}\overline{AE}$
+\end{proof}
+
+在例4.4中，基点选为任一点
+$O$, 这样对题中各点的位置向量
+表达就比较对称，计算起来就较为方便。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/C, 2/0/D, 1.9/1.7/E, 0/2.5/A, -1/1.2/B, 1.3/3/O}
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(C,B) \tkzGetPoint{P}
+\tkzDefMidPoint(C,D) \tkzGetPoint{N}
+\tkzDefMidPoint(D,E) \tkzGetPoint{Q}
+\tkzDefMidPoint(M,N) \tkzGetPoint{K}
+\tkzDefMidPoint(P,Q) \tkzGetPoint{L}
+
+\tkzDrawPolygon(A,B,C,D,E)
+\tkzDrawSegments(M,N P,Q)
+\tkzDrawSegments[->](K,L)
+\tkzDrawSegments[dashed, ->](O,K O,L)
+
+\tkzLabelPoints[left](A,B,M,K,P)
+\tkzLabelPoints[right](E,Q)
+\tkzLabelPoints[below](C,N,D,L)
+\tkzLabelPoints[above](O)
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 3/0/C, 2.2/2.2/A}
+\tkzDefPointWith[linear, K=.6](A,B) \tkzGetPoint{E}
+\tkzDefPointWith[linear, K=.6](C,A) \tkzGetPoint{F}
+\tkzDefPointWith[linear, K=.6](C,B) \tkzGetPoint{D}
+\tkzDrawSegments[->, thick](A,D A,E A,F)
+\tkzDrawSegments(E,B E,D F,D F,C B,C)
+\tkzLabelPoints[below](B,D,C)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[above](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    已知$\triangle ABC$, $D$是$\overline{BC}$上任一点，$\overline{DE}\parallel \overline{CA}$, 
+$\overline{DF}\parallel\overline{BA}$, 
+
+求证：$\frac{\overline{ED}}{\overline{AC}}+\frac{\overline{FD}}{\overline{AB}}=1$ (图4.6).
+\end{example}
+
+\begin{proof}
+设$\frac{\overline{ED}}{\overline{AC}}=x$, $\frac{\overline{FD}}{\overline{AB}}=y$，则：
+\[\Vec{ED}=x\Vec{AC},\qquad \Vec{FD}=y\Vec{AB}\]
+由求和法则可得
+\[\Vec{AD}=\Vec{AE}+\Vec{AF}=\Vec{ED}+\Vec{FD}=x\Vec{AC}+y\Vec{AB}\]
+又因$D$在直线$BC$上，所以$x+y=1$，即：
+$$\frac{\overline{ED}}{\overline{AC}}+\frac{\overline{FD}}{\overline{AB}}=1$$
+\end{proof}
+
+例4.5中的结论，实际上就是一点在直线上的一个必要条
+件，换用向量表达式就一目了然了，应注意，题中若设$D$点
+是直线$BC$上任一点，结论同样成立。
+
+
+\begin{example}
+    已知$\parallelogram ABCD$, $M$是$\overline{AB}$的中点，$\overline{DM}$交对角线
+$\overline{AC}$于$H$点，
+
+求证：
+$\overline{AH}=\frac{1}{3} \overline{AC},\qquad \overline{MH}=\frac{1}{3} \overline{MD}$ (图4.7).
+\end{example}
+
+\begin{proof}
+设$\Vec{AH}=x\Vec{AC}$，$\Vec{MH}=y\Vec{MD}$，则
+\[\begin{split}
+    \Vec{AH}&=X\Vec{AC}=x\left(\Vec{AB}+\Vec{AD}\right)=x\Vec{AB}+x\Vec{AD}\\
+    \Vec{AH}&=(1-y)\Vec{AM}+y\Vec{AD}=\frac{1}{2}(1-y)\Vec{AB}+y\Vec{AD}
+\end{split}\]
+由于$\Vec{AB}$、$\Vec{AD}$线性无关，所以有
+\[\begin{cases}
+    2x+y=1\\
+    y=x
+\end{cases}\]
+解方程组可得：$x=\frac{1}{3},\quad y=\frac{1}{3}$
+
+所以：
+\[\Vec{AH}=\frac{1}{3}\Vec{AC},\qquad \Vec{MH}=\frac{1}{3}\Vec{MD}\]
+\[\overline{AH}=\frac{1}{3}\overline{AC},\qquad \overline{MH}=\frac{1}{3}\overline{MD}\]
+\end{proof}
+
+例4.6中，证明的关键是设未知数，根据已知条件，用基
+向量$\Vec{AB}$, $\Vec{AD}$写出$\Vec{AH}$的两个表达式，然后由基向量的线
+性无关性转化为方程组来求解。这和在代数中设未知数列方
+程的解问题的方法相似。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 3/0/B, 1/2/D, 4/2/C}
+\tkzDefMidPoint(A,B)   \tkzGetPoint{M}
+\tkzDrawSegments[->](A,D A,M A,B A,C M,D)
+\tkzDrawSegments(B,C D,C)
+\tkzLabelPoints[below](A,M,B)
+\tkzLabelPoints[above](C,D)
+\tkzInterLL(A,C)(D,M) \tkzGetPoint{H}
+\tkzLabelPoints[above](H))
+\tkzDrawSegments[->](M,H A,H)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 3/0/C, 2/2.6/A}
+\tkzDefMidPoint(A,B)   \tkzGetPoint{F}
+\tkzDefMidPoint(A,C)   \tkzGetPoint{E}
+\tkzDefMidPoint(C,B)   \tkzGetPoint{D}
+
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments[->, thick](A,D B,E C,F)
+\tkzInterLL(A,D)(B,E) \tkzGetPoint{G}
+
+\tkzLabelPoints[below](D,C,B)
+\tkzLabelPoints[above](A,G)
+\tkzLabelPoints[left](F)
+\tkzLabelPoints[right](E)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+\begin{example}
+    已知$\triangle ABC$, 证明：三条中线$\overline{AD}$、$\overline{BE}$、$\overline{CF}$相交于一点$G$且$\overline{AG}=\frac{2}{3} \overline{AD}$, $\overline{BG}=\frac{2}{3}\overline{BE}$, $\overline{CG}=\frac{2}{3}\overline{CF}$ （图4.8）。
+\end{example}
+
+\begin{proof}
+    设$\overline{AD},\overline{BE}$相交于
+    $G$点，$\Vec{AG}=x\Vec{AD}$, $\Vec{BG}=y\Vec{BE}$，$\Vec{AB}=a$, $\Vec{AC}=\vec{b}$，则：
+\[\Vec{AG}=x\Vec{AD}=x\x \frac{1}{2}(\vec{a}+\vec{b})=\frac{1}{2}x\vec{a}+\frac{1}{2}x\vec{b}\]
+又    
+\[\Vec{AG}=(1-y)\Vec{AB}+y\Vec{AE}=(1-y)\vec{a}+\frac{1}{2}y\vec{b}\]
+由$\vec{a},\vec{b}$线性无关，得：
+\[\begin{cases}
+    \frac{1}{2}x=1-y\\
+    \frac{1}{2}x=\frac{1}{2}y
+\end{cases}\]
+解之得：$x=\frac{2}{3},\quad y=\frac{2}{3}$，所以
+\[\Vec{AG}=\frac{2}{3}\Vec{AD},\qquad \Vec{BG}=\frac{2}{3}\Vec{BE}\]
+\[\overline{AG}=\frac{2}{3}\overline{AD},\qquad \overline{BG}=\frac{2}{3}\overline{BE}\]
+
+如果$\overline{BE},\overline{CF}$相交于$G'$点，那么同样可证，
+\[\overline{BG'}=\frac{2}{3} \overline{BE},\qquad \overline{CG'}=\frac{2}{3}\overline{CF}\]
+于是$G$点与$G'$点重合，题中结论得证。
+\end{proof}
+
+\begin{example}
+    已知三棱锥$S-ABC$, $K_1$、$L_1$、$M_1$分别是侧棱
+    $\overline{SA}$、$\overline{SB}$、$\overline{SC}$的中点，$K_2$、$L_2$、$M_2$分别是$\overline{BC}$、$\overline{CA}$、
+    $\overline{AB}$的中点，求证：$\overline{K_1K_2}$, $\overline{L_1L_2}$, $\overline{M_1M_2}$相交于一点，并在
+    这点互相平分（图4.9）。
+\end{example}
+
+\begin{proof}
+设$\Vec{SA}=\vec{a}$, $\Vec{SB}=\vec{b}$, $\Vec{SC}=\vec{c}$, $O_1$为$\overline{K_1K_2}$的中点，则
+\[\Vec{SO_1}=\frac{1}{2}(\Vec{SK_1}+\Vec{SK_2})=\frac{1}{2}\left[\frac{1}{2}\vec{a}+\frac{1}{2}(\vec{b}+\vec{c})\right]
+=\frac{1}{4}\left(\vec{a}+\vec{b}+\vec{c}\right)\]
+取$L_1L_2$的中点$O_2$, $M_1M_2$的中点$O_3$, 同理可证
+\[\Vec{SO_2}=\Vec{SO_3}=\frac{1}{4}\left(\vec{a}+\vec{b}+\vec{c}\right)\]
+因此三点$O_1$、$O_2$、$O_3$必重合于一点$O$并在$O$点互相平分。
+\end{proof}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{-.5/0/A, 5.5/0/C, 3.5/3/S, 3.5/-1/B}
+\tkzDrawPolygon(A,B,C,S)
+
+\tkzDrawSegments(S,B)
+\tkzDefMidPoint(S,A) \tkzGetPoint{K_1}
+\tkzDefMidPoint(S,B) \tkzGetPoint{L_1}
+\tkzDefMidPoint(S,C) \tkzGetPoint{M_1}
+
+\tkzDefMidPoint(B,C) \tkzGetPoint{K_2}
+\tkzDefMidPoint(C,A) \tkzGetPoint{L_2}
+\tkzDefMidPoint(B,A) \tkzGetPoint{M_2}
+
+\tkzDefMidPoint(M_1,M_2) \tkzGetPoint{O_1}
+\tkzDrawSegments[dashed](M_1,M_2 K_1,K_2 A,C L_1,L_2)
+
+\tkzLabelPoints[below](A,B,C,M_2,K_2,L_2)
+\tkzLabelPoints[above](M_1,K_1,L_1,S,O_1)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/O'}
+\tkzDefPoint(180-15:3.5){A'}\tkzDefPoint(180-15:2.5){A}
+\tkzDefPoint(180:5){C'}\tkzDefPoint(180:1.8){C}
+\tkzDefPoint(180+15:4.2){B'}\tkzDefPoint(180+15:2.2){B}
+
+\tkzDrawPolygon[pattern=north east lines](A,B,C)
+\tkzDrawPolygon[pattern=north west lines](A',B',C')
+\tkzLabelPoints[left](A',B',C')
+\tkzLabelPoints[right](A,B,C)
+
+\tkzInterLL(A',B')(A,B) \tkzGetPoint{P}
+\tkzInterLL(A',C')(A,C) \tkzGetPoint{R}
+\tkzInterLL(C',B')(C,B) \tkzGetPoint{Q}
+\tkzLabelPoints[right](O')
+\tkzLabelPoints[above](P,R)
+\tkzLabelPoints[below](Q)
+\tkzDrawSegments(Q,B' Q,B Q,P P,A' P,A R,A' R,A)
+\tkzDrawSegments[dashed](O',B' O',A' O',C')
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
     
+\begin{example}
+    试证 Desargues 定理：如图4.10, 设$\triangle ABC$与$\triangle A'B'C'$的顶点连
+    线$AA'$、$BB'$、$CC'$相交于一点$O$, 则对应边$AB$与$A'B'$、
+    $BC$与$B'C'$、$CA$与$C'A'$的延长线分别相交于$P$、$Q$、$R$, 
+    
+    试证$P$、$Q$、$R$共线。
+\end{example}
+
+\begin{proof}
+    设$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{OC}=\vec{c}$, 则存在$\alpha,\beta,\gamma\in \mathbb{R}$，使$\Vec{OA'}=\alpha\vec{a}$, $\Vec{OB'}=\beta\vec{b}$, $\Vec{OC'}=\gamma\vec{c}$
+
+    因$P$点既在$AB$上又在$A'B'$上，所以存在$x,y\in\mathbb{R}$，使
+\[\begin{split}
+    \Vec{OP}&=(1-x)\vec{a}+x\vec{b}\\
+    \Vec{OP}&=(1-y)\alpha\vec{a}+\beta y\vec{b}\\
+\end{split}\]
+由此可得
+\[x=\frac{\beta(\alpha-1)}{\alpha-\beta},\qquad y=\frac{\alpha-1}{\alpha-\beta}\]
+\begin{equation}
+    \Vec{OP}=\frac{\alpha(1-\beta)}{\alpha-\beta}\vec{a}+\frac{\beta(\alpha-1)}{\alpha-\beta}\vec{b}
+\end{equation}
+同理可求得
+\begin{align}
+    \Vec{OQ}&=\frac{\beta(1-\gamma)}{\beta-\gamma}\vec{b}+\frac{\gamma(\beta-1)}{\beta-\gamma}\vec{c}\\
+    \Vec{OR}&=\frac{\gamma(1-\alpha)}{\gamma-\alpha}\vec{c}+\frac{\alpha(\gamma-1)}{\gamma-\alpha}\vec{a}
+\end{align}
+\[\begin{split}
+    \Vec{PR}&=\Vec{OR}-\Vec{OP}=\frac{\alpha(\alpha-1)(\gamma-\beta)}{(\gamma-\alpha)(\alpha-\beta)}\vec{a}+\frac{\beta(1-\alpha)}{\alpha-\beta}\vec{b}+\frac{\gamma(1-\alpha)}{\gamma-\alpha}\vec{c}\\
+    \Vec{PQ}&=\Vec{OQ}-\Vec{OP}=\frac{\alpha(\beta-1)}{\alpha-\beta}\vec{a}+\frac{\beta(\beta-1)(\gamma-\alpha)}{(\alpha-\beta)(\beta-\gamma)}\vec{b}+\frac{\gamma(\beta-1)}{\beta-\gamma}\vec{c}
+\end{split}\]
+
+容易验证$\vec{a},\vec{b},\vec{c}$的系数成比例，所以
+$\Vec{PR}$与$\Vec{PQ}$共
+线，即$P$、$Q$、$R$共线。
+
+此题还可另证，设$x=(y-1)(\alpha-\beta)$,
+ $y=(\alpha-1)(\beta-\gamma)$, $z=(\beta-1)(\gamma-\alpha)$, 则可得：
+\[x\Vec{OP}+y\Vec{OQ}+z\Vec{OR}=\vec{0}\]
+并且$x+y+z=0$。
+
+$x$、$y$、$z$至少有一不为0, 
+这便证明了$P$、$Q$、$R$三点共线。
+\end{proof}
+
+\begin{ex}
+    试用向量运算证明以下各题。
+\begin{enumerate}
+\item  试证平行四边形的对角线互相平分。
+\item 设$\triangle ABC$和$\triangle A'B'C'$的对应顶点连线$AA'$、$BB'$、
+    $CC'$相交于一点$O$. 试证若 $AB\parallel A'B'$, $BC\parallel B'C'$, 则
+    $AC\parallel A'C'$.
+
+\item 设$\ell$、$\ell'$相交于$O$点，$A,B,C\in\ell$, $A',B',C'\in\ell'$. 试
+证如果$AB'\parallel A'B$, $BC'\parallel B'C$, 则有$AC'\parallel A'C$.
+\item 证明梯形中位线定理。
+\item 已知：$\triangle ABC$中，$D$是$\overline{BC}$的中点，过$D$任作一直线分别交$\overline{AC}$于$E$, 交$AB$的延长线于$F$, 求证：
+$\overline{AE}:\overline{EC}=\overline{AF}:\overline{FB}$.
+\item 已知：梯形$ABCD$, $AB\parallel DC$, $\overline{AB}=2\overline{CD}$, $\overline{AC}$、$\overline{BD}$
+相交于$E$, 求证：$\overline{CE}=\frac{1}{3}\overline{AC}$.
+\item 已知：梯形$ABCD$中，$E$、$F$是上、下底$\overline{AD}$、$\overline{BC}$的
+中点，$\overline{AC}$、$\overline{BD}$相交于$G$, 求证：$E$、$G$、$F$三点共线。
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/O, 4/0/A', 4.2/1.5/B', 3/2.5/C'}
+\tkzDefPointWith[linear, K=.6](O,A') \tkzGetPoint{A}
+\tkzDefPointWith[linear, K=.6](O,B') \tkzGetPoint{B}
+\tkzDefPointWith[linear, K=.6](O,C') \tkzGetPoint{C}
+\tkzDrawSegments(O,C' O,A' O,B')
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPolygon(A',B',C')
+\tkzLabelPoints[below](A,A')\tkzLabelPoints[above](C,C')
+\tkzLabelPoints[below right](B,B')\tkzLabelPoints[left](O)
+    \end{tikzpicture}
+    \caption*{第2题}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.7]
+\tkzDefPoints{0/0/O, 2/0/A, 3.5/0/B, 5/0/C}
+\tkzDefPoint(40:2){C'}\tkzDefPoint(40:3.1){B'}
+\tkzDefPoint(40:5){A'}
+\tkzLabelPoints[above](A',B',C')
+\tkzLabelPoints[below](A,B,C)
+\draw(0,0)node[left]{$O$}--(6,0)node[right]{$\ell$};
+\draw(0,0)--(40:6)node[right]{$\ell'$};
+\tkzDrawSegments(A,B' A,C' B,C' B,A' C,B' C,A')
+    \end{tikzpicture}
+    \caption*{第3题}
+    \end{minipage}
+    \end{figure}
+
+\subsection*{习题4.1}
+
+\begin{enumerate}
+    \item 已知：$O$是一个定点，$\vec{a}$、$\vec{b}$是两个线性无关的向量，
+$\Vec{OP_1}=2\vec{a}+\vec{b}$, $\Vec{OP_2}=\vec{a}-\vec{b}$, $P$是直线$P_1P_2$上任意一
+    点且$\Vec{OP}=x\vec{a}+y\vec{b}$, 求$x$、$y$满足的代数关系式。
+    \item 已知：在$\triangle ABC$中，$D$、$E$分别是$\overline{BC}$、$\overline{AC}$边上的点且
+    $\overline{BD}:\overline{DC}=1:2$, $\overline{CE}:\overline{EA}=1:1$, $\overline{AD}$与$\overline{BE}$相交于$O$
+    点，设$\Vec{AB}=\vec{a}$, $\Vec{AC}=6$, $\Vec{CO}=x\vec{a}+y\vec{b}$, 求$x$、$y$.
+    \item 设$\vec{a}$、$\vec{b}$是两个线性无关的向量，$\Vec{OD}=h\vec{a}+k\vec{b}\ne \vec{0}$.
+    $P$是直线$OD$上任意一点，令$\Vec{OP}=x\vec{a}+y\vec{b}$, 求证：
+    $x$、$y$满足方程$kx-hy=0$.
+    \item 已知$D$、$E$、$F$分别是$\triangle ABC$的边$\overline{AB}$、$\overline{BC}$、$\overline{AC}$上的一
+    点且$\frac{\overline{AD}}{\overline{AB}}=\frac{\overline{BE}}{\overline{BC}}=\frac{\overline{CF}}{\overline{CA}}$
+
+    求证：
+    所有这样的
+    $\triangle DEF$重心是一个定点。
+
+\item 如图，已知平行六面体$OADB-CEFG$, 求证：若对角
+线$\overline{AG}$与平面$(O,D,E)$相交于$H$, $OH$与侧面$ADFE$
+相交于$K$, 求证$\overline{AH}=\frac{1}{3}\overline{AG}$，$\overline{OH}=\frac{2}{3}\overline{OK}$
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/O, 3/0/A, 3.5/1/D, .5/1/B, .4/3/C}
+\tkzDefPointsBy[translation = from O to C](A,B,D){E,G,F}
+\tkzDrawPolygon(C,G,F,E)
+\tkzDrawSegments(A,E D,F E,D F,A E,O A,D)
+\tkzDrawSegments[dashed](A,G B,G B,D O,D)
+\tkzDrawSegments[->, thick](O,A O,C)
+\tkzDrawSegments[->, dashed, thick](O,B)
+\tkzInterLL(E,D)(F,A) \tkzGetPoint{K}
+\tkzDrawSegments[dashed](O,K)
+
+\node at (1.5,0)[below]{$\vec{a}$};
+\node at (.25,0.5)[right]{$\vec{b}$};
+\node at (.2,1.5)[left]{$\vec{c}$};
+
+\tkzLabelPoints[below](O,A)
+\tkzLabelPoints[above right](B,D)
+\tkzLabelPoints[right](K)
+\tkzLabelPoints[above left](C,E)
+\tkzInterLL(A,G)(O,K) \tkzGetPoint{H}
+\tkzLabelPoints[above ](G,F,H)
+    \end{tikzpicture}
+    \caption*{第5题}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 3/0/C, 2/2.6/A}
+\tkzDefMidPoint(A,B)   \tkzGetPoint{R}
+\tkzDefMidPoint(A,C)   \tkzGetPoint{Q}
+\tkzDefMidPoint(C,B)   \tkzGetPoint{P}
+
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(A,P B,Q C,R)
+\tkzLabelPoints[below](P,C,B)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](R)
+\tkzLabelPoints[right](Q)
+    \end{tikzpicture}
+    \caption*{第6题}
+    \end{minipage}
+    \end{figure}
+
+\item  在$\triangle ABC$的三条边上各取一点$P$、$Q$、$R$, 若$\Vec{AR}=x\Vec{RB}$, $\Vec{BP}=y\Vec{PC}$, $\Vec{CQ}=z\Vec{QA}$. 求证：$AP$、$BQ$、$CR$共
+点的充要条件是
+$xyz=1$.
+
+\item  在$\triangle ABC$三边所在的直线
+上各取一点$P$、$Q$、$R$, 使
+\[\Vec{AR}=x\Vec{RB},\qquad \Vec{BP}=y\Vec{PC},\qquad \Vec{CQ}=z\Vec{QA}\]
+求证：$P$、$Q$、$R$三点共线的充要条件是$xyz=-1$.
+\begin{figure}[htp]\centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 3/0/C, 2/2.6/A}
+\tkzDefPointWith[linear, K=.7](A,B) \tkzGetPoint{R}
+\tkzDefPointWith[linear, K=.4](A,C) \tkzGetPoint{Q}
+\tkzInterLL(B,C)(R,Q)\tkzGetPoint{P}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(Q,P B,P C,R)
+\tkzLabelPoints[below](P,C,B)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above left](R)
+\tkzLabelPoints[right](Q)
+    \end{tikzpicture}
+    \caption*{第7题}
+    \end{figure}
+\end{enumerate}
+
+\section{垂直与度量问题}
+这节我们举例说明，用内积运算处理度量问题的一般方
+法和技巧。
+
+\begin{example}
+    证明勾股定理（图4.11）。
+\end{example}
+
+\begin{proof}
+    在直角$\triangle ABC$中，$\angle B=90^{\circ}$, 则
+\[\begin{split}
+   \Vec{AC}&=\Vec{AB}+\Vec{BC}\\
+   \Vec{AC}\cdot \Vec{AC}&= \left(\Vec{AB}+\Vec{BC}\right)\cdot \left(\Vec{AB}+\Vec{BC}\right)\\
+   &=\Vec{AB}\cdot \Vec{AB}+\Vec{BC}\cdot \Vec{BC}
+\end{split}\]
+即：$\overline{AC}^2=\overline{AB}^2+\overline{BC}^2$
+\end{proof}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/A, 3/0/B, 3/4/C}
+\tkzDrawSegments[->](A,B B,C A,C)
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](C)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+        \tkzDefPoints{0/0/A, 3/0/B, 2/3/C}
+        \tkzDrawSegments[->](A,B B,C A,C)
+        \tkzLabelPoints[below](A,B)
+        \tkzLabelPoints[above](C)
+\node at (1.5,0)[below]{$c$};
+\node at (1,1.5)[left]{$b$};
+\node at (2.5,1.5)[right]{$a$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+\begin{example}
+    证明余弦定理（图4.12）。
+\end{example}
+
+\begin{proof}
+在$\triangle ABC$中，
+\[\begin{split}
+    \Vec{AC}&=\Vec{AB}+\Vec{BC}\\
+    \Vec{AC}\cdot  \Vec{AC}&=\left(\Vec{AB}+\Vec{BC}\right)\cdot \left(\Vec{AB}+\Vec{BC}\right)\\
+    &=\Vec{AB}\cdot \Vec{AB}+\Vec{BC}\cdot \Vec{BC}+2\Vec{AB}\cdot \Vec{BC}
+\end{split}\]
+即
+\[\begin{split}
+    |\Vec{AC}|^2&=|\Vec{AB}|^2+|\Vec{BC}|^2-2|\Vec{AB}||\Vec{BC}|\cos B\\
+b^2&=c^2+a^2-2ca\cos B
+\end{split}\]
+同理可证：
+\[\begin{split}
+  c^2&=a^2+b^2-2ab\cos C\\
+a^2&=b^2+c^2-2bc\cos A  
+\end{split}\]
+\end{proof}
+
+由例4.10、例4.11的证明过程可以看到，为了得到三角形的边
+角关系，只要写出三角形中边向量所要满足的关系，然后作
+内积运算，向量关系就可转化为数量关系。
+
+
+
+\begin{example}
+    证明射影定理与正弦定理。
+\end{example}
+
+\begin{proof}
+过$A$点引单位向量$\vec{e}_1\parallel \Vec{AC}$, $\vec{e}_2
+\bot \vec{e}_1$ (图4.13)
+\begin{equation}
+    \begin{split}
+    \Vec{AC}&=\Vec{AB}+\Vec{BC}\\
+    \Vec{AC}\cdot \vec{e}_1&=\Vec{AB}\cdot \vec{e}_1+\Vec{BC}\cdot \vec{e}_1\\
+    |\Vec{AC}|&=|\Vec{AB}|\cos A+|\Vec{BC}|\cos C
+\end{split}
+\end{equation}
+即：$b=c\cos A+a\cos C$
+同理可证：
+\[c=a\cos B+b\cos A,\qquad a=b\cos C+c\cos B\]
+(4.5)式两边分别对$\vec{e}_2$取内积运算，则
+\[\begin{split}
+    \Vec{AC}\cdot \vec{e}_2&=\Vec{AB}\cdot \vec{e}_2+\Vec{BC}\cdot \vec{e}_2\\
+    0&=|\Vec{AB}|\cos(90^{\circ}-A)+| \Vec{BC} |\cos(90^{\circ}+C)
+\end{split}\]
+即：$0=c\sin A-a\sin C\quad \Rightarrow\quad \frac{a}{\sin A}=\frac{c}{\sin C}$
+
+同理可证：$\frac{a}{\sin A}=\frac{b}{\sin B}$，
+所以
+\[\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}\]
+\end{proof}
+
+在例4.12的证明中，我们先写出三角形三个边向量所满足
+的向量关系式，然后，分别对$\vec{e}_1$、$\vec{e}_2$两个互相垂直的单位向量取内积运算，这样就很容易地证明了射影定理和正弦定
+理。适当选取单位向量，对题设条件所满足的向量关系式进
+行内积运算是处理一些直线形边角关系的
+基本方法之一。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A, 3/0/C, 2/2/B}
+    \tkzDrawSegments[->](A,B B,C A,C)
+    \tkzLabelPoints[below](A,C)
+    \tkzLabelPoints[above](B)
+\node at (1.5,0)[below]{$b$};
+\node at (1,1)[left]{$c$};
+\node at (2.5,1)[right]{$a$};
+\draw[thick,->](0,0)--node[below]{$\vec{e}_1$}(1,0);
+\draw[thick,->](0,0)--node[left]{$\vec{e}_2$}(0,1);
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 4/0/C, 3.5/2/A, 2.7/0/P}
+\node at (1.75,1)[left]{$c$};
+\node at (3.75,1)[right]{$b$};
+\node at (2,0)[below]{$a$};
+\tkzDrawSegments[->](A,B A,C A,P)
+\tkzDrawSegments(B,C)
+\tkzLabelPoints[below](B,P,C)
+\tkzLabelPoints[above](A)
+\draw[->](P)--node[above]{$\vec{a}$}+(160:1);
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+ 
+\begin{example}
+    利用内积运算证明角平分线定理。
+\end{example}
+
+
+\begin{proof}
+设$\overline{AP}$为$\triangle ABC$中内角$A$的平
+分线，则$\angle BAP=\angle PAC=\alpha$, 取单位向量
+$\vec{e}\bot \Vec{AP}$（图4.14）
+\[\begin{split}
+  \Vec{AB}\cdot \vec{e}&=|\Vec{AB} |\cos(90^{\circ}-\alpha)=|\Vec{AB} |\sin\alpha\\
+  \Vec{AC}\cdot \vec{e}&=|\Vec{AC}|\cos(90^{\circ}+\alpha)=-|\Vec{AC}|\sin\alpha  
+\end{split}\]
+\[\frac{\Vec{AB}}{\Vec{AC}}=\frac{\Vec{AB}\cdot \vec{e}}{\Vec{AC}\cdot \vec{e}}=\frac{|(\Vec{AP}+\Vec{PB})\cdot \vec{e}|}{|(\Vec{AP}+\Vec{PC})\cdot \vec{e}|}=\frac{|\Vec{PB}\cdot \vec{e}|}{\Vec{PC}\cdot \vec{e}}=\frac{\Vec{PB}}{\Vec{PC}}\]
+\end{proof}
+
+
+\begin{example}
+    在直角$\triangle ABC$中，$AD$是斜边$\overline{BC}$上的高，作
+    $DE\bot AB$, $DF\bot AC$, $E$、$F$是垂足。
+    
+    求证：$\frac{\overline{BE}}{\overline{CF}}=\frac{\overline{AB}^3}{\overline{AC}^3}$
+\end{example}
+
+\begin{proof}
+设$\frac{\overline{EB}}{\overline{AB}}=\lambda$, $\frac{\overline{FC}}{\overline{AC}}=\mu$，则：  
+\[\Vec{EB}=\lambda\Vec{AB},\quad \Vec{FC}=\mu\Vec{AC},\quad \Vec{AE}=(1-\lambda)\Vec{AB},\quad \Vec{AF}=(1-\mu)\Vec{AC}\]
+\[\Vec{AD}=\Vec{AE}+\Vec{AF}=(1-\lambda)\Vec{AB}+(1-\mu)\Vec{AC}\]
+因为$D\in BC$，则：
+\[(1-\lambda)+(1-\mu)=1\quad \Rightarrow\quad \lambda+\mu=1\]
+又$\because\quad \Vec{AD}\bot \Vec{BC}$，因此：
+\[\left[(1-\lambda)\Vec{AB}+(1-\mu)\Vec{AC}\right]\cdot \left(\Vec{AC}-\Vec{AB}\right)=0\]
+由此可得：
+\[\frac{\lambda}{\mu}=\frac{\overline{AB}^2}{\overline{AC}^2}\]
+\[\frac{\overline{EB}}{\overline{FC}}=\frac{\lambda\overline{AB}}{\mu\overline{AC}}=\frac{\overline{AB}^3}{\overline{AC}^3}\]
+\end{proof}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 4/0/C, 2.5/2/A, 2.5/0/D}
+\tkzDefPointBy[projection =onto A--B](D) \tkzGetPoint{E}
+\tkzDefPointBy[projection =onto A--C](D) \tkzGetPoint{F}
+\tkzDrawPolygon(A,C,B)
+\tkzDrawSegments(D,E D,F)
+\tkzDrawSegments[->](A,E A,F  A,D)
+\tkzLabelPoints[below](B,C,D)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[above](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 5/0/B, 2.5/0/O}
+\tkzDefPoint(36.87:4){P}
+\tkzDrawPolygon(A,B,P)  \tkzDrawSegments(P,O)
+\tkzLabelPoints[below](B,A,O)
+\tkzLabelPoints[above](P)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    设一动点$P$, 到两点$A$、$B$的距
+离的平方和等于常数$k$, 求$P$点的轨迹。
 \end{example}
 
 \begin{solution}
-    
+    取$\overline{AB}$的中点$O$, 则
+\[\Vec{PA}=\Vec{PO}+\Vec{OA},\qquad \Vec{PB}=\Vec{PO}+\Vec{OB}\]
+\[\begin{split}
+    \overline{PA}^2&=\overline{PO}^2+\overline{OA}^2+2\Vec{PO}\cdot\Vec{OA}\\
+    \overline{PB}^2&=\overline{PO}^2+\overline{OB}^2+2\Vec{PO}\cdot \Vec{OB}
+\end{split}\]
+因为$\overline{PA}^2+\overline{PB}^2=k,\quad \Vec{PO}\cdot\Vec{OA}=-\Vec{PO}\cdot \Vec{OB}$
+
+所以：
+\[2\left(\overline{PO}^2+\overline{OA}^2\right)=k,\qquad \overline{PO}=\sqrt{\frac{k}{2}-\overline{OA}^2}\]
+于是，
+$P$点到$O$点的距离是一个常数。即$P$点的轨迹是以$O$为
+圆心，$\sqrt{\frac{k}{2}-\overline{OA}^2}$为半径的圆。
 \end{solution}
 
 \begin{example}
-    
+    已知正方形$ABCD$(图4.17), $P$为$\overline{BD}$上任一点，
+$\overline{PE}\bot \overline{BC}$于$E$点，$\overline{PF}\bot \overline{CD}$于$F$点，求证：
+$\overline{AP}=\overline{EF}$
+且$AP\bot EF$.
 \end{example}
 
+\begin{proof}
+设$\Vec{BP}=\lambda \Vec{BD}$, 正方形边长为$a$, 则
+\[\begin{split}
+    \Vec{AP}&=\Vec{AB}+\Vec{BP}+(1-\lambda)\Vec{AB}+\lambda\Vec{AD}\\
+    \Vec{EF}&=\Vec{EC}+\Vec{CF}=(1-\lambda)\Vec{BC}+\lambda\Vec{CD}
+\end{split}\]
+\[\begin{split}
+    \overline{AP}^2&=(1-\lambda )^2 a^2+\lambda a^2+2\lambda(1-\lambda)\Vec{AB}\Vec{AD}\\
+&=(1-\lambda )^2 a^2+\lambda a^2\\
+\overline{EF}^2&=(1-\lambda )^2 a^2+\lambda a^2
+\end{split}\]
+所以：$\overline{AP}=\overline{EF}$。因为
+\[\Vec{AP}\cdot \Vec{EF}=\lambda (1-\lambda)\Vec{AB}\cdot \Vec{CD}+\lambda(1-\lambda)\Vec{AD}\cdot \Vec{BC}=0\]
+所以
+$\overline{AP} \bot \overline{EF}$.
+\end{proof}
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 3/0/C, 3/3/D, 0/3/A, 2.5/2.5/P, 3/2.5/F,2.5/0/E}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(P,E,F)
+\tkzDrawSegments(B,D A,P)
+\tkzLabelPoints[below](B,E,C)
+\tkzLabelPoints[above](A,D,P)
+\tkzLabelPoints[right](F)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 4/0/C, 2.5/2.5/A, 2/0/D}
+\tkzDrawSegments(A,D)
+\tkzDrawSegments[->](B,C A,B C,A)
+\node at (1.25,1.25)[left]{$\vec{c}$};
+\node at (3.25,1.25)[right]{$\vec{b}$};
+\node at (1.5,0)[below]{$\vec{a}$};
+\node at (2.25,1.25)[right]{$m_a$};
+\tkzLabelPoints[below](B,D,C)
+\tkzLabelPoints[above](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    已知$\triangle ABC$ (图4.18), 
+$\overline{BC}=a$, $\overline{CA}=b$, $\overline{AB}=c$,
+求：
+\begin{enumerate}
+    \item 三边上的中线$m_a$, $m_b$, $m_c$；
+    \item 三个角平分线$t_a$、$t_b$、$t_c$；
+\item 三角形的面积$S$.
+\end{enumerate}
+\end{example}
 
 \begin{solution}
-    
+\begin{enumerate}
+    \item 如图：设$\Vec{BC}=\vec{a}$, $\Vec{CA}=\vec{b}$, $\Vec{AB}=\vec{c}$, 则$BC$边上的中线
+$\Vec{AD}=\frac{1}{2}(-\vec{b}+\vec{c})$,
+\[\begin{split}
+    \Vec{AD}\cdot \Vec{AD}&=\frac{1}{4}(b^2+c^2-2\vec{b}\cdot \vec{c})\\
+    |\Vec{AD}|^2&=\frac{1}{4}[b^2+c^2-(a^2-b^2-c^2)]=\frac{1}{4}(2b^2+2c^2-a^2)
+\end{split}\]
+因此
+\[m_a=\frac{1}{2}\sqrt{2b^2+2c^2-a^2}\]
+同理可得：
+\[
+    m_b=\frac{1}{2}\sqrt{2a^2+2c^2-b^2},\qquad
+    m_c=\frac{1}{2}\sqrt{2a^2+2b^2-c^2}
+\]
+
+\item 因$\vec{t}_a=\frac{c}{b+c}\vec{b}+\frac{b}{b+c}\vec{c}$，则：
+\[\begin{split}
+\left|\vec{t_{a}}\right|^{2} &=\frac{c^{2} b^{2}}{(b+c)^{2}}+\frac{b^{2} c^{2}}{(b+c)^{2}}+2 \frac{b c}{(b+c)^{2}} \vec{b} \cdot \vec{c} \\
+&=\frac{b c}{(b+c)^{2}}\left(2 b c+b^{2}+c^{2}-a^{2}\right) \\
+&=\frac{b c}{(b+c)^{2}}\left[(b+c)^{2}-a^{2}\right] \\
+&=\frac{b c}{(b+c)^{2}}[(a+b+c)(b+c-a)]
+\end{split}\]  
+令$a+b+c=2p$, 则
+\[\begin{split}
+    t^2_a&=\frac{4bc}{(b+c)^2}p(p-a)\\
+t_a&=\frac{2\sqrt{bc}}{b+c}\sqrt{p(p-a)}
+\end{split}\]
+同理可得：
+\[
+    t_b=\frac{2\sqrt{ac}}{a+c}\sqrt{p(p-b)},\qquad
+    t_c=\frac{2\sqrt{ab}}{a+b}\sqrt{p(p-c)}
+\]
+
+\item 
+\[\begin{split}
+    S^{2} &=\frac{1}{4} b^{2} c^{2} \sin ^{2} A=\frac{1}{4} b^{2} c^{2}\left(1-\cos ^{2} A\right) \\
+    &=\frac{1}{4} b^{2} c^{2}\left[1-\left(\frac{\vec{b} \cdot \vec{c}}{b c}\right)^{2}\right] =\frac{1}{4} b^{2} c^{2}\left[1-\frac{\left(b^{2}+c^{2}-a^{2}\right)^{2}}{4 b^{2} c^{2}}\right] \\
+    &=\frac{1}{16}\left[4 b^{2} c^{2}-\left(b^{2}+c^{2}-a^{2}\right)^{2}\right] \\
+    &=\frac{1}{16}(a+b+c)(a+b-c)(a+c-b)(b+c-a) \\
+    &=p(p-a)(p-b)(p-c) \\
+    \end{split}\]
+\[ S=\sqrt{p(p-a)(p-b)(p-c)}\]
+\end{enumerate}
 \end{solution}
 
 \begin{example}
-    
+    证明定理：如果一条直线$a$垂直于平面$\pi$上的两条
+相交直线$b$、$c$, 那么$a\bot\pi $ (图4.19).
+\end{example}
+
+\begin{proof}
+    在平面$\pi$上，任取一条直
+线$d$, 在$a,b,c,d$上分别取向量$\vec{a}$、$\vec{b}$、$\vec{c}$、$\vec{d}$. 由于$b$、$c$相交，
+依共面向量定理，存在唯一的数偶
+$(x,y)$, 使
+\[\begin{split}
+    \vec{d}&=x\vec{b}+y\vec{c}\\
+    \vec{a}\cdot \vec{d}&=\vec{a}\cdot \left(x\vec{b}+y\vec{c}\right)=x\vec{a}\cdot \vec{b}+y\vec{a}\cdot \vec{c}=0
+\end{split}\]
+所以：$\vec{a}\bot \vec{d}$，即：$a\bot d$
+
+这就是说$a$垂直于平面$\pi$上的任一条直线，所以$a\bot\pi$.
+\end{proof}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, yscale=.8]
+\tkzDefPoints{0/0/A, 4/0/B, 5/2.5/C, 1/2.5/D}
+\tkzDrawPolygon(A,B,C,D)
+\draw[->](3,.5)--(1.4,1.7)node[above right]{$\vec{b}$};
+\draw[->](1,.5)--(3.5,2)node[right]{$\vec{c}$};
+\draw[->](3.5,.5)--node[right]{$\vec{d}$}(4,1.5);
+\node at (0,0)[above right]{$\pi$};
+\draw[->](2,2)--node[right]{$\vec{a}$}(2,3.5);
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 4/0/C, 2.3/-1/B, 2.8/2/O}
+\tkzDrawPolygon(O,A,B,C)
+\tkzDrawSegments(O,B)
+\tkzDefMidPoint(O,A)  \tkzGetPoint{E}
+\tkzDefMidPoint(O,B)  \tkzGetPoint{F}
+\tkzDefMidPoint(B,C)  \tkzGetPoint{G}
+\tkzDefMidPoint(C,A)  \tkzGetPoint{H}
+\tkzDrawSegments[dashed](A,C E,F F,G G,H E,H)
+\tkzLabelPoints[above](O)
+\tkzLabelPoints[right](F,G)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[below](A,B,C,H)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    已知空间四边形$O-ABC$, $\overline{OA}=\overline{OB}$, $\overline{CA}=\overline{CB}$。
+    $E$、$F$、$G$、$H$分别为$\overline{OA}$、$\overline{OB}$、$\overline{CB}$、$\overline{CA}$的中点，求证
+    四边形$EFGH$是矩形（图4.20）。
+\end{example}
+
+\begin{proof}
+由于$E$、$F$、$G$、$H$分别是$\overline{OA}$
+、$\overline{OB}$、$\overline{CB}$、$\overline{CA}$的中点，所以
+\[\Vec{EF}=\frac{1}{2}\Vec{AB},\qquad \Vec{HG}=\frac{1}{2}\Vec{AB}\]
+\[\Vec{EF}=\Vec{HG}\quad \Rightarrow\quad \overline{EF}=\overline{HG},\quad EF\parallel HG\]
+$\therefore\quad EFGH$是平行四边形。
+
+因为
+$\Vec{EF}=\frac{1}{2}\Vec{AB}=\frac{1}{2}(\Vec{OB}-\Vec{OA}),\quad \Vec{EH}=\frac{1}{2}\Vec{OC}$，所以
+\[\begin{split}
+        \Vec{E F} \cdot \Vec{E H} &=\frac{1}{2}(\Vec{O B}-\Vec{O A}) \cdot \frac{1}{2} \Vec{O C} \\
+        &=\frac{1}{4}(\Vec{O B} \cdot \Vec{O C}-\Vec{O A} \cdot \Vec{O C}) \\
+        &=\frac{1}{4}\left(|\Vec{O B}|^{2}+|\Vec{O C}|^{2}-|\Vec{B C}|^{2}-|\Vec{O A}|^{2}-|\Vec{O C}|^{2}+|\Vec{C A}|^{2}\right) \\
+\end{split}\]
+但已知$\Vec{O A}=\Vec{O B},\qquad \Vec{C A}=\Vec{C B}$，所以
+\[\Vec{E F} \cdot \Vec{E H} =0 \quad \Rightarrow\quad  E F \bot E H\]
+故得四边形$EFGH$是矩形。
+\end{proof}
+
+由以上各例可看到在空间证明两线垂直，内积运算仍是
+非常有效的工具。
+
+\begin{example}
+    一定长线段$\overline{AB}$的两个端
+    点，沿互相垂直的两条异面直线$\ell$、
+    $m$运动，求它的中点的轨迹。
 \end{example}
 
 \begin{solution}
-    
+    如图4.21设$\overline{MN}$为$\ell$、$m$的
+公垂线，$\overline{AB}=a$, $\overline{MN}=b$, $O$、$P$分
+别为$\overline{MN}$、$\overline{AB}$的中点，
+则
+\[\Vec{OP}=\frac{1}{2}\left(\Vec{OA}+\Vec{OB}\right)=\frac{1}{2}\left(\Vec{OM}+\Vec{MA}+\Vec{ON}+\Vec{NB}\right)\]
+因为$\Vec{OM}=-\Vec{ON}$，所以
+\[\begin{split}
+    \Vec{OP}&=\frac{1}{2}(\Vec{MA}+\Vec{NB})\\
+    \Vec{OP}\cdot\Vec{MN}&=\frac{1}{2}\left(\Vec{MA}+\Vec{NB}\right)\cdot \Vec{MN}=0
+\end{split}    \]
+因此：$P$点一定在$\overline{MN}$的垂直平分面上。
+
+因为$\Vec{OP}\cdot \Vec{OP}=\frac{1}{4}(|\Vec{MA}|^2+|\Vec{NB}|^2)$，
+连$AN$, 易证，$\triangle AMN$与$\triangle ABN$都是直角三角形。
+所以
+\[\begin{split}
+    \Vec{OP}\cdot \Vec{OP}&=\frac{1}{4}\left(\overline{AN}^2-\overline{MN}^2+\overline{AB}^2-\overline{AN}^2\right)\\
+    &=\frac{1}{4}\left(\overline{AB}^2-\overline{MN}^2\right)=\frac{1}{4}(a^2-b^2)
+\end{split}\]
+即：$|\Vec{OP}|^2=\frac{1}{4}(a^2-b^2)$
+
+由上式可知$P$点在以$O$为圆心，以$\frac{1}{2}\sqrt{a^2-b^2}$为半径的
+圆上，因此$P$点的轨迹是$\overline{MN}$的垂直平分面上的一个圆：
+$\odot\left(O,\frac{1}{2}\sqrt{a^2-b^2}\right)$
 \end{solution}
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/3/A, 0/2/M, 3/2/N, 1.5/0.5/B}
+\tkzDefMidPoint(M,N) \tkzGetPoint{O}
+\tkzDefMidPoint(A,B) \tkzGetPoint{P}
+\tkzDrawSegments(A,B A,N M,N O,P)
+\tkzDrawLines[add = 1 and 1](A,M) 
+\tkzDrawLines[add = .5 and .5](B,N) 
+ \node at (0,4)[right]{$\ell$};
+ \node at (3.5,3)[right]{$m$};
+\tkzLabelPoints[left](A,M,P)
+\tkzLabelPoints[right](B,N)
+ \tkzLabelPoints[above](O)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B, 4/0/D, 2.8/-1/C, 2.3/2/A}
+\tkzDrawPolygon(D,A,B,C)
+\tkzDrawSegments[dashed](D,B)
+\tkzDrawSegments(A,C)
+\tkzLabelPoints[below](D,B,C)
+\tkzLabelPoints[above](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    如图4.22, 已知四面体
+$A-BCD$, $AB\bot CD$, $AC\bot BD$.
+
+求证：$AD\bot BC$.
+\end{example}
+
+\begin{proof}
+    $\because\quad AB\bot CD,\quad AC\bot BD$
+
+    所以
+\[    \Vec{AB}\cdot \Vec{CD}=0,\qquad    \Vec{AC}\cdot \Vec{BD}=0\]
+\[\left(\Vec{AD}+\Vec{DB}\right)\cdot \Vec{CD}=0,\qquad    \left(\Vec{AD}+\Vec{DC}\right)\cdot \Vec{BD}=0\]
+\[\Vec{AD}\cdot \Vec{CD}=\Vec{BD}\cdot \Vec{CD},\qquad \Vec{AD}\cdot \Vec{BD}=\Vec{BD}\cdot \Vec{CD}\]
+\[\begin{split}
+    \Vec{AD}\cdot \Vec{CD}&=\Vec{AD}\cdot \Vec{BD}
+    \\
+    \Vec{AD}\cdot \left(\Vec{BD}+\Vec{DC}\right)&=0\\
+    \Vec{AD}\cdot \Vec{BC}&=0
+\end{split}\]
+即：$\Vec{AD}\bot \Vec{BC},\qquad AD\bot BC$
+\end{proof}
 
 
 \begin{example}
-    
+    如图4.23在直二面角的棱上有两点$A$、$B$, $AC$和
+    $BD$各在这个二面角的一个面内，并且都垂直于棱$AB$,设
+    $\overline{AB}=8$, $\overline{AC}=6$, $\overline{BD}=24$, 求$\overline{CD}$的长。
 \end{example}
+
+\begin{solution}    
+ 如图4.23, 
+\[|\Vec{CD}|^2=\Vec{CB}\cdot \Vec{CD}=\left(\Vec{CA}+\Vec{AB}+\Vec{BD}\right)\cdot \left(Vec{CA}+\Vec{AB}+\Vec{BD}\right)\]
+因为
+$Vec{AC}$、$Vec{AB}$、$Vec{BD}$互相正交，
+所以
+\[|\Vec{CD}|^2=|\Vec{CA}|^2+|\Vec{AB}|^2+|\Vec{BD}|^2=6^2+8^2+24^2=676\]
+$\therefore\quad \overline{CD}=\sqrt{676}=26$
+\end{solution}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a1, .5/1.9/a2, 1.5/-1.8/a3, 3/0/a4}
+\tkzDefPointsBy[translation= from a1 to a4](a2,a3){a2',a3'}
+\tkzDrawPolygon(a1,a2,a2',a4)
+\tkzDrawPolygon(a1,a3,a3',a4)
+\draw(1-.5,0)node[below]{$A$}--(1.25-.5,0.95)node[above]{$C$}--(2.5+.75,-.9)node[below]{$D$}--(1+1.5,0)node[above]{$B$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/B, 4/0/C, 5/1/D, 1/1/A, 0/4/F}
+\tkzDefPointsBy[translation= from B to F](C,D,A){G,H,E}
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawSegments(B,C C,D B,F C,G H,D G,D)
+\tkzDrawSegments[->, dashed](A,B A,D A,E A,G)
+
+\tkzDefPointWith[linear, K=.65](G,D) \tkzGetPoint{Q}
+\tkzDefPointWith[linear, K=.6](A,C) \tkzGetPoint{P}
+\tkzDrawSegments[dashed](A,C P,Q)
+\node at (.75,.75)[left]{$\vec{e_1}$};
+\node at (1,2.5)[right]{$\vec{e_3}$};
+\node at (3,1)[above]{$\vec{e_2}$};
+\tkzLabelPoints[below](B,C)
+\tkzLabelPoints[above](E,H,G)
+\tkzLabelPoints[right](Q,D)
+\tkzLabelPoints[left](F,A,P)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
 \begin{example}
-    
+    已知正方体$ABCD-EFGH$ (图4.24) 其棱长为
+1. 求：$AC$与$DG$的公垂线的垂足$P$、$Q$的位置和$AC$与$DG$ 
+间的距离。
 \end{example}
 
-
 \begin{solution}
-    
+设$\Vec{AB}=\vec{e}_1$, $\Vec{AD}=\vec{e}_2$, $\Vec{AE}=\vec{e}_3$, $\Vec{AP}=x\Vec{AC}$, $\Vec{DQ}=y\Vec{DG}$ 
+
+由于$\Vec{AC}=\vec{e}_1+\vec{e}_2,\quad \Vec{DG}=\vec{e}_1+\vec{e}_3$，所以
+\[\Vec{AP}=x\vec{e}_1+x\vec{e}_2,\qquad \Vec{AQ}=y\vec{e}_1+y\vec{e}_3\]
+\[\begin{split}
+    \Vec{AQ}&=\Vec{AD}+\Vec{DQ}=y\vec{e}_1+\vec{e}_2+y\vec{e}_3\\
+    \Vec{PQ}&=\Vec{AQ}-\Vec{AP}=(y-x)\vec{e}_1+(1-x)\vec{e}_2+y\vec{e}_3\\
+\end{split}\]
+又因 $\Vec{P Q} \perp \Vec{A C}$, $\Vec{P Q} \perp \Vec{D G}$, 则
+\[\begin{cases}
+    {\left[(y-x) \vec{e}_{1}+(1-x) \vec{e}_{2}+y \vec{e}_{3}\right] \cdot\left(\vec{e}_{1}+\vec{e}_{2}\right)=0} \\
+    {\left[(y-x) \vec{e}_{1}+(1-x) \vec{e}_{2}+y \vec{e}_{3}\right] \cdot\left(\vec{e}_{1}+\vec{e}_{3}\right)=0}
+\end{cases}\]
+由此可得方程组
+\[\begin{cases}
+    2 x-y=1 \\
+x-2 y=0
+\end{cases}\]
+解之得：$x=\frac{2}{3}, \qquad y=\frac{1}{3}$
+
+所以：$\Vec{AP}=\frac{2}{3}\Vec{AC},\quad \Vec{DQ}=\frac{1}{3}\Vec{DG}$
+\[\Vec{PQ}=\frac{1}{3}\left(-\vec{e}_1+\vec{e}_2+\vec{e}_3\right)\]
+于是$P$、$Q$两点的位置可定，且$AC$与$DG$的距离就是$|\Vec{PQ}|$. 
+\[|\Vec{PQ}|=\sqrt{\Vec{PQ}\cdot \Vec{PQ}}=\sqrt{\frac{1}{9}(1+1+1)}=\frac{\sqrt{3}}{3}\]
 \end{solution}
 
-\begin{solution}
+
+\subsection*{习题4.2}
+
+试用向量运算证明以下各题：
+
+\begin{enumerate}
+    \item 试证：点$P$在$\overline{AB}$的垂直平分上的充要条件是$|\Vec{PA}|=|\Vec{PB}|$
+\item 试证：对角线互相垂直的平行四边形是菱形。
+\item 试证：平行四边形的对角线等长的充要条件是这个平行
+四边形是矩形。
+\item 求证：直角三角形斜边上的中线等于斜边的一半。
+\item 等腰三角形顶角的平分线是底边上的高。
+\item 求证：四边形$ABCD$中，对角线互相垂直的充要条件是
+\[\overline{AB}^2 +\overline{CD}^2=\overline{AD}^2+\overline{BC}^2\]
+\item 求证：平行四边形$ABCD$中的锐角$A$为$45^{\circ}$的充要条件
+是$$\overline{AC}^2\cdot \overline{BD}^2=\overline{AB}^4+\overline{AD}^4$$
+\item 已知$\ell$是一条直线，$A$、$B$为$\ell$外同侧的两个定点，$P\in\ell$, 
+
+求
+证：$|\Vec{AP}|+|\Vec{PB}|$取极小值的充要条件是
+\[\frac{\vec{a}\cdot \vec{n}}{|\vec{a}|}=\frac{\vec{b}\cdot \vec{n}}{|\vec{b}|}\]
+（其中$\vec{n}\bot \ell$且方向指向$A$、$B$所在的
+那一侧）并解释其几何意义。
+\item 求证：长方体的对角线的平方等于长、宽、高的平方
+和。
+\item 已知$\overline{AB}$在平面$\pi$内，$\overline{AC}\bot\pi$, $\overline{BD}\bot \overline{AB}$且与$\pi$所成
+角为$30^{\circ}$, 若$\overline{AB}=a$, $\overline{AC}=\overline{BD}=b$, 求$C$和$D$间的
+距离。
+\item 线段
+$\overline{DE}$
+同时垂直于矩形$ABCD$的两边
+$\overline{DA}$、$\overline{DC}$. 设
+$\overline{AB}=12$cm, $\overline{BC}=9$cm, $\overline{DE}
+=8$cm, 求$B$、$E$两点间
+的距离。
+\item 一点$P$在两个相交平面上的投影各为$A$、$B$, 求证连线$AB$
+垂直于两个平面的交线。
+\end{enumerate}
+
+
+\section{圆}
+
+一个以$O$点为圆心，$R$为半径的圆是平面$\pi$上所有满足
+$\Vec{OX}\cdot\Vec{OX}=R^2$的点$X$的集合。即
+\[\odot (O,R)=\left\{X:X\in \pi,\; \Vec{OX}\cdot\Vec{OX}=R^2\right\}\]
+
+在平面几何中，关于圆有下列几个基本定理：
+\begin{enumerate}
+\item 圆周角定理；
+\item 弦切角定理；
+\item 圆幂定理。
+\end{enumerate}
+
+当时，这三个定理是按1、2、3的顺序来证明的，现在我们用向量的运算律，直接证明圆幂定理，
+并由此再推出弦切角定理与圆周角定理。
+
+\begin{blk}{定理1}
+    如图4.25设平面上有$\odot (O,R)$及圆外一点$P$, 过
+$P$点引圆割线交圆于$B$、$C$点，则有$\Vec{PB}\cdot \Vec{PC}=|OP|^2-R^2$.
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=1.6]
+\tkzDefPoints{0/0/O, -2.5/0/P}
+\tkzDefPoint(80:.5){C1}
+\tkzDefPoint(60:1){C2}
+\draw(O) circle(1);
+\tkzInterLC(C1,P)(O,C2) \tkzGetPoints{B}{C}
+
+\tkzDefPointWith[linear, K=0.8](B,C) \tkzGetPoint{X}
+\tkzDrawSegments[->](P,C O,X)
+\tkzLabelPoints[above](C,X)
+\tkzLabelPoints[left](P)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[below left](B)
+\draw(P)--(O);
+\draw(P)--+(23.58:3.5);
+\node at (-.4,.916)[above]{$T_1$};
+\tkzDefPointWith[linear, K=0.4](P,B) \tkzGetPoint{X1}
+\draw[thick,->](P)--(X1)node[above left]{$\vec{u}$};
+\end{tikzpicture}   
+    \caption{}
+\end{figure}
+
+
+\begin{proof}
+    在$\Vec{PC}$上取单位向量
+$\vec{u}$, 对$PC$上任意一点$X$, 都存在实数$x$, 使
+$\Vec{PX}=x\vec{u}$。这里$x$就是$\Vec{PX}$
+的长度。由向量加法，有
+\[\Vec{OX}=\Vec{OP}+\Vec{PX}=\Vec{OP}+x\vec{u}\]
+因此：
+\[\begin{split}
+    \Vec{OX}\cdot \Vec{OX}&=\left(\Vec{OP}+x\vec{u}\right)^2\\
+    &=\Vec{OP}\cdot \Vec{OP}+2\left(\Vec{OP}\cdot \vec{u}\right)x+x^2(\vec{u}\cdot \vec{u})\\
+    &=x^2+2\left(\Vec{OP}\cdot \vec{u}\right)+|\Vec{OP}|^2
+\end{split}\]
+
+当点$X$与点$B$或$C$重合时，$\Vec{OX}\cdot \Vec{OX}=R^2$，这时有
+\[x^2+2\left(\Vec{OP}\cdot \vec{u}\right)x+\left(|\Vec{OP}|^2-R^2\right)=0\]
+这里$x$是$\Vec{PB}$或$\Vec{PC}$的长度，若令$|\Vec{PB}|=\beta$,
+ $|\Vec{PC}|=\gamma$，
+则由韦达定理得：
+\[\beta\gamma=|\Vec{OP}|^2-R^2\]
+
+$\because\quad \Vec{PB}$与$\Vec{PC}$
+同向
+
+$\therefore\quad \Vec{PB}\cdot \Vec{PC}=\beta\gamma$, 因此：
+\[\Vec{PB}\cdot \Vec{PC}=|\Vec{OP}|^2-R^2=|PT_1|^2\]
+\end{proof}
+
+\begin{analyze}
+\begin{enumerate}
+    \item 上面的证明对$P$为圆内一点也是适用的，不过
+    这时设$\Vec{PX}=x\vec{u}$, 实数$x$可正可负，$|x|=|\Vec{PX}|$.
     
-\end{solution}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    由于$\Vec{PB}$与
+    $\Vec{PC}$反向，则$\Vec{PB}\cdot \Vec{PC}$和$|OP|^2-R^2$都是负值。
+
+\item 在证明过程中，我们还得到
+\[\beta+\gamma=-2\Vec{OP}\cdot \vec{u}\]
+我们令$B$、$C$、$P'$、$P$成调和点列，即此四点共线
+且满足
+\[\frac{\Vec{BP}}{\Vec{PC}}\cdot \frac{\Vec{CP'}}{\Vec{P'B}}=-1\]
+令$\Vec{PP'}=y\vec{u}$，则有
+\[-1=\frac{\Vec{BP}}{\Vec{PC}}\cdot \frac{\Vec{CP'}}{\Vec{P'B}}=\frac{-\beta}{\gamma}\x \frac{y-\gamma}{\beta-y}\]
+得：$y=\frac{2\beta\gamma}{\beta+\gamma}$，因此：
+\[\begin{split}
+    \Vec{PP'}\cdot \Vec{PO}&=\left(\frac{2\beta \gamma}{\beta+\gamma}\vec{u}\right)\cdot \left(-\Vec{OP}\right)\\
+    &=\frac{\beta \gamma}{\beta+\gamma}\left(-2\Vec{OP}\cdot \vec{u}\right)\\
+    &=\beta\gamma =|\Vec{OP}|^2-R^2
+\end{split}\]
+这就是说$\Vec{PP'}$在$\Vec{PO}$上的投影的长度等于常数
+$\frac{|\Vec{OP}|^2-R^2}{|\Vec{OP}|}$
+
+由于
+\[\frac{|\Vec{OP}|^2-R^2}{|\Vec{OP}|}=\frac{|\Vec{PT_1}|^2}{|\Vec{OP}|}=|\Vec{PT_1}|\cos\angle T_1PO=|PQ|\]
+其中$Q$是线段$T_1T_2$的中点（图4.26）
+
+$\therefore\quad $过$P$点的任一割线与$T_1T_2$的交
+点$P'$与$B$、$C$、$P$成调和点列。
+\end{enumerate}
+\end{analyze}
+
+下面，我们由圆幂定理推导
+弦切角定理与圆周角定理。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\begin{tikzpicture}[>=latex, scale=1.5]
+\tkzDefPoints{0/0/O, -2/0/P}
+\tkzDefPoint(120:1){T_1} \tkzDefPoint(-120:1){T_2}
+\draw(0,0) circle (1);
+\tkzDrawSegments(P,O P,T_1 P,T_2 T_1,T_2)
+\tkzLabelPoints[above](P,T_1)
+\tkzLabelPoints[below](O,T_2)
+\node at (-.5,0)[above right]{$Q$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1.5]
+\tkzDefPoints{0/0/O, -2.5/-1/P,0/-1/T}
+\tkzDefPoint(-15:1){C} \tkzDefPoint(60:1){C'}
+\draw(0,0) circle (1);
+\tkzInterLC(C,P)(O,C')  \tkzGetPoints{B'}{B}
+\tkzInterLL(C',B)(P,T)  \tkzGetPoint{P'}
+\tkzDrawSegments[thick](C,T C',T C,B C',B P,T P,C B,T B,P')
+\tkzLabelPoints[below](P,T,P')
+\tkzLabelPoints[right](C,C')
+\tkzLabelPoints[above](B)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+如图4.27由圆幂定理，在
+$\triangle PTB$与$\triangle PCT$中，
+由于$\frac{\Vec{PT}}{\Vec{PB}}=\frac{\Vec{PC}}{\Vec{PT}}$
+，$\angle P$是公共角，
+
+$\therefore\quad \triangle PTB \backsim \triangle PCT$
+
+得$\angle PTB=\angle PCT$，
+, 这就是弦切角定理。
+
+同理$\angle P'TB=\angle BC'T$，
+则$\angle BCT=\angle BC'T$, 这就是圆周
+角定理。
 
 
 \subsection*{习题 4.3}
