@@ -1299,7 +1299,48 @@ $\overline{FN}=\overline{FM},\quad \angle FMN=\angle FNM$,
 
 \begin{figure}[htp]
     \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw [pattern=north east lines](0,0) ellipse [x radius=1.5, y radius=1];
+\draw(-2,1.5)--(2,-1.5);
+\node at (0,-2.5){(1)};
+\end{scope}
 
+\begin{scope}[xshift=5cm]
+    \draw[->](-1,0)--(3,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2)node[right]{$Y$};
+\draw(0,1)--(3,1);
+\node at (0,0)[below left]{$O$};
+\draw[pattern=north east lines, domain=-1.5:1.5 ,samples=100, thick] plot({\x*\x},\x);
+\node at (0,-2.5){(2)};
+\end{scope}
+
+\begin{scope}[yshift=-5cm]
+    \draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\fill[pattern=north west lines, domain=-1.5:1.5 ,samples=100] plot({sqrt(1+\x*\x)},\x)--(0,1.5)--(0,-1.5)--(1.8,-1.5);
+\fill[pattern=north west lines, domain=-1.5:1.5 ,samples=100] plot({-sqrt(1+\x*\x)},\x)--(0,1.5)--(0,-1.5)--(-1.8,-1.5);
+\draw[domain=-1.5:1.5 ,samples=100, thick] plot({sqrt(1+\x*\x)},\x);
+\draw[domain=-1.5:1.5 ,samples=100, thick] plot({-sqrt(1+\x*\x)},\x);
+\node at (0,-2.5){(3)};
+\draw(-1,2)--(1,-2);
+\end{scope}
+
+\begin{scope}[xshift=5cm, yshift=-5cm]
+    \draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\node at (0,-2.5){(4)};
+\draw[pattern=north east lines, domain=-1.5:1.5 ,samples=100, thick] plot({sqrt(1+\x*\x)},\x);
+\draw[pattern=north east lines, domain=-1.5:1.5 ,samples=100, thick] plot({-sqrt(1+\x*\x)},\x);
+\draw(-2,1)--(2,-1);
+
+\end{scope}
+\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -1317,7 +1358,7 @@ $\overline{FN}=\overline{FM},\quad \angle FMN=\angle FNM$,
     如果平行弦垂直于对称轴，那么，由椭圆的对称
 性，定理显然成立。我们来证明一般情况。
 设平行弦所在的平行线系方程为
-$y=kx+c,\qquad k\ne 0$。
+$y=kx+c,\quad k\ne 0$。
 代入已知椭圆方程整理得
 \[(b^2+a^2k^2)x^2+2a^2kcx+a^2(c^2-b^2)=0\]
 设这个二次方程的两个根为$x_1,x_2$, 则：
@@ -1342,14 +1383,27 @@ $y=kx+c,\qquad k\ne 0$。
     \begin{minipage}[t]{0.48\textwidth}
     \centering
 \begin{tikzpicture}[>=latex, scale=1]
-       
+\draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw (0,0) ellipse [x radius=1.5, y radius=1];
+\draw(-2,1)--(2,-1);
+\draw(-2,-1)--(2,1);
     \end{tikzpicture}
     \caption{}
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
     \begin{tikzpicture}[>=latex, scale=1]
-      
+\draw[->](-2,0)--(2,0)node[right]{$X$};
+\draw[->](0,-2)--(0,2)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw (0,0) ellipse [x radius=1.5, y radius=1];
+\draw[domain=-1.2:1.2, samples=10]plot(\x, {0.5*\x});
+\draw[domain=-1.2:1.2, samples=10]plot(\x, {-0.5*\x});
+\draw[domain=-1:2, samples=10]plot(\x, {-0.5*\x+1.25});
+\draw[domain=-2:1, samples=10]plot(\x, {-0.5*\x-1.25});
+\node at (.56,.93)[above]{$P_0$};
     \end{tikzpicture}
     \caption{}
     \end{minipage}
@@ -1557,12 +1611,305 @@ $(x',y')$, 平移坐标轴使
 \[{x'}^2+{y'}^2=4\]
 \end{solution}
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.5]
+\draw[->](-6,0)--(4,0)node[right]{$X$};
+\draw[->](0,-2)--(0,7)node[right]{$Y$};
+\draw[->, thick](-5.5,3)--(3.5,3)node[right]{$X'$};
+\draw[->, thick](-1,-2)--(-1,7)node[left]{$Y'$};
+\node at (0,0) [below right]{$O$};
+\node at (-1,3) [below left]{$O'$};
+\draw[thick](-1,3) circle (2);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
 从例6.15可以看出，适当地
 变换坐标系，可以使曲线的方程简化。由于曲线的几何性质
 与我们选取的坐标系无关。所以，我们研究曲线时，总是想
 法选择能使曲线方程最为简单的坐标系，以便于我们研究曲
 线的性质。
 
+\begin{ex}
+\begin{enumerate}
+    \item 平移坐标轴，使原点移至$O'(-2,.3)$, 求下列各点的
+    新坐标，并画图。
+\[    A(1,2),\quad B(0,-2),\quad  C(-3,-2),\quad D(-3,-5)\]
+    \item 平移坐标轴，化简下列圆的方程，并画图。
+\begin{enumerate}
+    \item $(x-1)^2+(y-2)^2=1$
+    \item $(x+2)^2+(y-5)^2=9$
+    \item $x^2+y^2+2x-6y+1=0$
+\end{enumerate}
+
+    \item 平移坐标轴，使原点移至$O'(2,-1)$, 求曲线
+    $y^2+2y-4x+9=0$在新坐标系的方程。
+    \item 已知直线$\ell:\; 2x+3y-5=0$, 平移坐标轴，使原点移至
+    $O'\left(\frac{5}{2},0\right)$, 
+求$\ell$在新坐标系中的方程。
+\item 平移坐标轴，化简下列曲线方程，并画出曲线的草图。
+\begin{enumerate}
+    \item $\frac{(x-3)^2}{25}+\frac{(y+3)^2}{9}=1$
+    \item $(x+1)^2-(y-1)^2=1$
+    \item $y=4(x+3)^2-1$
+\end{enumerate}
+\end{enumerate}
+\end{ex}
+
+\subsection{坐标轴的旋转}
+不改变坐标轴的原点和长
+度单位，只是坐标轴绕原点转
+一角度，这种坐标系的变换叫
+做\textbf{坐标轴的旋转}，简称\textbf{转轴}。
+
+给定一坐标系，坐标轴绕
+原点$O$转$\theta$角，得到一新坐标
+系$OX'Y'$(图6.29). 下
+面我们来确定平面上任一点$P$
+的新坐标$(x',y')$与原坐标$(x,y)$之间的关系。
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+    \draw[->](-2,0)--(4,0)node[right]{$X$};
+    \draw[->](0,-2)--(0,4)node[right]{$Y$};
+    \draw[->](180+30:2)--(30:4)node[right]{$X'$};
+\draw[->](-60:2)--(90+30:4)node[right]{$Y'$};
+\draw[very thick,->](0,0)--(60:4)node[above]{$P$};        
+\draw[dashed](2,0)--(60:4)--(0,2*1.732);
+\draw[dashed](120:2)--(60:4);
+\draw[<-, very thick](60:4)--+(-60:2);
+\node at (0,0)[below left]{$O$};
+\draw[->](.8,0)arc (0:30:.8)node[right]{$\theta$};
+\draw[->](0,.8)arc (90:120:.8)node[above]{$\theta$};
+\foreach \x in {0,30,90,120}
+{
+    \draw[->](0,0)--(\x:1.6);
+}
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+设$\eX,\eY$和$\vec{e}_{x'},\vec{e}_{y'}$分别是两个坐标系中的基向
+量，则
+\[\begin{split}
+    \Vec{OP}&=x\eX+y\eY=x'\vec{e}_{x'}+y'\vec{e}_{y'}\\
+    \vec{e}_{x'}&=\cos\theta \eX+\sin\theta\eY\\
+    \vec{e}_{y'}&=\cos\left(\frac{\pi}{2}+\theta\right)\eX+\sin\left(\frac{\pi}{2}+\theta\right)\eY=-\sin\theta\eX+\cos\theta\eY
+\end{split}\]
+代入上式，得
+\[x\eX+y\eY=(x'\cos\theta-y'\sin\theta)\eX+(x'\sin\theta+y'\cos\theta)\eY\]
+所以：
+\begin{equation}
+    \boxed{\begin{cases}
+        x=x'\cos\theta-y'\sin\theta\\
+        y=x'\sin\theta+y'\cos\theta
+    \end{cases}}
+\end{equation}
+
+由(6.22)解出$x',y'$得
+\begin{equation}
+    \boxed{\begin{cases}
+        x'=x\cos\theta+y\sin\theta\\
+        y'=-x\sin\theta+y\cos\theta
+    \end{cases}}
+\end{equation}
+
+(6.22)式是用新坐标来表示原坐标的公式，(6.23)式是用原
+坐标来表示新坐标的公式，它们统称为\textbf{旋转公式}或转轴公
+式。
+
+\begin{example}
+    把坐标轴旋转$\frac{\pi}{3}$，
+求点$P(-2,3)$在新坐标系中
+的坐标。
+\end{example}
+
+\begin{solution}
+把已知量代入旋转公式(6.23), 得
+\[\begin{split}
+x'&=(-2)\cdot \cos\frac{\pi}{3}+3\cdot \sin\frac{\pi}{3}=\frac{3\sqrt{3}-2}{2},\\
+y'&=-(-2)\cdot\sin\frac{\pi}{3}+3\cdot \cos\frac{\pi}{3}=\frac{2\sqrt{3}+3}{2}
+\end{split}\]
+所以，$P$点的新坐标是
+$\left(\frac{3\sqrt{3}-2}{2}, \; \frac{2\sqrt{3}+3}{2}\right)$
+\end{solution}
+
+\begin{example}
+    把坐标轴旋转$\frac{\pi}{4}$，
+求曲线$xy=1$
+在新坐标系中的方程。
+\end{example}
+
+
+\begin{solution}
+    $\theta=\frac{\pi}{4}$，代入旋转公式(6.22), 得
+\[\begin{split}
+    x&=x'\cos\frac{\pi}{4}-y'\sin \frac{\pi}{4}=\frac{\sqrt{2}}{2}(x'-y')\\
+    y&=x'\sin\frac{\pi}{4}+y'\cos\frac{\pi}{4}=\frac{\sqrt{2}}{2}(x'+y')
+\end{split}\]
+代入$xy=1$, 得
+\[\frac{1}{2}(x'-y')(x'+y')=1\]
+即：
+\[\frac{{x'}^2}{\left(\sqrt{2}\right)^2}-\frac{{y'}^2}{\left(\sqrt{2}\right)^2}=1\]
+这就是曲线在新坐标系中的方
+程，容易看出，它是一条等轴
+双曲线（图6.30）。
+\end{solution}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.7]
+    \draw[->](-4,0)--(4,0)node[right]{$X$};
+    \draw[->](0,-4)--(0,4)node[left]{$Y$};
+    \draw[->](180+45:4.5)--(45:4.5)node[right]{$X'$};
+\draw[->](-45:4.5)--(90+45:4.5)node[right]{$Y'$};
+\draw[domain=.25:3.5, samples=100, very thick]plot(\x,{1/\x});
+\draw[domain=-3.5:-.25, samples=100, very thick]plot(\x,{1/\x});     
+\node at (0,0)[below left]{$O$};   
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{ex}
+\begin{enumerate}
+    \item 写出旋转角$\theta$为下列各值时的旋转公式(6.22)和(6.23): 
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $\theta=30^{\circ}$
+    \item $\theta=-30^{\circ}$
+    \item $\theta = 120^{\circ}$
+    \item $\theta = 90^{\circ}$
+    \item $\theta = -90^{\circ}$
+    \item $\theta = 180^{\circ}$
+\end{enumerate}
+\end{multicols}
+
+    \item 已知$A(2,0)$, $B(3,1)$, $C(-2,4)$. 设旋转角
+    $\theta = \frac{\pi}{4}$, 
+    求它们在新坐标系中的坐标。
+    \item 设旋转角$\theta=45^{\circ}$, 写出下列曲线在新坐标系中的方程：
+    \begin{multicols}{2}
+        \begin{enumerate}
+    \item $x+y=0$
+\item  $x^2+y^2=4$
+\item $3x^2-10xy+3y^2+8=0$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+\end{ex}
+
+\subsection{一般的坐标变换公式}
+设$OXY$, $O'X'Y'$是两个坐标系（图6.31），$O'$在
+坐标系$OXY$中的坐标是$(h,k)$, 容易看出，把坐标系
+$OXY$作移轴变换，把原点
+$O$移到$O'(h,k)$得到坐
+标系$O'XY$然后再绕
+$O'$旋转$\theta$角就可得到坐标系
+$O'X'Y'$, 这就说，上述的
+一般的坐标变换是平移与旋
+转的合成。下面我们来确
+定，平面上任意一点$P$的新
+坐标$(x',y')$与原坐标$(x,y)$之间的关系。
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+    \draw[->,  thick](-3,0)--(4,0)node[right]{$X''$};
+    \draw[->,  thick](0,-2)--(0,4)node[right]{$Y''$};
+    \draw[->, very thick](180+30:1)--(30:4)node[right]{$X'$};
+\draw[->, very thick](-60:1)--(90+30:3)node[right]{$Y'$};   
+\draw[->](-3,-1)--(4,-1)node[right]{$X$};
+\draw[->](-2,-2)--(-2,4)node[right]{$Y$};
+
+\node at (0,0)[below right]{$O'$};
+\node at (-2,-1)[below left]{$O$};
+\draw[->](.75,0)arc (0:30:.75)node[right]{$\theta$};
+\end{tikzpicture}
+
+    \caption{}
+\end{figure}
+
+
+设 $OXY$ 经过移轴后得到的坐标系为$O'XY$
+（图6.31），则由平移公式，得
+\begin{equation}
+\begin{cases}
+    x=x''+h\\
+    y=y''+k
+\end{cases}
+\end{equation}
+再由旋转公式，得
+\begin{equation}
+    \begin{cases}
+        x''=x'\cos\theta-y'\sin\theta\\
+        y''=x'\sin\theta+y'\cos\theta
+    \end{cases}
+\end{equation}
+把(6.25)代入(6.24)，得
+\begin{equation}
+    \boxed{\begin{cases}
+        x=x'\cos\theta-y'\sin\theta+h\\
+        y=x'\sin\theta+y'\cos\theta+k
+    \end{cases} } 
+\end{equation}
+
+由(6.26)式解出$x',y'$又可得
+\begin{equation}
+\boxed{\begin{cases}
+    x'=(x-h)\cos\theta+(y-k)\sin\theta\\
+    y'=-(x-h)\sin\theta+(y-k)\cos\theta
+\end{cases} }
+\end{equation}
+(6.26), (6.27)两个公式就是\textbf{一般的坐标变换公式}。公式(6.26)是
+通过新坐标来表示原坐标，公式(6.27)是通过原坐标来表示新
+坐标。
+
+
+
+
+\begin{example}
+    
+\end{example}
+
+
+\begin{solution}
+    
+\end{solution}
+
+
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{example}
+    
+\end{example}
+
+\begin{example}
+    
+\end{example}
+    
 \begin{example}
     
 \end{example}
@@ -1577,25 +1924,6 @@ $(x',y')$, 平移坐标轴使
 
 
 
-\begin{example}
-    
-\end{example}
-
-
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-
-
-\begin{solution}
-    
-\end{solution}
 
 
 
@@ -1603,25 +1931,29 @@ $(x',y')$, 平移坐标轴使
 
 
 
-\begin{example}
-    
-\end{example}
 
 
 
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
 
 
 
-\begin{solution}
-    
-\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{ex}
@@ -1712,6 +2044,15 @@ $(x',y')$, 平移坐标轴使
 
 
 
+\begin{example}
+    
+\end{example}
+
+
+
+\begin{solution}
+    
+\end{solution}
 
 
 
@@ -1763,6 +2104,65 @@ $(x',y')$, 平移坐标轴使
 
 
 
+
+
+
+
+
+
+
+
+\begin{example}
+    试判别下列方程的类型
+\begin{enumerate}
+    \item $x^2-3xy+2y^2-x-5y+3=0$
+    \item $9x^2-6xy+y^2-4=0$
+    \item $3x^2-2xy+y^2-5x-2y+34=0$
+\end{enumerate}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}
+    \item $B^2-AC=\left(\frac{3}{2}\right)^2-1\x 2=\frac{9}{4}-1>0$
+因此方程是双曲线型。
+\item $B^2-AC=\left(-3\right)^2-9\x 1=0$
+因此方程是抛物线型。
+\item $B^2-AC=\left(-1\right)^2-3\x 1=-2<0$
+因此方程是椭圆型。
+\end{enumerate}    
+\end{solution}
+
+\begin{example}
+    判别方程
+$3x^2+12xy+12y^2+10x+10y-3=0$
+的类型，并画出它的图形。
+\end{example}
+
+\begin{solution}
+    $B^2-AC=\left(6\right)^2-3\x 12=0$
+    因此方程是抛物线型。
+作旋转变换
+\[\begin{split}
+    \cot2\theta&=\frac{3-12}{12}=-\frac{3}{4}\\
+    \cos2\theta&=\frac{-\frac{3}{4}}{\sqrt{1+\left(\frac{3}{4}\right)^2}}=-\frac{3}{5}\\
+    \sin\theta&=\frac{2}{\sqrt{5}}\\
+    \cos\theta&=\frac{1}{\sqrt{5}}\\
+    \theta &\approx 63^{\circ}26'
+\end{split}\]
+旋转公式是
+\[x=\frac{1}{\sqrt{5}}(x'-2y'),\qquad y=\frac{1}{\sqrt{5}}(2x'+y')\]
+代入原方程，化简得
+\[15{x'}^2+6\sqrt{5}x'-2\sqrt{5}y'-3=0\]
+对$x'$配方，方程可写为
+\[15\left(x'+\frac{1}{\sqrt{5}}\right)^2=2\sqrt{5}\left(y'+\frac{3}{\sqrt{5}}\right)\]
+作平移变换，令$x''=x'+\frac{1}{\sqrt{5}}$, $y''=y'+\frac{3}{\sqrt{5}}$，最后方程变为
+\[15{x''}^2=2\sqrt{5}y''\]
+这是一条抛物线（图6.37），在$OX'Y'$坐标系中，它的顶点
+是$O'\left(-\frac{1}{\sqrt{5}},-\frac{3}{\sqrt{5}}\right)$
+，由旋转公式容易求得，在原坐标
+系$OXY$中，它的顶点是$O'(1,-1)$. $x''$轴是直线
+$2x-y-3=0$, $y''$轴是直线$x+2y+1=0$.
+\end{solution}
 
 
 
