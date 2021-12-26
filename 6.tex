@@ -1867,92 +1867,76 @@ $O'X'Y'$, 这就说，上述的
 通过新坐标来表示原坐标，公式(6.27)是通过原坐标来表示新
 坐标。
 
-
-
-
 \begin{example}
-    
+    已知直线$x+y-2=0$, 
+平移坐标轴，使原点移到
+$O'(1,1)$, 再旋转$\left(-\frac{\pi}{4}\right)$角，
+求直线$\ell$在新坐标系$O'X'Y'$中
+的方程（图6.32）。
 \end{example}
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+    \draw[->,  thick](-2,0)--(3,0)node[right]{$X''$};
+    \draw[->,  thick](0,-2)--(0,3)node[right]{$Y''$};
+    \draw[->, very thick](180+45:2.5)--(45:3)node[right]{$Y'$};
+\draw[very thick](-45:2.5)--(90+45:3)node[right]{$\ell$};  
+\draw[->](0,0)--(-2.5,2.5)node[right]{$X'$};
+\draw[->](-2,-1)--(3,-1)node[right]{$X$};
+\draw[->](-1,-2)--(-1,3)node[right]{$Y$};
+
+\node at (0,0)[below right]{$O'$};
+\node at (-1,-1)[below right]{$O$};
+\end{tikzpicture}
+
+    \caption{}
+\end{figure}
 
 \begin{solution}
-    
+把已知量代入变换公式(6.27), 得
+\[\begin{split}
+ x&=x'\cos\left(-\frac{\pi}{4}\right)-y'\sin\left(-\frac{\pi}{4}\right)+1=\frac{\sqrt{2}}{2}(x'+y')+1\\
+y&=x'\sin\left(-\frac{\pi}{4}\right)+y'\cos\left(-\frac{\pi}{4}\right)+1=\frac{\sqrt{2}}{2}(-x'+y')+1   
+\end{split}\]
+代入方程$x+y=2$得：$$y'=0$$
+这就是直线$\ell$在新坐标系中的方程。
 \end{solution}
 
-
-
 \begin{example}
-    
+    讨论线性分式函数$y=\frac{2x+1}{x-1}$
+    的图象。
 \end{example}
 
 \begin{solution}
-    
+    原式可化为 $xy-2x-y-1=0$, 为了求得这个方程的图象，我们希望选择一个新坐标系，使
+    图象在新坐标系中有较简单的方程。我们考虑移轴变换，
+\[x=x'+h,\qquad y=y'+k\]
+代入原方程，得
+\[x'y'+(k-2)x'+(h-1)y'+hk-2h-k-1=0\]
+如果取$h=1$, $k=2$, 上述方程变为
+\[x'y'=3\]
+这就是图象在新坐标系
+$O'X'Y'$中的方程，由例6.17可知它是以新坐标系
+的坐标轴为渐近线的等轴双
+曲线（图6.33）。
 \end{solution}
 
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{example}
-    
-\end{example}
-
-\begin{example}
-    
-\end{example}
-    
-\begin{example}
-    
-\end{example}
-
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.4]
+    \draw[->, thick](-6,0)--(6,0)node[right]{$X'$};
+    \draw[->](-6,-2)--(6,-2)node[right]{$X$};
+    \draw[->, thick](0,-6)--(0,6)node[right]{$Y'$};
+    \draw[->](-1,-6)--(-1,6)node[right]{$Y$};
+\draw[dashed](-5,-5)--(5,5);
+\draw[domain=.6:5.5, samples=100, very thick]plot(\x,{3/\x});
+\draw[domain=-5.5:-.6, samples=100, very thick]plot(\x,{3/\x});    
+\node at (0,0)[below right]{$O'$};
+\node at (-1,-2)[below right]{$O$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
 
 
@@ -2020,95 +2004,360 @@ $O'X'Y'$, 这就说，上述的
     Ax^2+2Bxy+Cy^2+2Dx+2Ey+F=0
 \end{equation}
 方程的系数$A$、$B$、$C$中至少有一个不等于零，系数中析出
-因子2, 是为了以后演算的方便。凡坐标满足方程（1)的点
+因子2, 是为了以后演算的方便。凡坐标满足方程(6.28)的点
 的轨迹叫做\textbf{二次曲线}。
 
-对方程（1), 我们进行平移和旋转变换，令
+对方程(6.28), 我们进行平移和旋转变换，令
+\[\begin{split}
+    x&=x'\cos\theta-y'\sin\theta+h\\
+y&=x'\sin\theta+y'\cos\theta+k
+\end{split}\]
+代入(6.28)式，展开合并同类项，就得到同一个二次曲线在
+$O'X'Y'$坐标系中的方程为
+\begin{equation}
+    A'{x'}^2+2B'x'y'+C'{y'}^2+2D'x'+2E'y'+F'=0
+\end{equation}
+其中
+\begin{equation}
+\begin{split}
+    A'&=A\cos^2\theta +2B\sin\theta \cos\theta +C\sin^2\theta \\
+2B'&=-2A\sin\theta \cos\theta +2B(\cos^2\theta -\sin^2\theta)+2C\sin\theta \cos\theta\\
+ &=2B\cos2\theta-(A-C)\sin2\theta \\
+C'&=A\sin^2\theta -2B\cos\theta \sin\theta +C\cos^2\theta \\
+D'&=2Ah\cos\theta +2B(k\cos\theta +h\sin\theta )+2Ck\sin\theta\\
+&\qquad +2D\cos\theta +2E\sin\theta \\
+E'&=-2Ah\sin\theta +2B(h\cos\theta -k\sin\theta)+2Ck\cos\theta\\
+&\qquad  -2D\sin\theta +2E\cos\theta \\
+F'&=Ah^2+2Bhk+Ck^2+2Dh+2Ek+F
+\end{split}
+\end{equation}
 
+上述关系式(6.30), 骤看起来是有些繁琐的，但稍加分析
+我们不难看出以下几点：
+\begin{enumerate}
+\item 一般二元二次方程，经坐标变换后，仍是二元二
+次方程，这就是说，上述二次曲线的定义与坐标系的选取无
+关。
+\item 在(6.30)中，令$h=k=0$, 也就是坐标系只作旋
+转变换，这时二次项系数和一次项系数一般都发生改变，而
+常数项不变。新方程(6.29)中的二次项系数$A',B',C'$只与
+原方程(6.28)中二次项系数和转角$\theta$有关，而与原方程中
+的一次项系数和常数无关；新方程(6.29)中一次项系数只与原
+方程(6.28)中一次项系数及转角有关，而与二次项系数和常数
+无关。
+\item 在(6.30)中，令$\theta=0$, 也就是坐标系只作平移变
+换，这时二次项系数不变，即
+\[A=A',\qquad B=B',\qquad C=C'\]
+而一次项系数和常数项一般都要改变，且
+\begin{equation}
+    \begin{split}
+D'&=2Ah+2Bk+2D\\
+E'&=2Bh+2Ck+2E        
+    \end{split}
+\end{equation}
+\end{enumerate}
 
+最后让我们来证明，在一般坐标变换下，新方程(6.29)与
+原方程(6.28)的系数有如下关系：
+\begin{enumerate}
+    \item $A+C=A'+C'$
+    \item $B^2-AC={B'}^2-A'C'$
+\end{enumerate}
 
+\begin{proof}
+\begin{enumerate}
+    \item \[\begin{split}
+ A'+C'&=A\cos^2\theta +2B\sin\theta \cos\theta 
+    +C \sin^2\theta +A\sin^2\theta
+    \\
+    &\qquad -2B\sin\theta \cos\theta +C\cos^2\theta\\
+    &=A(\cos^2\theta+\sin^2\theta)+C(\sin^2\theta+\cos^2\theta)\\
+    &=A+C       
+    \end{split}\]
+    \item \[\begin{split}
+A'-C'&=(A-C)\cos2\theta+2B\sin2\theta \\
+(2B')^2+(A'-C')^2&=(2B)^2+(A-C)^2        
+    \end{split}\]
+    即
+\[\begin{split}
+    {B'}^2-A'C'&=\frac{1}{4}\left[(2B)^2+(A-C)^2-(A'+C')^2\right]\\
+    &=\frac{1}{4}\left[(2B)^2+(A-C)^2-(A+C)^2\right]\\
+    &=B^2-AC
+\end{split}\]
+\end{enumerate}
+\end{proof}
 
+由以上证明可知，\textbf{$A+C$和$B^2-AC$都是二元二次方
+程在一般坐标变换下不变的量}。
 
+\begin{ex}
+\begin{enumerate}
+    \item 对方程(6.28)作旋转变换，如果使方程(6.29)中$B'=0$, 
+    求证：$(A'-C')^2=(A-C)^2+4B^2$.
+    \item 对方程(6.28)作平移变换，如果使方程(6.29)中，消去各一
+    次项，求证：
+\[F=\frac{-\begin{vmatrix}
+    A&B&D\\B&C&E\\D&E&F
+\end{vmatrix}}{B^2-AC}\]
+\end{enumerate}
+\end{ex}
 
+\subsection{一般二元二次方程的化简}
+这节，我们来研究，如何选取适当的坐标系，使二次曲
+线的方程有较简单的形式。
 
+\subsubsection{用平移变换消去二元二次方程中各一次项}
+由(6.31)式可知，对一般二元二次方程，若要在新
+坐标系中消去各一次项，只要作平移变换选取$(h,k)$使
+\[\begin{cases}
+   Ah+Bk+D=0\\
+Bh+Ck+E=0
+\end{cases}\]
+在$B^2-AC\ne 0$时，此方程组有唯一一组解$(h,k)$, 我们
+将坐标原点移到$(h,k)$, 就可使二次曲线在新坐标系中的
+方程中$D'=E'=0$. 在$B^2-AC=0$时，若$A:B=B:C
+=D:E$, 方程组有无穷多解，若$A:B=B:C\ne D:E$, 
+方程组无解，在后一种情况出现时，我们可先用下面(二)中
+介绍的方法去化简方程。
 
+\begin{example}
+    平移坐标轴，化简方程
+$2x^2+3y^2-8x+6y-7=0$
+并画出新坐标系和方程的曲线。
+\end{example}
 
+\begin{solution}
+    令$x=x'+h$, $y=y'+k$, 代入已知方程，得
+\[2(x'+h)^2+3(y'+k)^2-8(x'+h)+6(y'+k)-7=0\]
+就是，
+\[2{x'}^2+3{y'}^2+(4h-8)x'+(6k+6)y'+2h^2+3k^2
+-8h+6k-7=0\]
+令$4h-8=0$, $6k+6=0$，解得
+$h=2$, $k=-1$, 代入方程(6.28)，得
+\[2{x'}^2+3{y'}^2=18\quad \Rightarrow\quad \frac{{x'}^2}{9}+\frac{{y'}^2}{6}=1\]
+这是椭圆的标准方程，对原
+坐标系来说，它的中心在$O'(2,-1)$, 它的长轴和
+短轴分别在直线$y=-1$, 
+$x=2$上，它的长轴长是6, 短轴长是$2\sqrt{6}$. 新坐标和曲线如图6.34所示。
+\end{solution}
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.6]
+        \draw[->, thick](-4,0)--(4,0)node[right]{$X'$};
+        \draw[->](-4,1)--(4,1)node[right]{$X$};
+        \draw[->, thick](0,-4)--(0,4)node[right]{$Y'$};
+        \draw[->](-2,-4)--(-2,4)node[right]{$Y$};
+    \node at (0,0) [below left]{$O'$};\node at (-2,1) [below left]{$O$};
+    \draw[thick](0,0)ellipse[x radius= 3 , y radius=2.45 ];
+       
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.4]
+        \draw[->, thick](-6,0)--(6,0)node[right]{$X'$};
+  \draw[->](-6,-3)--(6,-3)node[right]{$X$};
+  \draw[->, thick](0,-6)--(0,6)node[left]{$Y'$};
+  \draw[->](1,-6)--(1,6)node[right]{$Y$};
 
+\draw[domain=-4:4, samples=100, thick]plot({sqrt(8+1.33*\x*\x)},\x);
+\draw[domain=-4:4, samples=100, thick]plot({-sqrt(8+1.33*\x*\x)},\x);
 
-
-
-
-
-
-
+\draw[domain=-6:6, samples=10]plot(\x,{0.866*\x});
+\draw[domain=-6:6, samples=10]plot(\x,{-0.866*\x});
+\draw(-2.828,-2.45) rectangle(2.828,2.45);
+\node at (0,0) [below left]{$O'$};\node at (1,-3) [below left]{$O$};
+      
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
 
 \begin{example}
-    
+    平移坐标轴，化简方程
+$3x^2-4y^2+6x+24y-57=0$
+并画出新坐标系和方程的曲线。
 \end{example}
 
-
-
 \begin{solution}
-    
+    把已知方程按$x,y$配方，得
+\[3(x+1)^2-4(y-3)^2=24\]
+令$x'=x+1$, $y'=y-3$，代入上面方程，
+得：
+\[3{x'}^2-4{y'}^2=24 \quad \Rightarrow\quad 
+\frac{{x'}^2}{8}-\frac{{y'}^2}{6}=1\]
+这是双曲线的标准方程，
+新坐标系和曲线如图6.35所示。
 \end{solution}
 
+\subsubsection{用旋转变换，消去(6.28)中的$xy$项}
+
+由关系式(6.30), 对一般二元二次方程，若要在
+新坐标系中使得方程不含$x'y'$项，只要选取$\theta$角，使
+\[2B=2Bcos2\theta -(A-C)\sin\theta=0\]
+即
+\[\cot 2\theta=\frac{A-C}{2B},\qquad \left(0<\theta<\frac{\pi}{2}\right)\]
+把坐标轴旋转由上式所决定的$\theta$角，就可使二次曲线在
+新坐标系中的方程不含$x'y'$项。
+
+\begin{example}
+    利用坐标轴旋转化简二次方程
+$8x^2+4xy+5y^2-36=0$
+并画出它的图形。
+\end{example}
+
+\begin{solution}
+\[\cot 2\theta=\frac{A-C}{2B}=\frac{8-5}{4}=\frac{3}{4}\]
+由于$\cos2\theta$与$\cot2\theta$同号，所以
+\[\begin{split}
+    \cos2\theta&=\frac{\frac{3}{4}}{\sqrt{1+\left(\frac{3}{4}\right)^2}}=\frac{3}{5}\\
+    \sin\theta&=\sqrt{\frac{1-\frac{3}{5}}{2}}=\frac{1}{\sqrt{5}}\\
+    \cos\theta&=\sqrt{\frac{1+\frac{3}{5}}{2}}=\frac{2}{\sqrt{5}}\\
+\end{split}\]
+因此，可令旋转变换为
+\[x=\frac{2}{\sqrt{5}}x'-\frac{1}{\sqrt{5}}y',\qquad y=\frac{1}{\sqrt{5}}x'+\frac{2}{\sqrt{5}}y'\]
+代入原方程化简，得
+\[9{x'}^2+4{y'}^2=36\]
+这是一个椭圆，长轴在$Y'$轴上。
+
+根据$\sin\theta=\frac{1}{\sqrt{5}}$，
+得旋转角$\theta\approx 26^{\circ}34'$, 它的图形如
+图6.36所示。
+\end{solution}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.7]
+        \draw[->, thick](-180+26.56:4)--(26.56:4)node[right]{$X'$};
+  \draw[->](-4,0)--(4,0)node[right]{$X$};
+  \draw[->, thick](-90+26.56:4)--(26.56+90:4)node[left]{$Y'$};
+  \draw[->](0,-4)--(0,4)node[right]{$Y$};
+
+  \draw[very thick, rotate=26.56](0,0) ellipse[x radius=2, y radius=3];
+  \node at (0,0) [below left]{$O$};
+\draw[->](.85,0) arc (0:26.56:.85)node[right]{$\theta$};        
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{ex}
+\begin{enumerate}
+    \item 平移坐标轴，化简下列各二次方程
+\begin{enumerate}
+\item $x^2+y^2-2x+2y+3=0$
+\item $9x^2+4y^2-36x+16y+16=0$
+\item $2x^2-4y^2+4x+4y-1=0$
+\item $xy-6x-8y+20=0$
+\end{enumerate}
+
+    \item 旋转坐标轴，化简下列各二次方程
+\begin{enumerate}
+     \item $x^2+12xy+9y^2-16=0$
+    \item $x^2-2xy+y^2+2x-4y+3=0$
+\end{enumerate}    
+
+    \item 化简下列各二次方程
+\begin{enumerate}
+    \item $5x^2+6xy+5y^2-4x+4y-4=0$
+    \item $9x^2+4xy+6y^2+12x+36y+44=0$
+\end{enumerate}
+\end{enumerate}
+\end{ex}
+
+\subsection{一般二元二次方程的讨论}
+由前节可知，一些二元二次方程，经一般坐标变换
+后可化为圆锥曲线的标准方程，这节我们对二元二次方程作
+一般性的讨论，看看如何根据二次曲线的方程来判断它的形
+状和位置。
+
+给定二次曲线
+\begin{equation}
+ Ax^2+2Bxy+Cy^2+2Dx+2Ey+F=0   
+\end{equation}
+我们总可通过转轴，选取适当的坐标系$OX'Y'$, 使二次曲
+线的方程在这个新系中不含$x'y'$项，由于转轴后方程(6.32)
+中的常数项不变，新方程可写为
+\begin{equation}
+    A'{x'}^2+C'{y'}^2+2D'x'+2E'y'+F=0
+\end{equation}
+下面分两种情况讨论：
+\begin{enumerate}
+    \item $A'$、$C'$都不等于零（即$A'C'\ne 0$）。再作平
+移变换，消去一次项，由于移轴后方程(6.33)中的二次项系数
+不变，所以新方程可写为
+\begin{equation}
+    A'{x''}^2+C'{y''}^2+F'=0
+\end{equation}
+我们再分两种情况：
+\begin{enumerate}
+\item $A'$、$C'$同号（即$A'C'>0$）。当$F'\ne 0$,且
+$A'$、$C'$与$F'$异号时，方程的图象是椭圆；当$F'\ne 0$且
+$A'$、$C'$与$F'$同号时，显然没有点的坐标满足方程(6.34), 
+因此，方程的图象不存在；当$F'= 0$, 且$A'$、$C'$同号时，
+显然方程的图象只有一点。
+\item $A'$、$C'$异号（即$A'C'<0$）。当$F'\ne 0$时，
+方程(6.32)的轨迹是双曲线；当$F'= 0$时，方程(6.34)可分解
+为
+\[\left(x''+\sqrt{-\frac{C'}{A'}}y''\right)\cdot \left(x''-\sqrt{-\frac{C'}{A'}}y''\right)=0\]
+因此，方程的轨迹是两条相交直线。
+\end{enumerate}
+\item $A'$、$C'$中有一个为零（即$A'C'=0$）。
+设$A'=0$, 则方程(6.33)变为
+\begin{equation}
+    C'{y'}^2+2D'x'+2E'y'+F=0
+\end{equation}
+作平移变换：令$x''=x'$, $y=y'+\frac{E'}{C'}$，
+方程(6.35)在新坐标
+系中的方程可写为
+\begin{equation}
+    C'{y''}^2+2D'x''+F'=0
+\end{equation}
+我们再分两种情况：
+\begin{enumerate}
+    \item $D'\ne 0$, 这时方程的图象是抛物线。
+    \item $D'=0$, 当$F'\ne 0$且$C'$与$F'$异号，方程(6.36)
+    变为
+    \[y''\pm \sqrt{-\frac{F'}{C'}}=0\]
+    这时方程的图象两条平行直线；当$F'\ne 0$且$C'$与$F'$同
+号，显然没有点的坐标满足方程，这时方程(6.32)没有轨迹，当
+$F'=0$时，方程(6.36)化为$y''=0$，
+这时方程(6.32)表示两条重合的直线。
+\end{enumerate}
+\end{enumerate}
 
 
+由以上讨论可知，\textbf{一般二次曲线或者是圆锥曲线（椭圆、
+双曲线、抛物线），或者是两条直线（包括重合情况），
+或者是一个点，或者不存在}。
 
+一般我们把情况1中的类型(a)叫做\textbf{椭圆型方程}，
+类型(b)叫做\textbf{双曲线型方程}；情况2中的类型叫做
+\textbf{抛物线型方程}。由于在方程(6.33)中$B'=0$, 所以
+\[B^2-AC={B'}^2-A'C'=-A'C'\]
+这样，上面情况1中的类型(a)的条件，$A'$、$C'$同
+号相当于$B^2-AC<0$; $A'$、$C'$异号相当于$B^2-AC
+>0$；情况2中的条件$A'C'$中有一个为零相当于$B^2-
+AC=0$. 因此，我们可不作坐标变换，直接根据$B^2-AC$
+来判别二次曲线的类型。$B^2-AC$叫做一般二元二次方
+程的\textbf{判别式}。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+由判别式判别二次曲线的类型，我们归纳为下表。
+\begin{center}
+    方程$Ax^2+2Bxy+Cy^2+2Dx+2Ey+F=0$
+\begin{tabular}{cccc}
+\hline
+判别式&类型&一般情形&特殊情形（退化二次曲线）\\
+\hline
+$B^2-4C<0$ &椭圆型&椭圆&一点或没有图象\\
+$B^2-4C>0$ &双曲线型&双曲线&两条相交直线\\
+$B^2-AC=0$&抛物线型&抛物线&两条平行或重合直线或没有图象\\
+\hline
+\end{tabular}
+\end{center}
 
 
 
@@ -2139,15 +2388,14 @@ $3x^2+12xy+12y^2+10x+10y-3=0$
 \end{example}
 
 \begin{solution}
-    $B^2-AC=\left(6\right)^2-3\x 12=0$
+    $B^2-AC=\left(6\right)^2-3\x 12=0$，
     因此方程是抛物线型。
 作旋转变换
 \[\begin{split}
-    \cot2\theta&=\frac{3-12}{12}=-\frac{3}{4}\\
-    \cos2\theta&=\frac{-\frac{3}{4}}{\sqrt{1+\left(\frac{3}{4}\right)^2}}=-\frac{3}{5}\\
-    \sin\theta&=\frac{2}{\sqrt{5}}\\
-    \cos\theta&=\frac{1}{\sqrt{5}}\\
-    \theta &\approx 63^{\circ}26'
+    \cot2\theta&=\frac{3-12}{12}=-\frac{3}{4},\qquad 
+    \cos2\theta=\frac{-\frac{3}{4}}{\sqrt{1+\left(\frac{3}{4}\right)^2}}=-\frac{3}{5}\\
+    \sin\theta&=\frac{2}{\sqrt{5}},\qquad  \cos\theta=\frac{1}{\sqrt{5}},\qquad 
+    \theta \approx 63^{\circ}26'
 \end{split}\]
 旋转公式是
 \[x=\frac{1}{\sqrt{5}}(x'-2y'),\qquad y=\frac{1}{\sqrt{5}}(2x'+y')\]
@@ -2164,7 +2412,25 @@ $3x^2+12xy+12y^2+10x+10y-3=0$
 $2x-y-3=0$, $y''$轴是直线$x+2y+1=0$.
 \end{solution}
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, rotate=63.43]
 
+    \draw[->, thick](-3,0)--(3,0)node[right]{$X''$};
+    \draw[->](-3,1.34)--(3,1.34)node[right]{$X'$};
+    \draw[->, thick](0,-2)--(0,5)node[left]{$Y''$};
+    \draw[->](0.45,-2)--(0.45,5)node[above]{$Y'$};
+\draw[domain=-1.1:1.1, samples=100, very thick]plot(\x, {3.35*\x*\x});
+\draw[->](0.45,1.34)--+(90-63.43:3)node[right]{$Y$};
+\draw(0.45,1.34)--+(90-63.43:-4);
+\draw[->](0.45,1.34)--+(-63.43:4)node[right]{$X$};
+\draw(0.45,1.34)--+(-63.43:-4);
+\node at (0,0)[below]{$O'$};
+\node at (0.45,1.34)[below left]{$O$};
+\draw[<-](0.45+.5,1.34) arc (0:-63.43:.5);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
 
 
