@@ -1109,6 +1109,59 @@ $\frac{\vec{a}+\vec{b}}{2}+\frac{\vec{a}-\vec{b}}{2}=\vec{a}$.
 在平面几何中，一个重要的课题就是讨论三角形中的边角关系，其中最要紧的是余弦定理，如在$\triangle ABC$中，$\angle A$、$\angle B$、$\angle C$的对边长分别用$a$、$b$、$c$表示，则
 \[c^2=a^2+b^2-2ab\cos\angle C\]
 
+若设$\Vec{BC}=\vec{a}$，$\Vec{CA}=\vec{b}$，则
+\[\Vec{BA}=\vec{a}+\vec{b},\quad |\vec{a}|=a,\quad |\vec{b}|=b,\quad |\vec{a}+\vec{b}|=c,\quad \expval{\vec{a},\vec{b}}=\pi-\angle C\]
+
+上式换用向量的写法即可写为
+\[|\vec{a}+\vec{b}|^2=|\vec{a}|^2+|\vec{b}|^2+2|\vec{a}|\cdot |\vec{b}|\cos\expval{\vec{a},\vec{b}}\]
+或
+\[|\vec{a}|\cdot |\vec{b}|\cos\expval{\vec{a},\vec{b}}=\frac{1}{2}\left\{|\vec{a}+\vec{b}|^2-|\vec{a}|^2-|\vec{b}|^2\right\}\]
+$|\vec{a}|\cdot |\vec{b}|\cos\expval{\vec{a},\vec{b}}$
+是一个极为重要的量，这节我们要对它进行详细的讨论。下面，我们先给它一个名称。
+
+\begin{blk}{定义}
+$|\vec{a}|\cdot |\vec{b}| \cos\expval{\vec{a},\vec{b}}$叫做$\vec{a}$与$\vec{b}$的内积。
+
+$\vec{a}$与$\vec{b}$的内积通常记为$\vec{a}\cdot \vec{b}$，于是
+\[\vec{a}\cdot \vec{b}=|\vec{a}|\cdot |\vec{b}|\cos\expval{\vec{a},\vec{b}}\]
+\end{blk}
+
+设$\Vec{BC}=\vec{a}$，$\Vec{CA}=\vec{b}$（图3.26），过$B$点作$BB_1$垂直于直线$OA$于$B_1$点，容易推知
+\[OB_1=|\vec{b}|\cos\expval{\vec{a},\vec{b}}\]
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\tkzDefPoints{0/0/O, 1.5/0/B_1, 2.5/0/A, 1.5/1.2/B, -1/0/B'}
+\tkzDrawSegments[->, thick](O,B O,A)
+\tkzDrawSegments[dashed](O,B' B,B_1)
+\tkzLabelPoints[below](O,B_1,A)
+\tkzMarkAngle[mark=none, size=.3](A,O,B)
+\tkzLabelPoints[above](B)
+\end{scope}
+\begin{scope}[xshift=5cm]
+    \tkzDefPoints{0/0/O, -.5/0/B_1, 2/0/A, -.5/2/B, -1/0/B'}
+\draw[->, thick](O)--node[right]{$\vec{b}$}(B);
+\draw[->, thick](O)--node[below]{$\vec{a}$}(A);
+\tkzMarkAngle[mark=none, size=.3](A,O,B)
+\tkzDrawSegments[dashed](O,B' B,B_1)
+\tkzLabelPoints[below](O,B_1,A)
+\tkzLabelPoints[above](B)
+\end{scope}
+\begin{scope}[xshift=9cm]
+    \tkzDefPoints{0/0/O, 2/0/A, 0/2/B, -.5/0/B'}
+\tkzDrawSegments[->, thick](O,B O,A)
+\tkzDrawSegments[dashed](O,B')
+\tkzLabelPoints[below](A)
+\tkzLabelPoints[above](B)
+\tkzMarkAngle[mark=none, size=.3](A,O,B)
+\node at (0,0)[below]{$O(B_1)$};
+
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
 
 
