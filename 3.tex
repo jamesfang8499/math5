@@ -1163,101 +1163,1210 @@ $\vec{a}$与$\vec{b}$的内积通常记为$\vec{a}\cdot \vec{b}$，于是
     \caption{}
 \end{figure}
 
+$|\vec{b}|\cos\expval{\vec{a},\vec{b}}$，叫做$\vec{b}$
+在$\vec{a}$方向上的\textbf{正投影分量}。当
+$\expval{\vec{a},\vec{b}}$是个锐角时，它是个正值，当$\expval{\vec{a},\vec{b}}=\frac{\pi}{2}$
+时，它等于0, 当$\expval{\vec{a},\vec{b}}$是个钝角时，它是个负值。由此我们可知内积的几何意义是：\textbf{$\vec{a}$
+与$\vec{b}$的内积等于$\vec{a}$的长度与
+$\vec{b}$
+在$\vec{a}$方向上的正投影分量的乘积}。
 
+由向量内积的定义和它的几何意义，同学可自己推知内
+积有如下一些重要性质
+\begin{enumerate}
+    \item 如果$\vec{e}$是单位向量，则
+\[\begin{split}
+    \vec{e}\cdot \vec{a}=\vec{a}\cdot \vec{e}&=|\vec{a}|\expval{\vec{a},\vec{e}}\\
+    &=\vec{a}\text{在}\vec{e}\text{方向上的正投影分量}
+\end{split}  \]
+\item  $\vec{a}\bot \vec{b}\quad \Leftrightarrow\quad \vec{a}\cdot \vec{b}=0$
+\item $\vec{a}\cdot \vec{a}=|\vec{a}|^2\quad \text{或}\quad |\vec{a}|=\sqrt{\vec{a}\cdot \vec{a}}$
+\item $\cos\expval{\vec{a},\vec{b}}=\frac{\vec{a}\cdot \vec{b}}{ |\vec{a}|\; |\vec{b}|}=\frac{\vec{a}\cdot \vec{b}}{\sqrt{\vec{a}\cdot \vec{a}}\sqrt{\vec{b}\cdot \vec{b}}}$
+\item 对任意两个向量$\vec{a}$, $\vec{b}$，有：
+\[|\vec{a}\cdot \vec{b}|\le |\vec{a}|\; |\vec{b}|\]
+\end{enumerate}
 
+\begin{ex}
+\begin{enumerate}
+    \item  证明内积性质1--5.
+    \item  已知$|\vec{a}|=5$, $\vec{b}$在$\vec{a}$方向上的正投影分量是3, 求
+   $\vec{a}\cdot \vec{b}$.
+    \item  已知$|\vec{a}|=5$, $\vec{b}$在$\vec{a}$方向上的正投影分量是$-3$, 求
+    $\vec{a}\cdot \vec{b}$.
+    \item  在$\triangle ABC$中，$|\Vec{AB}|=5$, $|\Vec{AC}|=4$, $\angle BAC=120^{\circ}$,  求$\Vec{AB}\cdot \Vec{AC}$.
+    \item  已知$\vec{a}\cdot \vec{b}={0}$, 能否推知$\vec{a}=\vec{0}$或$\vec{b}=\vec{0}$, 为什么？$\vec{a}=\vec{0}$或$\vec{b}=\vec{0}$是$\vec{a}\cdot \vec{b}={0}$的什么条件？
+ \item  已知$\vec{a}$、$\vec{b}$的长都等于$\sqrt{2}$, 它们的内积是$-1$, 求
+$\expval{\vec{a},\vec{b}}$
+    \item  已知：$|\vec{a}|=|\vec{b}|$, $\expval{\vec{a},\vec{b}}=30^{\circ}$, $\vec{a}\cdot\vec{b}=3$, 求它们
+    的长度。
+    \item  已知$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\vec{a}$在$\vec{b}$方向上的正投影向量$\Vec{OA_1}=\mu\vec{b}$，求证：$\vec{a}\cdot \vec{b}=\mu|\vec{b}|^2$.
+\end{enumerate}   
+\end{ex}
 
+\subsection{内积运算律}
 
+内积运算满足下列运算律。
+
+\begin{blk}{定理}
+    设$\vec{a}$、$\vec{b}$、$\vec{c}$为向量、$\lambda$为实数，则
+\begin{enumerate}
+    \item （交换律）$\vec{a}\cdot \vec{b}=\vec{b}\cdot \vec{a}$
+    \item （与数的结合律）$\vec{a}\cdot \left(\lambda\vec{b}\right)=\lambda\left(\vec{a}\cdot \vec{b}\right)$
+    \item （分配律）$\vec{a}\cdot \left(\vec{b}+\vec{c}\right)=\vec{a}\cdot \vec{b}+\vec{a}\cdot \vec{c}$
+\end{enumerate}
+\end{blk}
+
+\begin{proof}
+\begin{enumerate}
+    \item 因为$\vec{a}\cdot \vec{b}=|\vec{a}|\left|\vec{b}\right|\cos\expval{\vec{a},\vec{b}}$，$\vec{b}\cdot \vec{a}=\left|\vec{b}\right||\vec{a}|\cos\expval{\vec{b},\vec{a}}$
+
+    而$|\vec{a}| \left|\vec{b}\right| \cos \expval{\vec{a},\vec{b}}=\left|\vec{b}\right| |\vec{a}| \cos\expval{\vec{b},\vec{a}}$，所以
+\[\vec{a}\cdot \vec{b}=\vec{b}\cdot \vec{a}\]
+  \item \begin{enumerate}
+      \item 
+ 当$\lambda =0$时，显然有$\vec{a}\cdot (\lambda \vec{b})=\lambda (\vec{a}\cdot \vec{b})$
+  
+ \item 当$\lambda >0$时，$\vec{a}\cdot (\lambda \vec{b})=|\vec{a}|\left|\lambda\vec{b}\right|\cos\expval{\vec{a},\lambda\vec{b}}$（图3.27），但$\left|\lambda\vec{b}\right|=\lambda\left|\vec{b}\right|$，$\lambda\vec{b}$与$\vec{b}$同方向，$\expval{\vec{a},\lambda \vec{b}}=\expval{\vec{a},\vec{b}}$，所以
+
+ \item 当$\lambda<0$时，$\vec{a}\cdot (\lambda \vec{b})=|\vec{a}|\left|\lambda\vec{b}\right|\cos\expval{\vec{a},\lambda\vec{b}}$（图3.38），但$\left|\lambda \vec{b}\right|=-\lambda\left|\vec{b}\right|$, $\expval{\vec{a},\lambda\vec{b}}=\pi-\expval{\vec{a},\vec{b}}$
+    所以
+\[
+    \vec{a}\cdot (\lambda \vec{b})= (-\lambda )|\vec{a}|\left|\vec{b}\right|\cos\left(\pi-\expval{\vec{a},\vec{b}}\right)=\lambda|\vec{a}|\left|\vec{b}\right|\cos \expval{\vec{a},\vec{b}}=\lambda\left(\vec{a}\cdot \vec{b}\right)
+\]
+\end{enumerate} 
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/A, 2/0/B, 4/0/C, 3/2/D}
+\tkzDrawSegments[->, thick](A,B A,C A,D)
+\tkzMarkAngle[mark=none, size=.4](C,A,D)
+\tkzLabelSegment[below](A,B){$\vec{b}$}
+\tkzLabelSegment[below](B,C){$\lambda\vec{b}$}
+\tkzLabelSegment[above](A,D){$\vec{a}$}
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/A, 2/0/B, -4/0/C, -2/2/D}
+\tkzDrawSegments[->, thick](A,B A,C A,D)
+\tkzMarkAngle[mark=none, size=.4](B,A,D)
+\tkzMarkAngle[mark=none, size=.55](D,A,C)
+\tkzLabelSegment[below](A,B){$\vec{b}$}
+\tkzLabelSegment[below](A,C){$\lambda\vec{b}$}
+\tkzLabelSegment[above](A,D){$\vec{a}$}
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\item 任取一点$O$，作$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{BC}=\vec{c}$（图3.29），则
+\[\Vec{OC}=\Vec{OB}+\Vec{BC}=\vec{b}+\vec{c}\]
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\tkzDefPoints{0/0/O, 2/0/B_1, 4/0/C_1, -2/0/A, 2/2.5/B, 4/1.5/C}
+\tkzDrawSegments[->, thick](O,A O,B O,C B,C)
+\tkzDrawSegments[dashed](B,B_1 C,C_1)
+\tkzDrawLine[thick](O,C_1)
+\tkzLabelPoints[below](A,O,B_1,C_1)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](B)
+
+\tkzLabelSegment[above](O,B){$\vec{b}$}
+\tkzLabelSegment[above](A,O){$\vec{a}$}
+\tkzLabelSegment[above](B,C){$\vec{c}$}
+
+\draw[->, thick](O)--(-.5,0)node[below]{$\vec{a}_0$};
+
+\end{tikzpicture}    
+    \caption{}
+\end{figure}
+
+设$B_1,C_1$分别是$B$、$C$两点在直线$OA$上的正射影，$\vec{a}_0$为$\vec{a}$方向上的单位向量，则
+\[\overline{OB_1}=\vec{a}_0\cdot \vec{b},\quad \overline{B_1C_1}=\vec{a}_0\cdot \vec{c},\quad \overline{OC_1}=\vec{a}_0\cdot \left(\vec{b}+\vec{c}\right)\]
+但$\overline{OC_1}=\overline{OB_1}+\overline{B_1C_1}$，所以
+\[\vec{a}_0\cdot \left(\vec{b}+\vec{c}\right)=\vec{a}_0\cdot \vec{b}+\vec{a}_0\cdot \vec{c}\]
+两边同乘以$|\vec{a}|$，则有
+\[|\vec{a}|\vec{a}_0\cdot \left(\vec{b}+\vec{c}\right)=|\vec{a}|\left(\vec{a}_0\cdot \vec{b}\right)+|\vec{a}|\left(\vec{a}_0\cdot \vec{c}\right)\]
+即
+\[\vec{a}\cdot \left(\vec{b}+\vec{c}\right)=\vec{a}\cdot \vec{b}+\vec{a}\cdot \vec{c}\]
+\end{enumerate}
+\end{proof}
 
 \begin{example}
-    
+    去括号$\left(2\vec{a}-3\vec{b}\right)\cdot \left(\vec{c}+5\vec{d}\right)$.
 \end{example}
 
 \begin{solution}
-    
+\[\left(2\vec{a}-3\vec{b}\right)\cdot \left(\vec{c}+5\vec{d}\right)=2\vec{a}\cdot \vec{c}+10\vec{a}\cdot \vec{d}-3\vec{b}\cdot \vec{c}-15\vec{b}\cdot \vec{d}\]
 \end{solution}
 
 
 \begin{example}
-    
-\end{example}
-
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-\begin{example}
-    
+    提取公因子向量$6\vec{a}\cdot\vec{b}+9\vec{b}\cdot\vec{c}$.
 \end{example}
 
 \begin{solution}
-    
+   \[ 6\vec{a}\cdot\vec{b}+9\vec{b}\cdot\vec{c}=3\vec{b}\cdot \left(2\vec{a}+3\vec{c}\right)\]
 \end{solution}
 
 \begin{example}
-    
+    展开以下各式
+    \begin{multicols}{3}
+\begin{enumerate}
+    \item $\left(\vec{a}+\vec{b}\right)\cdot \left(\vec{a}+\vec{b}\right)$
+    \item $\left(\vec{a}-\vec{b}\right)\cdot \left(\vec{a}-\vec{b}\right)$
+    \item $\left(\vec{a}+\vec{b}\right)\cdot \left(\vec{a}-\vec{b}\right)$
+\end{enumerate}        
+    \end{multicols}
 \end{example}
 
 \begin{solution}
-    
+\begin{enumerate}
+    \item \[\begin{split}
+   \left(\vec{a}+\vec{b}\right)\cdot \left(\vec{a}+\vec{b}\right)&=\vec{a}\cdot \vec{a}+\vec{a}\cdot \vec{b}+\vec{b}\cdot \vec{a}+\vec{b}\cdot \vec{b}\\
+        &=\vec{a}\cdot \vec{a}+2\vec{a}\cdot \vec{b}+\vec{b}\cdot \vec{b}\\
+        &=\left|\vec{a}\right|^2+2\vec{a}\cdot \vec{b}+\left|\vec{b}\right|^2
+    \end{split}\]
+
+    \item $\left(\vec{a}-\vec{b}\right)\cdot \left(\vec{a}-\vec{b}\right)=\left|\vec{a}\right|^2-2\vec{a}\cdot \vec{b}+\left|\vec{b}\right|^2$
+    \item $\left(\vec{a}+\vec{b}\right)\cdot \left(\vec{a}-\vec{b}\right)=\left|\vec{a}\right|^2-\left|\vec{b}\right|^2$
+\end{enumerate}
 \end{solution}
 
 \begin{example}
-    
+    已知$\vec{a}$、$\vec{b}$, 求证：
+\[\vec{a}\cdot\vec{b} =\frac{1}{2}\left\{\left|\vec{a}+\vec{b}\right|^2-\left|\vec{a}\right|^2-\left|\vec{b}\right|^2\right\}\]
+\end{example}
+
+\begin{proof}
+因为$\left|\vec{a}+\vec{b}\right|^2=\left(\vec{a}+\vec{b}\right)\cdot \left(\vec{a}+\vec{b}\right)=\left|\vec{a}\right|^2+2\vec{a}\cdot \vec{b}+\left|\vec{b}\right|^2$
+所以：
+\[\vec{a}\cdot\vec{b} =\frac{1}{2}\left\{\left|\vec{a}+\vec{b}\right|^2-\left|\vec{a}\right|^2-\left|\vec{b}\right|^2\right\}\]
+\end{proof}
+
+\begin{example}
+    已知$\vec{a}$、$\vec{b}$, 求证：
+\[\left|\vec{a}+\vec{b}\right|^2+\left|\vec{a}-\vec{b}\right|^2=2\left(|\vec{a}|^2+\left|\vec{b}\right|^2\right)\]
+\end{example}
+
+\begin{proof}
+\begin{align}
+    \left|\vec{a}+\vec{b}\right|^2&=\left|\vec{a}\right|^2+2\vec{a}\cdot \vec{b}+\left|\vec{b}\right|^2\\
+    \left|\vec{a}-\vec{b}\right|^2&=\left|\vec{a}\right|^2-2\vec{a}\cdot \vec{b}+\left|\vec{b}\right|^2
+\end{align}
+$(3.1)+(3.2)$, 则得
+\[\left|\vec{a}+\vec{b}\right|^2+\left|\vec{a}-\vec{b}\right|^2=\left|\vec{a}\right|^2+\left|\vec{a}\right|^2+\left|\vec{b}\right|^2+\left|\vec{b}\right|^2=  2\left(|\vec{a}|^2+\left|\vec{b}\right|^2\right)\]
+\end{proof}
+
+\begin{example}
+    用余弦定理和广义勾股定理证明内积分配律，即对任给的$\vec{a},\vec{b},\vec{c}$，有
+\[\vec{a}\cdot \left(\vec{b}+\vec{c}\right)=\vec{a}\cdot \vec{b}+\vec{a}\cdot \vec{c}\]
+\end{example}
+
+\begin{proof}
+    由余弦定理有
+\[\begin{split}
+    \vec{a}\cdot \left(\vec{b}+\vec{c}\right)&=\frac{1}{2}\left\{\left|\vec{a}+\left(\vec{b}+\vec{c}\right)\right|^2-\left|\vec{a}\right|^2-\left|\vec{b}+\vec{c}\right|^2\right\}  \\
+    \vec{a}\cdot \vec{b}&=\frac{1}{2}\left\{\left|\vec{a}+\vec{b}\right|^2-\left|\vec{a}\right|^2-\left|\vec{b}\right|^2\right\}  \\
+    \vec{a}\cdot \vec{c}&= \frac{1}{2}\left\{\left|\vec{a}+\vec{c}\right|^2-\left|\vec{a}\right|^2-\left|\vec{c}\right|^2\right\} 
+\end{split}\]
+要证明$\vec{a}\cdot \left(\vec{b}+\vec{c}\right)-\vec{a}\cdot \vec{b}-\vec{a}\cdot \vec{c}=0$，也就等价于要证明
+\[\frac{1}{2}\left\{\left|\vec{a}+\vec{b}+\vec{c}\right|^2-\left|\vec{a}+\vec{b}\right|^2-\left|\vec{a}+\vec{c}\right|^2-\left|\vec{b}+\vec{c}\right|^2+\left|\vec{a}\right|^2+\left|\vec{b}\right|^2+\left|\vec{c}\right|^2\right\}=0\]
+根据广义勾股定理，设一平行四边形由$\vec{x},\vec{y}$张成，则有
+\[\left|\vec{x}+\vec{y}\right|^2+\left|\vec{x}-\vec{y}\right|^2-2|\vec{x}|^2-2|\vec{y}|^2=0\]
+将上面式中的$\vec{x},\vec{y}$代以适当的向量，即得下列各式
+\begin{align}
+\left|\left(\vec{a}+\vec{b}\right)+\vec{c}\right|^2+\left|\left(\vec{a}+\vec{b}\right)-\vec{c}\right|^2-2\left|\vec{a}+\vec{b}\right|^2-2\left|\vec{c}\right|^2&=0\\
+\left|\vec{a}+\left(\vec{b}-\vec{c}\right)\right|^2+\left|\vec{a}-\left(\vec{b}-\vec{c}\right)\right|^2-2\left|\vec{a}\right|^2-2\left|\vec{b}-\vec{c}\right|^2&=0\\
+\left|\left(\vec{a}+\vec{c}\right)+\vec{b}\right|^2+\left|\left(\vec{a}+\vec{c}\right)-\vec{b}\right|^2-2\left|\vec{a}+\vec{c}\right|^2-2\left|\vec{b}\right|^2&=0\\
+\left|\vec{b}+\vec{c}\right|^2+\left|\vec{b}-\vec{c}\right|^2-2\left|\vec{b}\right|^2-2\left|\vec{c}\right|^2&=0
+\end{align}
+$(3.3)-(3.4)+(3.5)-2\x(3.6)$, 即得
+\[2\left\{\left|\vec{a}+\vec{b}+\vec{c}\right|^2-\left|\vec{a}+\vec{b}\right|^2-\left|\vec{a}+\vec{c}\right|^2-\left|\vec{b}+\vec{c}\right|^2+\left|\vec{a}\right|^2+\left|\vec{b}\right|^2+\left|\vec{c}\right|^2\right\}=0\]
+\end{proof}
+
+本节我们用向量的投影性质证明了向量内积分配律，在
+例3.14中，我们证明了两向量内积的又一表达式（即余弦定理），
+例3.15中所证的向量恒等式，它的几何意义正是广义勾股定理
+即，平行四边形两条对角线的平方和等于它的四边的平方
+和，而在例3.16中，我们又用余弦定理和广义勾股定理证明了
+内积分配律。这就是说，向量的投影性质，余弦定理，广义勾
+股定理与向量内积分配律之间在逻辑上都是等价的，因此，
+可以说，内积分配律是余弦定理、广义勾股定理的代数形
+式。
+
+\begin{ex}
+\begin{enumerate}
+    \item 已知$\vec{a}=3\vec{b}-7\vec{b}$, 求
+    $\vec{a}\cdot \vec{a}$
+\item  已知$\vec{e}_1,\vec{e}_2$是互相垂直的单位向量且
+   $ \vec{a}=2\vec{e}_1+\vec{e}_2,\quad \vec{b}=12\vec{e}_1-4\vec{e}_2$
+   
+   求：$\vec{a}\cdot \vec{a}$, $\vec{b}\cdot \vec{b}$, $\vec{a}\cdot \vec{b}$.
+
+   \item 如果$\vec{a}\cdot \vec{b}=\vec{c}\cdot \vec{b}$, 那么能否推出$\vec{a}=\vec{c}$, 为什么？
+    \item 给出$(\vec{a}+\vec{b})\cdot (\vec{a}-\vec{b})$的一个几何解释，当$|\vec{a}|=|\vec{b}|$
+    时，求此内积的值并解释这个结果的几何意义。
+\end{enumerate}
+\end{ex}
+
+\subsection*{习题3.3}
+\begin{enumerate}
+    \item  已知$|\vec{a}|=5$, $\vec{e}$为单位向量，当$\expval{\vec{a},\vec{e}}=30^{\circ},\; 45^{\circ},\; 120^{\circ}$时，分别求出$a$在$\vec{e}$方向上的正投影分量，并绘
+    图说明。
+    \item  当$\vec{a}\cdot \vec{b}=\pm 1$时，$\vec{a}$与
+    $\vec{b}$各有什么关系？
+    \item  已知$\triangle ABC$, $\overline{BC}=3$, $\overline{CA}=5$, $\overline{AB}=6$, 求$\Vec{A B}\cdot \Vec{AC}$
+    （提示：使用例3.14得到的公式）。
+    \item  已知$|\vec{a}|=3$, $\vec{c}$在$\vec{b}$方向上的正投影分量$\vec{a}_1=\frac{1}{2}\vec{b}$,
+    求$\vec{a}\cdot \vec{b}$.
+    \item  已知$\triangle ABC$, $\Vec{AB}=\vec{a}$, $\Vec{AC}=\vec{b}$, 问当$\vec{a}\cdot \vec{b}>0$, $\vec{a}\cdot \vec{b}<0$, $\vec{a}\cdot \vec{b}=0$时，$\triangle ABC$各是什么三角形？
+
+    \item  问向量$\vec{a}$与$\vec{b}$的和与差互相垂直，应该满足什么条件？
+    \item  设$|\vec{e}|=1$
+\begin{enumerate}
+    \item 如果$(\vec{a}+\vec{e})\cdot (\vec{a}-\vec{e})=8$, 求$|\vec{a}|$
+    \item 如果$\vec{a}\cdot \vec{e}=2$, 求$|\vec{a}-\vec{e}|$, $|\vec{a}+\vec{e}|$
+    \item 求向量$\vec{a}+\vec{e}$与$\vec{a}-\vec{e}$夹角的余弦
+\end{enumerate}
+
+    \item  已知$\vec{a}$、$\vec{b}$，满足$|\vec{a}|=2|\vec{b}|=4$且它们的夹角是
+    $60^{\circ}$, 求$\vec{a}\cdot \vec{b}$, $(\vec{a}+\vec{b})\cdot (\vec{a}+\vec{b})$, $|\vec{a}+\vec{b}|$.
+    \item  已知$|\vec{a}|=2$, $|\vec{b}|=3$和$\vec{a}\cdot\vec{b}=4$, 求$|\vec{a}-\vec{b}|$.
+    \item  已知$\parallelogram ABCD$, 设$\Vec{AB}=\vec{a}$,$\Vec{AD}=\vec{b}$, 求证此平行四
+    边形的面积 $S^2=(\vec{a}\cdot \vec{a})(\vec{b}\cdot \vec{b})-(\vec{a}\cdot \vec{b})^2$.
+
+    （提示：$S^2=|\vec{a}|^2|\vec{b}|^2\sin^2 \expval{\vec{a}\cdot \vec{b}}$）
+\end{enumerate}
+
+\section{空间向量及其运算}
+\subsection{空间向量的加法，倍积与内积运算}
+如果空间点的全体都作同向等距的移动，那么这种移动
+叫做空间全体点的一个平移。我们把空间全体点的一个平移
+叫做一个\textbf{空间位移向量}，简称\textbf{向量}。如同平面情形一样，
+一个空间位移向量，可用空间中一条有向线段来表示。
+例如“空间全体点都向东北方向移动3cm”，我们可用图3.30
+中的相等的有向线段$\Vec{AB}$或$\Vec{CD}$来表示。相等的有向线段都
+表示同一个向量或相等的向量。
+
+关于平面向量的长度，平行，夹角的定义，对空间向量
+也同样适用，空间中的零向量表示空间中全体点到自身的一
+个移动。
+
+已知向量$\vec{a}$, 在空间任选一点$O$, 作$\Vec{OA}=\vec{a}$, 如果直
+线$OA$平行于一个已知平面$\pi$, 我们就说这个\textbf{向量$\vec{a}$平行于$\pi$}, 
+记作$\vec{a}\parallel \pi$（图3.31）。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 1.5/.5/C, 3/0/E, 4.5/.75/G, 1/2/B}
+\tkzDefPointsBy[translation = from A to C](B){D}
+\tkzDefPointsBy[translation = from A to E](B){F}
+\tkzDefPointsBy[translation = from A to G](B){G'}
+\tkzDrawSegments[->, thick](A,B C,D E,F G,G')
+\tkzDrawSegments[dashed](B,D D,F F,G' A,C C,E E,G)
+\tkzLabelSegment[left](A,B){$\vec{a}$}
+\tkzLabelSegment[left](C,D){$\vec{a}$}
+\tkzLabelSegment[left](E,F){$\vec{a}$}
+\tkzLabelSegment[left](G,G'){$\vec{a}$}
+\tkzLabelPoints[below](A,C,E)
+\tkzLabelPoints[above](B,D,F)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A', 3/0/B', 3.5/1.5/C'}
+\tkzDefPointsBy[translation = from B' to C'](A'){D'}
+\tkzDrawPolygon(A',B',C',D')
+\node at (A')[above right]{$\pi$};
+\tkzDefPoints{1.25/2.75/O, 2.5/3/A}
+\tkzDrawLine[add=1 and 1, dashed](O,A)
+\tkzDrawSegments[->](O,A)
+\tkzLabelSegment[above](O,A){$\vec{a}$}
+\tkzDefPoints{1.25/.8/O'}
+\tkzDefPointsBy[translation = from O to O'](A){A'}
+\tkzDrawSegments(O,O')
+\tkzDrawSegments[dashed](A,A')
+\tkzDrawSegments[->](O',A')
+\tkzLabelSegment[above](O',A'){$\vec{a}$}
+\tkzLabelPoints[above](O,A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+所有平行于同一平面的向量都可以用这个平面上的有向
+线段来表示。通常，我们把所有平行于同一平面的向量叫做
+\textbf{共面向量}。同样平行于同一直线的向量我们叫做\textbf{共线向量}。
+
+对空间的任意两个向量，我们总可以用具有公共始点的
+有向线段来分别表示，因此空间中任意两个向量都是共面
+的。这样，平面上两个向量的和、倍积与内积运算的定义，
+对空间向量也完全适用。其运算律也完全适用。但对空间向
+量，由于要涉及到三个不共面向量，因此，需要重新加以证
+明。从例3.16可知，内积分配律可由广义勾股定理来证
+明；证明只涉及到向量的长度，当然对空间向量也同样成
+立，同学不难从图3.32验证，加法结合律，对空间任意三个
+向量也同样成立。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 4/0/C, 2.2/-1.3/B, 2.5/2.5/D}
+\tkzDrawSegments[->,thick](A,D C,D B,D A,B B,C)
+\tkzDrawSegments[->,dashed](A,C)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](D)
+\tkzLabelSegment[left](A,D){$\vec{a}+\vec{b}+\vec{c}$}
+\tkzLabelSegment[below](A,B){$\vec{a}$}
+\tkzLabelSegment[below](B,C){$\vec{b}$}
+\tkzLabelSegment[below right](A,C){$\vec{a}+\vec{b}$}
+\tkzLabelSegment[left](B,D){$\vec{b}+\vec{c}$}
+\tkzLabelSegment[right](C,D){$\vec{c}$}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/D, 2.5/0/C, 3.3/-1/B, 0/3/H}
+\tkzDefPointsBy[translation=from C to B](D){A}
+\tkzDefPointsBy[translation=from D to H](A,B,C){E,F,G}
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](G,H)
+\tkzLabelPoints[left](E,D)
+\tkzLabelPoints[right](C,F)
+\tkzDrawSegments[->](A,D A,B A,E E,H E,F H,G F,G B,F D,H)
+\tkzDrawSegments[->, dashed](D,C B,C C,G A,G)
+\tkzLabelSegment[left](A,D){$\vec{b}$}
+\tkzLabelSegment[below](A,B){$\vec{a}$}
+\tkzLabelSegment[right](A,E){$\vec{c}$}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{example}
+    已知平行六面体$ABCD-EFGH$(图3.33), 如
+果$\Vec{AB}=\vec{a}$, $\Vec{AB}=\vec{b}$, $\Vec{AB}=\vec{c}$, 试用$\vec{a}$、$\vec{b}$、$\vec{c}$表示对
+角线向量$\Vec{AG}$.
 \end{example}
 
 \begin{solution}
-    
+\[\Vec{AG}=\Vec{AB}+\Vec{BF}+\Vec{FG}=\Vec{AB}+\Vec{AE}+\Vec{AD}=\vec{a}+\vec{b}+\vec{c}\]
 \end{solution}
 
 \begin{example}
-    
+    已知$\triangle ABC$的三个顶点相对于空间任一点$O$, 
+ 向量$\Vec{OA}=\vec{a}$, $\vec{OB}=\vec{b}$, $\Vec{OC}=\vec{c}$，设$G$为$\triangle ABC$的重心
+    （图3.34），求证：
+$\Vec{OG}=\frac{1}{3}\left(\vec{a}+\vec{b}+\vec{c}\right)$
 \end{example}
 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\tkzDefPoints{0/0/A, 4/0/C, 2.2/-1.3/O, 2.8/2.5/B}
+\tkzDrawSegments[->,thick](O,A O,C O,B)
+\tkzDrawSegments[dashed](A,C)
+\tkzDefMidPoint(B,C)  \tkzGetPoint{M}
+\tkzDefMidPoint(A,C)  \tkzGetPoint{M'}
+\tkzInterLL(A,M)(B,M') \tkzGetPoint{G}
+\tkzDrawSegments[dashed,->](A,G G,M G,O)
+\tkzDrawSegments(A,B B,C)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C,M)
+\tkzLabelPoints[above](B,G)
+\tkzLabelSegment[below](A,O){$\vec{a}$}
+\tkzLabelSegment[below](O,C){$\vec{c}$}
+\tkzLabelSegment[right](B,O){$\vec{b}$}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{proof}
+\[\Vec{OG}=\Vec{OA}+\Vec{AG}=\vec{a}+\Vec{AG}\]
+设$M$为$\overline{BC}$的中点，则
+\[\begin{split}
+\Vec{AG}=\frac{2}{3}\Vec{AM}=\frac{2}{3}\left(\Vec{AB}+\Vec{BM}\right)&=\frac{2}{3}\left(\Vec{AB}+\frac{1}{2}\Vec{BC}\right)\\
+&=\frac{2}{3}\left[\Vec{OB}-\Vec{OA}+\frac{1}{2}\left(\Vec{OC}-\Vec{OB}\right)\right]\\
+&=\frac{1}{3}\left(\Vec{OB}+\Vec{OC}-2\Vec{OA}\right)\\
+&=\frac{1}{3}\vec{b}+\frac{1}{3}\vec{c}-\frac{2}{3}\vec{a}
+\end{split}\]
+所以
+\[\Vec{OG}=\vec{a}+\frac{1}{3}\vec{b}+\frac{1}{3}\vec{c}-\frac{2}{3}\vec{a}=\frac{1}{3}\left(\vec{a}+\vec{b}+\vec{c}\right)\]
+\end{proof}
+
+\begin{ex}
+    \begin{enumerate}
+        \item 如果把空间的一切单位向量用具有同一始点的有向线段
+        来表示。那么这些有向线段的终点构成什么图形。
+\item 已知$\vec{a}$、$\vec{b}$、$\vec{c}$且都不等于
+零，它们可能有6个顺序求和，设一平行六面体$ABCD
+-EFGH$的三个棱向量
+$\Vec{AB}=\vec{a}$, $\Vec{AB}=\vec{b}$, $\Vec{AE}=\vec{c}$, 验证它们的和都等于$\Vec{AG}$.
+\item 已知四面体$A-BCD$, 设
+$\Vec{AB}=\vec{a}$, $\Vec{BC}=\vec{b}$, $\Vec{CB}=\vec{c}$, $\Vec{DA}=\vec{d}$, $E$、$F$分
+别为$\overline{AC}$, $\overline{BD}$的中点，试用$\vec{a}$、$\vec{b}$、$\vec{c}$、$\vec{d}$表示$\Vec{EF}$.
+    \end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/D, 2.5/0/C, 3.3/-1/B, 0/3/H}
+\tkzDefPointsBy[translation=from C to B](D){A}
+\tkzDefPointsBy[translation=from D to H](A,B,C){E,F,G}
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](G,H)
+\tkzLabelPoints[left](E,D)
+\tkzLabelPoints[right](C,F)
+\tkzDrawSegments[->](A,D A,B A,E)
+\tkzDrawSegments(E,H E,F H,G F,G B,F D,H)
+\tkzDrawSegments[dashed](D,C B,C C,G)
+\tkzDrawSegments[->, dashed](A,G)
+\tkzLabelSegment[left](A,D){$\vec{b}$}
+\tkzLabelSegment[below](A,B){$\vec{a}$}
+\tkzLabelSegment[right](A,E){$\vec{c}$}
+    \end{tikzpicture}
+    \caption*{第2题}
+\end{figure}
+
+\subsection{空间向量之间的线性关系}
+\begin{blk}
+    {共面向量定理} 如果$\vec{a},\vec{b}$线性无关，则$\vec{c}$与$\vec{a}$、$\vec{b}$共
+面的充要条件是存在唯一的一对实数$x$、$y$使
+\[\vec{c}=x\vec{a}+y\vec{b}\]
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/O, 4/0/M, 1.5/2.5/N}
+\tkzDefPointsBy[translation = from O to M](N){C}
+\tkzDefPointWith[linear, K=.7](O,M) \tkzGetPoint{A}
+\tkzDefPointWith[linear, K=.7](O,N) \tkzGetPoint{B}
+\tkzDrawSegments[thick](O,M O,N)
+\tkzDrawLines[add=0 and .5, dashed](O,N)
+\tkzDrawLines[add=.5 and .5, dashed](O,M)
+\tkzDrawSegments[->, thick](O,C O,B O,A)
+
+\tkzLabelPoints[below](O,A,M)
+\tkzLabelPoints[left](B,N)
+\tkzLabelPoints[right](C)
+\tkzDrawSegments[dashed](N,C M,C)
+\tkzLabelSegment[below](O,A){$\vec{a}$}
+\tkzLabelSegment[above left](O,B){$\vec{b}$}
+\tkzLabelSegment[above left](O,C){$\vec{c}$}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+\begin{enumerate}
+    \item 必要性：任取一点$O$(图3.35), 作$\Vec{OA}=\vec{a}$, 
+    $\Vec{OB}=\vec{b}$, $\Vec{OC}=\vec{c}$, 则$O$、$A$、$B$三点不共线且点$c\in $平面($O$、$A$、$B$), 在平面($O$、$A$、$B$)上，我们过$C$点作$OB$
+    的平行线交直线$OA$于$M$点，过$C$作$OA$的平行线交直线$OB$于
+    $N$点，于是存在两个实数$x$、$y$使
+\[\begin{split}
+     \Vec{OM}&=x\Vec{OA}=x\vec{a}\\
+     \Vec{ON}&=y\Vec{OB}=y\vec{b}\\
+     \Vec{OC}&=\Vec{OM}+\Vec{ON}=x\Vec{OA}+y\Vec{OB}
+\end{split}\]
+即：$\vec{c}=x\vec{a}+y\vec{b}$
+
+下面证唯一性。
+设$\vec{c}=x\vec{a}+y\vec{b}=x'\vec{a}+y'\vec{b}$，则\
+\[(x-x')\vec{a}+(y-y')\vec{b}=0\]
+那么，由$\vec{a}$、$\vec{b}$线性无关可推知
+\[x-x'=0,\qquad y-y'=0\]
+即：$x=x',\quad y=y'$
+
+\item 充分性：若
+$\vec{c}=x\vec{a}+y\vec{b}$, 则由求和法则可知$\vec{c}$
+与$x\vec{a}$, $y\vec{b}$共面，因而也和$\vec{a}$、$\vec{b}$共面。
+\end{enumerate}
+\end{proof}
+
+上述三个向量共面的充要条件还可写成较为对称的形
+式。
+
+\begin{blk}
+    {推论} 三个向量$\vec{a}$、$\vec{b}$、$\vec{c}$共面的充要条件是存在三个
+不完全为零的实数$x$、$y$、$z$, 使
+\[x\vec{a}+y\vec{b}+z\vec{c}=\vec{0}\]
+\end{blk}
+
+\begin{proof}
+\begin{enumerate}
+    \item 充分性，如果有三个不全为零的实数使$x\vec{a}+y\vec{b}+z\vec{c}=\vec{0}$，不妨假定$z\ne 0$, 则有
+\[\vec{c}=-\frac{x}{z}\vec{a}-\frac{y}{z}\vec{b}\]
+    由共面向量定理与平行向量基本定理可证$\vec{c}$与$\vec{a}$、$\vec{b}$共面。
+
+\item 必要性，如果$\vec{a}$、$\vec{b}$、$\vec{c}$共面，且$\vec{a}\nparallel \vec{b}$, 那么
+由共面向量定理可知，一定存在唯一的一对实数$x$、$y$, 使
+\[\vec{c}=x\vec{a}+y\vec{b}\]
+取$z=-1$，则上式可写为
+\[x\vec{a}+y\vec{b}+z\vec{c}=\vec{0}\]
+$x$、$y$、$z$中至少$z\ne 0$.
+
+如果$\vec{a}\parallel \vec{b}$, 由平行向量基本定理的推论可知，一定存
+在两个不全为零的有序实数$(x,y)$使
+\[x\vec{a}+y\vec{b}=0\]
+取$z=0$，上式就可写为
+\[x\vec{a}+y\vec{b}+z\vec{c}=\vec{0}\]
+\end{enumerate}
+\end{proof}    
+
+\begin{blk}
+    {定义}已知三个向量$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$, 如果存在不全为零的
+三个实数$x_1$、$x_2$、$x_3$使方程
+\[x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3=\vec{0}\]
+成立，那么，我们说这三个向量是线性相关的。
+\end{blk}
+
+由共面向量定理及其推论可知，\textbf{三个向量线性相关的充
+要条件是它们共面}，即
+\[\text{$\vec{a}$、$\vec{b}$、$\vec{c}$线性相关}\quad \Longleftrightarrow\quad \text{$\vec{a}$、$\vec{b}$、$\vec{c}$共面}\]
+
+
+\begin{blk}
+    {定义}
+设三个向量都不是零向量，如果方程
+\[x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3=\vec{0}\]
+仅当
+$x_1=x_2=x_3=0$时才成立，那么我们称$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$
+这三个向量线性无关。
+\end{blk}
+
+
+由共面向量定理的推论可证，三个向量线性无关的充要
+条件是它们不共面。
+
+对于三个向量，要么它们线性相关，要么线性无关，二
+者必具其一。
+
+\begin{blk}
+    {空间向量定理} 如果向量$\vec{a}$、$\vec{b}$、$\vec{c}$不共面。那么对空
+间任一向量$\vec{p}$都存在着一个唯一的有序数组$(x,y,z)$使
+\[\vec{p}=x\vec{a}+y\vec{b}+z\vec{c}\]
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\tkzDefPoints{0/0/O, 3/0/B', -1/-1/A', 0/3.5/C'}
+\tkzDefPointsBy[translation = from O to B'](A'){P'}
+\tkzDefPointsBy[translation = from O to C'](A',B',P'){A'',B'',P}
+\tkzDrawPolygon(C',A'',P,B'')
+\tkzDrawSegments[->, dashed](O,A' O,B' O,C' O,P)
+\tkzDrawSegments(A',P' P',B' B',B'' P,P' A'',A')
+\tkzLabelPoints[below](A',B',O)
+\tkzLabelPoints[right](P)
+\tkzLabelPoints[left](C')
+\draw(A')--(-1.5,-1.5);
+\draw(B')--(4,0);
+\draw(C')--(0,4);
+\draw[->, dashed](O)--node[above]{$\vec{b}$}(1,0)node[below]{$B$};
+\draw[->, dashed](O)--node[left]{$\vec{c}$}(0,1)node[right]{$C$};
+\draw[->, dashed](O)--node[above left]{$\vec{a}$}(-.5,-.5)node[right]{$A$};
+\tkzLabelSegment[above left](O,P){$\vec{p}$}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+如图3.36所示，已知$\vec{a}$、$\vec{b}$、$\vec{c}$不共面，则有
+\[\vec{a}\ne \vec{0},\quad \vec{b}\ne\vec{0},\quad \vec{c}\ne \vec{0}\]
+且它们彼此互不平
+行。以空间中任一点$O$为起点作$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{OC}=\vec{c}$, $\Vec{OP}=\vec{p}$，过$P$点作三个平面依次平行于平面
+($O$、$B$、$C$)、($O$、$A$、$C$)、($O$、$A$、$B$), 设与直线$OA$, $
+OB$, $OC$依次相交于$A'$、$B'$、$C'$三点，根据平行向量定理，存在
+唯一的三个实数$x$、$y$、$z$, 使
+\[\Vec{OA'}=x\Vec{OA},\quad \Vec{OB'}=y\Vec{OB},\quad \Vec{OC'}=z\Vec{OC}\]
+由于$\Vec{OP}=\Vec{OA'}+\Vec{OB'}+\Vec{OC'}$，所以
+\[\Vec{OP}=x\Vec{OA}+y\Vec{OB}+z\Vec{OC}\]
+即：$\vec{p}=x\vec{a}+y\vec{b}+z\vec{c}$
+
+下面证唯一性：设$\vec{p}=x\vec{a}+y\vec{b}+z\vec{c}=x'\vec{a}+y'\vec{b}+z'\vec{c}$
+则：
+\[(x-x')\vec{a}+(y-y')\vec{b}+(z-z')\vec{c}=\vec{0}\]
+由$\vec{a}$、$\vec{b}$、$\vec{c}$线性无关可推知
+\[x=x',\quad y=y',\quad z=z'\]
+\end{proof}
+
+\begin{blk}
+    {定义} 已知向量$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$、$\vec{a}_4$, 如果存在不全为零的实数$x_1$、$x_2$、$x_3$、$x_4$使方程
+    \[x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3+x_4\vec{a}_4=\vec{0}\]
+    那么我们说这四个向量线性相关。
+\end{blk}
+
+\begin{blk}
+    {定理}
+空间任意四个向量总是线性相关的。
+\end{blk}
+
+\begin{proof}
+    已知$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$、$\vec{a}_4$是空间任意四个向量，如
+果
+\begin{enumerate}
+    \item $\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$、$\vec{a}_4$中有三个不共面，假设$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$不共面，由上述空间向量定理可知，一定存在三个实数$x_1,x_2,x_3$使
+\[\vec{a}_4=x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3\]
+取$x_4=-1$, 则上式可写为
+\[x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3+x_4\vec{a}_4=\vec{0}\]
+其中至少$x_4$不为零，所以这四个向量线性相关。
+\item $\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$、$\vec{a}_4$中有三个共面，设$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$共面，
+由共面向量定理的推论可推知，存在三个不全为零的实数
+$x_1,x_2,x_3$使
+\[x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3=\vec{0}\]
+取$x_4=0$, 上式就可写为
+\[x_1\vec{a}_1+x_2\vec{a}_2+x_3\vec{a}_3+x_4\vec{a}_4=\vec{0}\]
+由于$x_1,x_2,x_3,x_4$中至少有一个不为零，所以$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$、$\vec{a}_4$这四个向量线性相关。
+\end{enumerate}
+
+\end{proof}
+
+\begin{blk}
+ {定义} 已知$n$个向量$\vec{a}_1,\vec{a}_2,\vec{a}_3,\ldots, \vec{a}_n$和$n$个实数$x_1,x_2,x_3,\ldots,x_n$, 向量
+ \[\vec{p}=x_1\vec{a}_1+x_2\vec{a}_2+\cdots+x_n\vec{a}_n\]
+叫做向量$\vec{a}_1,\vec{a}_2,\vec{a}_3,\ldots, \vec{a}_n$的线性组合或向量$\vec{p}$的线性表示。
+\end{blk}
+
+例如：$2\vec{a},\; -3\vec{a},\; -\frac{1}{2}\vec{a}$
+都是$\vec{a}$的线性组合；$2\vec{a}_1+3\vec{a}_2,\; -2\vec{a}_1+7\vec{a}_2$
+等都是$\vec{a}_1$与$\vec{a}_2$
+的线性组合；$5\vec{a}_1+4\vec{a}_2-3\vec{a}_3,\;  2\vec{a}_1-\frac{1}{2}\vec{a}_2+\sqrt{2}\vec{a}_3$等都是
+$\vec{a}_1$、$\vec{a}_2$、$\vec{a}_3$的线性组合。
+
+由平行向量定理可知，如果$\vec{e}$是空间中的一个非零向
+量，那么$\vec{e}$的所有线性组合$\{x\vec{e}\}$能生成与$\vec{e}$平行的全体向
+量。
+
+由共面向量定理可知，如果$\vec{e}_1$、$\vec{e}_2$是平面上两个线性无
+关的向量，那么$\vec{e}_1$、$\vec{e}_2$的所有线性组合$\{x_1\vec{e}_1+x_2\vec{e}_2\}$能生成
+这平面上的全体向量；这时$\{\vec{e}_1,\vec{e}_2\}$叫做此平面全体向量的
+一个\textbf{基底}，$\vec{e}_1$、$\vec{e}_2$分别叫做\textbf{基底向量}。
+
+由空间向量定理可知，如果$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$是空间三个线性
+无关的向量，那么$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$的所有线性组合
+$\{x_1\vec{e}_1+x_2\vec{e}_2+x_3\vec{e}_3\}$能生成所有的空间向量；这时$\{\vec{e}_1,\vec{e}_2,\vec{e}_3\}$叫做空
+间中的一个\textbf{基底}，$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$都被叫做\textbf{基底向量}。
+
+\begin{example}
+    如果$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$
+不共面且$\vec{a}=2\vec{e}_1-\vec{e}_2$, 
+$\vec{b}=\vec{e}_2+\vec{e}_3$, $\vec{c}=4\vec{e}_1-5\vec{e}_2-3\vec{e}_3$, 问$\vec{a}$、$\vec{b}$、$\vec{c}$是否共
+面？
+\end{example}
 
 \begin{solution}
-    
+    方程$x\vec{a}+y\vec{b}+z\vec{c}=\vec{0}$，
+等价于方程
+\[
+x(2\vec{e}_1-\vec{e}_2)+y(\vec{e}_2+\vec{e}_3)+2(4\vec{e}_1-5\vec{e}_2-3\vec{e}_3)=\vec{0}\]
+即：
+\[(2x+4z)\vec{e}_1+(-x+y-5z)\vec{e}_2+(y-3z)\vec{e}_3=\vec{0}\]
+由于$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$不共面，即线性无关，所以，
+\[\begin{cases}
+    2x+4z=0\\ -x+y-5z=0\\ y-3z=0
+\end{cases}\]
+上面方程组的$\Delta=\begin{vmatrix}
+    2&0&4\\
+    -1&1&-5\\
+    0&1&-3
+\end{vmatrix}=0$，因此方程组有一
+组非零解，所以$\vec{a}$、$\vec{b}$、$\vec{c}$线性相关，即共面。
 \end{solution}
 
 \begin{example}
-    
+    给定一个基底$\{\vec{e}_1,\vec{e}_2,\vec{e}_3\}$且
+$\vec{a}=4\vec{e}_1-\vec{e}_2+3\vec{e}_3,\; \vec{b}=-12\vec{e}_1+3\vec{e}_2-9\vec{e}_3$, 问$\vec{a}$与$\vec{b}$
+是否平行。
 \end{example}
 
 \begin{solution}
-    
+因为$\frac{-12}{4}=\frac{3}{-1}=\frac{-9}{3}=-3$，
+所以：
+\[\vec{b}=-3\vec{a},\qquad \vec{a}\parallel \vec{b}\]    
 \end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 已知$\vec{a}=\vec{e}_1+\vec{e}_2-\vec{e}_3$, $\vec{b}=\vec{e}_2+\vec{e}_2+\vec{e}_3$, $\vec{c} =3\vec{e}_2+\vec{e}_2-\vec{e}_3$, 其中$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$不共面，问$a$、$b$、$c$是否共
+    面？
+    \item     已知向量$\vec{a},\vec{b}$不共线，以及$\parallelogram ABCD$, $\Vec{AB}=3\vec{a}$, $\Vec{AD}=2\vec{b}$, 求$\parallelogram ABCD$两对角线上的向量。
+  \item 已知$\vec{e}_1,\vec{e}_2,\vec{e}_3$
+    线性无关且$\vec{a}=\vec{e}_1+2\vec{e}_2$, $b=2\vec{e}_1+\vec{e}_2$, 
+    $\vec{c}=\vec{e}_1-3\vec{e}_2$, 求证：$\vec{a},\vec{b},\vec{c}$线性无关。
+    \item  已知$\vec{e}_1,\vec{e}_2$线性无关且$\vec{a}=3\vec{e}_1+4\vec{e}_2$, $\vec{b}=\alpha\vec{e}_1+\beta \vec{e}_2$, 若$\vec{a}, \vec{b}$线性相关，问$\alpha,\beta$间有什么关系？
+    
+    \item  已知$\vec{e}_1,\vec{e}_2$线性无关，若
+    $\vec{a}=a_1\vec{e}_1+a_2\vec{e}_2$, $\vec{b}=b_1\vec{e}_1+b_2\vec{e}_2$,
+    如果$\vec{a},\vec{b}$线性相关。证明：
+   \[ a_1b_2-a_2b_1=0\quad \text{即}\quad \begin{vmatrix}
+       a_1&a_2\\b_1&b_2
+   \end{vmatrix}=0\]
+\item 给定一个基底$\{\vec{e}_1,\vec{e}_2,\vec{e}_3\}$,
+    问向量$\vec{a}$、$\vec{b}$是否线性相
+    关？
+\begin{enumerate}
+    \item $\vec{a}=\vec{e}_1+2\vec{e}_2-\vec{e}_3,\quad \vec{b}=-4\vec{e}_1-8\vec{e}_2+4\vec{e}_3$
+    \item $\vec{a}=\frac{1}{2}\vec{e}_1-\frac{2}{3}\vec{e}_2+2\vec{e}_3,\quad \vec{b}=-\frac{3}{4}\vec{e}_1+\vec{e}_2-3\vec{e}_3$
+    \item $\vec{a}=\vec{e}_1+\vec{e}_2,\quad \vec{b}=\vec{e}_2-\vec{e}_3$
+\end{enumerate}
+\item 设由基本向量$\Vec{AB}=\vec{e}_1$及$\Vec{AD}=\vec{e}_2$张成一个平行四边形
+    $ABCD$. 点$B_1$由向量
+    $\Vec{AB}_1=\frac{3}{5}\vec{e}_1$
+    所确定，以顶点$D$为始
+    点的向量$\vec{d}=\frac{5}{4}\vec{e}_1-\frac{1}{3}\vec{e}_2$. 
+    设此向量与$B_1C$交于$S$. 求
+\begin{enumerate}
+    \item $\overline{B_1S}:\overline{SC}$
+    \item 试用基向量$\vec{e}_1,\vec{e}_2$表示向量
+    $\Vec{DS}$及$\Vec{AS}$.
+\end{enumerate}
+\item 已知$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{OC}=\vec{c}$且$\vec{a},\vec{b},\vec{c}$
+    线性无关，由$\Vec{OA},\Vec{OB},\Vec{OC}$张成一四面体$O-ABC$, 试
+    证：
+\begin{enumerate}
+    \item 从点$C$到三角形$OAB$的重心$M$的向量
+    \[\Vec{CM}=\frac{1}{3}\left(\vec{a}+\vec{b}-3\vec{c}\right)\]
+    \item 设$N$是$\triangle ABC$的重心，$\overline{ON}$与$\overline{CM}$ 相交于四面体的中心$S$, 其比例为3:1.
+    \item 试证：$\Vec{OS}=\frac{1}{4}\left(\vec{a}+\vec{b}+\vec{c}\right)$
+\end{enumerate}
+    
+\item 给定一个基底：$\{\vec{e}_1,\vec{e}_2,\vec{e}_3\}$且
+\[\vec{a}=4\vec{e}_1+\vec{e}_2,\quad \vec{b}=3\vec{e}_2,\quad \vec{c}=\vec{e}_1+\vec{e}_2+5\vec{e}_3,\quad \vec{d}=8\vec{e}_1+5\vec{e}_2+10\vec{e}_3\]
+若$\vec{d}=x\vec{a}+y\vec{b}+z\vec{c}$，求$x,y,z$.
+\end{enumerate}
+\end{ex}
+
+\subsection{两个向量的外积}
+
+
+如图3.37所示，已知三个不
+共面的向量$\vec{a},\vec{b},\vec{c}$，
+如果，我们右手的拇指顺
+着$\vec{a}$的方向，食指顺着$\vec{b}$
+的方向，若$\vec{c}$能顺着中指
+的指向，则把有这样顺序
+的三个有序的向量组$\vec{a},\vec{b},\vec{c}$
+称为构成\textbf{右手系}．如图3.38
+所示，如果我们左手的拇指顺着$\vec{a}$的方向、食指顺着$\vec{b}$的方
+向，若$\vec{c}$能顺着中指的指向，则把有这样顺序的
+三个有序的向量组$\vec{a},\vec{b},\vec{c}$
+称为构成\textbf{左手系}．显然，如果
+$\vec{a},\vec{b},\vec{c}$
+构成{右手系}，那么把$\vec{a},\vec{b},\vec{c}$循环轮换所得到的向量组
+$\left(\vec{b},\vec{c},\vec{a}\right)$, $\left(\vec{c},\vec{a},\vec{b}\right)$也是右手系。如果$\vec{a},\vec{b},\vec{c}$构成左手系，任意换两个向量的顺序，如$\vec{b}$和$\vec{a}$, 则
+$\left(\vec{b},\vec{a},\vec{c}\right)$构成左手系。
+
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/O, 4/0/A, 3.5/1.5/B, -.7/2.5/C}
+\tkzDrawSegments[->](O,A O,B O,C)
+\tkzLabelSegment[below](O,A){$\vec{a}$}
+\tkzLabelSegment[above](O,B){$\vec{b}$}
+\tkzLabelSegment[above left](O,C){$\vec{c}$}
+\tkzMarkAngle[mark=none, size=.8, ->](A,O,B)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/O, 3.5/0/A, 1.5/1.2/B, 1/-2.5/C}
+\tkzDrawSegments[->](O,A O,B O,C)
+\tkzLabelSegment[below](O,A){$\vec{a}$}
+\tkzLabelSegment[above](O,B){$\vec{b}$}
+\tkzLabelSegment[above right](O,C){$\vec{c}$}
+\tkzMarkAngle[mark=none, size=.8, ->](A,O,B)      
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+已知向量$\vec{a},\vec{b}$，如果一个向量满足下面三个条件（图
+3.39）
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.7]
+\tkzDefPoints{0/0/O, 4/0/A, 2/2/B, 0/3/C}
+\tkzDefPointsBy[translation = from O to B](A){D}
+\tkzDrawSegments(B,D A,D)
+\tkzDrawSegments[->](O,C O,A O,B)
+\tkzLabelSegment[below](O,A){$\vec{a}$}
+\tkzLabelSegment[above](O,B){$\vec{b}$}
+\tkzLabelSegment[left](O,C){$\vec{c}$}
+\tkzLabelPoints[below](O,A)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[right](C)
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{enumerate}
+    \item $|\vec{c}|=|\vec{a}|\left|\vec{b}\right|\sin\expval{\vec{a},\vec{b}}$，这就是说$\vec{c}$的长度在数量上等于以$a,b$为两相邻边向量的平行四边形的面积；
+    \item 向量$\vec{c}$同时垂直于$\vec{a}$和$\vec{b}$；
+    \item $\vec{a},\vec{b},\vec{c}$构成右手
+    系。
+\end{enumerate}
+
+那么，向量$\vec{c}$就叫做$\vec{a}$与$\vec{b}$
+的外积，并且用记号$\vec{a}\x\vec{b}$来表示，于是
+\[\vec{c}=\vec{a}\x \vec{b}\]
+
+如果把$\vec{a}\x \vec{b}$的单位向量记为$\vec{e}$, 则
+\[\vec{a}\x \vec{b}=\left(|\vec{a}|\left|\vec{b}\right|\sin\expval{\vec{a},\vec{b}}\right)\cdot \vec{e}\]
+其中：$\vec{e}\cdot \vec{a}=0$, $\vec{e}\cdot \vec{b}=0$, $\vec{a},\vec{b},\vec{e}$构成右手系。
+
+由上述定义，我们容易推知
+\[\vec{a}\x \vec{b}=\vec{0}\quad \Longleftrightarrow\quad  \vec{a}\parallel \vec{b}\]
+
+向量的外积运算最显著的特点之一是它不满足交换律，
+即
+\[\vec{a}\x \vec{b}\ne \vec{b}\x \vec{a}\]
+由外积的定义，$\vec{a}\x \vec{b}$与$\vec{b}\x \vec{a}$它们的长度相等而方向相
+反，这就是说
+\begin{equation}
+    \vec{a}\x \vec{b}=-\vec{b}\x \vec{a}
+\end{equation}
+这种性质通常叫做外积的\textbf{斜对称性}。
+
+向量的外积对数乘满足结合律，对向量加法满足分配
+律，即
+\begin{equation}
+    \left(\lambda\vec{a}\right)\x \vec{b}=\vec{a}\x \left(\lambda\vec{b}\right)=\lambda\left(\vec{a}\x \vec{b}\right)
+\end{equation}
+\begin{equation}
+    \left(\vec{a}+\vec{b}\right)\x \vec{c}=\vec{a}\x \vec{c}+\vec{b}\x \vec{c}
+\end{equation}
+
+式(3.8)由外积的定义可直证明，把它留给同学作为
+练习。现在我们来证明(3.9).
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\tkzDefPoints{-3/-2/W, 3/-2/X, 4.5/1/Y}
+\tkzDefPointsBy[translation= from X to Y](W){Z}
+\tkzDrawPolygon(W,X,Y,Z)
+\node at (W)[above right]{$\pi$};
+\tkzDefPoints{0/0/O, 0/1.5/C_0}
+\tkzDefPoints{2.5/.5/B_1, 2/-.7/A_1, 2/1.5/A}
+\tkzDefPointsBy[translation= from A_1 to A](B_1){B}
+
+\tkzDefPoint(-110:2){B_2}
+\tkzDefPoint(-145:1.8){A_2}
+\tkzDrawSegments[thick,->](O,A O,A_1 O,A_2 O,B O,B_1 O,B_2 A,B A_1,B_1 A_2,B_2 O,C_0)
+\tkzLabelPoints[right](C_0,A_1,B_1,A,B,B_2)
+\tkzLabelPoints[left](O,A_2)
+\tkzDrawSegments[dashed](A,A_1 B,B_1)
+\draw[dashed](C_0)--(0,2.5);
+\tkzLabelSegment[left](A_2,B_2){$\vec{b}\x \vec{c}_0$}
+\tkzLabelSegment[left](A_2,O){$\vec{a}\x \vec{c}_0$}
+\tkzLabelSegment[right](O,A){$\vec{a}$}
+\tkzLabelSegment[left](O,B){$\vec{b}$}
+\tkzLabelSegment[left](C_0,O){$\vec{c}_0$}
+
+
+
+\end{tikzpicture}    
+    \caption{}
+\end{figure}
+
+\begin{proof}
+    设$\vec{c}_0$是$\vec{c}$的单位向量（即与$\vec{c}$方向相同的单位向量），
+我们先证明
+\[\left(\vec{a}+\vec{b}\right)\x \vec{c}_0=\vec{a}\x \vec{c}_0+\vec{b}\x \vec{c}_0
+\]
+如图3.40所示，作$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, $\Vec{OC_0}=\vec{c}_0$, 把$\Vec{OA}$
+垂直投影到与$\Vec{OC_0}$垂直平面$\pi$上，得到向量$\Vec{OA_1}$, 再把$\Vec{OA_1}$
+在平面$\pi$上沿顺时针方向旋转$\frac{\pi}{2}$
+的角得到另一向量$\Vec{OA_2}$, 由
+于
+\[|\Vec{OA_2}|=|\Vec{OA_1}|=|\vec{a}|\sin\expval{\vec{a},\vec{c}_0}\]
+又$\vec{a},\vec{c}_0$与$\Vec{OA_2}$构成右手系，所以$\Vec{OA_2}=\vec{a}\x \vec{c}_0$，依同样的方法可以作$\vec{b}\x \vec{c}_0$, $\left(\vec{a}+\vec{b}\right)\x \vec{c}_0$，由于$\vec{a},\vec{b},\vec{a}+\vec{b}$是首尾相接的
+向量，那么它们在平面$\pi$
+上的垂直投影也同样是首尾相接的向量，再把这三个向
+量同时旋转$\frac{\pi}{2}$
+的角，所得到的三个向量也必首尾相接，依向
+量和的定义就有
+\[\left(\vec{a}+\vec{b}\right)\x \vec{c}_0=\vec{a}\x \vec{c}_0+\vec{b}\x \vec{c}_0
+\]
+上式两边分别乘上$|\vec{c}|$, 就可得到
+\[\left(\vec{a}+\vec{b}\right)\x \vec{c}=\vec{a}\x \vec{c}+\vec{b}\x \vec{c}
+\]
+这就证明了向量的外积运算满足分配律。
+\end{proof}
 
 
 \begin{example}
-    
+      求证：$\left(\vec{a}-\vec{b}\right)\x\left(\vec{a}+\vec{b}\right)=2\left(\vec{a}\x \vec{b}\right)$
 \end{example}
 
+\begin{proof}
+\[\begin{split}
+    \left(\vec{a}-\vec{b}\right)\x\left(\vec{a}+\vec{b}\right)&=\vec{a}\x \vec{a}+\vec{a}\x \vec{b}-\vec{b}\x \vec{a}+\vec{b}\x \vec{b}\\
+    &=-\vec{b}\x \vec{a}+\vec{a}\x \vec{b}\\
+    &=\vec{a}\x \vec{b}+\vec{a}\x \vec{b}=2\left(\vec{a}\x \vec{b}\right)
+\end{split}\]
+\end{proof}
 
-\begin{solution}
+\begin{example}
+    已知$OADB-CEFG$
+    是由向量$\vec{a},\vec{b},\vec{c}$张成的平行
+    六面体（图3.41），求证这平行
+    六面体的体积
+    \[V=\left|\vec{a}\x \vec{b}\cdot \vec{c}\right|\]
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\tkzDefPoints{0/0/O, 3/0/A, 4/1.5/D, .5/2.5/C}
+\tkzDefPointsBy[translation = from A to D](O){B}
+\tkzDefPointsBy[translation = from O to C](B,D,A){G,F,E}
+\tkzDrawPolygon(C,E,F,G)
+\tkzLabelPoints[below](O,A)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[above](G,F)
+\tkzLabelPoints[left](C)
+\tkzLabelPoints[right](E,D)
+\tkzDrawSegments[->](O,A O,C)
+\tkzDrawSegments[dashed](B,G B,D)
+\tkzDrawSegments[dashed,->](O,B)
+\tkzDrawSegments(A,D A,E D,F)
+\tkzLabelSegment[below](O,A){$\vec{a}$}
+\tkzLabelSegment[right](O,B){$\vec{b}$}
+\tkzLabelSegment[right](O,C){$\vec{c}$}
+\draw[dashed](O)--(0,3);
+\draw[thick,->](O)--node[left]{$\vec{e}$}(0,1.5);
+
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{proof}
+    设$\vec{e}$为$\vec{a}\x\vec{b}$的单位向量，
+则
+\[\begin{split}
+    \vec{a}\x\vec{b}&=\left(|\vec{a}|\left|\vec{b}\right|\sin\expval{\vec{a},\vec{b}}\right)\vec{e}=\parallelogram{OADB}\text{的面积}\x\vec{e}\\
+    \vec{a}\x\vec{b}\cdot \vec{c}&=\parallelogram{OADB}\text{的面积}\x(\vec{e}\cdot \vec{c})
+\end{split}\]
+容易看出，
+\begin{itemize}
+    \item 当$\expval{\vec{e}\cdot \vec{c}}\le\frac{\pi}{2}$
+时（$\vec{a},\vec{b},\vec{c}$
+构成右手系或共面），$\vec{e}\cdot \vec{c}$是个非负数且$\vec{e}\cdot \vec{c}$等于这个平行六面体
+的底面$OADB$上的高$h$；
+\item 当$\expval{\vec{e}\cdot \vec{c}}>\frac{\pi}{2}$时，$\vec{e}\cdot \vec{c}<0$, $h=-\vec{e}\cdot \vec{c}$.
+\end{itemize}
+综合上面两种情况我们有$h=|\vec{e}\cdot \vec{c}|$, 
+所以，
+\[\begin{split}
+V=\parallelogram{OADB}\text{的面积}\x h
+&=\left||\vec{a}|\left|\vec{b}\right|\sin\expval{\vec{a},\vec{b}}\left(\vec{e}\cdot \vec{c}\right) \right|\\
+&=\left|\vec{a}\x \vec{b}\cdot \vec{c}\right|
+\end{split}\]
+\end{proof}
+
+在例3.22中$\vec{a}\x \vec{b}\cdot \vec{c}$是一个数量，它的绝对值
+表示由$\vec{a},\vec{b},\vec{c}$所张成的平行六面体的体积，通常我们把$\vec{a}\x \vec{b}\cdot \vec{c}$
+叫做$\vec{a},\vec{b},\vec{c}$的\textbf{混合积}并记作$\left(\vec{a},\vec{b},\vec{c}\right)$, 即
+\[\left(\vec{a},\vec{b},\vec{c}\right)=\vec{a}\x \vec{b}\cdot \vec{c}\]
+由例3.22我们还可看到如果$\vec{a},\vec{b},\vec{c}$
+构成右手系，则
+$\left(\vec{a},\vec{b},\vec{c}\right)>0$, 如果$\vec{a},\vec{b},\vec{c}$构成左手系则$\left(\vec{a},\vec{b},\vec{c}\right)<0$, 当$\vec{a},\vec{b},\vec{c}$共面时，$\left(\vec{a},\vec{b},\vec{c}\right)=0$, 反之，当
+$\left(\vec{a},\vec{b},\vec{c}\right)>0$时，$\vec{a},\vec{b},\vec{c}$一定构成右手系，
+$\left(\vec{a},\vec{b},\vec{c}\right)<0$时一定构成左手系，当$\left(\vec{a},\vec{b},\vec{c}\right)=0$
+时，$\vec{a},\vec{b},\vec{c}$一定共面。
+
+最后，我们要指出，两个向量的外积不满足结合律，
+例如，设$\vec{e}_1$、$\vec{e}_2$、$\vec{e}_3$是单位向量且它们互相垂直，并构成右
+手系，则
+\[\begin{split}
+    \left(\vec{e}_1\x \vec{e}_1\right)\x \vec{e}_2&=\vec{0}\\
+    \vec{e}_1\x \left(\vec{e}_1\x \vec{e}_2\right)&=\vec{e}_1\x \vec{e}_3=-\vec{e}_2
+\end{split}\]
+所以：$\left(\vec{e}_1\x \vec{e}_1\right)\x \vec{e}_2\ne  \vec{e}_1\x \left(\vec{e}_1\x \vec{e}_2\right)$
+
+
+
+\begin{ex}
+以下各题中$\left\{\vec{e}_1,\vec{e}_2,\vec{e}_3\right\}$是一个基底且$\vec{e}_1,\vec{e}_2,\vec{e}_3$是互
+相垂直的单位向量，$\vec{e}_1,\vec{e}_2,\vec{e}_3$构成右手系。
+\begin{enumerate}
+    \item 已知：$\vec{a}=2\vec{e}_1+3\vec{e}_3$, $\vec{b}=\vec{e}_1-\vec{e}_2$
+    求：
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\vec{a}\x \vec{b}$
+    \item $2\vec{a}\x 3\vec{b}$
+\end{enumerate}
+\end{multicols}
     
-\end{solution}
-
-
-
-
-\begin{solution}
+\item 已知：$\vec{a}=2\vec{e}_1-3\vec{e}_2+\vec{e}_3$, $\vec{b}=\vec{e}_1-\vec{e}_2+3\vec{e}_3$, 
+    $\vec{c}=\vec{e}_1-2\vec{e}_2$, 计算下列各式：
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\vec{a}\x \vec{b}$
+    \item $\vec{a}\x \vec{b}\cdot \vec{c}$
+    \item $\left(\vec{a}+\vec{b}\right)\x \left(\vec{b}+\vec{c}\right)$
+    \item $\left(\vec{a}\x \vec{b}\right)\x \vec{c}$
+\end{enumerate}
+\end{multicols}
+\item 如果$\vec{a}$和$\vec{b}$都与$\vec{c}$垂直，那么
+\[\left(\vec{a}\x \vec{b}\right)\x\vec{c}=\vec{0}\]
+    试证明之。
+    \item 如果向量$\vec{b}$垂直于向量$\vec{c}$, 而向量$\vec{a}$平行于向量$\vec{c}$, 那
+    么
+\[\left(\vec{a}\x \vec{b}\right)\x\vec{c}=\left(\vec{a}\cdot\vec{c}\right)\vec{b}\]
+    试证明之. 
+    （提示：说明等式两边的向量长度相等，方向相同）
+    \item 对任意的向量$\vec{a}$和垂直于$\vec{c}$的向量$\vec{b}$, 有
+    \[\left(\vec{a}\x \vec{b}\right)\x\vec{c}=\left(\vec{a}\cdot\vec{c}\right)\vec{b}\]
+    试证明之。
+    （提示：把向量$\vec{a}$分解为   
+    与$\vec{c}$平行和垂直的向量和）
     
-\end{solution}
+    \item 证明：对于任意三个向量$\vec{a}$、$\vec{b}$、$\vec{c}$有
+    \[\left(\vec{a}\x \vec{b}\right)\x\vec{c}=\left(\vec{a}\cdot\vec{c}\right)\vec{b}-\left(\vec{b}\cdot\vec{c}\right)\vec{a}\]
+    （提示：利用上面三题的结果）
+    
+    \item 证明：对空间任意三个向量$\vec{a}$、$\vec{b}$、$\vec{c}$，下面恒等式成立。
+    \[\left(\vec{a}\x \vec{b}\right)\x\vec{c}-\vec{a}\x\left(\vec{b}\x \vec{c}\right)=\left(\vec{a}\cdot\vec{b}\right)\vec{c}-\left(\vec{b}\cdot\vec{c}\right)\vec{a}\]
+\end{enumerate}
+\end{ex}
+
+\subsection*{习题3.4}
+\begin{enumerate}
+    \item 说明下列各组空间向量，哪些组里的向量线性相关，那
+    些组里的向量线性无关。
+    \begin{multicols}{2}
+\begin{enumerate}
+    \item $\vec{0},\; \vec{a}$
+    \item $\vec{a},\; \vec{b}\quad (\vec{a}\nparallel\vec{b})$
+    \item $\vec{a},\; \vec{b}\quad (\vec{a}\parallel\vec{b})$
+    \item $\vec{a},\; \vec{b},\; \vec{c}$共面
+    \item $\vec{a},\; \vec{b},\; \vec{c}\quad (\vec{a}\parallel\vec{b})$
+    \item $\vec{a},\; \vec{b},\; \vec{c}$中每两个向量都不平行
+    \item $\vec{a},\; \vec{b},\; \vec{c},\; \vec{d}$中，每三个都不共面
+    \item $\vec{a},\; \vec{b},\; \vec{c},\; \vec{d}$中，$\vec{a},\; \vec{b},\; \vec{c}$共面
+    \item $\vec{a},\; \vec{b},\; \vec{c},\; \vec{d},\; \vec{e}$不共面
+ \end{enumerate}           
+    \end{multicols}
+
+\item 已知$\left\{\vec{e}_1,\vec{e}_2,\vec{e}_3\right\}$构成右手系单位正交基底。计算：
+\begin{multicols}{2}
+    \begin{enumerate}
+\item $\vec{e}_3\cdot \left(\vec{e}_1+\vec{e}_2\right)$
+\item $\left(\vec{e}_1-2\vec{e}_2\right)\cdot \left(\vec{e}_2+3\vec{e}_3\right)$
+\item $\left(4\vec{e}_1-\vec{e}_2+3\vec{e}_3\right)\cdot \left(3\vec{e}_1+2\vec{e}_2-\vec{e}_3\right)$
+\item $2\vec{e}_2\x \left(3\vec{e}_1-4\vec{e}_3\right)$
+\item $\left(2\vec{e}_1-4\vec{e}_3\right)\x \left(\vec{e}_1+2\vec{e}_2\right)$
+ \end{enumerate}           
+    \end{multicols}
+
+\item 求证：$\left(\vec{a}+\vec{b}\right)\x\left(\vec{b}+\vec{c}\right)\x \left(\vec{c}+\vec{a}\right)=2\vec{a}\x \vec{b}\x \vec{c}$
+\item 已知：三个向量$\vec{a},\vec{b},\vec{c}$满足条件$\vec{a}+\vec{b}+\vec{c}=0$。
+求证：$\vec{a}\x\vec{b}=\vec{b}\x\vec{c}=\vec{c}\x\vec{a}$.
+\item 用向量外积运算证明三角形中的正弦定理，即
+\[\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}\]
+
+\item 求证：$\left|\vec{a}\x \vec{b}\right|^2=\left(\vec{a}\cdot \vec{a}\right)\left(\vec{b}\cdot \vec{b}\right)-\left(\vec{a}\cdot \vec{b}\right)^2$，说明这个恒等式的几何意义。
+
+\item 已知$|\vec{a}|=3$, $|\vec{b}|=2$，求：$\left(\vec{a}\x\vec{b}\right)\cdot \left(\vec{a}\x\vec{b}\right)+\left(\vec{a}\cdot \vec{b}\right)^2$
+\end{enumerate}
+
+\section*{复习题三}
+
+\begin{enumerate}
+    \item 如果$\vec{a}$、$\vec{b}$满足下列各式，试问$\vec{a}$和$\vec{b}$之间有什么关
+    系。
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\left|\vec{a}+\vec{b}\right|=\left|\vec{a}-\vec{b}\right|$
+    \item $\vec{a}+\vec{b}=\lambda\left(\vec{a}-\vec{b}\right)$
+    \item $\frac{\vec{a}}{\left|\vec{a}\right|}=\frac{\vec{b}}{\left|\vec{b}\right|}$
+    \item $\left|\vec{a}+\vec{b}\right|=\left|\vec{a}\right|+\left|\vec{b}\right|$
+    \item $\left|\vec{a}+\vec{b}\right|=\left|\vec{a}\right|-\left|\vec{b}\right|$
+    \item $\left|\vec{a}-\vec{b}\right|=\left|\vec{a}\right|+\left|\vec{b}\right|$
+\end{enumerate}
+\end{multicols}
+
+\item 已知$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$且$\vec{a}$、$\vec{b}$不共线，求$\Vec{OA}$与
+$\Vec{OB}$夹角平分线上的一个单位向量。
+\item 已知$\vec{a}\ne \vec{0}$, $\vec{b}\ne\vec{0}$, 两个实数$\alpha$、$\beta$满足方程；
+\[\alpha\frac{\vec{a}}{|\vec{a}|}+\beta\frac{\vec{b}}{|\vec{b}|}=\vec{0}\]
+问$\alpha$、$\beta$之间应具有什么关系。
+
+\item 如果$\vec{a},\vec{b},\vec{c}$是三个单位向量且$\vec{a}+\vec{b}+\vec{c}=\vec{0}$. 
+试求$\vec{a}\cdot \vec{b}+\vec{b}\cdot \vec{c}+\vec{c}\cdot \vec{a}$的值。
+
+\item 已知$O$是正$n$边形$A_1A_2A_3\cdots A_n$的中心，求证
+\[\Vec{OA_1}+\Vec{OA_2}+\Vec{OA_3}+\cdots+\Vec{OA_n}=\vec{0}\]
+\item 已知$\triangle ABC$, $O$是空间一点，试证
+\[\Vec{OA}+\Vec{OB}+\Vec{OC}=\vec{0}\]
+的充要条件是：$O$点是三角形的重心。
+\item 在坐标系$oxy$平面上，已知图形$F$以坐标原点0为对称
+中心，证明：始点是公共的且终点是图形$F$的整数点的
+向量的和等于零的充要条件是：坐标原点是向量的公共
+始点。
+
+\item 如果$\vec{a}=4\vec{e}_1-\vec{e}_2$, $\vec{b}=\vec{e}_1+2\vec{e}_2$, $\vec{c}=2\vec{e}_1-3\vec{e}_2$且
+$\{\vec{e}_1,\vec{e}_2\}$为标准正交基底，化简表示式
+\[\vec{a}\cdot \vec{a}+3(\vec{a}\cdot \vec{b})-2(\vec{b}\cdot \vec{c})+1\]
+\item 如果$|\vec{e}_1|=2\sqrt{2}$, $|\vec{e}_2|=3$, $\expval{\vec{e}_1,\vec{e}_2}=\frac{\pi}{4}$
+且
+$\vec{a}=5\vec{e}_1+2\vec{e}_2$, $\vec{b}=\vec{e}_1-3\vec{e}_2$, 试计算以$\vec{a},\vec{b}$为边向
+量的平行四边形的两条对角线的长和面积。
 
 
+\item 已知$\vec{a}=\alpha \vec{e}_1+17\vec{e}_2$, $\vec{b}=3\vec{e}_1-\vec{e}_2$, 问$\alpha$为何值时$\vec{a}\bot\vec{b}$.
 
+\item 已知$\parallelogram{OACB}$且$\Vec{OA}=\vec{a}$, 
+$\Vec{OB}=\vec{b}$, 试用$\vec{a},\vec{b}$表示
+$\Vec{OA}$边上的高向量$\Vec{BD}$.
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+  \tkzDefPoints{0/0/O, 3/0/A, 4/2/C}
+\tkzDefPointsBy[translation = from A to C](O){B}
+\tkzDefPointBy[projection = onto O--A](B)  \tkzGetPoint{D}
+\tkzDrawSegments(B,C A,C)
+\tkzDrawSegments[dashed](B,D)
+\tkzDrawSegments[->](O,B O,A)  
+\tkzLabelPoints[below](O,D,A)
+\tkzLabelPoints[above](B,C)
+\end{tikzpicture}
 
-
-
-
-
-
-
+    \caption*{第11题}
+\end{figure}
+\end{enumerate}
