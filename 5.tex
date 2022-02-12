@@ -226,56 +226,490 @@ $\therefore\quad \vec{c}=\left(2\sqrt{3},-2\right)$
 由于$\eX\cdot \eX=\eY\cdot \eY=1$, $\eX\cdot \eY=\eY\cdot \eX=0$，所以
 \[\vec{a}\cdot \vec{b}=(a_x,a_y)\cdot (b_x,b_y)=a_xb_x+a_yb_y\]
 
+这就是说\textbf{两个向量内积的坐标等于两向量相应坐标的乘
+积的和}。
+
+\begin{example}
+    已知$\vec{a}=(5,-3)$, $\vec{b}=(3,2)$.
+
+求$\vec{a}+\vec{b}$, $\vec{a}-\vec{b}$, $\vec{a}\cdot \vec{b}$, $3\vec{a}+2\vec{b}$.
+\end{example}
+
+\begin{solution}
+\[\begin{split}
+    \vec{a}+\vec{b}&=(5,-3)+(3,2)=(8,-1)\\
+    \vec{a}-\vec{b}&=(5,-3)-(3,2)=(2,-5)\\
+    \vec{a}\cdot \vec{b}&=(5,-3)\cdot (3,2)=5\x 3+(-3)\x2=9\\
+    3\vec{a}+2\vec{b}&=3(5,-3)+2(3,2)=(15,-9)+(6,4)=(21,-5)
+\end{split}\]
+\end{solution}
+
+\begin{example}
+    已知$A(x_1,y_1)$, $B(x_2,y_2)$. 求$\Vec{AB}$的坐标
+（图5.5）.
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw[->](-2,0)--(3,0)node[right]{$X$};
+\draw[->](0,-.5)--(0,3.5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{2/1/B, -1/3/A, 0/0/O}
+\tkzDrawSegments[dashed, ->](O,A O,B)
+\tkzDrawSegments[thick, ->](A,B)
+\tkzLabelPoint[right](B){$B(x_2,y_2)$}
+\tkzLabelPoint[left](A){$A(x_1,y_1)$}
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{solution}
+\[\begin{split}
+    \Vec{AB}=\Vec{OB}-\Vec{OA}&=(x_2,y_2)-(x_1,y_1)\\
+    &=(x_2-x_1,y_2-y_1)
+\end{split}\]
+\end{solution}
+
+由例5.2我们可得到如下运算
+法则：
+
+\begin{blk}{}
+    一个向量的坐标等于表示此
+向量的有向线段的终点的坐标减
+去起点的坐标。
+\end{blk}
+
+\begin{example}
+    已知$A(3,4)$, $B(-2,7)$. 
+求$\Vec{AB}$, $\Vec{BA}$; 它们的坐标之间有什么关系？
+\end{example}
+
+\begin{solution}
+\[\begin{split}
+    \Vec{AB}&=(-2-3,7-4)=(-5,3)\\
+    \Vec{BA}&=(3-(-2),4-7)=(5,-3).
+\end{split}\]
+显然它们的相应的坐标分量是互为相反数。实际上
+\[\Vec{BA}=(-1)\Vec{AB}=(-1)(-5,3)=(5,-3)\]
+\end{solution}
+
+\begin{example}
+    已知三个向量$\vec{a}$、$\vec{b}$、$\vec{c}$，且$|\vec{a}|=|\vec{b}|=|\vec{c}|=r$. $\expval{\vec{a},\vec{b}}=\expval{\vec{b},\vec{c}}=\expval{\vec{c},\vec{a}}=120^{\circ}$
+(图5.6)，
+求证：$\vec{a}+\vec{b}+\vec{c}=\vec{0}$.
+\end{example}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
+    \draw[->](0,-2.5)--(0,2.5)node[right]{$Y$};
+    \node at (0,0)[below right]{$O$};
+    \tkzDefPoints{0/0/O, 2/0/A}
+\tkzDefPoint(120:2){B}
+\tkzDefPoint(-120:2){C}
+\tkzDrawSegments[very thick,->](O,A O,B O,C)
+\tkzLabelSegment[above](O,A){$\vec{a}$}
+\tkzLabelSegment[right](O,B){$\vec{b}$}
+\tkzLabelSegment[left](O,C){$\vec{c}$}
+\tkzAutoLabelPoints[center=O](C,B)
+\tkzLabelPoints[below](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.7]
+      \draw[->](-3,0)--(5,0)node[right]{$X$};
+\draw[->](0,-1)--(0,6)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{0/1/A, 4/3/B, 2/5/C, 0/0/O}
+\tkzDefPointsBy[translation = from B to C](A){D}
+\tkzDrawPolygon[very thick](A,B,C,D)
+\tkzDrawSegments[dashed, ->](O,D O,A)
+\tkzLabelPoints[above](B,C,D)
+\tkzLabelPoints[below right](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+\begin{proof}
+    设$\Vec{OA}=\vec{a}$, $\Vec{OB}=\vec{b}$, 
+$\Vec{OC}=\vec{c}$, 以$\Vec{OA}$的方向作为$X$轴
+的正方向建立坐标系$[O:\; \eX,\eY]$
+则 
+\[\begin{split}
+    \Vec{OA}&=(r, 0)\\
+    \Vec{OB}&=\left(|\vec{b}|\cos120^{\circ}, |\vec{b}|\cos 30^{\circ}\right)=\left(-\frac{r}{2},\frac{\sqrt{3}}{2}r\right)\\
+    \Vec{OC}&=\left(|\vec{c}|\cos120^{\circ}, |\vec{c}|\cos 150^{\circ}\right)=\left(-\frac{r}{2},-\frac{\sqrt{3}}{2}r\right)\\
+    \Vec{OA}+  \Vec{OB}+\Vec{OC}&=(r,0)+\left(-\frac{r}{2},\frac{\sqrt{3}}{2}r\right)+\left(-\frac{r}{2},-\frac{\sqrt{3}}{2}r\right)\\
+    &=\left(r-\frac{r}{2}-\frac{r}{2}, 0+\frac{\sqrt{3}}{2}-\frac{\sqrt{3}}{2}\right)=(0,0)
+\end{split}\]
+$\therefore\quad \vec{a}+\vec{b}+\vec{c}=\vec{0}$.
+\end{proof}
+
+\begin{example}
+    已知$\parallelogram{ABCD}$, $A(0,1)$、$B(4,3)$、
+$C(2,5)$
+
+求顶点$D$的坐标（图5.7）.
+\end{example}
+
+\begin{solution}
+\[\begin{split}
+\Vec{OD}=\Vec{OA}+\Vec{AD}&=\Vec{OA}+\Vec{BC}\\
+&=\Vec{OA}+\Vec{OC}-\Vec{OB}\\
+&=(0,1)+(2,5)-(4,3)=(-2,3)
+\end{split}\]
+所以$D$的坐标是$(-2,3)$.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 已知$\vec{a}=(-5,3)$, $\vec{b}=(7,-2)$. 求$\vec{a}+\vec{b}$, $\vec{a}-\vec{b}$, $\vec{a}\cdot \vec{b}$, $4\vec{a}-7\vec{b}$的坐标。
+
+    \item 已知$\vec{a}=(2,-1)$, $\vec{b}=(-1,1)$. 求$\vec{a}+\vec{b}$, 
+    $\vec{a}-\vec{b}$的坐标，并画图验证。
+    \item 已知$\vec{a}=(1,2)$, $\vec{b}=(3,1)$. 试以$O$为起点画有
+    向线段，分别表示$\vec{a}+\vec{b}$, $\vec{a}-\vec{b}$, $2\vec{a}-3\vec{b}$.
+    \item 已知$\vec{a}=(1,2)$, $\vec{b}=(-2,3)$. 求
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\vec{a}\cdot \vec{b}$, 
+    \item $(\vec{a}+\vec{b})\cdot (\vec{a}+\vec{b})$, 
+    \item $(\vec{a}+\vec{b})\cdot (\vec{a}-\vec{b})$, 
+    \item $(\vec{a}-\vec{b})\cdot (\vec{a}-\vec{b})$.
+\end{enumerate}
+\end{multicols}
+    
+\item 已知$\vec{a}=(\sqrt{2},-1)$, $\vec{b}=(-\sqrt{3},3)$. 求
+\begin{multicols}{3}
+  \begin{enumerate}
+      \item $\vec{a}\cdot \vec{b}$
+      \item $(4\vec{a}-\vec{b})\cdot (4\vec{a}+\vec{b})$
+      \item $(\vec{a}-2\vec{b})\cdot (\vec{a}-2\vec{b})$
+  \end{enumerate}  
+\end{multicols}
+
+\item 已知$\parallelogram{ABCD}$的三个顶点$A(0,0)$, $B(3,1)$, 
+$C(4,3)$. 试求顶点$D$的坐标。
+\item 已知$O$是正六边形$ABCDEF$的中心，用向量坐标运算证明：
+\[\Vec{OA}+\Vec{OB}+\Vec{OC}+\Vec{OD}+\Vec{OE}+\Vec{OF}=\vec{0}\]
+   \end{enumerate} 
+\end{ex}
+
+\subsection{垂直与平行向量的坐标关系}
+
+已知$\vec{a}$、$\vec{b}\; (\vec{b}\ne \vec{0})$平行的充要条件是存在一个实数
+$\lambda$使等式
+\[\vec{a}=\lambda\vec{b}\]
+成立。如果$\vec{a}=(a_x,a_y)$, $\vec{b}=(b_x,b_y)$, 
+那么上面的充
+要条件用坐标表示，可写为：
+\[(a_x,a_y)=(\lambda b_x,\lambda b_y)\]
+即：
+\[\begin{cases}
+    a_x=\lambda b_x\\
+a_y=\lambda b_y
+\end{cases}\]
+
+由上式消去$\lambda$, 上述条件又可写为：
+\[\begin{vmatrix}
+    a_x& a_y\\b_x&b_y
+\end{vmatrix}=0\]
+或：$a_x:b_x=a_y:b_y$.
+
+上述结论可叙述为如下定理。
+
+\begin{blk}
+    {定理} 两个向量平行的一个充分必要条件是它们相应的
+坐标分量成比例。
+\end{blk}
+
+\begin{blk}
+{推论} 如果$A(x_1,y_1)$, $B(x_2,y_2)$, $C(x_3,y_3)$
+是坐标平面上三个不同的点，那么$A$、$B$、$C$三点共线的－
+个充要条件是
+\[\frac{x_2-x_1}{x_3-x_1}=\frac{y_2-y_1}{y_3-y_1}\]
+或者用三阶行列式写为
+\[\begin{vmatrix}
+    x_1&y_1&1\\
+    x_2&y_2&1\\
+    x_3&y_3&1\\
+\end{vmatrix}=0\]
+\end{blk}
+
+\begin{proof}
+    因为
+\[\Vec{AB}=(x_2-x_1,y_2-y_1),\qquad \Vec{AC}=(x_3-x_1,y_3-y_1)\]
+由于$A$、$B$、$C$三点共线的充要条件是
+$\Vec{AB}\parallel \Vec{AC}$，所以，由上述定理便得到
+\[\frac{x_2-x_1}{x_3-x_1}=\frac{y_2-y_1}{y_3-y_1}\]
+即：$\begin{vmatrix}
+    x_1&y_1&1\\
+    x_2&y_2&1\\
+    x_3&y_3&1\\
+\end{vmatrix}=0$
+从行列式计算法则容易证明：
+\[\begin{vmatrix}
+    x_2-x_1&x_3-x_1\\
+    y_2-y_1&y_3-y_1
+\end{vmatrix}=\begin{vmatrix}
+    x_1&y_1&1\\
+    x_2&y_2&1\\
+    x_3&y_3&1\\
+\end{vmatrix}=0\]
+\end{proof}
+
+我们已知
+\[\vec{a}\bot\vec{b}\quad \Longleftrightarrow \quad \vec{a}\cdot \vec{b}=0\]
+如果$\vec{a}=(a_x,a_y)$、$\vec{b}=(b_x,b_y)$, 那么上述条件用坐标
+表示可写为
+\[\vec{a}\bot\vec{b}\quad \Longleftrightarrow \quad a_xb_x+a_yb_y=0\]
+
+这也可写为如下定理：
+
+\begin{blk}
+  {定理} 两个向量垂直的充要条件是它们相应坐标的乘积
+的和等于零。  
+\end{blk}
+
+\begin{example}
+    已知$\vec{a}=(3,y)$, $\vec{b}=(6,4)$且$\vec{a}\parallel \vec{b}$. 求$y$值。
+\end{example}
+
+\begin{solution}
+    因为$\vec{a}\parallel \vec{b}$，所以
+    \[\frac{6}{3}=\frac{4}{y}\]
+    解之得$y=2$. 
+\end{solution}
+
+\begin{example}
+已知$A(1,1)$, $B(3,5)$, $C(-2,-5)$.
+问：$A$、$B$、$C$三点是否共线。
+\end{example}
+
+\begin{solution}
+因为$\Vec{AB}=(2,4)$, $\Vec{AC}=(-3,-6)$,
+且
+\[\begin{vmatrix}
+    2&4\\
+    -3&-6
+\end{vmatrix}=-12+12=0\]
+所以$A$、$B$、$C$三点共线。
+\end{solution}
+    
+\begin{example}
+    已知$\vec{a}=(3,2)$, $\vec{b}=(-6,9)$. 求证$\vec{a}\bot\vec{b}$.
+\end{example}
+
+\begin{solution}
+因为
+\[\vec{a}\cdot \vec{b}=3\x (-6)+2\x 9=-18+18=0\]
+所以$\vec{a}\bot\vec{b}$.
+\end{solution}
+
+\begin{example}
+    已知$A(1,2)$, $B(2,3)$, $C(-2,5)$。
+    求证$\triangle ABC$是直角三角形。
+\end{example}
+
+
+\begin{solution}
+因为
+\[\begin{split}
+    \Vec{AB}&=(2,3)-(1,2)=(1,1)\\
+    \Vec{AC}&=(-2,5)-(1,2)=(-3,3)\\
+    \Vec{AB}\cdot \Vec{AC}&=1\x(-3)+1\x3=0
+\end{split}\]
+    所以$\Vec{AB}\bot \Vec{AC}$, 即$\triangle ABC$是直角三角形。
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 试问下列向量是否平行。
+    \begin{enumerate}
+    \item $\vec{a}=\left(\frac{1}{2},\frac{3}{4}\right),\quad \vec{b}=(-2,-3)$
+    \item $\vec{p}=(0.5,4),\quad \vec{q}=(-8,64)$
+    \item $\vec{c}=(2,3),\quad \vec{d}=(3,4)$
+\end{enumerate}
+
+\item 已知$\vec{a}=\left(\frac{3}{5},-5\right)$, $\vec{b}=(3,y)$, 且$\vec{a}\parallel \vec{b}$, 求$y$.
+
+\item 向量$\vec{a}=(5,7)$与$\vec{b}=(10,14)$是否共线。
+
+\item 已知$\vec{a}=(1,3)$, $\vec{b}=(2,5)$, 求证$\vec{a},\vec{b}$线性无
+关。
+
+\item 已知$\vec{a}=(-3,2)$, $\vec{b}=(4,6)$. 求证$\vec{a}\bot \vec{b}$, 并
+作图验证。
+
+\item 已知$A(7,5)$, $B(2,3)$, $C(6,-7)$. 求证
+$\triangle ABC$是直角三角形。
+\end{enumerate}
+\end{ex}
+
+\subsection{有向线段定比分点的坐标}
+已知点$P$按定比$\mu$分割有向线段$P_1P_2$(图5.8). 
+即
+\[\begin{split}
+     \Vec{P_1P}&=\mu \Vec{PP_2}\\
+     \Vec{OP}-\Vec{OP_1}&=\mu\left(\Vec{OP_2}-\Vec{OP}\right)
+\end{split}\]
+所以
+\[\Vec{OP}=\frac{1}{1+\mu}\Vec{OP_1}+\frac{\mu}{1+\mu}\Vec{OP_2}\]
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\draw[->](-1,0)--(4,0)node[right]{$X$};
+\draw[->](0,-1)--(0,3.5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{-1/3/A, 3/-1/B, 0/0/O, -.5/2.5/P, 1/1/P_2, 2.5/-.5/P_1}
+\tkzDrawSegments[thick](A,B)
+\tkzDrawSegments[->, very thick](O,P O,P_1 O,P_2)
+\tkzLabelPoints[right](P,P_1,P_2)
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+如果$\Vec{OP_1}=(x_1,y_1)$，$\Vec{OP_2}=(x_2,y_2)$, $\Vec{OP}=(x,y)$，那么上式用坐标表示即可写为
+\[(x,y)=\left(\frac{x_1+\mu x_2}{1+\mu},\; \frac{y_1+\mu y_2}{1+\mu}\right)\]
+即：
+\[x=\frac{x_1+\mu x_2}{1+\mu},\qquad y=\frac{y_1+\mu y_2}{1+\mu}\]
+这就是求有向线段定比分点的计算公式。
+
+当$\mu=1$时，$P$点是线段$\overline{P_1P_2}$的中点。这时$P$点的坐
+标是
+\[x=\frac{x_1+ x_2}{2},\qquad y=\frac{y_1+y_2}{2}\]
+这就是求线段中点的坐标的计算公式，通常叫做\textbf{中点公式}。
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=.5]
+    \draw[->](-1,0)--(7,0)node[right]{$X$};
+    \draw[->](0,-3)--(0,7)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\tkzDefPoints{1/3/A, 4/-2/B, 2/1.333/P}
+\tkzDrawLines[very thick, add = .6 and .2](A,B)
+\tkzDrawPoints(A,B,P)
+\tkzLabelPoints[right](A,B)
+\tkzLabelPoint[right](P){$P(2,\tfrac{4}{3})$}
+\foreach \x in {1,2,3,4}
+{
+    \draw(\x,0)--(\x,.2);
+    \draw(0,\x)--(.2,\x);
+}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+    \draw[->](-.5,0)--(4,0)node[right]{$X$};
+    \draw[->](0,-.5)--(0,4)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\tkzDefPoints{1/1/A, 2/2/B, 3/3/P}
+\draw[very thick](0,0)--(3.5,3.5);
+\tkzDrawPoints(A,B,P)
+\tkzLabelPoints[left](A,B)
+\tkzLabelPoint[right](P){$P(3,3)$}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+\begin{example}
+    已知$A(1,3)$, $B(4,-2)$. 点$P$按定比$\frac{1}{2}$
+分割$\Vec{AB}$, 求$P$点的坐标（图5.9）.
+\end{example}
+
+\begin{solution}
+因$\mu=\frac{1}{2}$, 由求定比分点坐标计算公式得：
+\[
+    x=\frac{1+\frac{1}{2}\x 4}{1+\frac{1}{2}}=2,\qquad
+    y=\frac{3+\frac{1}{2}\x (-2)}{1+\frac{1}{2}}=\frac{4}{3}
+\]
+所以$P\left(2,\frac{4}{3}\right)$.
+\end{solution}
+
+\begin{example}
+    已知$A(1,1)$, $B(2,2)$, 点$P$按定比$-\frac{1}{2}$
+分割$\Vec{BA}$, 求$P$点的坐标（图5.10）.
+\end{example}
+
+\begin{solution}
+因$\mu=-\frac{1}{2}$, 由求定比分点坐标计算公式得：
+\[
+    x=\frac{2+\left(-\frac{1}{2}\right)\x 1}{1+\left(-\frac{1}{2}\right)}=3,\qquad
+    y=\frac{2+\left(-\frac{1}{2}\right)\x 1}{1+\left(-\frac{1}{2}\right)}=3
+\]
+所以$P(3,3)$.
+\end{solution}
+
+在使用定比分点公式时，请同学们注意有向线段的起点
+和终点，以避免出错。
+
+\begin{ex}
+\begin{enumerate}
+    \item 已知：
+\begin{enumerate}
+    \item $A(3,5),\quad B(-3,7)$
+    \item $A(4,-1),\quad B(-5,-6)$
+    \item $A(a+b,c+d),\quad B(a-b,c-d)$
+\end{enumerate}
+    试求$\Vec{AB}$的中点的坐标。
+    \item 已知$P(0,2)$, $Q(2,-1)$, 点$M$按定比$\frac{1}{2}$分割
+    $\Vec{PQ}$, 点$N$按定比3分割$\Vec{QP}$, 求$M$、$N$两点的坐标。
+    \item 已知$M_1(-1,6)$, $M_2(4,3)$, 求$\Vec{M_1M_2}$三等分点
+    的坐标。
+    \item 已知$A_1(x_1,y_1)$, $A_2(x_2,y_2)$, $A_3(x_3,y_3)$是$\triangle A_1A_2A_3$的三个顶点，求$\triangle A_1A_2A_3$的重心的坐
+    标。
+    \item 已知$A(1,2)$, $B(3,4)$, 
+    $|\Vec{AP}|=2|\Vec{AB}|$，求$P$点的坐标。
+    \item 已知点$B(-4,1)$到点$A(2,-2)$的距离是它到点
+    $C(x,y)$的距离的一半，求$C(x,y)$.
+    \item 已知$\parallelogram{ABCD}$的相邻两顶点$A(1,1)$, $B(3,2)$
+    和它的对角线交点$K(2,3)$, 求其余两个顶点的坐
+    标。
+\end{enumerate}
+\end{ex}
 
 
 
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{example}
+    
+\end{example}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{example}
+    
+\end{example}
 
 
 
@@ -562,6 +996,231 @@ $A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集�
 
 
 
+\section{圆}
+\subsection{圆的方程}
+已知定点$C(a,b)$, 定长$r$, 我们来求以$C$为圆心，$r$为
+半径的圆的方程（图5.37）.
+
+设$P(x,y)$是一动点，由圆的定义可知，点$P$在圆上当
+且仅当$|CP|=r$
+或$\Vec{CP}\cdot \Vec{CP}=r^2$。
+用坐标表示，可写为
+\begin{equation}\label{circle1}
+(x-a)^2+(y-b)^2=r^2
+\end{equation}
+这就是说，以$C$为圆心，$r$为半径的圆上的任一点$P$, 它的
+坐标都满足方程(\ref{circle1}); 反过来，一个点的坐标如果满足方
+程(\ref{circle1}), 那么它必在以$C$为圆心$r$为半径的圆上，方程
+(\ref{circle1})叫做以$C$为圆心，$r$为半径的\textbf{圆的方程}，如果圆心在原
+点（图3.38），那么圆的方程为
+\begin{equation}
+    x^2+y^2=r^2
+\end{equation}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \draw[->](-.5,0)--(4,0)node[right]{$X$};
+    \draw[->](0,-.5)--(0,4)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\draw(2,2) circle(1);
+\draw[->, thick](0,0)--(2,2)node[right]{$C$};
+\tkzDefPoints{2/2/C, 2/3/P', 1.5/2.4/M, 0/0/O}
+\tkzInterLC(O,M)(C,P') \tkzGetPoints{P1}{P}
+\tkzDrawSegments[->, thick](O,P C,P)
+\tkzLabelPoints[above](P)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+          \draw[->](-2,0)--(2,0)node[right]{$X$};
+    \draw[->](0,-2)--(0,2.5)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+    \draw(0,0) circle (1.5);
+    \draw[->, thick](0,0)--(45:1.5)node[above]{$P$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+把(\ref{circle1})展开得
+\[x^2+y^2-2ax-2by+a^2+b^2-r^2=0\]
+由此可见，任一圆的方程都可写为下面的形式
+\begin{equation}\label{circle2}
+    x^2+y^2+2Dx+2Ey+F=0.
+\end{equation}
+由于$\lambda(x^2+y^2+2Dx+2Ey+F)=0$和(\ref{circle2})表示了同一
+个圆，于是圆的方程是一般二次方程
+\[Ax^2+2Bxy+Cy^2+2Dx+2Ey+F=0\]
+的一种特殊形式，它具有两个特点：
+\begin{enumerate}
+    \item $x^2$与$y^2$项的系数相同且不等于0;
+    \item 不含$xy$项。
+\end{enumerate}
+现在要问，是否任一个形如方程(\ref{circle2})的图象都是一个圆
+呢？
+
+将(\ref{circle2})左边配方，得
+\begin{equation}\label{circle3}
+    (x+D)^2+(y+E)^2=D^2+E^2-F
+\end{equation}
+
+\begin{enumerate}
+\item 当$D^2+E^2-F>0$时，方程(\ref{circle3})表示以$(-D,
+-E)$为圆心，以$\sqrt{D^2+E^2-F}$为半径的圆；
+\item 当$D^2+E^2-F=0$时，方程(\ref{circle3})的图象只有一
+个点$(-D,-E)$;
+\item 当$D^2+E^2-F<0$时，没有实数偶$(x,y)$满足方
+程(\ref{circle3}), 因此方程(\ref{circle3})没有图象。
+\end{enumerate}
+
+为统一叙述，我们常把情况2的轨迹叫做\textbf{点圆}，
+情况3
+的轨迹叫做\textbf{虚圆}。
+
+归纳以上讨论，我们有
+
+\begin{blk}
+   {定理} 二元二次方程
+$Ax^2+2Bxy+Cy^2+2Dx+2Ey+F=0$
+表示圆（包括点圆虚圆）的充要条件是
+\[A=C\ne 0,\qquad B=0\] 
+\end{blk}
+
+\begin{example}
+    已知$C(3,4)$, 求以$C$为圆心，半径等于5的圆
+的方程。
+\end{example}
+
+\begin{solution}
+设$P(x,y)$在以$C$为圆心，半径等于5的圆上，
+则以$C$为圆心，半径等于5的圆的方程为
+\[(x-3)^2+(y-4)^2=5^2\]
+即
+\[x^2+y^2-6x-8y=0\]
+\end{solution}
+
+\begin{example}
+    求圆$x^2+y^2-6x+2y+6=0$的圆心和半径。
+\end{example}
+
+\begin{solution}
+    将原方程配方得
+\[(x-3)^2+(y+1)^2=4\]
+所以所求圆的圆心的坐标是$(3,-1)$, 半径是2.
+\end{solution}
+
+\begin{example}
+    已知$A(9,-3)$, $B(3,-1)$, 求以$\overline{AB}$为直径
+圆的方程（图5.39）.
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.5]
+    \draw[->](-1,0)--(10,0)node[right]{$X$};
+    \draw[->](0,-7)--(0,3)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\tkzDefPoints{9/-3/A, 3/-1/B, 6/-2/C, 0/0/O, 2/-1.5/O'}
+\draw(6,-2) circle (3.16);
+\tkzInterLC(O,O')(C,A)  \tkzGetPoints{P}{P'}
+\tkzDrawPoints(A,B,C,P)
+\tkzDrawSegments[->, thick](B,P B,A A,P)
+\tkzAutoLabelPoints[center=C](A,P,B)
+\tkzLabelPoints[above](C)
+\end{tikzpicture}   
+    \caption{}
+\end{figure}
+
+
+\begin{solution}
+\textbf{方法一：}  设$\overline{AB}$的中点为$C$, 则$C$点的坐标
+\[x=\frac{9+3}{2}=6,\qquad y=\frac{-3-1}{2}=-2\]
+依题意$C(6,-2)$为所求
+圆的圆心，由距离公式得
+\[r^2=(9-6)^2+(-3+2)^2=10\]
+因此，所求圆的方程为
+\[(x-6)^2+(y+2)^2=10\]
+或
+\[x^2+y^2-12x+4y+30=0\]
+
+\textbf{方法二：}
+ 设$P(x,y)$为所求圆上任一点，依平面几何
+定理可知，$P$点在以$\overline{AB}$为直径的圆上的充要条件是
+$\angle APB=\frac{\pi}{2}$, 或
+$\Vec{AP}\cdot \Vec{BP}=0$.
+用坐标表达，则为
+\[(x-9)(x-3)+(y+3)(y+1)=0\]
+展开整理得
+\[x^2+y^2-12x+4y+30=0\]
+这就是所求圆的方程，
+\end{solution}
+
+
+\begin{example}
+    已知$A(2,2)$, $B(5,3)$, $C(3,-1)$, 求通过$A$、
+$B$、$C$三点圆的方程。
+\end{example}
+
+
+\begin{solution}
+    \textbf{方法一：} 设所求圆的方程为
+\[x^2+y^2+2Dx+2Ey+F=0\]
+因为$A$、$B$、$C$ 三点都在圆上，所以它们的坐标都满足方
+程，故得
+\[\begin{cases}
+    4D+4E+F+8=0\\
+10D+6E+F+34=0\\
+6D-2E+F+10=0
+\end{cases}\]
+解这个方程组，得
+\[D=-4,\qquad E=-1,\qquad F=12\]
+于是所求圆的方程为
+\[x^2+y^2-8x-2y+12=0\]
+
+\textbf{方法二：} 分别求$\overline{AB}$, $\overline{AC}$垂直平分线方程，得
+\[\begin{cases}
+   3x+y=13\\
+x-3y=1
+\end{cases}\]
+联立求解，得$x=4$, $y=1$. 于是$C(4,1)$就是所求圆的
+圆心，半径的平方为
+\[r^2=(5-4)^2+(3-1)^2=5\]
+因此，所求圆的方程为
+\[(x-4)^2+(y-1)^2=5\]
+或
+\[x^2+y^2-8x-2y+12=0\]
+\end{solution}
+
+\begin{example}
+    求与$X$轴相交于$A(1,0)$, $B(5,0)$两点且半径为
+$\sqrt{5}$的圆的方程。
+\end{example}
+
+\begin{solution}
+    设所求圆的方程为
+\[x^2+y^2+2Dx+2Ey+F=0\]
+因$A$、$B$两点在圆上，所以$A$、$B$的坐标满足所设方程。
+即
+\[\begin{cases}
+    1+2D+F=0\\
+25+10D+F=0
+\end{cases}\]
+解之得：$D=-3,\quad F=5$.
+但因为
+\[r^2=D^2+E^2-F\]
+所以：
+\[5=(-3)^2+E^2-5\]
+即：$E=\pm 1$，
+因此所求圆的方程有两个
+\[x^2+y^2-6x+2y+5=0\]
+或
+\[x^2+y^2-6x-2y+5=0\]
+\end{solution}
 
 
 
@@ -583,18 +1242,42 @@ $A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集�
 
 
 
+\begin{ex}
+\begin{enumerate}
+    \item 写出过下列圆上已知点的切线方程。
+\begin{enumerate}
+    \item $A(1,2),\quad x^2+y^2=5$
+    \item $B(12,-5),\quad x^2+y^2=169$
+    \item $C(10,10),\quad (x-2)^2+(y-4)^2=100$
+    \item $D(2,-2),\quad x^2+y^2+8x-16y-56=0$
+    \item $E(-4,-3),\quad x^2+y^2+12x-8y-1=0$
+    \item $O(0,0),\quad x^2+y^2-9x+11y=0$
+\end{enumerate}
 
+\item 已知定点$C(a,b)$, 动点$P(x,y)$. 证明圆$\Vec{CP}\cdot\Vec{CP}=r^2$, 在$P_0(x_0,y_0)$处的切线方程为$\Vec{CP}\cdot \Vec{CP_0}=r^2$
+或$(x-a)(x_0-a)+(y-b)(y_0-b)=r^2$.
+\item 求证圆$x^2+y^2+2Dx+2Ey+F=0$在其上$(x_0,y_0)$
+点处的切线方程是
+\[x_0x+y_0y+D(x+x_0)+E(y+y_0)+F=0\]
+\item 求证下列已知直线与已知圆相切，并求出切点的坐标。
+\begin{enumerate}
+    \item $x-y=4,\quad x^2+y^2=8$
+    \item $5x+12y=13,\quad x^2+y^2=1$
+    \item $8x-15y=289,\quad x^2+y^2=289$
+    \item $ax+by=a^2+b^2,\quad x^2+y^2=a^2+b^2$
+\end{enumerate}
 
-
-
-
-
-
-
-
-
-
-
+\item 求证圆$x^2+y^2+2Dx+2Ey=0$ 在原点的切线方程是
+$Dx+Ey=0$.
+\item 从点$A(5,-4)$到圆：$x^2+y^2+10x+7=0$引切线
+$AP$, $P$为切点，求$\overline{AP}$的长和点$P$的坐标。
+\item 求证圆$x^2+y^2+2Dx+2Ey+F=0$与$X$轴相切的充
+要条件是$D^2=F$, 并求与$Y$轴相切的一个充要条件。
+\item 已知圆$(x-2)^2+(y-2)^2=r^2$与$Y$轴相交在$A$、$B$两
+点，如果圆在$A$、$B$两点处的切线互相垂直，那么
+$r=2\sqrt{2}$.
+\end{enumerate}   
+\end{ex}
 
 
 
@@ -749,7 +1432,7 @@ $\triangle ABC$的重心到三顶点的距离平方和为最小。
 \item 已知$A(-5,4)$, 过点$A$作条直线使它与两坐标轴
 相交所成的三角形的面积等于5个平方单位，求证这条
 直线的方程是$8x+5y+20=0$或$2x+5y-10=0$.
-\item 已知点$A(a,b)$在第I象限，过点$A$求一条直线使与坐
+\item 已知点$A(a,b)$在第1象限，过点$A$求一条直线使与坐
 标轴交成的三角形面积最小，并求出最小面积的值。
 
 \item 如果
