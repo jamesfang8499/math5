@@ -1,7 +1,4 @@
-
 \chapter{向量的坐标运算~~直线与圆}
-
-
 
 \section{向量的坐标运算}
 \subsection{直角坐标系与向量的坐标}
@@ -95,14 +92,139 @@ $OXY$上的坐标，记作
 这个定理说的是，\textbf{向量$\va$在$X$轴和$Y$轴上的坐标分量分
 别是$\va$在坐标轴上的垂直投影量}。
 
+显然，$\vec{o}=(0, 0)$, $\eX=(1, 0)$, $\eY=(0, 1)$. 令$\expval{\eX,\vec{a}}=\alpha$, $\expval{\eY,\vec{a}}=\beta$，$\alpha,\beta$一起决定了$\vec{a}$的方向，$\alpha,\beta$叫做$\vec{a}$的\textbf{方向角}，$\cos\alpha$, $\cos\beta$叫做$\vec{a}$的\textbf{方向余弦}，上述定理表达了向量的长度、方向与它的坐标之间的关系，甚为重要，请同学要把它牢牢记住。
+
+如果在坐标平面上（图5.3），以$O$为起点引
+$\Vec{OA}=\vec{a}$, 则$A$点的位置被$\vec{a}$所唯一确定，这时，我们称$\Vec{OA}$为点$A$的\textbf{位置向量}。换句话说，$A$点的位置向量也就是确定$A$点相对于原点位置的向量。设$\Vec{OP}=x\eX+y\eY$，则$\Vec{OP}$的坐标$(x,y)$也就是$P$点的坐标；反之，$P$点的坐标$(x,y)$也就是位置向量$\Vec{OP}$的坐标。由此可见，给
+定了原点$O$和两个互相垂直的单位向量$\eX,\eY$, 坐标系也就完全确定了，因而，坐标系$OXY$也可用$[O:\; \eX,\eY]$来表示，$\eX,\eY$叫做坐标系的\textbf{基向量}。
+
+\begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+      \draw[->](-1,0)--(4,0)node[right]{$X$};
+\draw[->](0,-1)--(0,3)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[very thick,->](0,0)--node[above]{$\vec{a}$}(3.5,2)node[right]{$A$};
+\draw[thick,->](0,0)--(1,0)node[below]{$\eX$};
+\draw[thick,->](0,0)--(0,1)node[left]{$\eY$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+      \draw[->](-3,0)--(4,0)node[right]{$X$};
+\draw[->](0,-2.5)--(0,3)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[very thick,->](.5,0.5)--node[above]{$\vec{a}$}+(45:2);
+\draw[very thick,->](-.5,0)--node[above]{$\vec{b}$}+(120:3);
+\draw[very thick,->](0,0)--node[below]{$\vec{c}$}(-30:4);
+\draw[dashed](.5,.5)--(1.5,.5);
+\draw(.75,.5) arc (0:45:.25)node[right]{$45^{\circ}$};
+\draw(-.75,0) arc (180:120:.25)node[left]{$60^{\circ}$};
+\draw(.5,0) arc (0:-30:.5)node[right]{$30^{\circ}$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+  \end{figure}
+
+为了方便，在本书中我们约定，当点用大写字母标记时，它相对于原点的位置向量用相应的小写字母来标记，例
+如$P$点的位置向量记为$\vec{p}$, $A$点的位置向量记为$\vec{a}$等等。
+
+\begin{example}
+    向量$\vec{a}$、$\vec{b}$、$\vec{c}$的方向与绝对值如图5.4所示，求$\vec{a}$、$\vec{b}$、$\vec{c}$的坐标。
+\end{example}
+
+\begin{solution}
+设$\vec{a}=(a_x,a_y)$, $\vec{b}=(b_x,b_y)$, $\vec{c}=(c_x,c_y)$, 因此：
+\[\begin{split}
+a_x&=\eX\cdot \vec{a}=|\vec{a}|\cos\expval{\eX,\vec{a}}=2\cos 45^{\circ}=\sqrt{2}\\
+a_y&=|\vec{a}|\cos\expval{\eY,\vec{a}}=2\cos 45^{\circ}=\sqrt{2}\\
+\end{split}\]
+$\therefore\quad \vec{a}=\left(\sqrt{2},\sqrt{2}\right)$
+\[\begin{split}
+    b_x&=|\vec{b}|\cos\expval{\eX,\vec{b}}=3\cos (180^{\circ}-60^{\circ})=-3\cos 60^{\circ}=-\frac{3}{2}\\
+b_y&=|\vec{b}|\cos\expval{\eY,\vec{b}}=3\cos (90^{\circ}-60^{\circ})=3\cos30^{\circ}=\frac{3}{2}\sqrt{3}\\
+\end{split}\]
+$\therefore\quad \vec{b}=\left(-\frac{3}{2},\frac{3}{2}\sqrt{3}\right)$
+\[\begin{split}
+c_x&=|\vec{c}|\cos\expval{\eX,\vec{c}}=4\cos 30^{\circ}=2\sqrt{3}\\
+c_y&=|\vec{c}|\cos\expval{\eY,\vec{c}}=4\cos (30^{\circ}+90^{\circ})=-4\sin 30^{\circ}=-2\\
+\end{split}\]
+$\therefore\quad \vec{c}=\left(2\sqrt{3},-2\right)$
+\end{solution}
 
+\begin{ex}
+\begin{enumerate}
+    \item 求图中向量的坐标。
+    \item 已知$A(4, 2)$, $B(-2, 5)$, $C(-4,-3)$, $D(4,-4)$. 试用基向量$\eX,\eY$表示它们相对于原点的位置向量。
+    \item 已知$\Vec{OA}=(3,-1)$, $\Vec{OB}=(2, 3)$. 试写出$A$、$B$两点的坐标。
+\end{enumerate}
+\end{ex}
 
+\begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.7]
+\draw[->](-3,0)--(4,0)node[right]{$X$};
+\draw[->](0,-3)--(0,3.5)node[right]{$Y$};
+\node at (0,0)[above right]{$O$};
+\draw[very thick,->](1,1)--node[left]{$\vec{a}_1$}+(45:1.5);
+\draw[very thick,->](-.5,0.5)--node[right]{$\vec{a}_2$}+(120:2.5);
+\draw[very thick,->](-.5,0)--node[left]{$\vec{a}_3$}+(-120:2.5);
+\draw[very thick,->](.5,-.5)--node[below]{$\vec{a}_4$}+(-45:2.5);
+\draw[dashed](1,1)--(2.5,1);
+\draw[dashed](-.5,0.5)--(-2,.5);
+\draw[dashed](-.5,0)--(-.5,-1.5);
+\draw[dashed](.5,-.5)--(2.5,-.5);
 
+\draw(1.25,1) arc (0:45:.25)node[right]{$45^{\circ}$};
+\draw(-.75,0.5) arc (180:120:.25)node[left]{$60^{\circ}$};
+\draw(-.5,-.5) arc (-90:-120:.5)node[below]{$30^{\circ}$};
+\draw(.75,-.5) arc (0:-45:.25)node[right]{$45^{\circ}$};
+    \end{tikzpicture}
+    \caption*{第1题}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.4]
+\draw[->](-5,0)--(5,0)node[right]{$X$};
+\draw[->](0,-5)--(0,6)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{4/2/A, -2/5/B, -4/-3/C, 4/-4/D, 0/0/O}
+\tkzDrawSegments[very thick,->](O,A O,B O,C O,D)
+\tkzAutoLabelPoints[center=O](A,B,C,D)
+    \end{tikzpicture}
+    \caption*{第2题}
+    \end{minipage}
+  \end{figure}
 
+\subsection{用向量坐标进行向量运算}
+已知向量$\vec{a}=(a_x,a_y)$, $\vec{b}=(b_x,b_y)$，则
+\[\vec{a}+\vec{b}= (a_x\eX+a_y\eY) +(b_x\eX+b_y\eY)= (a_x+b_x) \eX+ (a_y+b_y) \eY\]
+即
+\[\vec{a}+\vec{b}=(a_x,a_y)+(b_x,b_y)=(a_x+b_x,a_y+b_y) \]
+同样可证：
+\[\vec{a}-\vec{b}= (a_x, a_y ) -(b_x,b_y)=(a_x-b_x,a_y-b_y)\]
 
+这就是说\textbf{向量的和与差的坐标等于各向量相应坐标的和与差}。
 
+已知$\vec{a}=(a_x,a_y)$和一实数$\lambda$，则
+\[\lambda a=\lambda (a_x\eX+a_y\eY) = \lambda a_x\eX+\lambda a_y\eY\]
+即：$\lambda\vec{a}=\lambda (a_x ,a_y) = (\lambda a_x,\lambda a_y)$.
 
+这就是说\textbf{向量倍积的坐标等于该向量相应的坐标与倍数的乘积}。
 
+已知$\vec{a}=(a_x,a_y)$, $\vec{b}=(b_x,b_y)$, 则
+\[\begin{split}
+    \vec{a}\cdot \vec{b}&=(a_x\eX+a_y\eY)\cdot (b_x\eX+b_y\eY)\\
+    &=a_xb_x\eX\cdot \eX+a_xb_y\eY\cdot \eX+a_yb_x\eY\eX+a_yb_y\eY\cdot \eY
+\end{split}\]
+由于$\eX\cdot \eX=\eY\cdot \eY=1$, $\eX\cdot \eY=\eY\cdot \eX=0$，所以
+\[\vec{a}\cdot \vec{b}=(a_x,a_y)\cdot (b_x,b_y)=a_xb_x+a_yb_y\]
 
 
 
@@ -237,6 +359,180 @@ $OXY$上的坐标，记作
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ex}
+\begin{enumerate}
+    \item 已知
+ \begin{enumerate}
+    \item $\vec{a}=(3,-4),\quad \vec{b}=(2,-7)$;
+    \item $\vec{a}=(-5,-6),\quad \vec{b}=(4,-9)$.
+\end{enumerate}   
+    求由$\vec{a},\vec{b}$作邻边向量张成的平行四边形的面积。
+    
+    \item 已知$A(2, 3)$, $B(-7, 5)$, $C(3,-5)$,求
+    $\triangle ABC$的面积。
+    \item  已知$A(-10,-8)$, $B(9,-3)$, $C(2, 11)$, 求
+    $\triangle ABC$的面积。
+    \item 说明$\begin{vmatrix}
+       a_x&a_y\\b_x&b_y 
+    \end{vmatrix}=-\begin{vmatrix}
+        \b_x&b_y \\a_x&a_y
+    \end{vmatrix}$
+    的几何意义。
+    \item 说明$\begin{vmatrix}
+        a_x&a_y\\a_x+b_x&a_y+b_y 
+     \end{vmatrix}=\begin{vmatrix}
+         a_x&a_y \\\b_x&b_y
+     \end{vmatrix}$的几何意义。
+\end{enumerate}
+\end{ex}
+
+\subsection*{习题5.1}
+\begin{enumerate}
+    \item 在$X$轴上的点，它的纵坐标都等于什么？在$Y$轴上的点，它的横坐标都等于什么？
+    \item 在坐标平面上，已知边长为$a$的正方形$ABCD$, $A$与原点重合，$\Vec{AB}$, $\Vec{AD}$的方向分别与$X$轴和$Y$轴的正方向一致，求四个顶点的坐标。
+    \item 分别求点$(a,b)$关于$X$轴、$Y$轴的对称点的坐标。
+    \item 已知$|\Vec{OA}|=7$、$|\Vec{OB}|=6$, 点$A$在第四象限，点$B$在第二象限，且$\expval{\Vec{OA},\eX}=45^{\circ}$, $\expval{\Vec{OB},\eY}=30^{\circ}$. 求$A$点、$B$点的坐标。
+    \item $\parallelogram{ABCD}$中的$\Vec{AB}=8$, $\Vec{AD}=5$, $\angle A=60^{\circ}$，如果取$A$作原点，$X$轴正方向与$\Vec{AB}$同向，$C$点所在的象
+    限为第一象限，求它各顶点的坐标。
+    \item 已知
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $A(-3, 4),\quad B(2,-5)$; 
+    \item $A(2,-1),\quad B(-4, 3)$
+\end{enumerate}
+\end{multicols}
+    求$\Vec{AB}$的坐标。
+    
+\item 已知$|\vec{a}|=12$, $\expval{\eX,\vec{a}}=30^{\circ}$, $\expval{\eY,\vec{a}}=120^{\circ}$, 
+    求$\vec{a}$的坐标。
+    
+    \item 建立坐标系$[O:\; \eX,\eY]$, 画出下列各向量。
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $\eX=(1,0)$
+    \item $\eY=(0,1)$
+    \item $\vec{a}=(-1,1)$
+    \item $\vec{b}=(0,2)$
+    \item $\vec{c}=(-2,0)$
+    \item $\vec{d}=(0,-2)$
+    \item $\vec{f}=(-1,-3)$
+\end{enumerate}
+\end{multicols}
+
+\item 问平行于$X$轴的向量与平行于$Y$轴的向量的坐标各有什么特点。
+\item 证明$A,B,C$三点共线。
+\begin{enumerate}
+    \item $A (2, 1) ,\quad  B (0, 5) ,\quad  C (4, -3)$
+    \item $A (-1, 0) ,\quad  B (1, -2) ,\quad  C (3, -4)$
+\end{enumerate}
+\item 已知$\parallelogram{ABCD}$, $\overline{AC}$, $\overline{BD}$相交于$P$, 且$A(-1, 2)$, $B(3, 0)$, $P(0, 2)$, 求$B,C$两顶点的坐标。
+\item 求证$\vec{m}=(-2, 3)$, $\vec{n}=(2,-3)$与$\vec{a}=(3, 2)$垂直并作图验证。
+\item 已知$\vec{a}=(2,-1)$, $\vec{b}=(-1, 1)$, 求$\vec{a}+\vec{b}$, $\vec{a}-\vec{b}$, $\vec{a}\cdot \vec{b}$, 
+$\left(3\vec{a}-2\vec{b}\right)\cdot\left(\vec{a}+4\vec{b}\right)$.
+\item 已知$\vec{a}=(1, 2)$, $\vec{b}=(3, 1)$. 在坐标平面上
+画出$\vec{a}+\vec{b}$, $\vec{a}+2\vec{b}$, $\vec{a}+3\vec{b}$, $\vec{a}-2\vec{b}$, $\vec{a}-3\vec{b}$.
+
+\item 已知$A(1, 3)$, $B(2,-1)$, $C(4,k)$, 问$k$为何值时，$\triangle ABC$是等腰三角形。
+\item 已知$A(1, 1)$, $B(2,-1)$. 如果$\triangle ABC$是
+等边三角形，且$A,B,C$按逆时针顺序排列，求顶点$C$的坐标。
+\item 已知$|\vec{a}| = 2$, $\vec{b}=(\sqrt{3}, 1)$, $\vec{a}$到$\vec{b}$的旋转角为$60^{\circ}$, 求$\vec{a}$的坐标。
+\item 已知$A(2, 3)$, $B(-1, 0)$, $C$点在$\overline{AB}$的垂直平
+分线上，且和$\overline{AB}$的距离是$\overline{AB}$长的一半，求$C$点的坐标。
+\item 已知正方形$ABCD$, $A(0,-1)$, $B(-2, 1)$, 
+$A$、$B$、$C$、$D$四点
+\begin{multicols}{2}
+\begin{enumerate}
+    \item 按顺时针顺序排列；
+    \item 按逆时针顺序排列。
+\end{enumerate}
+\end{multicols}
+求$C$点的坐标。
+\item 已知正六边形$ABCDEF$, $A$、$B$、$C$、$D$、$E$、$F$
+成逆时针方向排列，$A(1, 1)$, $B(-2, 3)$, 求顶点$C$、$D$、$E$、$F$的坐标。
+\item 计算由下列各对向量张成的平行四边形的面积。
+\begin{enumerate}
+    \item $\vec{a}= (3, -2) ,\qquad \vec{b}= (5, 1)$
+    \item $\vec{a}= (1, 2) ,\qquad \vec{b}= (-1, 2) $
+    \item $\vec{a}= (-2, 3) ,\qquad \vec{b}= (-3, 4) $
+\end{enumerate}
+\end{enumerate}
+
+\section{直线方程}
+一个关于$x$、$y$的二元方程总可写为
+\begin{equation}\label{lin_eq}
+ F (x,y) =0   
+\end{equation}
+的形式。例如$x+y-3=0$, $y-x^2=0$, $x^2+2xy-y^2-3=0$等．设满足方程(\ref{lin_eq})的所有实数偶$(x,y)$的集合用$A$表示，则$A$可描述为
+\[A= \{ (x,y) |F (x,y) =0\} \]
+对$A$中的每一个有序实数偶$(x,y)$, 在坐标平面上，唯一确定了一个点$P(x,y)$. 这样，$A$中的所有元素就对应着平面上的一个点集$B$. $B$可描述为
+\[B= \{P (x,y) |F (x,y) =0\}\]
+
+点集$B$叫做方程$F(x,y)=0$的图象或轨迹，而$F(x,y)=0$又叫做轨迹方程。例如：方程$y-x=0$的所有解集
+\[\{ (x,y) |y-x=0\}\]
+对应着坐标平面上点的轨迹
+\[\{P (x,y) |y-x=0\} \]
+是第1、第3象限的角平分线。方程$y-x^2=0$的解集
+\[\{ (x,y) |y-x^2=0\}\]
+所对应的点轨迹
+\[\{P (x,y) |y-x^2=0\}\]
+是坐标平面上一条抛物线。
+
+如果我们要确定某个点集是某个二元方程$F(x,y)=0$的轨迹，或方程$F(x,y)=0$是某个点集的方程，显然必
+须证明以下两条。
+\begin{enumerate}
+    \item $(x,y)\in A\quad \Rightarrow\quad P(x,y)\in B$
+    \item $P (x,y) \in B\quad \Rightarrow\quad  (x,y) \in A$
+\end{enumerate}
+第一条保证满足方程$F(x,y)=0$的实数偶所对应的点一定在轨迹$B$上，第二条保证在轨迹$B$上的点的坐标一定满足方程$F(x,y)=0$.
+
+设$A= \{P (x,y) |F (x,y) =0\}$, $B= \{P (x,y) |G (x,y) =0\}$. 
+$A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集，与求联立方程
+\[\begin{cases}
+   F (x,y) =0\\
+   G (x,y) =0 
+\end{cases}\]
+的解集，在解析几何中是同一件事。
+
+这一节我们首先研究直线方程。
 
 
 
