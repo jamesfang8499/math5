@@ -1364,67 +1364,374 @@ $A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集�
 
 这一节我们首先研究直线方程。
 
+\subsection{直线的各种方程}
+\subsubsection{点法向式}
+
+已知$P_0(x_0,y_0)$, $\vec{n}=(a,b)$，且$\vec{n}\ne \vec{0}$
+过$P_0$作直线$\ell\bot \vec{n}$. 求$\ell$的
+方程（图5.18）.
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+    \draw[->](-1.5,0)--(3.5,0)node[right]{$X$};
+    \draw[->](0,-1)--(0,3.6)node[right]{$Y$};
+\draw[domain=-1:2.5, samples=10, very thick]plot(\x, {-\x+2})node[right]{$\ell$};
+\draw[domain=0:2, samples=10, very thick, ->]plot(\x, {\x})node[above]{$\vec{n}$};
+\node at (0,0)[below left]{$O$};
+
+\tkzDefPoints{-.5/2.5/P, 1.5/.5/P_0}
+\tkzDrawPoints(P,P_0)
+\tkzLabelPoint[left](P){$P(x,y)$}
+\tkzLabelPoint[right](P_0){$P_0(x_0,y_0)$}
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+设$P(x,y)$是一个动
+点，则$P\in\ell$的充要条件是
+\[\vec{n}\cdot \Vec{P_0P}=0\]
+也可写为
+\[\vec{n}\cdot (\Vec{OP}-\Vec{OP_0})=0\]
+用坐标表示，上述向量方程变为
+\begin{equation}
+   a(x-x_0)+b(y-y_0)=0 
+\end{equation}
+或
+\[ax+by+c=0\]
+其中$c=-(ax_0+by_0)$. (5.15)式是通过点$P_0(x_0,y_0)$且
+与已知向量$\vec{n}$垂直的直线方程，$\vec{n}$叫做直线$\ell$的\textbf{法向量}。通
+常(5.15)式称为直线的\textbf{点法向式方程}。
+
+特殊情况：当$\vec{n}\parallel \eX$时，$a\ne 0$, $b=0$, 直线$\ell$垂直
+于$X$轴（图5.19）, 方程(5.15)变为
+\[x-x_0=0\]
+即：$x=x_0$
 
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
+    \draw[->](0,-1)--(0,2.6)node[right]{$Y$};
+\tkzDefPoints{-1/-1/A, -1/2/B, 0/1/C, 2/1/D, 0/0/O, -1/1/E}
+\tkzDrawSegments[very thick, ->](C,D)
+\tkzDrawSegments[very thick](A,B)
+\draw[very thick, ->](O)--(1,0)node[below]{$\eX$};
+\tkzDrawPoints(E,O)
+\tkzLabelSegment[above](C,D){$\vec{n}$}
+\tkzLabelPoint[left](E){$(x_0,y_0)$}
+\tkzLabelPoint[above](B){$\ell$}
+\tkzLabelPoints[below left](O)
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+          \draw[->](-2,0)--(2.5,0)node[right]{$X$};
+    \draw[->](0,-.5)--(0,3.6)node[right]{$Y$};
+\tkzDefPoints{-2/1.5/A, 2.3/1.5/B, 1/1.5/C, 1/3.2/D, -1/1.5/E, 0/0/O}
+\tkzDrawPoints(E,O)\tkzDrawSegments[very thick](A,B)
+\tkzDrawSegments[very thick, ->](C,D)
+\tkzLabelPoint[above](E){$(x_0,y_0)$}
+\tkzLabelPoint[left](A){$\ell$}
+\draw[very thick, ->](O)--(0,1)node[left]{$\eY$};
+\tkzLabelSegment[left](C,D){$\vec{n}$}
+\tkzLabelPoints[below left](O)
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
 
 
+当$\vec{n}\parallel \eY$时，$a=0$, 
+$b\ne 0$, 直线$\ell$垂直于$Y$轴（图
+5.20），方程(5.15)变为
+\[y=y_0\]
 
+例如，通过$(2,1)$且垂直于$X$轴的方程是$x=2$, 
+通过$(3,4)$且垂直于$Y$轴的方程是$y=4$. 显然$X$轴的
+方程是$y=0$, $Y$轴的方程是$x=0$.
 
 \begin{example}
-    
+     求通过点$P_0(3,2)$, 且垂直于$\vec{n}(3,-4)$的
+直线方程式。
 \end{example}
 
 \begin{solution}
-    
-\end{solution}
-
-
-
-
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
+   由点法向式方程有
+\[3(x-3)+(-4)(y-2)=0\]
+整理得
+\[3x-4y-1=0\]
 \end{solution}
 
 \begin{example}
-    
+    已知$P_1(-1,2)$, $P_2(3,4)$, $P_3(-2,5)$. 
+求通过点$P_1$且垂直于直线$P_2P_3$的直线方程。
 \end{example}
 
 \begin{solution}
-    
+因为$\Vec{P_2P_3}=(-5,1)$, 所以通过点$P_1(-1,2)$
+且垂直于$\Vec{P_2P_3}$的直线方程为
+\[-5\cdot (x+1)+1\cdot (y-2)=0\]
+整理得
+\[5x-y+7=0\]
+\end{solution}
+
+\subsubsection{点方向式}
+已知点$P_0(x_0,y_0)$和
+$\vec{\mu}=(a,b)$, 且$a\ne 0$, 
+$\vec{b}\ne 0$（即$\vec{\mu}$和两条坐标轴
+都不平行），过$P_0$作直线$\ell\parallel \vec{\mu}$, 
+求直线$\ell$的方程（图5.21）.
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+    \draw[->](-2,0)--(2,0)node[right]{$X$};
+    \draw[->](0,-1)--(0,3.6)node[right]{$Y$};
+\draw[domain=-1.5:.5, samples=10, very thick]plot(\x, {2*\x+2})node[right]{$\ell$};
+\draw[domain=0:.5, samples=10, very thick, ->]plot(\x, {2*\x})node[below right]{$\vec{u}$};
+\node at (0,0)[below left]{$O$};
+
+\tkzDefPoints{-.5/1/P}
+\tkzDrawPoints(P)
+\tkzLabelPoint[left](P){$(x_0,y_0)$}
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+设$P(x,y)$是一动点，则
+$P\in\ell$的充要条件是$\Vec{P_0P}\parallel \vec{\mu}$.
+
+我们知道$\Vec{P_0P}$与$\vec{\mu}$平行的充要条件是它们的坐标成比
+例，即
+\begin{equation}
+    \frac{x-x_0}{a}=\frac{y-y_0}{b}
+\end{equation}
+因此(5.16)式也是动点$P(x,y)$在直线$\ell$上的充要条件。
+所以(5.16)式是直线$\ell$的方程。通常我们把(5.16)叫做直线
+$\ell$的\textbf{点方向式方程}，$\vec{\mu}$叫做直线$\ell$的\textbf{方向向量}。
+
+\begin{example}
+    求通过点$P_0(-2,3)$且平行于$\vec{\mu}=(2,3)$
+的直线$\ell$的方程。
+\end{example}
+
+\begin{solution}
+    由点方向式方程可得$\ell$的方程为
+\[\frac{x -(-2)}{2} =\frac{y-3}{3}\]
+整理得
+\[3x-2y+12=0\]
 \end{solution}
 
 \begin{example}
-    
+    已知点$A(4,6)$, $B(-3,2)$, $C(4,-5)$, 
+求通过点$A$且平行于直线$BC$的直线方程。
 \end{example}
 
 \begin{solution}
-    
+   因$\Vec{BC}=(4-(-3),-5-2)=(7,-7)$, 
+所以所求直线方程为
+\[\frac{x-4}{7}=\frac{y-6}{-7}\]
+整理得
+\[x+y-10=0\] 
 \end{solution}
 
+\subsubsection{两点式}
+已知两个不同的点$P_1(x_1,y_1)$, $P_2(x_2,y_2)$, 求直
+线$P_1P_2$的方程（图5.22）.
 
+因为\[\Vec{P_1P_2}=(x_2-x_1,y_2-y_1)\]
+$\Vec{P_1P_2}$取作所求直线的方向向
+量，据点方向式方程可得直线
+$P_1P_2$的方程为
+\begin{equation}
+    \frac{x-x_1}{x_2-x_1}=\frac{y-y_1}{y_2-y_1}
+\end{equation}
+(5.17)式通常叫做\textbf{直线方程的两点式}。
 
 
 \begin{example}
-    
+    求通过$P_1(-4,2)$, $P_2(1,-3)$的直线方程.
 \end{example}
 
 \begin{solution}
-    
+    由于$\Vec{P_1P_2}=(1-(-4),-3-2)=(5,-5)$, 
+所以直线$P_1P_2$的方程为
+\[\frac{x-(-4)}{5}=\frac{y-2}{-5}\]
+整理得
+\[x+y+2=0\]
 \end{solution}
+
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \draw[->](-3,0)--(2,0)node[right]{$X$};
+    \draw[->](0,-1)--(0,2.6)node[right]{$Y$};
+\node at (0,0) [below left]{$O$};
+\tkzDefPoints{-1/.5/A, .5/2/B}
+\tkzDrawPoints(A,B)
+\tkzDrawLines[add=.7 and .25, very thick](A,B)
+\tkzLabelPoint[left](A){$P_1(x_1,y_1)$}
+\tkzLabelPoint[right](B){$P_2(x_2,y_2)$}
+\node at (1,2.3)[above]{$\ell$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+        \draw[->](-2.5,0)--(2,0)node[right]{$X$};
+        \draw[->](0,-1)--(0,2.6)node[right]{$Y$};
+    \node at (0,0) [below left]{$O$};
+    \tkzDefPoints{-1/0/A, 0/.8/B}
+    \tkzDrawPoints(A,B)
+    \tkzDrawLines[add=.75 and 1.3, very thick](A,B)
+    \tkzLabelPoint[above left](A){$A(a,0)$}
+    \tkzLabelPoint[right](B){$B(0,b)$}
+    \node at (1.5,1.7)[above]{$\ell$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
 
 \begin{example}
-    
+    已知直线$\ell$与$X$轴、$Y$轴分别相交于点$A(a,0)$、
+点$B(0,b)$, 且假定$a\ne 0$, $b\ne 0$, 求直线$\ell$的方程
+（图5.23）.
 \end{example}
 
 \begin{solution}
-    
+    因$\Vec{AB}=(-a,b)$, 由两点式可得
+\[\frac{x-a}{-a}=\frac{y-b}{b}\]
+整理得
+\begin{equation}
+    \frac{x}{a}+\frac{y}{b}=1
+\end{equation}
 \end{solution}
+
+由例5.29求得的方程(5.18)通常叫做直线的\textbf{截距式}，$a$叫
+做$\ell$在$X$轴上的截距，$b$叫做$\ell$在$Y$轴上的截距。
+
+\begin{ex}
+\begin{enumerate}
+    \item 求通过$P_0(3,-2)$且垂直于$\vec{\mu}=(-4,5)$的直线
+    方程。
+    \item 已知$A(-5,6)$, $B(-1,-4)$, $C(3,2)$, 求
+    $\triangle ABC$的三条高线方程。
+    \item 已知$A(-3,2)$, $B(1,-4)$. 求$\overline{AB}$的垂直平分
+    线的方程。
+    \item 已知$|\Vec{OM}|=3$, $\Vec{OM}$的方向角是$30^{\circ}$, 直线$\ell$垂直$\Vec{OM}$
+    于$M$点，试求$\ell$的方程。
+    \item 求通过$P_0(3,-5)$且平行于$\vec{\mu}=(1,2)$的直线的方程。
+    \item 已知$\triangle ABC$, 且$A(3,-4)$, $B(-6,-7)$, 
+    $C(-4,8)$. 分别过$A$、$B$、$C$三点作对边的平行线
+    $a$、$b$、$c$. 求这三条直线的方程。
+    \item 求通过$A(-3,2)$, $B(4,-7)$的直线方程.
+    \item 已知$P_1(-1,3)$, $P_2(3,-4)$, $P_3(-1,-2)$，
+    某点$A$满足$\Vec{P_2A}=\frac{3}{2}\Vec{P_2P_3}$. 求直线$P_1A$的方程。 
+    \item 直线$\ell$与$X$轴相交于$(-1,0)$, 与$Y$轴相交于
+    $(0,3)$. 求直线$\ell$的方程。
+\end{enumerate}
+\end{ex}
+
+\subsection{直线与二元一次方程}
+在上一小节中，我们看到直线方程都是二元一次方程。
+但反过来要问是否每一个二元一次方程的图象都是直线呢？
+答案是肯定的。
+
+\begin{blk}
+    {定理} 每个二元一次方程所确定的图象都是一条直线。
+\end{blk}
+
+\begin{proof}
+任给一个二元一次方程
+$ax+by+c=0$, 
+其中$a$、$b$不同时为零，设$(x_0,y_0)$是方程的一个解，
+于是
+\[ax_0+by_0+c=0\]
+两式相减可得
+\[a(x-x_0)+b(y-y_0)=0\]
+建立一个直角坐标系$[O:\; \eX,\eY]$, 取$P_0(x_0,y_0)$和
+$\vec{n}=(a,b)$, 显然上述方程就是通过$P_0$且垂直于$\vec{n}$的直
+线方程。这就证明了每个二元一次方程都可确定一条直线。
+\end{proof}
+
+\begin{blk}{推论1}
+    已知直线$\ell:\; ax+by+c=0$, 以$x$、$y$系数
+为坐标的向量$(a,b)$是直线$\ell$的法向量。
+\end{blk}
+
+
+\begin{blk}{推论2}
+    方程
+\begin{align}
+    a_1x+b_1y+c_1=0\\
+a_2x+b_2y+c_2=0
+\end{align}
+表示同一条直线的充要条件是存在一实数$\lambda$，使
+\[a_2=\lambda a_1,\qquad b_2=\lambda b_1,\qquad  c_2=\lambda c_1\]
+\end{blk}
+
+\begin{proof}
+\textbf{必要性：} 如果(5.19)、(5.20)两式表示同一条直
+线，则对直线上任一点$(x_0,y_0)$有
+\begin{align}
+a_1x_0+b_1y_0+c_1=0\\
+a_2x_0+b_2y_0+c_2=0
+\end{align}
+$(5.19)-(5.21)$, $(5.20)-(5.22)$得
+\[\begin{split}
+    a_1(x-x_0)+b_1(y-y_0)=0\\
+a_2(x-x_0)+b_2(y-y_0)=0
+\end{split}\]
+由于$(a_1,b_1)$, $(a_2,b_2)$都是同一条直线的法向量，所以
+它们平行，即存在一实数$\lambda$使
+\begin{equation}
+    a_2=\lambda a_1,\qquad b_2=\lambda b_1
+\end{equation}
+由(5.21)、(5.22)、(5.23)就可得到
+\[c_2=\lambda c_1\]
+
+\textbf{充分性：} 设存在一实数$\lambda$, 使$a_2=\lambda a_1$, $b_2=\lambda b_1$, 
+$c_2=\lambda c_1$, 则
+\[a_2x+b_2y+c_2=\lambda (a_1x+b_1y+c_1)=0\]
+显然，(5.19)、(5.20)两式表示的是同一条直线。
+\end{proof}
+
+显然，当$t\ne 0$时，方程$ax+by+c=0$与$t(ax+by
++c)=0$是同一条直线的方程。这也就是说，同一直线的方
+程之间可以相差一个非零的常数因子。
+
+在解析几何中，有时我们要讨论一条有向直线$\ell:\; ax+
+by+c=0$. 通常我们根据直线$\ell$的法向量$(a,b)$来规
+定直线$\ell$的方向。方法是这样：\textbf{把法向量按顺时针旋转$90^{\circ}$
+后的方向作为直线$\ell$的方向}（图5.24）.
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{blk}
+    
+\end{blk}
 
 \begin{example}
     
