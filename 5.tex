@@ -1043,7 +1043,7 @@ $OB$之间的旋转角，也可说$\varphi$
 \begin{figure}[htp]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-  \begin{tikzpicture}[>=latex, scale=.5]
+  \begin{tikzpicture}[>=stealth, scale=.5]
 \draw[->](-5,0)--(5,0)node[right]{$X$};
 \draw[->](0,-4.5)--(0,4.5)node[right]{$Y$};
 \tkzDefPoints{-4/3/A, 4/-3/B, 3/4/C, 0/0/O}     
@@ -1064,7 +1064,7 @@ $OB$之间的旋转角，也可说$\varphi$
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \begin{tikzpicture}[>=latex, scale=1]
+    \begin{tikzpicture}[>=stealth, scale=1]
   \draw[->](-2.5,0)--(2,0)node[right]{$X$};
 \draw[->](0,-1)--(0,3.5)node[right]{$Y$};
 \node at (0,0)[below right]{$O$};
@@ -1111,7 +1111,7 @@ $\cos(\alpha-\beta) = \cos\alpha\cos\beta+\sin\alpha\sin\beta$.
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}[>=latex]
+\begin{tikzpicture}[>=stealth]
 \draw[->](-.5,0)--(4,0)node[right]{$X$};
 \draw[->](0,-.5)--(0,4)node[right]{$Y$};
 \tkzDefPoints{0/0/O, 3/2/E_2, 2/3/E_1, 2/0/F}
@@ -1156,7 +1156,7 @@ $\cos(\alpha-\beta) = \cos\alpha\cos\beta+\sin\alpha\sin\beta$.
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}[>=latex]
+\begin{tikzpicture}[>=stealth]
     \draw[->](-2.5,0)--(3.5,0)node[right]{$X$};
     \draw[->](0,-2)--(0,2.6)node[right]{$Y$};
 \tkzDefPoints{-2/-1.5/A, 2.3/-.5/B, -1.5/1/D}
@@ -1372,7 +1372,7 @@ $A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集�
 方程（图5.18）.
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}[>=latex]
+\begin{tikzpicture}[>=stealth]
     \draw[->](-1.5,0)--(3.5,0)node[right]{$X$};
     \draw[->](0,-1)--(0,3.6)node[right]{$Y$};
 \draw[domain=-1:2.5, samples=10, very thick]plot(\x, {-\x+2})node[right]{$\ell$};
@@ -1412,7 +1412,7 @@ $A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集�
 \begin{figure}[htp]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-  \begin{tikzpicture}[>=latex, scale=1]
+  \begin{tikzpicture}[>=stealth, scale=1]
     \draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
     \draw[->](0,-1)--(0,2.6)node[right]{$Y$};
 \tkzDefPoints{-1/-1/A, -1/2/B, 0/1/C, 2/1/D, 0/0/O, -1/1/E}
@@ -1430,7 +1430,7 @@ $A,B$是两个轨迹。由定义可知，求$A\cap B$, 即求$A$与$B$的交集�
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \begin{tikzpicture}[>=latex, scale=1]
+    \begin{tikzpicture}[>=stealth, scale=1]
           \draw[->](-2,0)--(2.5,0)node[right]{$X$};
     \draw[->](0,-.5)--(0,3.6)node[right]{$Y$};
 \tkzDefPoints{-2/1.5/A, 2.3/1.5/B, 1/1.5/C, 1/3.2/D, -1/1.5/E, 0/0/O}
@@ -1491,7 +1491,7 @@ $\vec{b}\ne 0$（即$\vec{\mu}$和两条坐标轴
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}[>=latex]
+\begin{tikzpicture}[>=stealth]
     \draw[->](-2,0)--(2,0)node[right]{$X$};
     \draw[->](0,-1)--(0,3.6)node[right]{$Y$};
 \draw[domain=-1.5:.5, samples=10, very thick]plot(\x, {2*\x+2})node[right]{$\ell$};
@@ -1574,7 +1574,7 @@ $P_1P_2$的方程为
 \begin{figure}[htp]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-  \begin{tikzpicture}[>=latex, scale=1]
+  \begin{tikzpicture}[>=stealth, scale=1]
     \draw[->](-3,0)--(2,0)node[right]{$X$};
     \draw[->](0,-1)--(0,2.6)node[right]{$Y$};
 \node at (0,0) [below left]{$O$};
@@ -1589,7 +1589,7 @@ $P_1P_2$的方程为
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \begin{tikzpicture}[>=latex, scale=1]
+    \begin{tikzpicture}[>=stealth, scale=1]
         \draw[->](-2.5,0)--(2,0)node[right]{$X$};
         \draw[->](0,-1)--(0,2.6)node[right]{$Y$};
     \node at (0,0) [below left]{$O$};
@@ -1719,179 +1719,859 @@ by+c=0$. 通常我们根据直线$\ell$的法向量$(a,b)$来规
 后的方向作为直线$\ell$的方向}（图5.24）.
 
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=stealth, scale=1]
+\draw[->](-2,0)--(3,0)node[right]{$X$};
+\draw[->](0,-1)--(0,3)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[domain=-1.5:2, samples=10, very thick, ->]plot(\x, {-\x+1});
+\draw[very thick, ->](.25,.75)--node[above left]{$\vec{n}$}(1,1.5);
+\draw[->](.625,1.125)--(.625,.5);
+\node at (-1.5,2.5)[above]{$\ell$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1]
+\draw[->](-1.5,0)--(3.5,0)node[right]{$X$};
+\draw[->](0,-1)--(0,3)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[domain=-1.5:3, samples=10, very thick, ->]plot(\x, {-2/3*\x+4/3});
+\node at (-1.5,2.333)[above]{$\ell$};
+\draw[domain=0:1.3, samples=10, very thick, ->]plot(\x, {1.5*\x})node[above]{$\vec{n}$};
+\node at (0,1.333)[below left]{$\frac{4}{3}$};
+\node at (2,0)[below]{2};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+  
+
+\begin{example}
+    已知直线$\ell:\; 2x+3y-4=0$在坐标平面上，
+出直线$\ell$和它的法向量，并标出直线的方向。
+\end{example}
+
+\begin{solution}
+    如图5.25所示，$\vec{n}$是$\ell$的法向量，箭头指出了直
+线$\ell$的方向。
+\end{solution}
+
+\begin{example}
+求通过点$P_0(-2,5)$且平行于$\ell:\; 4x-3y+9
+=0$的直线方程。
+\end{example}
+
+\begin{solution}
+    由题意，可取$\ell$的法向量$\vec{n}=(4,-3)$作为所求
+直线的法向量，由点法向式，可得所求的直线方程为
+\[4(x+2)+(-3)(y-5)=0\]
+整理得
+\[4x-3y+23=0\]
+\end{solution}
+
+\begin{example}
+     求通过点$P_0(3,-4)$且垂直于$\ell:\; 3x+7y-6=0$的直线方程。
+\end{example}
+
+\begin{solution}
+    由题意，可取$\ell$的法向量$\vec{n}=(3,7)$作为所求直
+线的方向向量，由点方向式可得所求直线方程为
+\[\frac{x-3}{3}=\frac{y+4}{7}\]
+整理得
+\[7x-3y-33=0\]
+\end{solution}
+
+\begin{example}
+    已知点$P(2,1)$和直线$\ell:\; 2x-3y+6=0$，
+且$PM\bot\ell $于$M$点，求$M$点的坐标（图5.26）.
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth, scale=.5]
+    \draw[->](-4.5,0)--(5,0)node[right]{$X$};
+\draw[->](0,-4)--(0,5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[domain=-4.5:3, samples=10, very thick]plot(\x, {0.6667*\x+2})node[above]{$\ell$};
+\draw[->, very thick](0,0)--node[above right]{$\vec{n}$}(2,-3);
+\tkzDefPoints{0/0/O, 2/1/P, 1/2.667/M}
+\tkzDrawSegments[dashed](O,M O,P)
+\tkzDrawSegments(M,P)
+\tkzLabelPoints[above](M)
+\tkzLabelPoint[right](P){$P(2,1)$}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    由于$\vec{n}=(2,-3)$是直线$\ell$的一个法向量，
+所以
+$\vec{n}\parallel \Vec{PM}$，
+于是存在一实数$t$, 使
+\[\Vec{PM}=t\vec{n}\]
+此即
+\[\Vec{OM}=\Vec{OP}+t\vec{n}\]
+设$\Vec{OM}=(x_0,y_0)$, 又知
+$\Vec{OP}=(2,1)$, $\vec{n}=(2,-3)$, 
+于是有
+\[(x_0,y_0)=(2,1)+t(2,-3)=(2+2t,1-3t)\]
+即
+\[x_0=2+2t,\qquad y_0=1-3t\]
+由于$M_0\in\ell$, 所以代入$\ell$的方程可得
+\[2(2+2t)-3(1-3t)+6=0\]
+解之得$t=-\frac{7}{13}$. 所以可求得$M$的坐标是
+\[x_0=2+2\left(\frac{7}{13}\right)=\frac{12}{13},\qquad y_0=1-3\left(-\frac{7}{13}\right)=\frac{34}{13}\]
+即：$M\left(\frac{12}{13},\; \frac{34}{13}\right)$
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求通过$P_0(5,-2)$且平行于直线$3x-y+1=0$的
+    直线方程。
+    \item 求通过$P_0(-2,1)$且垂直于直线$3x-y+1=0$的
+    直线方程。
+    \item 求通过点$A(0,2)$且平行于$\ell:\; 4x-3y+12=0$的
+    直线方程。
+    \item 在坐标平面上作出如下各直线，画出它们的法向量，并
+    标出直线的方向。
+\begin{enumerate}
+    \item $\ell_1:\; 2x+y-3=0$
+    \item $\ell_2:\; 3x-4y+5=0$
+    \item $\ell_3:\; -x+y+2=0$
+\end{enumerate}
+    \item 求出直线$\ell:\; 5x-3y+14=0$的所有单位法向量。
+    \item 已知$\ell:\; 3x-4y+2=0$. 求$\ell$的法向量，使它的系
+    数向量为单位法向量且常数项为负数。
+    \item 已知点$P(3,1)$, $M$和直线$\ell:\; x+y-2=0$, 且
+    $\overline{PM}\bot \ell$于$M$点，求$M$点的坐标，并求$P$点到$\ell$的距
+    离。
+    \item 在练习7中，求$P$点关于$\ell$的轴对称点$P'$的坐标。
+\end{enumerate}
+\end{ex}
+
+\subsection{直线的斜率}
+
+已知两个不同的点$P_1(x_1,y_1)$, $P_2(x_2,y_2)$, 则直
+线$P_1P_2$的方程可写为：
+\[\frac{x-x_1}{x_2-x_1}=\frac{y-y_1}{y_2-y_1}\]
+这个方程又可改写为如下形式
+\[y-y_1=\frac{y_2-y_1}{x_2-x_1}(x-x_1)\]
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth, scale=.7]
+    \draw[->](-3,0)--(5,0)node[right]{$X$};
+\draw[->](0,-1)--(0,4.5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{-2/0/A, 3/3/P_2, 0/0/O, .5/1.5/P_1}
+\tkzDrawLines[very thick, ->](A,P_2)
+\tkzDrawPoints(P_1,P_2)
+\draw[dashed](0,3)--(P_2)--(3,0);
+\draw[dashed](0,1.5)--(P_1)--(.5,0);
+\draw[dashed](3,1.5)--node[below]{$x_2-x_1$}(P_1);
+\node at (3,2.25)[right]{$y_2-y_1$};
+\draw(-1.25,0) arc (0:31:.75)node[right]{$\alpha$};
+\draw(1.25,1.5) arc (0:31:.75)node[right]{$\alpha$};
+\tkzLabelPoints[above](P_1,P_2)
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+由相似形定理，我们容易证
+明，不论$P_1$、$P_2$在直线上的位
+置如何（图5.27），上面方程
+中$\frac{y_2-y_1}{x_2-x_1}$
+始终是个定值。容易
+看出，如果我们设$\ell$向上的方向与$X$轴正向的夹角为$\alpha$
+（$0\le \alpha\le \pi$），则
+\[\frac{y_2-y_1}{x_2-x_1}=\tan\alpha\]
+定值$\tan\alpha$叫做直线$\ell$的\textbf{斜率}，$\alpha$叫做直线的\textbf{倾角}。令$\tan\alpha=k$，则两点式方程就可写为
+\[y-y_1=k(x-x_1)\]
+上述方程叫做直线$\ell$的\textbf{点斜式}。这个方程还可变形为
+\[y=kx+m\]
+其中$m=y_1-kx_1$. 令$x=0$, 则$y=m$, 这就是说直线：
+$y=kx+m$与$Y$轴相交于点$(0,m)$. 因此，$m$为直线
+在$Y$轴上的截距，上式通常称做直线的\textbf{斜截式}。
+
+已知直线$\ell:\; ax+by+c=0$, 令$(x_1,y_1)$, 
+$(x_2,y_2)$是$\ell$上任意两个不同的点，则
+\begin{align}
+    ax_1+by_1+c=0\\
+ax_2+by_2+c=0
+\end{align}
+$(5.24)-(5.25)$得：
+\[a(x_2-x_1)+b(y_2-y_1)=0\]
+当$b\ne 0$可得
+\[\frac{y_2-y_1}{x_2-x_1}=-\frac{a}{b}\]
+
+上式说明，\textbf{由方程$ax+by+c=0$解出$y$, 则$x$的系
+数就是直线$\ell$的斜率$k$, 常数项即为$\ell$在$Y$轴上的截距}。
+
+\begin{example}
+    求直线$\ell:\; 4x-3y+7=0$的斜率及在$Y$轴上的
+截距。
+\end{example}
+
+
+\begin{solution}
+   由已知方程解出$y$, 得
+\[y=\frac{4}{3}x+\frac{7}{3}\]
+所以$\ell$的斜率是$\frac{4}{3}$，在$Y$轴上的截距是
+$\frac{7}{3}$.
+\end{solution}
+
+\begin{example}
+已知直线上的一点$P_1(2,3)$, 且倾角$\alpha=\frac{\pi}{3}$, 
+求此直线的方程.
+\end{example}
+
+\begin{solution}
+    由于$k=\tan\alpha=\tan\frac{\pi}{3}=\sqrt{3}$, 因此所求的直线方程
+为：
+\[y-3=\sqrt{3}(x-2)\]
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求出下列方程所表示直线的斜率。
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $3x+4y-12=0$
+    \item $x+y-2=0$
+    \item $4x-5y+12=0$
+    \item $x-y+3=0$
+\end{enumerate}
+\end{multicols}
+
+\item 求满足下列条件的方程。
+\begin{enumerate}
+    \item 通过点$A(1,2)$且$k=5$
+    \item 通过点$P(-1,2)$且$k=2$
+    \item 通过原点$O$且斜率为$h$
+    \item $k=3$、$Y$轴上的截距是5
+    \item $k=4$、$X$轴上的截距是$-3$
+    \item 已知$\ell:\; x-\sqrt{3}y=0$, 过原点且$k$是直线$\ell$的斜率的2倍。
+\end{enumerate}
+
+\item 求下列各直线的方程。
+\begin{enumerate}
+    \item 通过点$P(3,2)$, 且$\alpha=45^{\circ}$
+    \item 通过点$P(-1,2)$, 且$\alpha=120^{\circ}$
+    \item 通过点$P(1,-1)$, 且$\alpha=0^{\circ}$
+\end{enumerate}
+\end{enumerate}
+\end{ex}
+
+\subsection{直线的法线式及其应用}
+已知直线$\ell$(图5.28), 
+从原点$O$作$\ell$的垂线，其垂足为
+$M$, 设$\vec{e}=(\cos\alpha,\sin\alpha)$
+为$\Vec{OM}$的单位向量，再设原点$O$
+到$\ell$的距离为$p$, 则
+\[\Vec{OM}=p\vec{e}=(p\cos\alpha, p\sin\alpha)\]
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}[>=stealth, yscale=.8]
+\draw[->](-1.5,0)--(2.5,0)node[right]{$X$};
+\draw[->](0,-1)--(0,3.5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\draw[domain=1.5:-1, samples=10, very thick]plot(\x, {-3/2*\x+4/3})node[above]{$\ell$};
+\draw[domain=0:2, samples=10, very thick]plot(\x, {2/3*\x});
+\tkzDefPoints{.615/.41/M, -.667/2.333/P, 0/0/O}
+\tkzDefPointWith[linear, K=.8](O,M) \tkzGetPoint{M'}
+\tkzDrawSegments[->](O,P O,M')
+\tkzLabelSegment[above](O,M'){$\vec{e}$}
+\tkzLabelPoints[above](M,P)
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+$M$点的坐标为$(p\cos\alpha, p\sin\alpha)$. 
+因此，由直线方程的点法向式可得$\ell$的方程为
+\[(x-p\cos\alpha)\cos\alpha+(y-p\sin\alpha)\sin\alpha=0\]
+即
+\[x\cos\alpha+y\sin\alpha-p=0\]
+这就是与原点距离为$p$且垂直于向量$\vec{e}=(\cos\alpha,\sin\alpha)$的直线方程。通常我们把这种形式的方程叫做$\ell$的\textbf{法线式}。一条直线的法线式是唯一确定的。这种方程的主要特点是$x$、
+$y$的系数向量是单位法向量，且常数项的值为负数。
+
+如果给定方程$ax+by+c=0$, 我们可把它化为法线
+式
+\[x\cos\alpha+y\sin\alpha-p=0\]
+由于它们之间仅相差一个常数因子$\lambda$, 即
+\[\cos\alpha=\lambda a,\qquad \sin\alpha=\lambda b,\qquad -p=\lambda c\]
+所以
+\[(\lambda a)^2+(\lambda b)^2=1 \quad \Rightarrow\quad 
+\lambda=\frac{1}{\pm\sqrt{a^2+b^2}}\]
+这时方程可化为
+\[\frac{a}{\pm\sqrt{a^2+b^2}}x+\frac{b}{\pm\sqrt{a^2+b^2}}y+\frac{c}{\pm\sqrt{a^2+b^2}}=0\]
+
+由于法线式方程要求常数项一定是个负数，所以只要取根号
+前的符号使$\frac{c}{\pm\sqrt{a^2+b^2}}<0$
+即可。因此，当$c>0$时根号
+前负号；当$c<0$时根号前取正号。
+
+在法线式方程中，当$p=0$时，直线通过原点，这时一
+般式方程中$c=0$, 于是方程变为
+\[ax+by=0\]
+在这情形下，我们如何选取因子
+$\frac{1}{\pm\sqrt{a^2+b^2}}$
+的符号呢？我们约定符号按如下规则选取：
+
+选取符号使直线的单位法向量$\left(\frac{a}{\pm\sqrt{a^2+b^2}},\; \frac{b}{\pm\sqrt{a^2+b^2}}\right)$
+的方向总是指向第1、第2象限，其中$Y$轴的单位法向量取
+$\eX=(1,0)$.
+
+
+\begin{example}
+    化以下直线方程为法线式。
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $3x+4y-7=0$
+    \item $4x-3y=0$
+\end{enumerate} 
+\end{multicols}
+\end{example}
+
+
+\begin{solution}
+\begin{enumerate}
+    \item 取$\lambda=\frac{1}{\sqrt{3^2+4^2}}=\frac{1}{5}$, 
+    则已知方程的法线式为
+    \[\frac{3}{5}x+\frac{4}{5}y-\frac{7}{5}=0\]
+\item 取直线的单位法向量
+$\left(\frac{4}{\pm\sqrt{3^2+4^2}},\; \frac{-3}{\pm\sqrt{3^2+4^2}}\right)$，
+    使它的方向指向第1、第2象限，于是根号前需取负号。直
+    线的法线式为
+\[-\frac{4}{5}x+\frac{3}{5}y=0\] 
+\end{enumerate}
+\end{solution}
+
+下面我们来研究法线式左边二元一次多项式的几何意
+义。
+
+已知直线$\ell$的法线式为
+\[x\cos\alpha+y\sin\alpha-p=0\]
+
+当点$P(x,y)$在直线上，显然它的坐标满足$\ell$的法线
+式方程。
+
+当点$P(x,y)$不在直线$\ell$上，我们来看多项式
+$x\cos\alpha+y\sin\alpha-p$的几何意义是什么。
+
+作$\ell$的法线$OM$, $M$为垂足（图5.29），再过点$P$作
+$OM$的垂线，垂足为点$N$. 因为
+$\Vec{OM}$的单位向量$\vec{e}=(\cos\alpha,\sin\alpha)$, 
+$\Vec{OP}=(x,y)$, 所以
+\[\begin{split}
+    x\cos\alpha+y\sin\alpha-p&=\Vec{OP}\cdot \vec{e}-p\\
+&=\Vec{OP}\cdot \vec{e}-\Vec{OM}\cdot \vec{e}=\Vec{MP}\cdot \vec{e}=MN
+\end{split}\]
+$MN$可能取负值，但不论取正值还是取负值，它的绝对值是
+$P$点到直线$\ell$的距离。如果用$d$表示$P$到$\ell$的距离，则
+\[d=|x\cos\alpha+y\sin\alpha-p|\]
+这就是说，平面上任一点$P(x,y)$的坐标代入已知直线
+的法线式的左边的多项式的绝对值就是$P$点到已知直线的距
+离。
+
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=stealth, scale=1]
+    \draw[->](-1.5,0)--(3.5,0)node[right]{$X$};
+    \draw[->](0,-1)--(0,3)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\tkzDefPoints{2/0/A, 0/1.333/B, 0/0/O, 1/1.5/C, 2.5/1.5/P}
+\tkzDrawLines[very thick,add=.5 and .5](A,B)
+\tkzInterLL(A,B)(C,O)  \tkzGetPoint{M}
+\tkzDefPointBy[projection = onto A--B](P) \tkzGetPoint{P'}
+\tkzDefPointBy[projection = onto O--C](P) \tkzGetPoint{N}
+\tkzDrawLines[very thick, add=0 and .3](O,N)
+\tkzDrawSegments(P,N P,P')
+\tkzDrawSegments[->](O,P)
+\tkzLabelPoints[above](M)
+\tkzLabelPoints[right](P)
+\tkzLabelPoints[left](N)
+\tkzDefPointWith[linear, K=.8](O,M)\tkzGetPoint{M'}
+\tkzMarkRightAngles[size=.15](P,N,O P,P',A)
+\tkzDrawSegments[->, very thick](O,M')
+\tkzLabelSegment[above left](O,M'){$\vec{e}$}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1]
+\draw[->](-2.5,0)--(2.5,0)node[right]{$X$};
+    \draw[->](0,-2)--(0,2)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\tkzDefPoints{-2/1.333/A, 2/-1.333/B, 0/0/O, .8/1.2/C, 2.5/1.5/P, -1.5/-1.5/P'}
+\tkzDrawSegments[very thick,->](A,B O,P O,C O,P')
+\tkzLabelPoint[above right](C){$\vec{n}_0$}
+\tkzLabelPoints[right](P)
+\tkzLabelPoints[below](P')
+\tkzMarkAngles[size=.3, mark=none](C,O,P')
+\tkzMarkAngles[size=.5, mark=none](P,O,C)
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+  
+
+
+如果$x\cos\alpha+y\sin\alpha-p$不取绝对值，则求出的值是个
+带符号的数
+\[\delta=x\cos\alpha+y\sin\alpha-p\]
+
+由图5.29容易看出，当$P$点与原点位于直线的异侧，
+则$\delta>0$, 当$P$点与原点位于$\ell$的
+同侧，则$\delta <0$. 若$\ell$通过原点
+（图5.30），则$p=0$。这时
+$\delta=\Vec{OP}\cdot \vec{n}_0$，$\vec{n}_0$为直线法线式的
+系数向量，于是$P$点在法线式方程
+的系数向量所指向的那一侧$\delta$为正；反之$\delta$为负。
+
+如果已知直线$\ell:\; ax+by+c=0$. 那么它的法线式为
+\[\frac{ax+by+c}{\pm\sqrt{a^2+b^2}}=0\]
+根号前符号的选取按上述规定。所以$P$点到$\ell$的距离
+\[d=\left|\frac{ax+by+c}{\pm\sqrt{a^2+b^2}}\right|=\frac{|ax+by+c|}{\sqrt{a^2+b^2}}\]
+
+\begin{example}
+求点$P(4,3)$到直线$\ell:\; 4x+3y+10=0$的
+距离。
+\end{example}
+
+
+\begin{solution}
+直线$\ell$的法线式为
+\[\frac{4x+3y+10}{-\sqrt{3^2+4^2}}=0\]
+即为
+\[-\frac{4}{5}x-\frac{3}{5}y-2=0\]
+所以
+\[d=\left|-\frac{4}{5}\x4+\left(-\frac{3}{5}\right)\x3-2\right|=7\]
+\end{solution}
+
+\begin{example}
+    求点$P(3,1)$到直线$\ell:\; x-y+3=0$的
+距离。
+\end{example}
+
+\begin{solution}
+    \[d=\frac{|ax+by+c|}{\sqrt{a^2+b^2}}=\frac{|3-1+3|}{\sqrt{1^2+(-1)^2}}=\frac{5\sqrt{2}}{2}\]
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求下列各点到给出的直线的距离$d$. 
+\begin{enumerate}
+    \item $P(-2,3),\qquad \ell:\; 8x+15y-24=0$
+    \item $P(-1,7),\qquad  \ell:\; 6x-8y+5=0$
+ \item $P(2,3),\qquad \ell:\; -3x+7y-1=0$
+\end{enumerate}
+\item 求下列各点到给出直线$\ell$的距离，并判断$P$点与原点$O$
+是在$\ell$的同侧还是不同侧。
+\begin{enumerate}
+    \item $P(3,2),\qquad \ell:\; x-y+2=0$
+    \item $P(-1,4),\qquad \ell:\; x-y+2=0$
+\end{enumerate}
+
+\item 已知动点$P(x,y)$到直线$5x+2y+17=0$的距离
+是3, 求动点$P$的轨迹方程。
+\item 求证两条平行线$ax+by+c_1=0$, $ax+by+c_2=0$的
+距离是
+\[d=\frac{|c_1-c_2|}{\sqrt{a^2+b^2}}\]
+并求$4x-3y-1=0$到$4x-3y+5=0$的距离。
+\end{enumerate}
+\end{ex}
+
+\subsection{两条直线的位置关系}
+如果已知两条直线
+\[\begin{split}
+  \ell_1:&\; a_1x+b_1y+c_1=0\\
+  \ell_2:&\; a_2x+b_2y+c_2=0  
+\end{split}\]
+那么$\vec{n}_1=(a_1,b_1)$, $\vec{n}_2=(a_2,b_2)$分别是$\ell_1$, $\ell_2$的法向量。
+
+我们由
+\[\begin{split}
+    \ell_1\parallel \ell_2 \quad &\Longleftrightarrow\quad \vec{n}_1\parallel \vec{n}_2\\
+    \ell_1\bot \ell_2 \quad &\Longleftrightarrow\quad \vec{n}_1\bot \vec{n}_2
+\end{split}\]
+就可得
+\[\begin{split}
+    \ell_1\parallel \ell_2 \quad &\Longleftrightarrow\quad \frac{a_1}{a_2}=\frac{b_1}{b_2}\\
+    \ell_1\bot \ell_2 \quad &\Longleftrightarrow\quad a_1a_2+b_1b_2=0
+   \end{split} 
+\]
+
+如果两条直线的方程给出的是斜截式，即
+\[\begin{split}
+    \ell_1:&\; y=k_1x+b_1\\
+    \ell_2:&\; y=k_2x+b_2 
+  \end{split}\]
+那么我们由上面垂直与平行的充要条件就可得到：
+\[\begin{split}
+    \ell_1\parallel \ell_2 \quad &\Longleftrightarrow\quad k_1=k_2\\
+    \ell_1\bot \ell_2 \quad &\Longleftrightarrow\quad k_1\cdot k_2=-1
+   \end{split} 
+\]
+
+下面我们来讨论如何求两条直线的\textbf{交点}和\textbf{交角}。
+
+求$\ell_1$、$\ell_2$的交点问题就是求二元一次方程组
+\[\begin{cases}
+    a_1x+b_1y+c_1=0\\
+a_2x+b_2y+c_2=0
+\end{cases}\]
+的解的问题。
+
+给定两条直线（图5.31）：
+\[\begin{split}
+    \ell_1:&\; a_1x+b_1y+c_1=0\\
+    \ell_2:&\; a_2x+b_2y+c_2=0
+  \end{split}\]
+从$\ell_1$旋转到$\ell_2$所经过的绝对值不
+超过$\pi$的角有两个，如图5.31
+所示的$\theta_1$、$\theta_2$. 故
+\[\theta_1-\theta_2=\pm \pi,\qquad \tan\theta_1=\tan(\theta_2\pm \pi)=\tan\theta_2\]
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
 
 
 
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+如果取$\ell_1$的法向量$\vec{n}_1=(a_1,b_1)$, $\ell_2$的法向量
+$\vec{n}_2=(a_2,b_2)$, 
+则从$\vec{n}_1$方向转到$\vec{n}_2$方向的绝对值小于$\pi$的角$\theta$等于$\theta_1$或$\theta_2$, 
+因此有
+\[\tan\theta_1=\tan\theta_2=\tan\theta\]
+但
+\[\tan\theta=\frac{a_1b_2-a_2b_1}{a_1a_2+b_1b_2}\]
+所以
+\[\tan\theta_1=\tan\theta_2=\frac{a_1b_2-a_2b_1}{a_1a_2+b_1b_2}\]
+
+上式就是从$\ell_1$到$\ell_2$的旋转角的正切的计算公式。从旋转
+角的正切我们就可算出两条直线旋转角，通常我们把两条直
+线的旋转角中绝对值较小的那个角叫做这\textbf{两条直线的夹角}。
+
+如果给出的两条直线为斜截式。即
+\[\begin{split}
+    \ell_1:&\; y=k_1x+b_1\\
+    \ell_2:&\; y=k_2x+b_2
+  \end{split}\]
+我们取$\ell_1$的法向量为$\vec{n}_1=(k_1,-1)$, $\ell_2$的法向量$\vec{n}_2=(k_2,-1)$, 
+那么由上述求旋转角的正切的计算公式就变为
+\[\tan\theta=\frac{k_2-k_1}{1+k_1\cdot k_2},\quad (1+k_1k_2\ne 0)\]
+
+\begin{example}
+    求$\ell_1:\; 2x-y-3=0$到$\ell_2:\; 3x+y-2=0$的
+旋转角。
+\end{example}
+
+\begin{solution}
+由于
+\[\tan\theta=\frac{\begin{vmatrix}
+    2&-1\\3&1
+\end{vmatrix}}{2\x 3+(-1)\x 1}=\frac{5}{5}=1\]
+所以：$\theta=\frac{\pi}{4}$或$-\frac{3}{4}\pi$.
+\end{solution}
+
+\begin{example}
+    已知直线$\ell_1:\; y=-3x+2$, $\ell_2:\; y=2x-3$, 
+求$\ell_1$到$\ell_2$的旋转角$\theta$.
+\end{example}
+
+\begin{solution}
+由于
+\[\tan\theta=\frac{k_2-k_1}{1+k_1k_2}=\frac{2-(-3)}{1+2\x (-3)}=\frac{5}{-5}=-1\]
+所以：$\theta=\frac{3}{4}\pi$或$-\frac{\pi}{4}$.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求证$\ell_1:\; x-y+2=0$与$\ell_2:\;3x-3y+7=0$平行，
+    并作图验证。
+    \item 方程$2x+y+k=0$, 当$k$取各种不同的数值时，它们
+    所表示的直线有什么关系，并作出$k=0,1,2$的三
+    条直线。
+    \item 求证方程$y=3x+b$, 当$b$取各种不同的值时，它们
+    所表示的直线互相平行，作出$k=0,1,2$的直线。
+    \item 求证直线$\ell_1:\; x-5y+1=0$与直线$\ell_2:\; 5x+y-8=0$
+    互相垂直。
+     \item 求出直线$a_1x+b_1y+c_1=0$与$\frac{x-x_0}{a_2}=\frac{y-y_0}{b_2}$
+    垂直的条件。
+    \item 下面直线中，哪两条互相垂直？
+\begin{enumerate}
+    \item $2x-3y=0,\qquad 2x+3y=0$
+    \item $3x+2y=0,\qquad 3x-2y=0$
+\end{enumerate}
+
+    \item 求直线$\ell_1:\; x-y+2=0$与$\ell_2:\; x+y-4=0$的交
+    点坐标，并绘图验证。
+    \item 求直线$\ell_1:\; y=2x+6$与直线$\ell_2:\; y=\frac{1}{3}x-4$的旋转
+    角。
+\item 求直线$\ell_1:\; 2x-3y+1=0$与直线$\ell_2:\; 6x-4y-7=0$
+之间的夹角。
+\item 求通过原点且与直线$y=\frac{1}{2}x$夹角为$45^{\circ}$的直线方程。
+\item 求两条直线$\ell_1:\; x+y-2=0$与$\ell_2:\; 7x-y+4=0$
+的夹角。
+\end{enumerate}
+\end{ex}
 
 
-
-
+\subsection{直线束}
 
 
 
 \begin{blk}
-    
+    {定理} 一条直线通过两条相交直线$a_1x+b_1y+c_1=0$, 
+$a_2x+b_2y+c_2=0$的交点的充要条件是存在两个不全为零
+的常数$\lambda_1$、$\lambda_2$使这条直线方程为
+\begin{equation}
+    \lambda_1(a_1x+b_1y+c_1)+\lambda_2(a_2x+b_2y+c_2)=0
+\end{equation}
 \end{blk}
 
+\begin{proof}
+\textbf{充分性：} 设$(x_0, y_0)$是已知两条直线的交
+点。则
+\[a_1x_0+b_1y_0+c_1=0,\qquad a_2x_0+b_2y_0+c_2=0\]
+显然$(x_0, y_0)$满足方程(5.26), 这就是说，方程(5.26)表
+示的直线通过点$(x_0, y_0)$.
+
+\textbf{必要性：} 如果一条直线通过点$(x_0, y_0)$,又通过另
+一点$(x_1,y_1)$只要取
+\[\lambda_1=-(a_2x_1+b_2y_1+c_2),\qquad \lambda_2=a_1x_1+b_1y_1+c_1\]
+这条直线方程就可写为
+\[-(a_2x_1+b_2y_1+c_2)(a_1x+b_1y+c_1)+(a_1x_1+b_1y_1+c_1)(a_2x+b_2y+c_2)=0\]
+因$(x_0, y_0)$, $(x_1,y_1)$两点不可能同时是两条已知直
+线的交点。所以$\lambda_1$和$\lambda_2$不能
+同时为零。
+\end{proof}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+    \draw[->](-1.5,0)--(3.5,0)node[right]{$X$};
+    \draw[->](0,-1.5)--(0,3.5)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\draw[very thick](-1.5,1)--(2.5,1);
+\draw[very thick](1,-1)--(1,3);
+\draw[very thick](-1,3)--(3,-1);
+\draw[very thick](1.5,3)--(.5,-1);
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
 \begin{example}
-    
+    求通过直线$3x-2y-6=0$与$x+y-5=0$的交点
+与点$(1,2)$的直线方程。
 \end{example}
 
 \begin{solution}
-    
-\end{solution}
-
-
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
+    通过已知两条直线的交点的直线束方程可写为
+\[\lambda_1(3x-2y-6)+\lambda_2(x+y-5)=0\]
+这条直线又通过点$(1,2)$, 所以
+\[\lambda_1(3\x1-2\x2-6)+\lambda_2(1+2-5)=0\]
+由此得
+\[\lambda_1=-\frac{7}{2}\lambda_2\]
+所以，所求的直线方程为
+\[\frac{7}{2}\lambda_2(3x-2y-6)+\lambda_2(x+y-5)=0\]
+化简，得
+\[19x-16y+32=0\]
 \end{solution}
 
 \begin{example}
-    
+    求经过$3x+2y-3=0$与$2x-y+5=0$的交点且
+与直线$x+y-3=0$垂直的直线方程。
 \end{example}
 
 \begin{solution}
-    
+    经过已知两条直线交点的直线束方程可写为
+\[\lambda_1(3x+2y-3)+\lambda_2(2x-y+5)=0\]
+即
+\[(3\lambda_1+2\lambda_2)x+(2\lambda_1-\lambda_2)y-3\lambda_1+5\lambda_2=0\]
+由于所求直线与直线$x+y-3=0$垂直，所以
+\[1\cdot (3\lambda_1+2\lambda_2)+1\cdot (2\lambda_1-\lambda_2)=0\]
+由此得
+\[\lambda_2=-5\lambda_1\]
+因此所求直线方程为
+\[\lambda_1(3x+2y-3)-5\lambda_1(2x-y+5)=0\]
+整理得
+\[x-y+4=0\]
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 求经过$x+y-7=0$, $x-y-5=0$的交点和点$P(5,3)$
+    的直线方程。
+    \item 求经过$2x-3y+2=0$, $3x-4y-2=0$的交点，且平
+    行于$5x-2y+3=0$的直线方程。
+    \item 求经过$5x-3y+7=0$, $3x-2y-5=0$的交点，且与
+    $4x-3y+2=0$垂直的直线方程。
+    \item 三条直线$\ell_1:\; a_1x+b_1y+c_1=0$, $\ell_2:\; a_2x+b_2y+c_2=0$, $\ell_3:\; a_3x+b_3y+c_3=0$共点的充分必要条件
+    是
+\[\begin{vmatrix}
+    a_1&b_1&c_1\\
+    a_2&b_2&c_2\\
+    a_3&b_3&c_3\\
+\end{vmatrix}=0\]
+\end{enumerate}
+\end{ex}
+
+\subsection{二元一次不等式表示的区域}
+我们知道，含有两个未知数，并且未知数的次数都是一
+次的不等式叫做\textbf{二元一次不等式}。它的一般形式为
+\begin{equation}
+    ax+by+c>0\quad \text{或}\quad ax+by+c<0
+\end{equation}
+
+例如$3x+y-1>0$, $y>2x-3$等都是二元一次不等式。
+
+使不等式(5.27)成立的未知数的值，叫做不等式的解。
+以不等式的解为坐标的所有点构成的集合叫做\textbf{不等式表示
+的区域}。
+
+下面我们来研究，如何根据二元一次不等式画出它所表
+示的区域。
+
+直线$ax+by+c=0$把坐标平面分为两个半平面（不包
+括这条直线本身），我们把
+法向量$\vec{n}=(a,b)$的方向所
+指向的那一侧叫做\textbf{正半平
+面}，简称正侧；另一侧叫做
+\textbf{负半平面}，简称负侧（图5.33）.
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+如果$P_0(x_0,y_0)$是
+直线$ax+by+c=0$上一点，则$ax_0+by_0+c=0$, $c=-(ax_0+by_0)$, 于是
+\[ax+by+c=ax+by-(ax_0+by_0)=a(x-x_0)+b(y-y_0)=\vec{n}\cdot \Vec{P_0P}\]
+若$P(x,y)$位于正半平面，则$\vec{n}$与$\Vec{P_0P}$的夹角为锐角，即
+$\vec{n}\cdot \Vec{P_0P}>0$. 这时$ax+by+c>0$; 若$P(x,y)$位于负半平面，则$\vec{n}$与$\Vec{P_0P}$的夹角为钝角，即$\vec{n}\cdot \Vec{P_0P}<0$. 这时
+$ax+by+c<0$（图5.33）.
+
+根据上面分析，我们要画出$ax+by+c<0$或$ax+by
++c> 0$所表示的区域，只要先画出直线$\ell:\; ax+by+c=0$, 
+然后就可确定$ax+by+c>0$表示的区域是哪个半平面，$ax
++by+c<0$表示的区域便是另一个半平面。
+
+\begin{example}
+    画出不等式$2x-y+1>0$表示的区域。
+\end{example}
+
+\begin{solution}
+在坐标平面上，画
+直线$2x-y+1=0$（图5.34），这时直线的法向量
+$\vec{n}=(2,-1)$, 由于$\vec{n}$指向的
+那一侧为正半平面，不等式
+$2x-y+1>0$表示的区域是
+正半平面，如图5.34阴影
+所示。
+
+由于二元一次式$ax+by+c$在直线$ax+by+c=0$同一
+侧的半平面内完全同号，所以在决定二元一次不等式所表示
+的区域时，只需取直线$ax+by+c=0$一侧的某一个点，将
+它的坐标代入已知的不等式，如果不等式成立，那么这一点
+所在的半平面就是不等式表示的区域，如果不等式不成立，那
+么直线的另一侧就是不等式表示的区域，显然，对不等式$ax
++by+c>0$或$ax+by+c<0$, 当$c\ne 0$时，取原点$O(0,0)$
+去确定它们所表示的区域最为方便。
 \end{solution}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.38\textwidth}
+    \centering
+  \begin{tikzpicture}[>=stealth, scale=1]
+    
+\fill[color=gray!20!white](-1, -1)--(2,-1)--(2,2)--(.5,2)--(-1,-1);
+\draw[->](-1.5,0)--(2.2,0)node[right]{$X$};
+\draw[->](0,-1.5)--(0,2.5)node[right]{$Y$};
+\tkzDefPoints{0/1/A, -.5/0/B}
+\tkzDrawLines[add=1.3 and 1.3, very thick, ->](A,B)
+\node at (0,0)[above right]{$O$};
+\tkzLabelPoint[left](A){1}
+\tkzLabelPoint[above left](B){$-\tfrac{1}{2}$}
+\draw[very thick, ->](0,0)--(1.2,-.6)node[below]{$\vec{n}$};
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.58\textwidth}
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=.4]
+\fill[color=gray!20!white](-11, -1)--(-11,5.5)--(3,5.5)--(3,3.667)--(-9,-1/3);
+  \draw[->](-12,0)--(4,0)node[right]{$X$};
+\draw[->](0,-3)--(0,7)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{0/2.667/A, -8/0/B}
+\tkzDrawLines[add=.45 and .45, very thick](A,B)
+\tkzLabelPoint[below right](A){$2\tfrac{2}{3}$}
+\tkzLabelPoint[below right](B){$-8$}
+
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+  
+
+\begin{example}
+    画出不等式$x-3y+8<0$表示的区域。
+\end{example}
+
+\begin{solution}
+将$(0,0)$代入已知不等式，得$8>0$, 原不等式不成
+立，所以不等式$x-3y+8<0$表示的区域是直线$x-3y+8=
+0$不包含原点的那个半平面，如图5.35阴影所示。
+\end{solution}
+
+\begin{example}
+    画出二元一次不等式组
+$\begin{cases}
+      3x+4y-2<0\\
+    2x+y+2>0  
+\end{cases}$
+    表示的区域。 
+\end{example}
+
+
+\begin{solution}
+    作直线$\ell_1:\; 3x+4y-2=0$, $\ell_2:\; 2x+y+2=
+0$. 分别用阴影线画出不等式$3x+4y-2<0$和$2x+y+
+2>0$所表示的区域，则已知不等式组所表示的区域是上
+面两个区域的交集，如图5.36所示双阴影区域（不包括这
+两条直线）。
+\end{solution}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+
+
+    
+\end{tikzpicture} 
+    \caption{}
+\end{figure}
 
 
 \begin{ex}
@@ -2406,7 +3086,7 @@ $\frac{1}{2}$的点的轨迹的方程，并画出方程的图象。
 \[(kx+b)^2+x^2=r^2\]
 展开整理得
 \[(1+k^2)x^2+2kbx+b^2-r^2=0\]
-由圆的切线定义可知：已知直线与圆目切的充要条件是上面
+由圆的切线定义可知：已知直线与圆相切的充要条件是上面
 方程有重根，即它的判别式
 \[\Delta=\sqrt{(2kb)^2-4(1+k^2)(b^2-r^2)}=0\]
 化简就可得到直线$\ell$与已知圆相切的条件是
@@ -2415,25 +3095,42 @@ $\frac{1}{2}$的点的轨迹的方程，并画出方程的图象。
 \]
 \end{proof}
 
+在例5.55的条件中，右边正好是圆心到直线$\ell$的距离，所
+以上述条件的几何意义是：直线和圆相切的充要条件是圆心
+到直线的距离等于半径，这是我们在平面几何中已熟知的结
+论，这里用解析方法再次得到证明，当然我们也可由这个几
+何定理直接证明例5.55.
+
+\begin{example}
+    已知$P_0(x_0,y_0)$是已知圆$x^2+y^2=r^2$外任一点，
+$PT$, $PV$与此已知圆相切于$T(x_1,y_1)$, $V(x_2,y_2)$两点，
+求直线$TV$的方程。
+\end{example}
 
 
+\begin{solution}
+    在点$T(x_1,y_1)$, $V(x_2,y_2)$处的切线方程分别为
+\begin{align}
+    x_1x+y_1y=r^2\\
+    x_2x+y_2y=r^2
+\end{align}
+因为切线(5.35), (5.36)都通过$A$点，所以
+\begin{align}
+    x_1x_0+y_1y_0=r^2\\
+    x_2x_0+y_2y_0=r^2
+\end{align}
+由(5.37), (5.38)可看出，点$T(x_1,y_1)$, $V(x_2,y_2)$都满
+足方程
+\begin{equation}
+    x_0x+y_0y=r^2
+\end{equation}
+由于两点定一直线，所以方程(5.39)就是直线$TV$的方
+程。
+\end{solution}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+在例5.56中，方程(5.39)和圆的切线方程形状相同，当已
+知$P_0(x_0,y_0)$在圆上，(5.39)式就是圆的切线方程。
 
 \begin{ex}
 \begin{enumerate}
