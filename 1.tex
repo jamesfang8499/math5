@@ -16,7 +16,51 @@
 
 \begin{figure}[htp]
     \centering
-%\includegraphics[scale=.4]{fig/1-1.png}
+\begin{tikzpicture}[>=latex, scale=.5]
+\begin{scope}
+\tkzDefPoints{0/0/A, 3/0/B, -1/1/D, 0/3/A'}
+\tkzDefPointsBy[translation= from A to D](B){C}
+\tkzDrawSegments(A,B A,D)
+\tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawSegments(A,B A,D)
+\tkzDrawSegments(A,A' B,B' D,D')
+\tkzDrawSegments[dashed](C,B C,D C,C')
+\node at (1,-1){立方体};
+
+\end{scope}
+\begin{scope}[xshift=5cm]
+    \tkzDefPoints{-.5/1/A, 3.5/1/B, .8/0/C, 1.5/4/D}
+\tkzDrawPolygon(A,C,B,D)
+\tkzDrawSegments(C,D)
+\tkzDrawSegments[dashed](A,B)
+\node at (1.5,-1){三棱锥};
+\end{scope}
+\begin{scope}[xshift=10cm]
+\tkzDefPoints{0/.5/A, 4/.5/B, 4/3.5/C, 0/3.5/D}
+\draw(A) arc [start angle =-180, end angle =0, x radius=2, y radius=.5];
+\draw[dashed](A) arc [start angle =180, end angle =0, x radius=2, y radius=.5];
+\draw(D) arc [start angle =-180, end angle =0, x radius=2, y radius=.5];
+\draw(D) arc [start angle =180, end angle =0, x radius=2, y radius=.5];
+\node at (2,-1){圆柱};
+\tkzDrawSegments(A,D B,C)
+\end{scope}
+
+\begin{scope}[xshift=15cm, yshift=2cm]
+\tkzDefPoints{2.828/0/A, -2+2.828/0/B}
+\tkzDefPoint(45:2){C}
+\tkzDefPoint(-45:2){D}
+\draw(A) circle (2);
+\draw(B) arc [start angle =-180, end angle =0, x radius=2, y radius=.5];
+\draw[dashed](B) arc [start angle =180, end angle =0, x radius=2, y radius=.5];
+\draw[dashed,rotate=-45](C) arc [start angle =-180, end angle =0, x radius=2, y radius=.5];
+\draw[rotate=-45](C) arc [start angle =180, end angle =0, x radius=2, y radius=.5];
+\draw[dashed,rotate=45](D)  arc [start angle =-180, end angle =0, x radius=2, y radius=.5];
+\draw[rotate=45](D) arc [start angle =180, end angle =0, x radius=2, y radius=.5];
+\node at (3,-3){球};
+\end{scope}
+
+\end{tikzpicture}   
     \caption{}
 \end{figure}
 
@@ -195,7 +239,17 @@ $A'B'C'D'$就是正方形$ABCD$的直观图。（图1.2）。
 共轭直径端点来画椭圆。
 \begin{figure}[htp]
     \centering
-%\includegraphics[scale=.7]{fig/1-5.png}
+\begin{tikzpicture}[>=latex]
+\draw(0,0) rectangle (6,4);
+\draw(1.5,1.5) ellipse[x radius=1.2, y radius=.6];
+\draw(1.5,3) ellipse[x radius=1, y radius=.5];
+\draw(3.5,3) ellipse[x radius=.45, y radius=.3];
+\draw(3.5,2) ellipse[x radius=.55, y radius=.28];
+\draw(3.5,1) ellipse[x radius=.6, y radius=.25];
+\draw(5,3) ellipse[x radius=.4, y radius=.15];
+\draw(5,2) ellipse[x radius=.5, y radius=.2];
+\draw(5,1) ellipse[x radius=.6, y radius=.25];
+\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -269,7 +323,7 @@ $A'B'C'D'$就是正方形$ABCD$的直观图。（图1.2）。
 
 \begin{figure}[htp]
     \centering
-    \begin{tikzpicture}[>=latex]
+    \begin{tikzpicture}[>=latex, scale=.9]
 \tkzDefPoints{0/0/O', 0/1.5/O}
 \tkzDefPoint(-150:2){P'} \tkzDefPoint(-30:3){S'}
 \tkzDefPointsBy[translation = from O' to O](S',P'){S,P}
@@ -305,7 +359,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 画法（略）见图1.8.
 \begin{figure}[htp]
     \centering
-
+    \includegraphics[scale=.5]{fig/1-8.png}
     \caption{}
 \end{figure}
 \end{example}
@@ -316,6 +370,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \item 第二种画法画圆的直观图，所得椭圆，由于较宽，不直观，故有时用较扁的椭圆来代替。
 \end{enumerate}
 \end{rmk}
+
 
 \begin{ex}
 \begin{enumerate}
@@ -329,20 +384,18 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 \end{enumerate}
 \end{ex}
 
+
+
 \begin{figure}[htp]
     \centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \begin{tikzpicture}[>=latex, scale=1]
-
-    \end{tikzpicture}
+        \includegraphics[scale=.5]{fig/ch1-4ti.png}
     \caption*{第4题}
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \begin{tikzpicture}[>=latex, scale=1]
-  
-    \end{tikzpicture}
+\includegraphics[scale=.5]{fig/ch1-5ti.png}
     \caption*{第5题}
     \end{minipage}
   \end{figure}
@@ -356,7 +409,55 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 
 \begin{figure}[htp]
     \centering
-    
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+    \tkzDefPoints{0/0/X, 5/0/Y, -2/-2/X', 0/3/X''}
+\tkzDefPointsBy[translation= from X to X'](Y){Y'}    
+\tkzDefPointsBy[translation= from X to X''](Y){Y''}    
+\tkzDrawPolygon(X',Y',Y,Y'',X'',X)
+\tkzLabelPoints[left](X)
+\tkzLabelPoints[right](Y)
+\tkzLabelPoint[below left](Y''){$\beta$}
+\node at (-1.5,-1.75)[right]{$\alpha$};
+\foreach \x in {-1,-0.2,1.5}
+{
+    \draw(1.5,\x) ellipse[x radius=.8, y radius=.3];
+}
+\tkzDefPoint(1.5-.8, -1){A'}
+\tkzDefPoint(1.5+.8, -1){B'}
+\tkzDefPoint(1.5-.8, -0.2){A}
+\tkzDefPoint(1.5+.8, -0.2){B}
+\tkzDefPoint(1.5-.8, 1.5){A''}
+\tkzDefPoint(1.5+.8, 1.5){B''}
+\tkzDefPoint(1.5+.8+1, 0){C'}
+\tkzDefPointsBy[translation= from B' to C'](A',A,B,A'',B''){D',D,C,D'',C''}
+\tkzDrawSegments[dashed](B,C B',C' B'',C'' A,D A',D' A'',D'')
+\tkzDrawSegments[dashed](A,A' B,B' D',D'')
+\tkzDrawSegments(A,A'' B,B'' C,D C'',D'' C',C'')
+
+\fill[pattern=north east lines](1.5,-1)ellipse[x radius=.8, y radius=.3];
+\fill[pattern=north east lines](D)rectangle(C'');
+
+\draw(X)--(.7,0);
+\draw(Y)--(2.3,0);
+\draw[dashed](.7,0)--(2.3,0);
+\end{scope}
+\begin{scope}[xshift=6cm, scale=.7]
+\tkzDefPoints{0/0/X, 5/0/Y, 0/4/X'', 5/4/Y'', 0/-3/X', 5/-3/Y'}
+\tkzDrawPolygon(X',Y',Y'',X'')
+\tkzLabelPoints[left](X)
+\tkzLabelPoints[right](Y)
+\draw[pattern=north east lines](2,-1.5)circle (1);
+\draw[pattern=north east lines](1,1) rectangle (3,3.5);
+\draw[dashed](1,1)--(1,-1.5);
+\draw[dashed](3,1)--(3,-1.5);
+\tkzDrawSegments(X,Y)
+\node at (3,0)[above right]{基线};
+\node at (3,2)[right]{主视图};
+\node at (3,-1.5)[right]{俯视图};
+
+\end{scope}
+\end{tikzpicture}    
     \caption{}
 \end{figure}
 
@@ -368,6 +469,14 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 \subsubsection{三视图}
 
 有些立体图形只用二视图表示还不够，例如像图1.10(1)那样摆法的圆柱的俯视图和主视图都是矩形，这个二视图也可看成是长方体的二视图了，为了区别起见，我们再设一个与俯视图平面和主视图平面都垂直的第三个平面$\gamma$, 从左侧面看这个圆柱，它在$\gamma$平面上的投影是个圆。这第三个平面$\gamma$叫\textbf{左视图平面}，在它上面画出的图叫\textbf{左视图}。
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.55]{fig/1-10-1.png}
+    \includegraphics[scale=.55]{fig/1-10-2.png}
+    \caption{}
+    \end{figure}
+
 
 主视图、俯视图、左视图三个视图统称三视图。
 图1.10(2)就是圆柱的三视图。主视图和俯视图或主视图和左视图都叫二视图，二视图和三视图也叫投影图。
@@ -384,6 +493,45 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 
 了解上述三视图的基本关系，我们常常可以从二视图画出第三个视图。
 
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\draw(0,6) rectangle (2,4);
+\draw(1,6)--(1,4);
+\draw[dashed](0,4)--(0,2);
+\draw[dashed](2,4)--(2,3);
+\draw(0,1.4)--(0,2.2)--(1,2.2)--(1,3)--(2,3)--(2,1.4)--(0,1.4);
+\draw[<->](0,3.5)--node[fill=white]{长}(2,3.5);
+\draw[|<->|](2.4,3)--node[fill=white]{宽}(2.4,1.4);
+
+\draw(3,6) rectangle (4.6,4);\draw(3.8,6)--(3.8,4);
+\draw[dashed](2,4)--(3,4);
+\draw[dashed](2,6)--(3,6);
+\draw[<->](2.5,4)--node[fill=white]{高}(2.5,6);
+\draw[|<->|](3,3.5)--node[fill=white]{宽}(4.6,3.5);
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+\draw(0,0) rectangle (3,2); \node at (3,1)[right]{宽};
+\draw(1,0)--(1,2);\draw(2,0)--(2,2);
+    
+\draw(0,3)--(0,6)--(1,6)--(1,5)--(2,5)--(2,6)--(3,6)--node[right]{高}(3,3)--(0,3);
+
+\draw(4,6) rectangle (6,3);
+\draw[dashed](4,5)--(6,5);
+\node at (5,3)[below]{宽};\node at (6,4.5)[right]{高};
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
 画出图1.12的左视图，并把这个三视图所表示的立体的直观图画出来。
 
 画法：
@@ -398,18 +546,100 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     首先分析观察视图所表示的组成形体的各部分形状，如1中所述的是一个大长方体挖去一个小长方体．然后，根据视图所给的长、宽、高画出这两个长方体的直观图，但要特别注意在视图上所反映的这两个长方体的相互位置关系，最后擦去不需要的线便得到视图所表示的立体的直观图。（见图1.13）
 \end{enumerate}
 
-\subsection*{练习}
-\begin{enumerate}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[scale=.6]{fig/1-13.png}
+    \caption{}
+\end{figure}
+
+\begin{ex}
+    \begin{enumerate}
     \item 根据下列各二视图想想立体是什么形状，并画出它
     的直观图。
     \item 根据下列各投影图来想象立体的形状，并画出它们
     的直观图。
+    
 \end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+\draw(0,0)node[left]{$X$}--(4,0)node[right]{$Y$};
+\draw(1,1)--(3,1)--(2.6,2)--(1.4,2)--(1,1);
+\draw(2,-1.5) circle (1);
+\draw(2,-1.5) circle (.6);
+\draw[dashed](1,1)--(1,-1.5);
+\draw[dashed](1.4,2)--(1.4,-1.5);
+\draw[dashed](2.6,2)--(2.6,-1.5);
+\draw[dashed](3,1)--(3,-1.5);
+\node at (2,-3){(1)};
+
+\end{scope}
+\begin{scope}[xshift=5cm]
+\draw(0,0)node[left]{$X$}--(4,0)node[right]{$Y$};
+\tkzDefPoints{1/.5/A, 3/.5/B, 2/2.3/C, 1/-.5/A', 3/-.5/B', 2/-2.3/C'}
+\tkzDrawPolygon[thick](A,B,C)
+\tkzDrawPolygon[thick](A',B',C')
+\tkzDrawSegments[dashed](A,A' B,B' C,C')
+\draw[thick](C)--(2,1.5);
+\draw[thick](C')--(2,-1.5)--(B');
+\draw[thick](2,-1.5)--(A');
+\node at (2,-3){(2)};
+\end{scope}
+
+\end{tikzpicture}
+    \caption*{第1题}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex, scale=.65]
+\begin{scope}
+\draw(-4,0)node[left]{$X$}--(3,0)node[right]{$Y$};
+\draw(0,-3)node[below]{$Y'$}--(0,3)node[above]{$X'$};
+\draw[thick](-3,0) rectangle (-1,2.5);
+\draw[thick](.5,0)--(.5,2.5)--(2.5,0);
+\draw[thick](-3,-.5) rectangle (-1,-2.5);
+\draw[dashed](-3,0)--(-3,-.5);
+\draw[dashed](-1,0)--(-1,-.5);
+\draw[dashed](0,-.5)--(-1,-.5);
+\draw[dashed](0,-2.5)--(-1,-2.5);
+\draw[dashed](-1,2.5)--(.5,2.5);
+\node at (0,-4.5){(1)};
+\draw[dashed](.5,0) arc (0:-90:.5);
+\draw[dashed](2.5,0) arc (0:-90:2.5);
+
+
+\end{scope}
+\begin{scope}[xshift=8cm]
+    \draw(-3.5,0)node[left]{$X$}--(3.5,0)node[right]{$Y$};
+    \draw(0,-3)node[below]{$Y'$}--(0,3)node[above]{$X'$};
+    \draw[thick](-3,1) rectangle (-1,3);
+    \draw[thick](-3,-1) rectangle (-1,-3);
+    \draw[thick](3,1) rectangle (1,3);
+    \draw[thick](-3,3)--(-1,1);
+    \draw[dashed](1,3)--(3,1)--(3,0);
+    \draw[thick](-1,-1)--(-3,-3);
+    \draw[dashed](-3,-1)--(-3,1);
+    \draw[dashed](-1,-1)--(-1,1)--(1,1)--(1,0);
+    \draw[dashed](-1,-1)--(0,-1);
+    \draw[dashed](-1,-3)--(0,-3);
+    \draw[dashed](1,0) arc (0:-90:1);
+    \draw[dashed](3,0) arc (0:-90:3);
+    \node at (0,-4.5){(2)};
+\end{scope}
+
+
+\end{tikzpicture}
+    \caption*{第2题}
+\end{figure}
 
 \subsection*{习题1.1}
 \begin{enumerate}
     \item 画出半径为2cm的球的三视图。
-    \item 根据左面的二视图，试
+    \item 根据二视图，试
     补画出它的左视图，并画视图所表示的立体的直观图。
     \item 试回答下列二视图(1)—(4)中每一个是立
     体直观图(a)—(d)中的哪一个的视图。
@@ -423,78 +653,18 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 
 
 
-\begin{example}
-    
-\end{example}
-
-\begin{example}
-    
-\end{example}
-
-\begin{example}
-    
-\end{example}
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
 
 
 
 
-\begin{solution}
-    
-\end{solution}
-
-\begin{solution}
-    
-\end{solution}
 
 
-\begin{solution}
-    
-\end{solution}
 
-\begin{solution}
-    
-\end{solution}
 
-\begin{solution}
-    
-\end{solution}
+
+
+
+
 
 \section{集合运算}
 \subsection{复习}
@@ -559,7 +729,7 @@ $P$是三维空间的点}\}
 \[A\cap B=\{x|x\in A\text{ 且 }x\in B\}\]
 
 由集合$A$的元素或集合$B$的元素合并而成的集合叫作$A$和$B$的\textbf{并集}，记作$A\cup B$，即
-\[A\cup B=\{x|x\in A\text{ 或 }x\in B\}\]
+\[A\cup B=\{x|x\in A\; \text{ 或 }\; x\in B\}\]
 
 \begin{blk}{问题4}
     设$A=\{1,a,a^2\}$, $B=\{1,a,b\}$, 假定$a,b$都是实数，并且$A\cap B=\{1, 3\}$, $A\cup B=\{1,a,2a,3a\}$, 求
@@ -575,10 +745,149 @@ $a$和$b$的值分别是多少？
 
 我们很容易看出以下的事实成立：
 
+\begin{blk}{}
+\begin{itemize}
+    \item $    A\cap A=A,\qquad     A\cup A=A$
+\item $    A\cap I=A,\qquad    A\cup I=I$
+\item $    A\cap \emptyset=\emptyset,\qquad  A\cup \emptyset=A$
+\item $    A\cap B\subset A \quad \text{且}\quad A\cap B\subset B$
+\item $A\subset A\cup B \quad \text{且}\quad B\subset A\cup B$
+\item $A\cup \bar{A}=I,\qquad A\cap \bar{A}=\emptyset,\qquad \overline{\bar{A}}=A$    
+\end{itemize}
+\end{blk}
+
+我们把$A\cap \bar{B}$称作$A$与$B$的\textbf{差集}，记作$A-B$, 即
+\[A-B=\{x|x\in A \quad \text{且}\quad x\notin B\}\]
+
+差集的维恩图如图1.14所示：
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1.2]
+\begin{scope}
+    \draw(-2,0) rectangle (2,3);
+\fill[pattern=north east lines](-.65,1.5) circle (.9);
+\draw[fill=white](.7,1.5) circle (1);
+\draw(-.65,1.5) circle (.9);
+\node at (2,0)[above left]{$I$};
+\node at (-.65,2.6){$A$};
+\node at (.7,2.7){$B$};
+\node at (-.9,1.5)[fill=white]{$A-B$};
+\node at (0,-.5){(1)};
+\end{scope}
+\begin{scope}[xshift=5cm]
+    \draw(-2,0) rectangle (2,3);
+\draw[pattern=north east lines](-.5,1.5) circle (1.2);
+\draw[fill=white](-.5,1.8) circle (.5);
+
+\node at (2,0)[above left]{$I$};
+\node at (-1,2.8){$A$};
+\node at (-.5,1.8){$B$};
+\node at (-.5,.8)[fill=white]{$A-B$};
+\node at (0,-.5){(2)};
+\end{scope}
+\begin{scope}[yshift=-4cm]
+    \draw(-2,0) rectangle (2,3);
+\draw[pattern=north east lines](-.65,1.5) circle (.9);
+\draw[fill=white](.9,1.5) circle (.4);
+\draw(-.65,1.5) circle (.9);
+\node at (2,0)[above left]{$I$};
+\node at (-.65,2.6){$A$};
+\node at (.9,2.2){$B$};
+\node at (-.65,1.5)[fill=white]{$A-B$};
+\node at (0,-.5){(3)};
+\end{scope}
+\begin{scope}[xshift=5cm, yshift=-4cm]
+    \draw(-2,0) rectangle (2,3)node[below left]{$I$};
+    \draw(-.5,1.5) circle (1.2);
+    \draw(-.5,1.8) circle (.5);
+\node at (2,0)[above left]{$A-B=\emptyset$};
+\node at (-.5,1.8){$A$};
+\node at (-.5,1){$B$};
+\node at (0,-.5){(4)};
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{blk}
+    {问题1}设$A=\{\text{等腰三角形}\}$，$B=\{\text{直角三角形}\}$，
+    则$A-B$是由什么三角形组成的集合？
+\end{blk}
+
+
+\begin{blk}
+     {问题2}如果$A$为有理数的集合，$B$为非负有理数的集合，
+    那么$A-B$是什么集合？
+\end{blk}
+
+\begin{blk}
+     {问题3}设$I$为全集，$A$为$I$的一个子集，则$I-A$是个什么集
+    合？（参看下面的维恩图思考）
+\end{blk}
+
+由问题3可知：
+\[I-A=I\cap \bar A=\bar A\]
+
+由此可见：补集可以看作差
+集的特殊情况。
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+\draw[pattern= north east lines](0,3) rectangle (4,0)node[above left, fill=white]{$I$};
+\draw[fill=white](2,1) circle (.7);
+\node at (2,1){$A$};
+\node at (2,2.5)[fill=white]{$I-A$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+集合的交集、并集和差集三
+种运算很类似于数的乘法、加法
+和减法，例如在数的计算中有
+\[3\x2=2\x 3,\qquad 3+2=2+3\] 
+在集合的运算中相应地有\[A\cap B=B\cap A,\qquad  A\cup B=B\cup A\]
+在数的计算中有：
+\[3\x(2\x4)=(3\x2)\x4,\qquad 3+(2+4)=(3+2)+4\]
+在集合的运算中相应地有
+\[A\cap (B\cap C)=(A\cap B)\cap C,\qquad 
+A\cup (B\cup C)=(A\cup B)\cup C\]
+这由维恩图很容易直观地看出
+来。我们把它们所具有的一些算律归结为如下定理：
 
+\begin{blk}
+{定理} 集合的交与并满足以下算律
+\begin{enumerate}
+\item 结合律：
+\[\begin{split}
+     (A\cap B)\cap C=A\cap (B\cap C)&\qquad \text{（交的结合律）}\\
+     (A\cup B)\cup C=A\cup (B\cup C)&\qquad \text{（并的结合律）}
+\end{split} \]
+\item 交换律：
+\[\begin{split}
+    A\cap B=B\cap A&\qquad \text{（交的交换律）}\\
+    A\cup B=B\cup A&\qquad \text{（并的交换律）}
+\end{split} \]
+\end{enumerate}
+\end{blk}
 
+\begin{proof}
+    我们只证“并的结合律”，其余类似地由同学们
+    自己证明。
+\[\begin{split}
+     x\in (A\cup B)\cup C &\quad \Rightarrow \quad x\in (A\cup B)\; \text{ 或 }\;  x\in C\\
+     &\quad \Rightarrow \quad  (x\in A \; \text{ 或 }\;  x\in B)\; \text{ 或 }\;  x\in C  \\
+     &\quad \Rightarrow \quad   x\in A\; \text{ 或 }\;  (x\in B\; \text{ 或 }\;  x\in C) \\
+     &\quad \Rightarrow \quad  x\in A\; \text{ 或 }\;  x\in (B\cup C) \\
+     &\quad \Rightarrow \quad  x\in A\cup (B\cup C)  
+\end{split}\]
+$\therefore\quad (A\cup B)\cup C\subseteq A\cup (B\cup C)$
 
+同理可证：$A\cup (B\cup C)\subseteq (A\cup B)\cup C$
 
+$\therefore\quad (A\cup B)\cup C=A\cup (B\cup C)$
+\end{proof}
 
 
 
@@ -598,60 +907,443 @@ $a$和$b$的值分别是多少？
 
 
 
+\begin{example}
+    
+\end{example}
+\begin{solution}
+    
+\end{solution}
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{example}
+    
+\end{example}
+\begin{solution}
+    
+\end{solution}
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
 
 
 
 
 
+\begin{example}
+    
+\end{example}
 
 
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{example}
+    
+\end{example}
 
 
 
 
+\begin{solution}
+    
+\end{solution}
 
 
 
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
+\begin{example}
+    
+\end{example}
 
 
+\begin{solution}
+    
+\end{solution}
 
 
 
 
 
 
+\begin{example}
+    
+\end{example}
+\begin{solution}
+    
+\end{solution}
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{example}
+    
+\end{example}
+\begin{solution}
+    
+\end{solution}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{solution}
+    
+\end{solution}
 
+\begin{solution}
+    
+\end{solution}
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
+\begin{example}
+    
+\end{example}
 
+\begin{solution}
+    
+\end{solution}
+\begin{example}
+    
+\end{example}
 
 
+\begin{solution}
+    
+\end{solution}
+\begin{example}
+    
+\end{example}
+
+\begin{example}
+    
+\end{example}
+\begin{example}
+    
+\end{example}
+
+
+
+
+
+\subsection*{习题1.7}
+\begin{enumerate}
+    \item 在平面$\pi$的同侧有$A,B$两点，在$\pi$上求一点$P$, 使$AP+
+    BP$达到极小。
+    \item 在平面$\pi$外有两点$A,B$, 且直线$AB\nparallel \pi$, 在$\pi$在上求一
+    点$P$, 使$|AP-BP|$达到极大。
+    \item 试问一个正方体有几个对称面？一个长方体有几个对
+    称面？
+    \item 证明：任何过球心的平面都是球的对称面。
+\end{enumerate}
+
+\section{章末提示}
+
+本章主要内容是研究了空间直线和平面的关系，这包括
+直线与直线，直线与平面，平面与平面之间的相互关系，在
+概括本章内容时，请注意以下几点：
+
+\subsection{要抓住平行、垂直、夹角和距离的概念}
+
+这些概念都可看成是由平面几何推广而来的。
+\begin{enumerate}
+\item 平行：在平面几何中只有两条直线互相平行的概念，
+但在立体几何中已把这种概念推广到直线与平面的平行和平
+面与平面的平行，要注意它们的区别和联系。
+\item 夹角：在平面几何中只有平面上两条直线交角的概
+念，但在空间却推广到了异面直线的夹角，以及直线与平面的
+夹角和二面角。然而这些推广了的概念，却都依赖于平面上
+的角。
+\item 垂直：在平面几何中只定义了同一平面内的两条直
+线互相垂直。但在空间，却推广到了两条异面直线的垂直，
+直线与平面的垂直，以及平面和平面的垂直。垂直的概念虽
+然作了种种推广，但其基础却仍是同一平面上两条直线的垂
+直。
+\item 距离：在平面几何中已经有了两点间距离，点到直
+线的距离以及两条平行线间的距离，到了空间，距离的概念
+就更复杂了，不仅有了异面直线的距离，还有点到平面的距
+离，以及两个平行平面间的距离。距离的概念虽然逐步推
+广，但最原始的依据仍是“两点间距离”。
+\end{enumerate}
+
+\subsection{要抓住几个最主要的定理}
+\begin{blk}
+    {定理1（关于平行的定理）}
+\begin{enumerate}
+\item 如果两个平行平面同时和第三个平面相交，那么它们
+的交线平行。
+\item 如果一条直线平行于平面内的一条直线，那么这条直
+线和这个平面平行。
+\item 如果相交的两条直线都平行于一个平面，那么这两条
+相交直线所确定的平面也平行于这个平面。
+\item 过平面外一点唯一存在一个平面和已知平面平行。
+\item 平行于同一平面的两个平面平行。
+\item 平行于同一直线的两条直线互相平行。
+\end{enumerate}
+\end{blk}
+
+
+
+
+\begin{blk}
+    {定理2（关于垂直的定理）}
+在空间$V$中和相异两点$P$、$P'$距离相等的点的集合是一
+个平面$\pi$, 它和$PP'$相交于$PP'$的中点$M$, 而且$PP'$和$\pi$上
+的任何一条直线都垂直。
+\end{blk}
+
+\begin{blk}
+{推论1} 设$\ell\cap \pi=M$, $\ell_1$、$\ell_2$是$\pi$中两条相交直线，则$\ell\bot\pi$
+的充要条件是$\ell\bot \ell_1$且$\ell\bot \ell_2$.
+\end{blk}
+
+\begin{blk}
+{推论2}
+设$\ell_1\bot\pi$, 则$\ell_2\bot\pi$的充要条件是$\ell_1\parallel \ell_2$.
+\end{blk}
+
+\begin{blk}
+{推论3}
+设$\ell\bot \pi_1$, 则$\ell\bot \pi_2$的充要条件是$\pi_1\parallel \pi_2$.
+\end{blk}
+
+\begin{blk}
+{推论4}
+$\pi\bot \pi'$的充要条件是$\pi'$含有$\pi$的一条垂线。
+
+\end{blk}
+
+\begin{blk}
+    {推论5（三垂线定理）}
+    设$PM\bot \pi$于$M$, $MQ$, $\ell\subset \pi$, 
+$\ell\bot MQ$, 则$PQ\bot \ell$.
+\end{blk}
+
+\begin{blk}
+{推论6（三垂线定理的逆定理）}设$PM\bot \pi$于$M$, $MQ$, 
+$\ell\subset \pi$, $\ell\bot PQ$, 则$\ell\bot MQ$.
+\end{blk}
+
+\begin{blk}
+    {定义} 空间$V$对给定平面$\pi$的对称是一个具有下列性质
+的映射$R_{\pi}:\; V\mapsto V$; 对于任何点$P\in V$, 它的像是$R_{\pi}(P)=P'$, 
+线段$PP'$被平面$\pi$垂直平分。
+\end{blk}
+
+\begin{blk}
+    {定理3} 上述定义的映射$R_{\pi}$是一个保距映射，即对$V$
+中任给两点$P,Q$, 总有$d(R_{\pi}(P),R_{\pi}(Q))=d(P,Q)$.
+\end{blk}
+
+\subsection{要注意立体几何解题思考方法的特点}
+解立体几何题主要思考方法是和平面几何取得联系，从
+而利用平面几何的知识解决立体几何的问题。有的问题可归
+为一平面上的问题来解决，如定理：经平面外一点唯一存在
+一个平面和已知平面平行的证明中，就把直线$a,b,m$集中
+到一个平面$\pi'$上，从而用平面几何的知识加以解决。有的问
+题则需要一个以上的辅助平面，如图1.61之例2, 就利用了
+两个相交的辅助平面来解决的。作辅助平面的方法取决于平
+面的确定条件：
+\begin{enumerate}
+\item 经过不共线三点确定一个平面。
+\item 一条直线和直线外一点确定一个平面。
+\item 两条相交直线确定一个平面。
+\item 两条平行直线确定一个平面。
+\end{enumerate}
+
+此外还可利用：
+\begin{enumerate}
+\item 过平面外一点作已知平面的平行平面。
+\item 过平面上一条直线作已知平面的相交平面等。
+\end{enumerate}
+
+在论证和解决立体几何的问题中如果是平行、相交问
+题，利用集合运算方法有时也比较方便，但要注意正确运用
+集合运算的算律，有时还需要引入辅助集合，如平行线传递
+性定理的证明，就利用了辅助集合$\pi_1$. 
+
+另外在论证问题过程，如果直接证法不易解决就利用间
+接证法，如反证法和同一法等，如图1.34的例1,就是利用
+同一法使直线$c=a'=b'$解决的。而在平行平面的传递性中
+又用反证法。反证法和同一法常常是解数学问题的有利工
+具。
+
+\subsection{要注意正确理解空间元素的关系和基本概念会正确
+地画出立体图形}
+要正确地掌握画一个立体的投影图及直观图的方法，并
+在画图中灵活运用。在画直线及平面关系的图形时，常常把
+直线与直线的关系，直线与平面的关系，通过平面与平面的
+关系画出来。例如，“两条异面直线间的距离是2m, 它们所
+成的角是$60^{\circ}$, 在这两条异面直线上各有一点，距它们所在
+直线的公垂线的垂足都是10m, 求这两点间距离。”在解这
+个题画图时，可有不同画法，有
+的比较直观，有立体感，有的则没
+有立体感。见图1.79的(1)、(2)、(3)，
+图(1)显然没有立体感；图(2)
+由于有平面$\pi_1$, 立体感较强了，
+但如何利用条件求解启发性不强，图(3)由于有了两个平面
+$\pi_1$和$\pi_2$, 并使$\pi_1$和$\pi_2$交线上两点$P$、$Q$间的距离为异面直
+线$\ell_1$和$\ell_2$的距离，这样$\ell_1$和$\ell_2$的夹角恰是二面角$\pi_1-PQ-\pi_2$的
+平面角，这样不仅图形直观而且方便利用条件求解。
+
+\begin{figure}[htp]
+    \centering
+    
+    \caption{}
+\end{figure}
+
+
+\section*{复习题1}
+\begin{enumerate}
+    \item 下面各命题是否正确？正确的给以证明，错误的举出反
+    例：
+\begin{enumerate}[(1)]
+\item 两条直线不平行则相交。
+\item 两个平面有三个公共点，则这两个平面重合。
+\item 直线$a\parallel$ 直线$b$, $b\subset$平面$M$, 则$a\parallel M$.
+\item 直线$a\parallel$ 平面$M$, 则$a$平行于平面$M$内的任意直线。
+\item 平面$M\parallel$ 平面$N$, 若直线$a\subset M$, 则$a\parallel N$.
+\item 平面$M\parallel$ 平面$N$, 若直线$a\subset M$且直线$b\subset N$,则$a\parallel b$.
+\item 平行于同一直线的两条直线平行。
+\item 垂直于同一直线的两条直线平行。
+\item 垂直于同一平面的两条直线平行。
+\item 垂直于同一平面的两个平面平行。
+\item 垂直于同一直线的两个平面平行。
+\item 平行于同一平面的两条直线平行。
+\item 平行于同一平面的两个平面平行。
+\item 直线$a\bot$ 直线$b$, 直线$b\bot $直线$c$, 则$a\bot c$.
+\item 直线$a\parallel$ 直线$b$, 直线$c\bot $直线$a$, 则$b\bot c$.
+\item 直线$a\parallel$ 平面$M$, 直线$b\bot $直线$a$, 则$b\bot M$.
+\item 直线$a\parallel $平面$Q$, 直线$b\parallel $平面$Q$, 若$a,b\subset M$, 则$M\parallel Q$.
+\item 平面$Q\cap $平面$N=a$, 直线$b\subset Q$, $b\bot a$, 则$b\subset N$.
+\item 过$A$点垂直于直线$a$的直线必在过$A$点垂直于$a$的平面
+内。
+\item 过点$A$平行于平面$a$的直线必在过点$A$平行平面$a$的平
+面内。
+\item 平面$\pi_1\bot $平面$\pi_2$, $\pi_1\cap \pi_2=a$, 直线$b\bot a$, 则$b\subset \pi_1$.
+\item 两个角的边分别平行，则这两个角相等。
+\item 直线$a\bot $直线$b$, 直线$a\bot $直线$c$, 若$b,c\subset $平面$\pi$, 则
+$a\bot \pi$.
+\item 过平面的一条斜线的斜线足，并且与这斜线的射影垂
+直的直线，则它垂直于这斜线。
+\item 两条直线确定一个平面。
+\item 如果四个点不共面，那么它们中的任何三点都不共线。
+\item 两条平行直线在同一平面上的射影互相平行。
+\item 如果直线$a\parallel$ 直线$b$, 直线$b$和直线$c$是异面直线，那么
+$a$和$c$是异面直线。
+\end{enumerate}
+
+\item 求证：两两相交但不过同一点的四条直线在同一平面
+内。
+\item 三平面两两相交出三条直线，求证：这三条直线交于一
+点或互相平行。
+\item 证明：分别过两异面直线中的一条直线，而与另一条平
+行的两个平面互相平行。
+\item 夹在两个平行平面间的两条线段$AB$、$CD$交于$P$, 已知：
+$AP=18.9$cm, $BP=29.4$cm, $CD=57.5$cm, 求$CP$和$DP$
+的长。
+\item 直角三角形$ABC$所在的平面$\pi$外一点$P$到直角顶$C$的距离
+为24cm, 到两直角边距离都是$6\sqrt{10}$cm, 求$P$点到平面$\pi$
+的距离。
+\item 在直二面角的棱上有两点$A,B$, $AC$, $BD$各在这个二
+面角的一个面内，并且都垂直于棱，设$AB=8$cm, $AC
+=6$cm, $BD=24$cm, 求$CD$的长．
+\item 已知：共点的三条线段$OA$, $OB$, $OC$两点互相垂直，
+且$OA=a$, $OB=b$, $OC=c$, 求$O$点到平面$ABC$的距离。
+\item 一条长$2a$的线段夹在互相垂直的两个平面之间，它和两
+个平面所成的角都是$30^{\circ}$, 求这条线段与这两个平面的
+交线所成的角。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
