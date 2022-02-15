@@ -2245,8 +2245,29 @@ a_2x+b_2y+c_2=0
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}
-
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2,0)--(5,0)node[right]{$X$};
+\draw[->](0,-.5)--(0,4.5)node[right]{$Y$};
+\node at (0,0)[below left]{$O$};
+\tkzDefPoints{-2/.5/A, 4/3/B, -1/-.5/C, 3.5/3.5/D}
+\tkzInterLL(A,B)(C,D) \tkzGetPoint{E}
+\tkzDrawSegments[very thick](A,B C,D)
+\tkzLabelPoint[above right](B){$\ell_1$}
+\tkzLabelPoint[above right](D){$\ell_2$}
+\tkzDefLine[perpendicular=through E, K=.8](E,B)
+\tkzGetPoint{B'}
+\tkzDrawSegments[->](E,B')
+\tkzDefLine[perpendicular=through E](E,D)
+\tkzGetPoint{D'}
+\tkzDrawSegments[->](E,D')
+\tkzLabelPoint[below](D'){$\vec{n}_2$}
+\tkzLabelPoint[right](B'){$\vec{n}_1$}
+\tkzMarkAngles[mark=none, size=.5, <-](C,E,B)
+\tkzLabelAngle[pos=.8](C,E,B){$\theta_2$}
+\tkzLabelAngle[pos=1.2](B,E,D){$\theta_1$}
+\tkzLabelAngle[pos=1](B',E,D'){$\theta_1$}
+\tkzMarkAngles[mark=none, size=.9](B,E,D)
+\tkzMarkAngles[mark=none, size=.7](B',E,D')
 
 
 \end{tikzpicture}
@@ -2458,6 +2479,25 @@ $a_2x+b_2y+c_2=0$的交点的充要条件是存在两个不全为零
 \begin{figure}[htp]
     \centering
 \begin{tikzpicture}[>=stealth]
+    \draw[->](-1.5,0)--(3.5,0)node[right]{$X$};
+    \draw[->](0,-1.5)--(0,3.5)node[right]{$Y$};
+    \node at (0,0)[below left]{$O$};
+\tkzDefPoints{-1/3/A, 3/-1.5/B,0/0/O}
+\tkzDefPointWith[linear, K=.4](A,B) \tkzGetPoint{P}
+\tkzDrawSegments[thick,->](A,B)
+\tkzDefLine[perpendicular=through P, K=.4](P,B)
+\tkzGetPoint{C}
+\draw[->, thick](P)--(C)node[above]{$\vec{n}$};
+\tkzLabelPoint[below](P){$P_0$}
+\tkzDrawSegments(O,P)
+\node at (3,3){$(+)$};
+\node at (-1,-1){$(-)$};
+\tkzDefPoints{-1.5/2.3/P', 2.5/1.6/P''}
+\tkzDrawSegments[->, very thick](P,P' P,P'')
+\tkzLabelPoint[right](P''){$P$}
+
+\tkzMarkAngles[size=.5, mark=none](P'',P,C)
+\tkzMarkAngles[size=.3, mark=none](C,P,P')
 
 \end{tikzpicture}
     \caption{}
@@ -2565,9 +2605,17 @@ $\begin{cases}
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[>=latex, scale=.6]
+    \draw[->](-5.5,0)--(6.5,0)node[right]{$X$};
+    \draw[->](0,-6.5)--(0,5.5)node[right]{$Y$};
+    \tkzDefPoints{-4/3.5/A, 6/-4/B, -3/4/C, 1/-4/D}
+\draw[domain=-4.5:6.5, samples=10, very thick, ->]plot(\x,{-.74*\x+.5})node[right]{$\ell_1$};
+\draw[domain=-3.5:2.2, samples=10, very thick, ->]plot(\x,{-2*\x-2})node[below]{$\ell_2$};
+    
+\fill[pattern={north west lines}](A)--(-5,3.5)--(-5,-6)--(6,-6)--(B)--(A);
 
-
+\fill[pattern=north east lines](C)--(6,4)--(6,-6)--(2,-6)--(C);
+\node at (0,0)[above right]{$O$};
     
 \end{tikzpicture} 
     \caption{}
@@ -2591,7 +2639,7 @@ $\begin{cases}
 \begin{multicols}{2}
 \begin{enumerate}
 \item $\begin{cases}
-    x-y>0\\2x-y<0
+    x-y>0\\2x-<0
 \end{cases}$
 \item $\begin{cases}
     x+y-1<0\\x-y+2>0
