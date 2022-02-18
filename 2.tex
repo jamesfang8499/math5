@@ -99,7 +99,7 @@
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[scale=.7]{fig/2-4.png}
+\includegraphics[scale=.7]{fig/2-4.png}
     \caption{}
 \end{figure}
 
@@ -173,7 +173,7 @@ $\angle A_1B_1C_1=\angle A_2B_2C_2$。
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[scale=.7]{fig/2-5.png}
+\includegraphics[scale=.7]{fig/2-5.png}
     \caption{}
 \end{figure}
 
@@ -690,7 +690,7 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 锥的棱侧。
 
 如果棱锥的底面是三角形、四边形……$n$边形，那么棱锥
-就分别叫做\textbf{三棱锥，四棱锥，五棱锥……$n$棱锥}（见图2.15)、棱锥的表示法可以用表示顶点和底面顶点的
+就分别叫做\textbf{三棱锥，四棱锥，五棱锥……$n$棱锥}（见图2.15）、棱锥的表示法可以用表示顶点和底面顶点的
 几个字母来表示，例如棱锥$S-ACD$. 
 \end{blk}
 
@@ -2194,8 +2194,8 @@ $120^{\circ}$, 这两个切点的球面距离是$12\pi$cm, 求这个球的半
 \end{enumerate}
 \end{enumerate}
 
-\section{柱、锥、台、球的全
-面积和部分面积}
+\section{柱、锥、台、球的全面积和部分面积}
+
 \subsection{棱柱和圆柱的侧面积和全面积}
 
 \begin{blk}{定义}
@@ -2881,57 +2881,177 @@ $na=p$, 我们就得到下面定理。
 
 圆台的侧面展开图以看成是两个圆锥侧面展开图的
 差，通常把这种图形叫做扇环。如图2.52所示。
-
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=latex]
+    \tkzDefPoints{0/0/V}
+\tkzDefPoint(40:2){A'_1}
+\tkzDefPoint(40:3.5){A'}
+\tkzDefPoint(-60:2){A_1}
+\tkzDefPoint(-60:3.5){A}
+\tkzDefPoint(-120:2){B}
+\tkzDefPoint(-120:3.5){B'}
+\draw(0,-1.732) ellipse [x radius=1, y radius=.3];
+\draw (0,-1.732)node[left]{$O_1$}--node[below]{$R_1$}(A_1)node[above]{$A_1$};
+\tkzDrawSegments[dashed](V,A'_1 V,A_1 V,B)
+\tkzDrawSegments(A',A'_1 A,A_1 B,B')
+\draw(A) arc [x radius=1.75, y radius=.4, start angle =0, end angle =-180];
+\draw[dashed](A) arc [x radius=1.75, y radius=.4, start angle =0, end angle =180];
+\draw[dashed] (0,-1.75*1.732)node[left]{$O$}--node[above]{$R$}(A)node[below right]{$A$};
+\draw(A_1) arc (-60:40:2);
+\draw(A) arc (-60:40:3.5);
+\tkzLabelPoints[above](A'_1,A',V)
+\draw[<->](-52:2)--node[fill=white]{$\ell$}(-52:3.5);
+\tkzMarkAngle[mark=none, size=.3](A,V,A')
+\tkzLabelAngle[pos=.7](A,V,A'){$\theta$}
+\node at (-20:2.25)[rotate=70]{$C_1=2\pi R_1$};
+\node at (-20:3.75)[rotate=70]{$C=2\pi R$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
 
 
 圆台的侧面展开图是一个大扇形去掉一个小扇形。大扇
 形的弧长是圆台下底的圆周长$C_1$, 小扇形弧长是圆台上底圆
 周长$C$, 设圆台的母线$AA_1=\ell$, 上、下底半径分别是$R_1$和
 $R$, 于是
+\[S_{\text{圆台侧}}=S_{\text{扇形}VAA'}-S_{\text{扇形}VA_1A_1'}=\frac{1}{2}CVA-\frac{1}{2}C_1VA_1\]
 
+于是问题归结为求$VA$和$VA_1$, 因为$C_1$和$C$所张的圆心角是同一个角$\theta$, 则
+\[\frac{C_1}{VA_1}=\frac{C}{VA}\]
+即
+\[\frac{VA-\ell}{VA}=\frac{C_1}{C}\]
+因此：
+\begin{equation}
+VA=\frac{C\ell}{C-C_1},\qquad VA-\ell=\frac{C_1\ell}{C-C_1}    
+\end{equation}
+所以：
+\begin{equation}
+    \begin{split}
+S_{\text{圆台侧}}=\frac{1}{2}\cdot\frac{C^2\ell}{C-C_1}-\frac{1}{2}\cdot \frac{C^2_1\ell}{C-C_1}&=\frac{1}{2}\cdot\frac{(C^2-C^2_1)\ell}{C-C_1}\\
+&=\frac{1}{2}(C_1+C_2)\ell        
+    \end{split}
+\end{equation}
 
+$\because\quad C=2\pi R,\quad  C_1=2\pi R_1$，代入(2.10)
 
+$\therefore\quad S_{\text{圆台侧}}=\pi(R+R_1)\ell$
 
+由此，我们得到下面定理
 
+\begin{blk}
+    {定理} 如果圆台的上、下底半径分别是$R_1$和$R$, 周长分别是$C_1$和$C$, 那么圆台的侧面积计算公式是
+\[S_{\text{圆台侧}}=\frac{1}{2}(C_1+C)\ell=\pi(R_1+R)\ell \]
+\end{blk}
 
-
-
-
-
-
-
-
-
+\begin{blk}{推论}
+\begin{enumerate}
+    \item 圆台的全面积等于它的侧面积与上、下两个底面积的和
+    \item $\theta=2\pi\frac{R-R_1}{\ell}(\text{弧度})\quad \text{或}\quad \theta=360^{\circ}\frac{R-R_1}{\ell}$
+\end{enumerate}
+显然，在圆台的侧面积公式中，如果$C_1=C$, 就得到圆柱侧面积公式：$S_{\text{圆柱侧}}=C\ell$; 如果$C_1=0$, 就得到圆锥的侧面积公式：$S_{\text{圆锥侧}}=\frac{1}{2}C\ell$.
+\end{blk}
 
 
 
 \begin{example}
-    
+粉碎机的下料斗是正四棱台（图2.53）. 它的两底边长分别是80mm和440mm, 高是200mm, 计算制造这样一个下料斗所需铁板面积。（保留两位有效数字）
 \end{example}
 
 \begin{solution}
-    
+由于：
+\[\begin{split}
+    \text{上底周长}p'&=4\x80=320{\rm (mm)}\\
+    \text{下底周长}p&=4\x440=1760{\rm (mm)}\\
+    \text{斜高}h'&=\sqrt{200^2+ \left(\frac{440-80}{2}\right)^2}\approx 269 {\rm (mm)}
+\end{split}\]
+所以：
+\[S_{\text{正棱台侧}}=\frac{1}{2}(p+p')h'\approx \frac{1}{2}(320+1760)\x 269\approx 2.8\x 10^5 ({\rm mm^2})\]
+答：制造这样一个下料斗需要的铁板约为$2.8\x 10^5 {\rm mm^2}$.
 \end{solution}
+
+\begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 2/0/B, 3/1/C}
+\tkzDefPointsBy[translation = from B to C](A){D}
+\tkzDefPoints{-1.5/3/A', 3/3/B', 4.5/4.5/C'}
+\tkzDefPointsBy[translation = from B' to C'](A'){D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawSegments(A,A' B,B' C,C' A,B B,C)
+\tkzDrawSegments[dashed](D,D' C,D D,A)
+\tkzInterLL(A,C)(B,D) \tkzGetPoint{E}
+\tkzInterLL(A',C')(B',D') \tkzGetPoint{E'}
+\tkzDefMidPoint(B,C) \tkzGetPoint{F}
+\tkzDefMidPoint(B',C') \tkzGetPoint{F'}
+\tkzDrawSegments[dashed](E,E' E,F E',F')
+\tkzDrawSegments(F,F')
+\tkzLabelSegment[right](F,F'){$h'$}
+\tkzLabelSegment[right](E,E'){$h$}
+\end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\begin{scope}
+\tkzDefPoints{-1.5/0/A, 1.5/0/B, 0/2/C}
+\tkzDefPointWith[linear, K=0.333](C,A) \tkzGetPoint{A'}
+\tkzDefPointWith[linear, K=0.333](C,B) \tkzGetPoint{B'}
+\tkzDrawPolygon(A,B,B',A')
+\tkzDrawSegments[dashed](C,A' C,B')
+\tkzLabelSegment[right](C,B'){$x$}
+\tkzLabelSegment[right](B,B'){$\ell$}
+\node at (.75,0)[above]{3};
+\node at (.5,4/3)[below]{1};
+\draw(0,0)--(0,4/3);
+\draw[dashed](0,4/3)--(0,2);
+\node at (2,1)[right]{(1)};
+\end{scope}
+\begin{scope}[yshift=-2cm]
+\draw(0,0) circle (.5);
+\draw(0,0) circle (1.5);
+\draw[dashed](0,-.5)--node[left]{$x$}(0,0)--(45:.5);
+\draw(0,-.5)--(0,-1.5);
+\draw(45:.5)--node[above]{$\ell$}(45:1.5);
+\node at (2,0)[right]{(2)};
+
+\end{scope}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+  \end{figure}
+  
+
 
 \begin{example}
-    
+    一个圆台的两个底的半径是1和3, 侧面展开图是圆环的一部分，已知全圆环的面积和这个圆台的全面积相等，求这圆台母线长，侧面积和全面积。
 \end{example}
 
 
 \begin{solution}
-    
+设图2.54(1)是圆台的轴截面，设$x$是截去的小圆锥的母线长，$\ell$为圆台的母线，根据已知条件，有
+\[\frac{x+\ell}{x}=\frac{3}{1}\]
+
+$\therefore\quad x=\frac{1}{2}\ell$
+
+又$\because\quad \pi\cdot 1^2+\pi\cdot 3^2+\pi\ell(1+3)=\pi\left[\left(\frac{3\ell}{2}\right)^2-\left(\frac{1}{2}\ell\right)^2\right]$
+
+即：$\ell^2-2\ell-5=0$
+
+$\therefore\quad \ell=\frac{2\pm\sqrt{4+20}}{2}=1+\sqrt{6}$ （由于$\ell>0$, 故舍去负根）
+
+因此：
+\[\begin{split}
+S_{\text{圆台侧}}&=\pi \ell(R+R_1)=\pi  (1+\sqrt{6}) (1+3)=4\pi  (1+\sqrt{6})\\
+S_{\text{圆台全}} &=4\pi (1+\sqrt{6})+\pi \cdot 1^2+\pi \cdot 3^2
+=14\pi +4\pi \sqrt{6}=2\pi  (7+2\sqrt{6})
+\end{split}\]
+
+答：圆台的母线长为$(1+\sqrt{6})$, 侧面积为$4\pi(1+\sqrt{6})$, 全面积为$2\pi (7+2\sqrt{6})$.
 \end{solution}
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
-
-
 
 \begin{ex}
 \begin{enumerate}
@@ -2949,31 +3069,1824 @@ $R$, 于是
 \end{enumerate}
 \end{ex}
 
-\subsection{球面积和它的部分面积} 
+\subsection{球面积和它的部分面积}
 
-前面我们求圆柱、圆锥，
-圆台的侧面积公式都是利用它们的展开图求出的，由于球面
-不能展成平面图形，所以球的表面积计算公式无法用展开图
-求出，我们得另想计算方法。古希腊的几何学家欧都克斯为
-我们提供了一个在数学上非常有应用价值的逼近法来解决这
-个问题。
+前面我们求圆柱、圆锥，圆台的侧面积公式都是利用它们的展开图求出的，由于球面不能展成平面图形，所以球的表面积计算公式无法用展开图求出，我们得另想计算方法。古希腊的几何学家欧都克斯为我们提供了一个在数学上非常有应用价值的逼近法来解决这个问题。
 
+\begin{blk}
+ {逼近原理} 设$\alpha$、$\alpha'$是两个实数，假如它们同时被一个递增数列$\{a_n\}$和一个递减数列$\{b_n\}$所左右夹逼，而且$(b_n -a_n)$在$n$增大时，可以任意小，即
+\[a_1\le a_2\le \cdots\le a_n<\cdots<\alpha,\qquad \alpha'<\cdots\le b_n\le \cdots\le b_2\le b_1\] 
+ 且当$n$无限增大时，$(b_n-a_n)\to 0$, 则$\alpha$必须等于$\alpha'$.   
+\end{blk}
 
+换句话说，上述左右夹逼数列唯一地确定了界于其间的那个实数$\alpha$.
 
+为了求得球面积的部分面积计算公式，我们还需要下面的预备知识。
 
+\begin{blk}
+  {定义} 如果平面内的一条折线，它所有的边都相等，并且相邻两边的夹角也都相等，那么这个平面折线叫做正折线。
+\end{blk}
 
-
-
-
-
-
-
-
-
-
-
+\begin{blk}
+   {推论} 正折线都有一个中心，它是到正折线各顶点距离都相等，并且到各边距离相等的一个点。   
+\end{blk}
 
 
+\begin{blk}
+    {引理1} 一条线段绕着和它在同一平面内并且至多有和它的一个端点相交的轴旋转所生成的旋转面的面积（即圆柱、圆锥、圆台的侧面积）等于一个圆柱的侧面积，这个圆柱的高等于这线段在轴上的射影，而它的底面半径等于以母线为底边，两顶点在轴上的等腰三角形的高。
+\end{blk}
+
+已知：如图2.55所示，线段$AB$与轴$XY$在同一平面内，$MR$垂直平分线段$AB$于$M$, 且与$XY$轴交于$R$, $CD$是$AB$在$XY$上的射影，$MO\bot XY$于$O$, $S_{AB}$是线段$AB$旋转面的面积
+
+求证：$S_{AB}=2\pi MR\cdot CD$
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=.7]
+\draw[dashdotted](0,0)node[left]{$X$}--(15,0)node[right]{$Y$};
+\foreach \x in {4,9,14}
+{
+    \draw(\x,0) ellipse [x radius=.5, y radius=1.5];
+    \draw[dashed](\x,0)node[below]{$D$}--(\x, 1.5)node[above]{$B$};
+}
+
+\draw(1.5,1.5) arc [start angle=90, end angle =270, x radius=.5, y radius=1.5];
+\draw[dashed](1.5,1.5)node[above]{$A$}--(1.5,0)node[below]{$C$};
+\draw[dashed](2.75,1.5)node[above]{$M$}--(2.75,0)node[below]{$R$};
+\draw(1.5,-1.5)--(4,-1.5); \draw(1.5,1.5)--(4,1.5);
+
+\draw(9,-1.5)--(6.5,0)node[below]{$(C)$};
+\draw(6.5,0)node[above]{$A$}--(9,1.5);
+\draw[dashed](7.75,0.75)node[above]{$M$}--(7.75,0)node[below]{$O$};
+\draw[dashed](7.75,0.75)--(8.2,0)node[below]{$R$};
+
+\draw(11.5,.8) arc [start angle=90, end angle =270, x radius=.3, y radius=.8];
+\draw[dashed](11.5,.8)node[above]{$A$}--(11.5,0)node[below]{$C$};
+\draw[dashed](12.75,1.15)node[above]{$M$}--(12.75,0)node[below]{$O$};
+\draw(11.5,-.8)--(14,-1.5); \draw(11.5,.8)--(14,1.5);
+\draw[dashed](11.5,.8)--(14,.8)node[right]{$E$};
+\draw[dashed](12.75,1.15)--(13.2,0)node[below]{$R$};
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+\begin{enumerate}
+    \item 若线段$AB\parallel XY$, 则$CD=AB$, $MO$与$MR$重合，
+    
+$\because\quad MR=BD,\quad  AB=CD$
+
+$\therefore\quad S_{\text{圆柱侧}}=2\pi BD\cdot AB=2\pi MR\cdot CD$
+    \item 若线段$AB$的端点$A$在$XY$上，
+
+$\because\quad   \angle BAD=\angle RMO,\quad \angle MOR=\angle BDA=90^{\circ}$
+
+$\therefore\quad \triangle OMR\backsim \triangle DAB$
+
+$\therefore\quad \frac{MR}{AB}=\frac{MO}{AD}=\frac{BD}{2AD},\quad 2MR\cdot AD=AB\cdot BD$
+
+$\therefore\quad S_{\text{圆锥侧}}=\pi BD\cdot AB=2\pi MR\cdot CD$（$A$点与$C$点重合）
+    \item 若线段$AB$不平行$XY$又不与$XY$相交，作$AE\parallel XY$设与$BD$交于$E$.
+
+$\because\quad \angle BAE=\angle RMO,\quad \angle MOR=\angle AEB=90^{\circ}$    
+
+$\therefore\quad \triangle AEB\backsim \triangle MOR$
+
+$\therefore\quad AB\cdot MO=AE\cdot MR$
+
+$\because\quad AE=CD$
+
+$\therefore\quad AB\cdot MO=CD\cdot MR$
+
+$\therefore\quad S_{\text{圆台侧}}=2\pi MR\cdot CD$
+\end{enumerate}
+\end{proof}
+
+    本引理的结论可以看成是求圆柱、圆锥、圆台侧面积的一般公式。
+
+\begin{blk}
+    {引理2}一条正折线，绕着轴（这个轴是一条在折线所在平面内的直线，它过折线的中心并且不穿过折线）旋转所得的旋转体的侧面积等于一个圆柱的侧面积，这个圆柱的底面半径等于折线的边心距，而高等于折线在旋转轴上的射影。
+\end{blk}
+
+已知：一条正折线$ABCDE$ (图2.56) 绕着过折线中心$O$的轴$XY$旋转，所得的旋转面面积如图2.57所示，设它
+为$S$; 
+令$h=OM=ON=OP=OQ$表示折线的边心距；用$ab$, $bc$, $cd$, $de$分别表示线段$AB$、$BC$、$\ldots DE$在轴$XY$上的射影。
+
+求证：$S=2\pi h(ae)$
+
+\begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\draw(0,-2)node[below]{$Y$}--(0,2.5)node[above]{$X$};
+\tkzDefPoints{-.5/-1.5/E, -1.5/-.6/D, -1.5/.6/C, -1/1.3/B, 0/1.7/A, 0/0/o}
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(C,B) \tkzGetPoint{N}
+\tkzDefMidPoint(C,D) \tkzGetPoint{P}
+\tkzDefMidPoint(D,E) \tkzGetPoint{Q}
+\tkzDrawSegments(A,B B,C C,D D,E M,o N,o P,o Q,o)
+\tkzDefPointBy[projection = onto A--o](B) \tkzGetPoint{b}
+\tkzDefPointBy[projection = onto A--o](C) \tkzGetPoint{c}
+\tkzDefPointBy[projection = onto A--o](D) \tkzGetPoint{d}
+\tkzDefPointBy[projection = onto A--o](E) \tkzGetPoint{e}
+\tkzDrawSegments[dashed](B,b C,c D,d E,e)
+\tkzLabelPoints[right](b,c,d,e,o)
+\node at (A)[right]{$a$};
+\tkzAutoLabelPoints[center=o](B,C,D,E,M,N,P,Q)
+\tkzLabelPoints[above left](A)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\draw(0,-2)node[below]{$Y$}--(0,2.5)node[above]{$X$};
+\tkzDefPoints{-.5/-1.5/E, -1.5/-.6/D, -1.5/.6/C, -1/1.3/B, 0/1.7/A, 0/0/o}
+\tkzDrawSegments[thick](A,B B,C C,D D,E)
+\tkzDefPointBy[reflection = over A--o](B) \tkzGetPoint{B'}
+\tkzDefPointBy[reflection = over A--o](C) \tkzGetPoint{C'}
+\tkzDefPointBy[reflection = over A--o](D) \tkzGetPoint{D'}
+\tkzDefPointBy[reflection = over A--o](E) \tkzGetPoint{E'}
+\tkzDrawSegments[thick](A,B' B',C' C',D' D',E')
+\draw(B') arc [start angle=0, end angle =-180, x radius=1, y radius=.2];
+\draw[dashed](B') arc [start angle=0, end angle =180, x radius=1, y radius=.15];
+
+\draw(C') arc [start angle=0, end angle =-180, x radius=1.5, y radius=.3];
+\draw[dashed](C') arc [start angle=0, end angle =180, x radius=1.5, y radius=.3];
+\draw(D') arc [start angle=0, end angle =-180, x radius=1.5, y radius=.3];
+\draw[dashed](D') arc [start angle=0, end angle =180, x radius=1.5, y radius=.3];
+\draw(E') arc [start angle=0, end angle =-180, x radius=.5, y radius=.1];
+\draw[dashed](E') arc [start angle=0, end angle =180, x radius=.5, y radius=.1];
+
+  
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+  \end{figure}
+
+  
+\begin{proof}
+    当正折线$ABCDE$旋转时，它的每一条边，便分
+别画出一个圆锥、圆台或者圆柱的侧面，根据圆柱、圆锥、圆台的求侧面积的一般公式，正折线的边$AB$、$BC$、$CD$和$DE$旋转所得的旋转面的面积分别等于$2\pi h(ab)$、$2\pi h(bc)$、$2\pi h(cd)$和$2\pi h(de)$. 
+因此：
+\[S=2\pi h(ab+bc+cd+de)=2\pi h\cdot (ae)\]
+
+我们可以把球面积看作半圆弧绕着它的直径旋转所得的面积，因为这半圆弧的内接正折线与外切正折线绕着直径旋转所得的面积是可求的（如前段所述），故我们先用半圆弧的内接正折线和外切正折线来夹逼这圆弧，当边数$n$增多
+时，相应的内接正折线增大，愈来愈贴近半圆弧，而相应的外切正折线减小，也愈来愈贴近半圆弧，这就是说，内接正折线绕直径旋转所得面积数列与外切正折线绕直径旋转所得的面积数列，从左、右两方面愈来愈逼近球面积的值，从而我们就可以得到球面积公式。
+
+为了以后讨论方便起见，我们先考虑半圆弧的一部分绕着该半圆弧的直径旋转所得的球的部分面积公式。
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.5]{fig/2-58.png}
+    \caption{}
+\end{figure}
+
+如图2.58, 圆弧$AE$绕着和它不相交的直径旋转所得
+部分球面，如图2.59所示。这部分平面可以用两个平行平面截球面得到。我们把夹在平行平面之间的球面部分叫做球带，两个平行截面间的距离叫做球带的高，记作$h$. 
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+   \draw(2,0) arc (0:45:2); 
+\draw(-2,0) arc (180:135:2);
+\draw[dashed](0,0) ellipse [x radius=2, y radius=.4];
+\draw(0,1.414) ellipse [x radius=1.414, y radius=.3];
+\draw[dashed](0,0)--node[right]{$h$}(0,1.414);
+\draw(2,0)node[right]{$E$}  arc [start angle =0, end angle =-180, x radius=2, y radius=.4];
+\node at (1.414,1.414)[above]{$A$};
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+作圆弧$AE$的内接正$n$边折线和外切正$n$边折线，$a$、$e$两点是圆弧$AE$的两端在直径$KL$上的正
+射影。于是圆弧$AE$的内接正$n$边折线在直径$KL$上的射影是线段$ae$, 它是一个与边数$n$无关的定值，即$ae=h$.
+
+设$h_n$为$\wideparen{AE}$的内接正$n$边折线的边心距。$\sigma_n$为内接正$n$边折线绕直径$KL$旋转所得的面积。半径$R$是$\wideparen{AE}$的外切正$n$边折线的边心距。线段$a'e'$是外切正$n$边折线在直径$KL$上的正射影。$S_n$ 为外切正$n$边折线绕直径$KL$旋转得到的面积。$S_{\text{球带}}$为圆弧$AE$绕直径$KL$旋转得到的球带面积。根据几何直观，我们得到
+\begin{enumerate}
+\item 当边数$n$增加时，$\sigma_n$递增，$S_n$递减。
+\item $\sigma_n<S_{\text{球带}}<S_n$，且由引理2可知：
+\[\sigma_n<2\pi h_n(ae)=2\pi h_n h,\qquad S_n =2\pi R (a'e')\]    
+\end{enumerate}
+
+显然，$h_n$随着$n$增大而增大，而且趋近于$R$, 换句话说，$(R-h_n)$可以任意小，即$(R-h_n)\to 0$. 
+
+现在我们要进一步说明$a'e'$随$n$增大而减小，并且趋近于$ae=h$（球带高）。
+
+换言之，$a'e'-h$可以任意小，即$(a'e'-h)\to 0$. 因为，内接正折线与外切正折线对于圆心是位似形，其相似比是$\frac{R}{h_n}$，
+由此得
+\[\frac{a'e'}{ae}=\frac{R}{h_n}>1,\qquad a'e'=\frac{R}{h_n}\cdot h\]
+
+当$n$增大时，$h_n$增大并且趋近于$R$, 于是$a'e'$减小，并且
+愈来愈趋近$ae=h$. 这样我们就得到：
+\[\sigma_n=2\pi h_n\cdot h<S_{\text{球带}}<2\pi R(a'e')=S\]
+且当$n$增大时，$h_n\to R$, $a'e'\to h$.
+
+最后，我们要说明，当$n$增大时，$S_n-\sigma_n$可以小到
+任意小。
+
+$\because\quad \frac{S_n}{\sigma_n}=\frac{R(a'e')}{h_n\cdot h}=\frac{R}{h_n}\cdot \frac{a'e'}{h}=\frac{R^2}{h^2_n},\quad \frac{S_n-\sigma_n}{S_n}=\frac{R^2-h^2_n}{R^2}$
+
+$\therefore\quad S_n-\sigma_n=S_n\frac{(R+h_n) (R-h_n)}{R^2}$
+
+又$\because\quad S_n<S_1,\quad R+h_n<2R$
+
+$\therefore\quad S_n-\sigma_n<\frac{2S_1}{R}(R-h_n)$
+
+故：当$n$增大时，$R-h_n$可任意小，从而，$S_n -\sigma_n$可以任意小。
+这就是说$S_{\text{球带}}$应定义为夹逼数列$\{\sigma_n\}$和$\{S_n \}$所确定的那个数。
+
+另一方面，由$h_n\to R$, $a'e'\to h$, 我们看出，恒有
+\[\sigma_n=2\pi h_n\cdot h<2\pi R\cdot h<2\pi R (a'e') =S_n\]
+根据逼近原理知
+$$S_{\text{球带}}=2\pi R\cdot h$$
+\end{proof}
+
+于是我们得到下面的定理。
+
+\begin{blk}
+    {定理} 球带的面积等于截成它的球面上大圆周长与球带的高的积。即
+\[S_{\text{球带}}=2\pi R\cdot h\]
+\end{blk}
+
+如果截球的两个平行平面都成为球的切面，那么$ae=$直径$=2R$. 那么球带就变成了整个球面，所以球面积$S_{\text{球}}=2\pi R\cdot 2R=4\pi R^2$.
+
+由此，我们得到下面定理。
+
+\begin{blk}
+    {定理}球面面积等于它的大圆面积的四倍，即
+\[S_{\text{球面}}=4\pi R^2\]
+\end{blk}
+
+如果截球的两个平行平面的一个成为切面，那么这时的球带所变成的球面部分叫做\textbf{球冠}。截平面得到的圆叫做球冠的\textbf{底面}，垂直于截面的直径被截得的一段叫做球冠的\textbf{高}，记作$h$. 如图2.60所示．
+
+球冠也可以看作是一段圆弧绕经过它的一个端点的直径旋转得到的球面部分，这时，$ae=h$, 于是得到下面定理。
+
+
+\begin{blk}
+    {定理} 球冠的面积等于截它的球面上大圆周长与球冠的高的积，即
+\[S_{\text{球冠}}=2\pi R\cdot h\]
+\end{blk}
+
+我们注意到球冠的面积公式与球带的面积公式相同。
+
+\begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.9]
+
+\begin{scope}
+    \draw(45:2)node[right]{$E$} arc (45:135:2);
+    \draw[dashed](0,1.414) ellipse [x radius=1.414, y radius=.3]; 
+    \draw(45:2) arc [start angle =0, end angle =-180, x radius=1.414, y radius=.3];
+    \draw[dashed](0,2)node[above]{$A$}--node[right]{$h$}(0,1.414);
+    \tkzDrawPoint(0,1.414)
+\end{scope}        
+\begin{scope}[yshift=-1cm]
+\draw(45:2)node[right]{$E$} arc (45:-180-45:2);
+\draw(0,1.414) ellipse [x radius=1.414, y radius=.3];    
+\draw[dashed](0,-1.8)node[right]{$A$}--node[right]{$h$}(0,1.414);
+    \tkzDrawPoint(0,1.414)
+    \tkzDrawPoint(0,-1.8)
+\end{scope}      
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, yscale=1.4]
+\tkzDefPoint(45:3){B}
+\tkzDefPoint(135:3){A}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(0,3){D}
+\tkzDefPoints{0/0/O, 0/2.1/C}
+\draw(B) arc (45:135:3)--(O)--(B);
+\draw(B) arc [start angle =0, end angle =-180, x radius=2.1, y radius=.4];
+\draw[dashed](B) arc [start angle =0, end angle =180, x radius=2.1, y radius=.4];
+\tkzDrawSegments[dashed](D,O C,B)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[left](A,C)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](O)
+\tkzLabelSegment[right](C,D){$h$}
+\tkzLabelSegment[above](C,B){$r$}
+\tkzLabelSegment[right](O,B){$R$}
+
+
+\end{tikzpicture}
+    \caption{}
+    \end{minipage}
+  \end{figure}
+  
+
+\begin{example}
+一扇形的中心角为$90^{\circ}$, 它的面积为$Q$, 绕过圆弧中点的半径旋转，求所得旋转面的面积.
+
+已知：扇形$ADBO$面积$=Q$, $D$为$\wideparen{AB}$的中点，$\angle AOB=90^{\circ}$
+
+求：扇形$ADBO$绕半径$OD$旋转所得面积$S$. 
+\end{example}
+
+\begin{solution}
+    如图2.61, 扇形的$BD$弧绕$OD$旋转得到球冠的面积，$OB$边绕$OD$旋转得到圆锥侧面积，故所求旋转面的面积
+\[S=2\pi Rh+\pi rR\]
+
+$\because\quad \text{扇形面积}Q=\frac{\pi R^2}{4}$
+
+$\therefore\quad R=\sqrt{\frac{4Q}{\pi}}$
+
+$\because\quad h=CD=OD-OC=R-\frac{R\sqrt{2}}{2}=\frac{R}{2}(2-\sqrt{2}),\quad r=\frac{R\sqrt{2}}{2}$
+
+因此：
+\[\begin{split}
+    S&=2\pi R\cdot \frac{R}{2}\left(2-\sqrt{2}\right)+\pi\frac{R\sqrt{2}}{2}R=\pi R^2\left(2-\sqrt{2}+\frac{\sqrt{2}}{2}\right)\\
+    S&=4Q\left(2-\frac{\sqrt{2}}{2}\right)=4Q\left(4-\sqrt{2}\right)\approx 5.2Q
+\end{split}\]
+
+答：所求得旋转面的面积约为$5.2Q$.
+\end{solution}
+
+
+  \begin{example}
+    如将地球近似地当作一个球，求宇宙飞船距地面4000公里高度时，能看到球面部分的面积。
+  \end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{0/0/O, 1.732/1/B, -1.732/1/A, 0/2/D, 0/4/P, 0/1/C}
+\draw(O) circle(2);
+\tkzDrawPolygon(A,O,B,P)
+\tkzDrawSegments(A,B P,O)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](P)
+\tkzLabelPoints[above right](D)
+\tkzLabelPoints[below right](C)
+\fill [pattern=north east lines] (B) arc (30:150:2) (A)--(B);
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+  \begin{solution}
+      人在宇宙飞船中离地面4000公里高度时，能看到地
+球表面的图形是球冠。过宇宙飞船$P$和球心$O$的连线作出地球的大圆（图2.62）, 其中、$PA$、$PB$是大圆的切线，$PD$是飞船到地球面的距离，$CD$为球冠的高。
+
+在直角三角形$OAP$中，已知
+\[OA=6.37\x 10^3,\quad OP=6370+4000=10370\approx 1.04\x 10^4 \]
+
+在直角$\triangle OAP$中，
+
+$\because\quad OA^2=OC\cdot OP$
+
+因此：
+\[\begin{split}
+    (6.37\x 10^3)^2&=OC\cdot 1.04\x 10^4\\
+    OC&=\frac{40.6\x 10^6}{1.04\x 10^4}=39\x 10^2=3.9\x 10^3\\
+    CD&=OD-OC=6370-3900=2.47\x 10^3
+\end{split}\]
+所以
+\[\begin{split}
+\text{球冠$ADB$的面积}=2\pi R\cdot CD
+    &=2\pi \x6. 37\x10^3\x2. 47\x10^3\\
+    &=315\pi \x10^5\\
+    &\approx 9.9\x10^7 \text{（平方公里）}
+\end{split}\]
+
+    答：能看到地球部分的面积为$9. 9\x10^7$平方公里。
+  \end{solution}
+
+\begin{ex}
+\begin{enumerate}
+ \item 一个球的半径如果扩大10倍，它的面积是否也扩大10
+倍？
+\item 半径为$R$的半球，它的全面积是否等于$2\pi R^2$?
+\item 如果球的大圆面积扩大$n$倍，球面积变化怎样？
+\item 
+求证：如果圆锥的母线长等于底面的直径，那么它的全面积等于以它的高为直径的球面的面积。
+\item 一个球冠是球面积的三分之一，求球冠的高。
+\item 球带的两个底面半径分别是20cm和24cm, 球的半径是5cm, 求球带的面积（注意：分两种情况考虑）。
+\item 已知：圆柱底面直径与高都等于球的直径，求证：
+\begin{enumerate}
+    \item 球的表面积等于圆柱的侧面积；
+    \item 球的表面积等于圆柱全面积的$\frac{2}{3}$.
+\end{enumerate}
+
+\item 要使从一点发出的光，能照到半径是$R$的球面的$\frac{1}{3}$, 光原应离球心多远？
+\item 计算地球表面积约是多少平方公里？  
+\end{enumerate}
+\end{ex}
+
+\subsection*{习题2.2}
+\begin{enumerate}
+\item 已知一个立方体的圆盖铁箱，它的对角线长是$4\sqrt{3}$m, 制造这个铁箱需要多少铁皮？
+\item 正四棱柱的侧面积是32${\rm cm^2}$, 全面积40${\rm cm^2}$, 求它的高．    
+\item 求证：直三棱柱两个侧面面积的和，不大于第三个侧面的面积。
+\item 一个长方体的三度成等差级数，高与底之比为8:5, 
+求棱柱的高和底边。
+\item 有一个圆柱形锅炉，它的直径是1.0米，高为2.5米，假如用钢板制造这个锅炉，焊接地方需要等于圆柱全面积的10\%的钢板，那么制造这个锅炉需要多少钢板？
+\item 正四面体的全面积为$36(\sqrt{3}+1){\rm cm^2}$, 求正四面体的
+高。
+\item 圆柱的侧面积展开图是一个正方形，求这个圆柱侧面积
+和底面积的比。
+\item 正三棱锥底面边长是$a$, 侧面与底面所成的角是$60^{\circ}$, 
+求它的全面积。
+\item 一座仓库屋顶呈正四棱锥形，底面边长为2.7m, 侧棱长
+2.3m, 如果要在屋顶上铺一层油毡，接缝处需要的油毡占屋顶面积的5\%, 问共需要多少油毡？
+\item 证明：一个棱锥所有的侧面与底面所成二的面角都等于
+$a$, 那么
+\[S_{\text{侧}}=\frac{S_{\text{底}}}{\cos\alpha}\]
+\item 圆锥的高是10cm,侧面展开图是半圆，求圆锥的侧面
+积。
+\item 圆锥的轴截面是正三角形，求证：它的侧面积是底面积
+的2倍。
+\item 经过高为20cm的圆锥的顶点与底面成$45^{\circ}$角的二面角的
+平面把圆锥底面周长截去$\frac{1}{4}$，求圆锥的全面积。
+\item 已知一个正三棱台的侧棱$\ell=10.2$cm, 底面边长分别是
+$a=6.25$cm, $b=11.2$cm, 求它的侧面积。
+\item 一圆台全面积为$572\pi {\rm m^2}$，两底的半径分别是6m和14m, 
+求高。
+\item 已知一圆台的轴截面面积为$F$, 母线和底面夹角为$30^{\circ}$, 
+求圆台侧面积。
+\item 正四棱台高为12cm, 两底面边长的差为10cm, 全面积
+为$512{\rm cm^2}$, 求两底面的边长。
+\item 一直角梯形的上、下底与高的比为$1:2:\sqrt{3}$, 绕直
+角边旋转成一个圆台，求这个圆台的上、下底面积和侧面积的比。
+\item 在一个正四棱台内，有一个以它的上底为底面，下底的
+中心为顶点的棱锥，如果棱台上、下底面边长分别为3cm和4cm，棱锥与棱台的侧面积相等，求棱台的高。
+\item 若圆台的上、下底面半径分别是$r_1$、$r_2$, 它的侧面积等于两底面积之和，试求圆台的母线长。
+\item 若圆台的上、下底半径分别是$r_1$、$r_2$, 母线长为$m$, 若$r_1:r_2:m=2:1:3$, 圆台的侧面积为$144\pi{\rm cm^2}$, 求$r_1$, $r_2$和$m$.
+\item 旋转轴在正方形所在平面内且通过它的一个顶点，并和以此点为端点的对角线垂直，求旋转面的面积。
+\item 设圆台的上、下底面半径分别是$r'$、$r$, 母线长是$\ell$, 圆台侧面积展开后所得扇环的圆心角是$\theta$, 求证：
+\[\theta=\frac{r-r'}{\ell}\cdot 360^{\circ}\]
+\item 已知球的大圆周长是80cm, 求这个球的表面积。
+\item 试证：一个球与它的外切圆柱的比等于2:3. 
+\item 半径是2cm的球，被一平面截得的截面半径是1cm, 求所截得的两个球冠的面积。
+\item 如果把半圆分成相等的三条弧并以它的直径为轴旋转一周，试证中间球带面积等于两旁球冠面之和。
+\item 在球心的同一侧，有相距9cm的平行截面，它们的面积
+分别为$49\pi {\rm cm^2}$和$400\pi {\rm cm^2}$, 求球的表面积。
+\item $A$是直径为25cm的球面上的一点，已知这球的一个截面
+圆上的所有点到$A$点的距离都是15cm, 求$A$点到这截面的距离。
+\item 一个球的半径是18cm,经过球面上一点作一个平面，
+使它和经过这点的半径成$45^{\circ}$角，求这个平面截球所得截面的面积。
+\item 我国第一颗人造地球卫星的远地点距地面2384km, 在
+这时，约有多少平方公里地面上的人能看到这颗卫星。
+\item 有直径为10cm的球，以它的一条直径为轴，钻一个直径
+为6cm的圆孔，求这个球的球面剩余部分的面积．
+\item 在一个半径为R的球内作一个内接等边圆柱，求球面被
+这圆柱的两底面截得的球冠和球带的面积。
+\item 正四棱台外切于半径为$R$的球，侧面和大底面所成的二
+面角为$\alpha$, 求证：这棱台的侧面积是$\frac{16R^2}{\sin^2\alpha}$.
+\item 一个正三棱柱外切一个球，并且内接于另一个球，试求
+这两个球的面积之比。
+\item 半径为1的球内切于圆锥，已知圆锥母线与底面的夹角
+是$2\theta$,
+\begin{enumerate}
+\item 求证：圆锥的母线与底面半径之和是$\frac{2}{\tan\theta(1-\tan^2\theta)}$
+\item 求证：圆锥的全面积是$\frac{2\pi}{\tan^2\theta(1-\tan\theta)}$
+\item 当$\theta$是什么值时，圆锥全面积最小。
+\end{enumerate}
+\end{enumerate}
+
+\section{柱、锥、台、球的体积和祖暅原理}
+
+\subsection{体积的概念和长方体体积}
+\begin{blk}
+    {定义} 表示空间几何体的内部大小的量叫做空间几何体的体积。
+\end{blk}
+
+同度量长度、面积一样，要度量一个几何体的体积，先要选取一个体积单位作为度量的标准，我们约定取长、宽、高均为一个单位长度的正方体作为体积单位。度量几何体体积的大小，实际上就是求出这个几何体包含多少个体积单位，也就是这个几何体所含单位体积的量数，这个量数是个正实数。它具有下列基本性质：
+
+\begin{blk}{性质1}
+    全等的几何体的体积是相等的．
+\end{blk}
+
+
+\begin{blk}{性质2}
+    如果把几何体分成几个部分，它们都是较小的几何体，那么整个几何体的体积等于各部分体积的和。
+\end{blk}
+
+\begin{blk}
+  {推论} 若几何体$A$含于几何体$B$的内部，则$A$的体积
+$V(A)$小于$B$的体积$V(B)$, 即$V(A)<V(B)$.  
+\end{blk}
+
+\begin{proof}
+ 把$B$分成$A$和$C$两部分，根据基本性质2, 有
+\[V(B)=V(A)+V(C)\]
+
+$\because\quad V (C) > 0$
+
+$\therefore\quad  V (B) > V (A)$   
+\end{proof}
+
+\begin{blk}{性质3}
+    夹在两个平行平面间的几何体，被平行于这两个
+平行平面的任何平面所截，如果截得的两个截面面积总相等，那么这两个几何体的体积必相等。
+\end{blk}
+
+例如像图2.63那样把一些薄全等圆片或长方形纸片叠积起来，如果挪动它们的位置，可以推测出上述性质3的正确性。
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-63.png}
+    \caption{}
+\end{figure}
+
+我国古数学家祖暅早在公元五世纪，便提出了性质
+3, 他说：“缘幂势既同，则积不容异”。并首先应用
+这个原理推得球体积的计算公式。因而我们把性质3叫
+做祖暅原理。在欧洲直到十七世纪才有意大利的卡发雷利提
+出这个事实。
+
+\begin{blk}
+   {定理} 长方体的体积等于它的长、宽、高的积。即
+\[V_{\text{长方体}}=abc\] 
+\end{blk}
+
+\begin{proof}
+\begin{enumerate}
+    \item 当$a$、$b$、$c$都是整数时，每个棱被分成整数个单位线
+段$u$, 过各分点作平行于长方体侧面与底面的平面，我们恰
+好得到$abc$个棱长为$1u$的正方体，它们恰好把长方体的内部
+充满，根据体积的基本性质1和2, 长方体的体
+积
+\[V_{\text{长方体}}=abc(u)^3\]
+\item 当$a$、$b$、$c$都是分数时，将$a$、$b$、$c$通分，得到
+\[a=\frac{A}{n}(u),\qquad b=\frac{B}{n}(u),\qquad c=\frac{C}{n}(u)\]
+选取新的长度单位$u'$等于原来长度单位的$\frac{1}{n}$，
+即：$1u'=\frac{1}{n}u$. 
+在这种情况下，取棱长为新的单位长度$1u'$的正
+方体为新的体积单位。于是，根据情形1, 原来的体积单
+位$1(u)^3=n^3(u')^3$或$1(u')^3=\frac{1}{n^3}(u)^3$.
+
+在取新的长度单位$u'$的情况下，长方体的长、宽、高分
+别等于$A(u')$、$B(u')$、$C(u')$, 这里$A$、$B$、$C$都是整数，根
+据情形1, 所求长方体的体积等于$A\cdot B\cdot C(u')^3$. 
+
+又$\because\quad 1(u')^3=\frac{1}{n^3}(u)^3$. 
+
+$\therefore\quad V_{\text{长方体}}=A\cdot B\cdot C(u')^3
+=A\cdot B\cdot C\frac{1}{n^3}(u)^3=\frac{A}{n}\cdot \frac{B}{n}\cdot 
+\frac{C}{n}(u)^3=abc(u)^3$
+
+\item 当$a$、$b$、$c$为无理数时，（其中某个也可以是有理
+数）
+
+要证明这个定理仍成立，我们要用逼近原理，每个无理
+数都能被有理数逼近。例如$\sqrt{2}$用普通开方法可以求到它的
+任何一位小数，比如，
+$\sqrt{2}=1.414236\cdots$
+
+我们可设：
+\[\begin{split}
+    a_1'=1.4,\quad a_2'=1.41,\quad a_3'=1.414\cdots,\quad a'_n\ldots\\
+a_1''=1.5,\quad a_2''=1.42,\quad a_3''=1.415\cdots,\quad a_n''\ldots
+\end{split}\]
+使得$a'_n<\sqrt{2}<a''_n$，且$a''_n-a'_n=\frac{1}{10^n}\to 0$
+
+这就是说$\sqrt{2}$被数列 $\{a_n'\}$和 $\{a''_n\}$左、右夹逼唯一确
+定。
+
+一般地说，任何一个无理数也都可以用有限小数的无穷
+数列左、右夹逼。即
+\[a_1'\le a_2'\le \cdots\le a_n'\le \cdots<a<\cdots\le a''_n\le \cdots\le a_2''\le a_1''\]
+当$a_n''-a_n'=\frac{1}{10^n}\to 0$唯一确定。
+
+于是，若$a$、$b$、$c$都是无理数，我们有
+\[\begin{split}
+    a'_n<a<a''_n,&\quad  a''_n-a'_n=\frac{1}{10^n}\to 0\\
+    b'_n<b<b''_n,&\quad  b''_n-b'_n=\frac{1}{10^n}\to 0\\
+    c'_n<c<c''_n,&\quad  c''_n-c'_n=\frac{1}{10^n}\to 0\\
+\end{split}\]
+这里的$a_n',b_n',c_n'$; $a''_n,b''_n, c''_n$都是有理数。
+
+作辅助长方体如图2.64所
+示，使$OA'=a_n'(u)$, $OB'=b_n'(u)$, $OC'=c_n'(u)$和
+另一长方体，使$OA''=a_n''(u)$, $OB''=b_n''(u)$, $OC''=c_n''(u)$. 
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=.7]
+\tkzDefPoints{0/0/O, 6/0/A'', 2/2/B'', 0/8/C''}
+\foreach \x in {A,B,C}
+{
+    \tkzDefPointWith[linear, K=.85](O,\x'') \tkzGetPoint{\x}
+    \tkzDefPointWith[linear, K=.7](O,\x'') \tkzGetPoint{\x'}
+}
+
+\tkzDefPointsBy[translation = from O to B'](A'){D'}
+\tkzDefPointsBy[translation = from O to B''](A''){D''}
+\tkzDefPointsBy[translation = from O to B](A){D}
+
+\tkzDefPointsBy[translation = from O to C](B,D,A){E,F,G}
+\tkzDefPointsBy[translation = from O to C'](B',D',A'){E',F',G'}
+\tkzDefPointsBy[translation = from O to C''](B'',D'',A''){E'',F'',G''}
+
+\tkzDrawPolygon(C'',E'',F'',G'')
+
+\tkzDrawSegments(O,C'' O,A'' A'',D'' A'',G'' D'',F'' C',G' C,G A',G' A,G)
+\tkzDrawSegments[dashed](O,B'' B'',D'' B'',E'' C,E C',E' B,E B',E' D,F D',F' A,D A',D' E,F E',F' B,D B',D' F,G F',G')
+\tkzLabelPoints[below](O,A,A'',A',B')
+\tkzLabelPoints[left](C,C'',C',B)
+\tkzLabelPoints[above right](B'')
+
+
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+$\because\quad a_n', b_n', c_n';\; a_n'', b_n'', c_n''$都是有理数，对于辅助
+长方体体积，根据情形2, 得到
+\[V'_n=a_n'b_n'c_n', \qquad V''_n=a_n''b_n''c_n''\]
+再由体积的基本性质2的推论，得到
+\[a_n'b_n'c_n'=V_n'<V<V_n'' =a_n''b_n''c_n''\]
+根据
+\[a''_n-a'_n=\frac{1}{10^n}\to 0,\quad b''_n-b'_n=\frac{1}{10^n}\to 0,\quad c''_n-c'_n=\frac{1}{10^n}\to 0\]
+不难证明：$a_n''b_n''c_n''-a_n'b_n'c_n'$可以小到任意小。
+事实上，
+\[\begin{split}
+ a_n''b_n''c_n'' -a_n' b_n' c_n' 
+&=a_n''b_n''c_n'' -a_n'b_n''c_n'' +a_n'b_n''c_n'' -a_n'b_n''c_n' +a_n'b_n''c_n' -a_n'b_n'c_n'\\ 
+&=b''_n c_n'' (a_n''-a_n' )+a_n'b_n''(c_n''-c_n' )+a_n' c_n'(b_n''-b_n')\\
+&<b_1''c_1''\frac{1}{10^n}+a_1''b_1''\frac{1}{10^n}+a_1''c_1''\frac{1}{10^n}
+\end{split}\]
+设$b_1''c_1''$、$a_1''b_1''$、$a_1''c_1''$这三个数中最大者为$M$, 于是
+\[a_n''b_n''c_n''-a_n'b_n'c_n'<3M\left(\frac{1}{10^n}\right)\to 0\]
+这就是说，当$a$、$b$、$c$是无理数时，长方体的体积$V$是
+数列
+$V_n' =a_n'b_n'c_n'$和$V_n''=a_n''b_n''c_n'',\; n=1,2,3,\ldots$
+所夹逼得到的数。
+
+但是另一方面由不等式
+\[a'_n<a<a_n'',\quad b_n'<b<b_n'', \quad c_n'<c<c_n''\]
+得到$a_n'b_n'c_n' <abc<a_n''b_n''c_n''$，根据逼近原理知
+\[V_{\text{长方体}}=abc(u)^3\]
+\end{enumerate}
+
+由1、2、3有
+\[V_{\text{长方体}}=abc\]
+\end{proof}
+
+\subsection{棱柱、圆柱的体积}
+
+有了祖暅原理和长方体体积
+公式．我们就可以求出柱体的体积，如图2.65. 我们将棱柱、
+圆柱、长方体夹在两个平行平面之间，并假设它们的底面积
+都等于$S$, 因为它们的高就是两平行平面之间的距离$h$, 如果
+用一个平行于原来的两个平行平面的平面任意去截这三个柱
+体，所得的截面分别与各个柱体的底面全等，因而这些截面
+面积都等于$S$, 根据祖暅原理，棱柱、圆柱、长方体的体积
+都相等。由于长方体的体积等于它的底面积乘高，因此，棱
+柱、圆柱的体积也都等于其底面积与高的积，这就得到下面
+的定理。
+
+\begin{blk}
+   {定理} 柱体（棱柱、圆柱）的体积等于它的底面积$S$和
+高$h$的积。 
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=.6]
+\tkzDefPoints{0/-.5/A, 1/-.5/B, 1.5/0/C, .7/.6/D, -.5/0/E, 1.5/3/B'}
+\tkzDefPointsBy[translation = from B to B'](A,C,D,E){A',C',D',E'}
+\tkzDrawPolygon(A',B',C',D',E')
+\foreach \x in {A,B,C,D,E}
+{
+    \tkzDefPointWith[linear, K=.6](\x,\x')\tkzGetPoint{\x''}
+}
+\tkzDrawSegments(A,A' A,B B,C E,A  E,E'  B,B' C,C' A'',B'' B'',C'' E'',A'')
+\tkzDrawSegments[dashed](D,D' E,A E,D E'',A'' E'',D'' C'',D'' C,D)
+\fill[pattern=north west lines](A'')--(B'')--(C'')--(D'')--(E'')--(A'');
+
+\tkzDefPoints{4/0/M, 4/3.5/N, 3/0/Q, 3/3.5/R}
+\draw[dashed](M) ellipse [x radius=1, y radius=.5];
+\draw(N) ellipse [x radius=1, y radius=.5];
+\tkzDefPointWith[linear, K=.6](M,N)\tkzGetPoint{P}
+\draw[dashed, pattern=north east lines](P) ellipse [x radius=1, y radius=.5];
+
+\tkzDefPointWith[linear, K=.6](Q,R)\tkzGetPoint{R'}
+\tkzDefPoints{5/0/q, 5/3.5/r}
+\tkzDrawSegments(Q,R q,r)
+\draw(Q) arc [start angle =-180, end angle =0, x radius=1, y radius=.5];
+\draw(R') arc [start angle =-180, end angle =0, x radius=1, y radius=.5];
+
+\tkzDefPoints{7/-.5/W, 9/-.5/X, 10/.5/Y, 7/3/W'}
+\tkzDefPointsBy[translation = from X to Y](W){Z}
+\tkzDefPointsBy[translation = from W to W'](X,Y,Z){X',Y',Z'}
+
+\foreach \x in {W,X,Y,Z}
+{
+    \tkzDefPointWith[linear, K=.6](\x,\x')\tkzGetPoint{\x''}
+}
+\tkzDrawPolygon(W',X',Y',Z')
+\tkzDrawSegments(W,W' X,X' Y,Y' W,X X,Y W'',X'' X'',Y'')
+\tkzDrawSegments[dashed](Z,Z' Z,W Y,Z)
+\tkzDrawPolygon[dashed, pattern=north west lines](W'',X'',Y'',Z'')
+
+
+
+\tkzDefPoints{-3/-1/a, 10/-1/b, 11/1/c, -2.5/2.8/a'}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDefPointsBy[translation = from a to a'](b,c,d){b',c',d'}
+
+\tkzDrawPolygon(a',b',c',d')
+
+
+\tkzInterLL(c,d)(E,E') \tkzGetPoint{tmp1}
+\tkzInterLL(c,d)(C,C') \tkzGetPoint{tmp2}
+\tkzInterLL(c,d)(Q,R) \tkzGetPoint{tmp3}
+\tkzInterLL(c,d)(q,r) \tkzGetPoint{tmp4}
+\tkzInterLL(c,d)(W,W') \tkzGetPoint{tmp5}
+\tkzInterLL(c,d)(Y,Y') \tkzGetPoint{tmp6}
+\tkzDrawSegments(a,b b,c a,d c,tmp6 tmp5,tmp4 tmp3,tmp2 tmp1,d)
+\tkzDrawSegments[dashed](tmp1,tmp2 tmp3,tmp4 tmp5,tmp6)
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{example}
+    已知：如图2.66, 斜棱柱$AD'$的直截面$FI$, 直棱
+柱$FI'$的底面为直截面$FI$, 它的侧棱$II'$等于斜棱柱的侧
+棱$DD'$.
+
+求证：$V_{\text{斜棱柱}AD'}=V_{\text{直棱柱}FI'}$
+\end{example}
+
+\begin{proof}
+因为这两个棱柱的侧棱相等，
+所以从它们的侧棱各减去它们的重合部
+分，剩下的侧棱长相等，即$AF=A'F'$, $BG=B'G'$.
+
+$\because\quad $棱柱的平行截面是全等形，
+
+$\therefore\quad $底面$FI$和底面$F'I'$全等。
+
+平移截头棱柱$AI$, 使底面$AD$和底面
+$A'D'$重合，这时的侧棱$FA$、$GB$、……
+等分别与$F'A'$、$G'B'$……等重合，于是，侧面$AG$、$BH$
+……等分别与侧面$A'G'$、$B'H'$……等重合，所以，截头棱
+柱$AI$与截头棱柱$A'I'$重合。
+
+$\therefore\quad V_{\text{截头棱柱}AI}+V_{\text{截头棱柱}FD'}=V_{\text{截头棱柱}FD'}+V_{\text{截头棱柱}A'I'}$
+
+$\therefore\quad V_{\text{斜棱柱}AD'}=V_{\text{直棱柱}FI'}$
+\end{proof}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/B, 2/0/C, 2.7/.7/D, 1/1/E, -.5/.7/A, -.1/3.5/A'}
+\tkzDefPointsBy[translation= from A to A'](B,C,D,E){B',C',D',E'}
+\tkzDefPointWith[linear, K=.5](A,A')  \tkzGetPoint{F}
+\tkzDefPointWith[linear, K=.45](B,B')  \tkzGetPoint{G}
+\tkzDefPointWith[linear, K=.4](C,C')  \tkzGetPoint{H}
+\tkzDefPointWith[linear, K=.4](D,D')  \tkzGetPoint{I}
+\tkzDefPointWith[linear, K=.45](E,E')  \tkzGetPoint{J}
+\tkzDefPointWith[linear, K=1.8](A,A')  \tkzGetPoint{F'}
+\tkzDefPointsBy[translation= from F to F'](G,H,I,J){G',H',I',J'}
+\tkzDrawPolygon(F',G',H',I',J')
+\tkzDrawSegments(A,F' B,G' C,H' D,I')
+\tkzDrawSegments[dashed](E,J' A,E E,D F,J J,I A',E' E',D')
+\tkzDrawSegments(A',B' B',C' C',D' A,B B,C C,D F,G G,H H,I)
+\tkzLabelPoints[left](A,F,A',F',G,G')
+\tkzLabelPoints[right](D,I,I',D',H,H')
+\tkzLabelPoints[below](B,C,B',C',E)
+\tkzLabelPoints[above](J,J',E')
+
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1.3]
+\tkzDefPoints{0/0/A, 2/0/B, 2.75/.75/C, .5/2/A_1}
+\tkzDefPointsBy[translation = from B to C](A){D}
+\tkzDefPointsBy[translation = from A to A_1](B,C,D){B_1,C_1,D_1}
+\tkzDrawPolygon(A_1,B_1,C_1,D_1)
+\tkzDrawSegments(A,B B,C A,A_1 B,B_1 C,C_1)
+\tkzDrawSegments[dashed](D,B B_1,D_1 A,D C,D D,D_1)
+\tkzDefPoints{.5/1.5/Q, 2.3/1/P}
+\tkzDrawSegments[dashed](P,Q)
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](C_1,D_1,Q)
+\tkzLabelPoints[left](A_1)
+\tkzLabelPoints[right](B_1,C,P)
+\tkzLabelPoints[above right](D)
+
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+\begin{example}
+    已知：如图2.67, 斜三棱柱中一个侧面的面积
+为$S$, 并且这侧面到它相对侧棱间的距离
+为$a$, 求这棱柱的体积。
+\end{example}
+
+\begin{solution}
+设$ABD-A_1B_1D_1$为斜三棱柱，其中
+一个侧面$AD_1$的面积等于$S$, 并且与它相对的侧棱$BB_1$的距离为$PQ=a$. 过侧棱$BB_1$及$DD_1$分别作侧面$AD_1$和侧面$AB_1$的平行
+平面，这两个平面的交线为$CC_1$. 再延展斜三棱柱的两个底面，那么$ABCD-A_1B_1C_1D_1$是一个平行
+六面体。（图2.67）
+
+设以侧面$AD_1$为底面，$PQ$即为这个平行六面体的高，
+所以$V_{AC_1}=aS$. 而三棱柱$ABD-A_1B_1D_1$的体积为这个平行
+六面体的体积的一半，则
+\[V_{\text{三棱柱}}=\frac{aS}{2}\]
+
+答：这个三棱柱的体积等于$\frac{1}{2}aS$.
+\end{solution}
+
+\begin{example}
+    已知：如图2.68, 圆柱的高为$h$, 它的侧面展开图
+的母线与对角线成$60^{\circ}$角，求圆柱的体积。
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{0/0/O, 0/2/O'}
+\draw[dashed](O) ellipse [x radius=.8, y radius=.3];
+\draw(O') ellipse [x radius=.8, y radius=.3];
+\tkzDrawSegments[dashed](O,O')
+\draw(-.8,0) arc [start angle =-180, end angle=0, x radius=.8, y radius=.3];
+\draw(-.8,0)--(-.8,2);
+\draw(.8,0)--(.8,2);
+\end{scope}
+\begin{scope}[xshift=4cm]
+    \tkzDefPoints{0/0/A, 2*1.732/0/B, 0/2/D}
+    \tkzDefPointsBy[translation = from A to D](B){C}
+    \tkzDrawPolygon(A,B,C,D)
+    \tkzLabelPoints[below](A,B)
+    \tkzLabelPoints[above](C,D)
+\tkzLabelSegment[left](A,D){$h$}
+\tkzDrawSegments(B,D)
+\tkzMarkAngle[mark=none, size=.4](A,D,B)
+\tkzLabelAngle[pos=.7](A,D,B){$60^{\circ}$}
+\end{scope}        
+    \end{tikzpicture}
+
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    设圆柱侧面展开图矩形$ABCD$中$AD=h$, $\angle ADB
+=60^{\circ}$. 由直角三角形$ABD$得到$DB=2AD=2h$, $AB
+=\sqrt{4h^2-h^2}=\sqrt{3}h$, 而$AB=2\pi R$
+
+$\therefore\quad 2\pi R=3h\quad\Rightarrow\quad R=\frac{\sqrt{3}h}{2\pi}$
+
+因此：$V_{\text{圆柱}}=\pi R^2\cdot AD=\pi \frac{3h^2}{4\pi^2}\cdot h=\frac{3h^3}{4\pi}$
+
+答：圆柱体积是$\frac{3h^3}{4\pi}$.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+    \item 长方体相交于一个顶点的三个面的面积为6${\rm cm^2}$、12${\rm cm^2}$和
+    8${\rm cm^2}$, 求它的体积。
+    \item 一个圆柱的侧面积为$S$, 底面周长为$C$, 求它的体积。
+    \item 一个正方体和一个圆柱等高，并且侧面积相等，试比较
+    它们的体积哪个大？大多少？
+    \item 正八棱柱的高是$h$, 底面边长是$a$,　求它的体积。
+    \item 
+    长方体三度的比为3:7:8, 全面积为808${\rm cm^2}$, 求它
+    的体积。
+    \item 
+    圆柱侧面展开图是长为$20\pi$, 宽为10的矩形，求此圆柱
+    体的体积。
+    \item 长方体的对角线长为10cm, 这条对角线与一个面的交
+    角为$30^{\circ}$, 与另一个面的交角为$45^{\circ}$, 求这长方体的体
+    积。
+\item \begin{enumerate}
+    \item 圆柱侧面展开图是边长为a的正方形，求它的体积。
+    \item 圆柱侧面展开图
+的对角线长为$\ell$, 它和母线
+所成的角为$\alpha$, 求这圆柱的
+体积。
+\end{enumerate}
+
+\item 画出下列视图所表示的几何
+体的直观图，并求出它的全
+面积与体积。（视图中所标
+尺寸单位为mm）
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\includegraphics[scale=.5]{fig/2-9ti-1.png}
+    \caption*{(1)}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+\includegraphics[scale=.5]{fig/2-9ti-2.png}
+    \caption*{(2)}
+    \end{minipage}
+    \caption*{第9题}
+    \end{figure}
+
+
+\subsection{棱锥与圆锥的体积}
+
+如图2.69所示，设棱锥的高为$h$, 
+我们用和底面平行的$(n-1)$个
+平面把高$n$等分，则锥体就被切
+成$n$片高为$\frac{h}{n}$
+的薄片，这些薄片
+的底面都是和侧棱相交的相似三角形。以这些三角形为底面作$n$
+个各有一部分在棱锥$S-ABC$外部的三棱柱，设这些三棱柱的体
+积由顶点方向顺次为$V_1,V_2,V_3,\ldots,V_n$. 另外仍以平行于底
+面$\triangle ABC$的相似三角形为底在棱锥的内部作$(n-1)$个三
+棱柱，设这些棱柱的积由顶点的方向顺次为$V'_1,V'_2,\ldots,V_{n-1}'$.
+
+\begin{figure}[htp]
+    \centering
+\includegraphics[scale=.6]{fig/2-69.png}
+    \caption{}
+\end{figure}
+
+
+因为等底等高的棱柱是等积的。
+所以
+\[V_1=V_1',V_2=V_2',\ldots, V_{n-1}=V'_{n-1}\]
+因为$V<V_1+V_2+V_3+\cdots+V_n,\quad V>V_1'+V_2'+\cdots+V'_{n-1}$，所以\[V'_1+V_2'+\cdots+V'_{n-1}<V<V_1+V_2+\cdots+V_n\]
+
+设$V_1'+V_2'+\cdots+V'_{n-1}=(V_{n-1})',\; V_1+V_2+\cdots+V_n=(V_n)$，则有
+\[(V_{n-1})'<V<(V_n)\]
+设$V_i$的下底面积为$b_i$, $\triangle ABC$的边长为$b$, 则
+\[\begin{split}
+    \frac{b_1}{b}&=\frac{\left(\frac{1}{n}h\right)^2}{h^2}=\frac{1}{n^2}\\
+    \frac{b_2}{b}&=\frac{\left(\frac{2}{n}h\right)^2}{h^2}=\frac{2^2}{n^2}\\
+\cdots&\cdots
+\end{split}\]
+依此类推得到
+\[\frac{b_{n-1}}{b}=\frac{(n-1)^2}{n^2}\]
+因此有：
+\[b_1=\frac{b}{n^2},\; b_2=\frac{2^2 b}{n^2},\ldots, \; b_{n-1}=\frac{(n-1)^2 b}{n^2}\]
+所以
+\[\begin{split}
+    (V_{n-1})'&=\frac{bh}{n^3}\left[0^2+1^2+2^2+\cdots+(n-1)^2\right]\\
+    &=\frac{bh}{n^3}\cdot \frac{1}{6}n(n-1)(2n-1)\\
+    &=\frac{bh}{3}\left(1-\frac{1}{n}\right)\left(1-\frac{1}{2n}\right)
+\end{split} \]
+\[\begin{split}
+    (V_{n})&=\frac{bh}{n^3}\left[1^2+2^2+\cdots+n^2\right]\\
+    &=\frac{bh}{n^3}\cdot \frac{1}{6}n(n+1)(2n+1)\\
+    &=\frac{bh}{3}\left(1+\frac{1}{n}\right)\left(1+\frac{1}{2n}\right)
+\end{split} \]
+所以：
+\[ (V_{n-1})'=\frac{bh}{3}\left(1-\frac{1}{n}\right)\left(1-\frac{1}{2n}\right)<V<\frac{bh}{3}\left(1+\frac{1}{n}\right)\left(1+\frac{1}{2n}\right)=(V_{n})\]
+
+因为$V$和$\frac{bh}{3}$
+都是介于$(V_{n-1})'$和$(V_n)$之间的两个常
+数，又由于当$n$无限增大时，
+\[[(V_n)-(V_{n-1})'] \to 0\]
+所以由逼近原理，得知两者必相等。
+
+所以$V=\frac{1}{3}bh$. 由此得到下面定理。
+
+\begin{blk}
+    {定理} 三棱锥的体积等于它的底面积和高的乘积的三分
+之一。即如果$S_{\text{底}}$ 表示三棱锥的底面积，$h$表示高，则有
+\[V_{\text{三棱锥}}=\frac{1}{3}S_{\text{底}}h\]
+\end{blk}
+
+\begin{blk}    
+{推论} 任何棱锥的体积都等于$\frac{1}{3}$底面积乘以高。即：
+\[V_{\text{棱锥}}=\frac{1}{3}Sh\]
+这里，$S$表示棱锥底面积，$h$是棱锥的高。
+\end{blk}
+
+\begin{blk}
+{定理} 等底等高的两个锥体的体积相等。
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoints{0/0/A, 2/.2/B, 1.5/-.6/C, 1/-.2/S, 1/2.5/M}
+\foreach \x in {A,B,C,S}
+{
+    \tkzDefPointWith[linear, K=.5](M,\x)\tkzGetPoint{\x'}
+}
+\tkzDrawPolygon(M,A,C,B)
+\tkzDrawPolygon[dashed, pattern=north east lines](A',B',C')
+\tkzDrawSegments(M,C A',C' B',C')
+\tkzDrawSegments[dashed](A',B' A,B M,S)
+\tkzLabelPoints[right](S)
+\tkzLabelPoint[above left](S'){$S_1$}
+
+\tkzDefPoints{4/-.2/S_1, 4/2.5/N, 3/-.2/E, 5/-.2/F}
+\foreach \x in {E,F,S_1}
+{
+    \tkzDefPointWith[linear, K=.5](N,\x)\tkzGetPoint{\x'}
+}
+\tkzDrawSegments(N,E N,F)
+\tkzDrawSegments[dashed](N,S_1)
+\draw[dashed](S_1)ellipse[x radius=1, y radius=.4];
+\draw[dashed, pattern=north east lines](S_1')ellipse[x radius=.5, y radius=.2];
+\draw(E') arc[start angle =-180, end angle =0, x radius=.5, y radius=.2];
+\draw(E) arc[start angle =-180, end angle =0, x radius=1, y radius=.4];
+\tkzLabelPoint[right](S_1){$S$}
+\tkzLabelPoint[above right](S_1'){$S_2$}
+
+\tkzDrawPoints(S_1,S_1',S,S')
+
+
+\tkzDrawLines[dashed](M,N)
+
+\tkzDefPoints{-1.5/-1/a, 5/-1/b, 6/.5/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDrawSegments(a,b b,c d,a)
+\tkzInterLL(c,d)(M,A)  \tkzGetPoint{tmp1}
+\tkzInterLL(c,d)(M,B)  \tkzGetPoint{tmp2}
+\tkzInterLL(c,d)(N,E)  \tkzGetPoint{tmp3}
+\tkzInterLL(c,d)(N,F)  \tkzGetPoint{tmp4}
+
+\tkzDrawSegments(c,tmp4 tmp3,tmp2 tmp1,d)
+
+\tkzLabelSegment[right](S,S'){$h$}
+\tkzLabelSegment[right](S_1,S_1'){$h$}
+\tkzLabelSegment[left](M,S'){$h_1$}
+\tkzLabelSegment[left](N,S_1'){$h_2$}
+\node at (-1,-.8){$\alpha$};
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+
+
+
+
+\begin{proof}
+如图2.70, 取任意两个锥体，设它
+们的底面都是$S$, 高都是$h$.
+
+把这两个锥体放在
+同一平面$\alpha$上，这时它们的顶点都在与平面$\alpha$
+平行的同一个平面内。用平行于$\alpha$的任意截面
+去截它们，截面分别与底面相似，设截面和顶点的距离分别
+是$h_1$和$h_2$, 截面积分别是$S_1$和$S_2$, 那么
+
+$\because\quad \frac{S_1}{S}=\frac{h^2_1}{h^2},\quad \frac{S_2}{S}=\frac{h^2_2}{h^2},\quad h_1=h_2$
+
+$\therefore\quad \frac{S_1}{S}=\frac{S_2}{S}$
+
+$\therefore\quad S_1=S_2$
+
+根据祖暅原理，这两个锥体体积相等。
+\end{proof}
+
+\begin{blk}
+    {推论} 如果圆锥底面半径是$r$, 高是$h$, 那么它的体积计
+算公式是
+\[V_{\text{圆锥}}=\frac{1}{3}\pi r^2 h\]
+或
+\[V_{\text{圆锥}}=\frac{1}{3}S h\]
+其中$S=\pi r^2$.
+\end{blk}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{example}
+    已知：棱锥底面是面积为$Q$的矩形，矩形对角线交
+角为$60^{\circ}$, 棱锥侧棱与底面交角为$45^{\circ}$, 求这棱锥的体积。
+（图2.71）
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 4/0/B, 5/1.2/C, 2.5/4/S}
+\tkzDefPointsBy[translation = from B to C](A){D}
+\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+\tkzDrawPolygon(S,A,B,C)
+\tkzDrawSegments[dashed](B,D A,C S,O A,D C,D S,D)
+\tkzDrawSegments(S,B)
+\tkzLabelPoints[below](A,B,O)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[above right](D,C)
+\tkzMarkAngles[mark=none, size=.4](B,O,C O,A,S)
+\tkzLabelAngle[pos=.8](B,O,C){$60^{\circ}$}
+\tkzLabelAngle[pos=.8](O,A,S){$45^{\circ}$}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    设棱锥$S-ABCD$满足已知条件，并设棱锥底面矩形
+$ABCD$的对边$BC=AD=x$. 依
+题意则有棱锥的高$SO=x$, 底
+面对角线长为$2x$, 那么底面面
+积
+\[Q=2\x \frac{1}{2}x^2\sin 60^{\circ}+2\x \frac{1}{2}x^2\sin120^{\circ}\]
+解得：$x=\sqrt{\frac{Q}{\sqrt{3}}}$，所以棱体的体积
+\[V_{\text{棱锥}}=\frac{1}{3}Q\cdot \sqrt{\frac{Q}{\sqrt{3}}}=3^{-\tfrac{5}{4}}\cdot Q^{\tfrac{3}{2}}\]
+
+答：这个棱体的体积是$3^{-\tfrac{5}{4}}\cdot Q^{\tfrac{3}{2}}$.
+\end{solution}
+
+\begin{example}
+    一圆锥的侧面展开图的半径$\ell=18$dm, 图心角
+$\theta=210^{\circ}$, 求这圆锥的体积．
+\end{example}
+
+\begin{solution}
+$\because\quad  210^{\circ}=360^{\circ}\cdot \frac{R}{\ell}$，其中$R$为圆锥底面的半径。
+
+$\therefore\quad \frac{R}{\ell}=\frac{7}{12},\quad R=\frac{7}{12}\x 18=10.5$
+
+$\therefore\quad h=\sqrt{18^2-10.5^2}\approx 14.6$
+
+\[V_{\text{圆锥}}\approx \frac{1}{3}\x 3.14\x (10.5)^2\x 14.6\approx 1686({\rm dm^3})\approx 1.69({\rm m^3})\]
+
+答：这个圆锥的体积约等于1.69$({\rm m^3})$.
+\end{solution}
+
+
+\begin{ex}
+\begin{enumerate}
+    \item 在下列情况下，正棱锥的体积有什么变化？
+\begin{enumerate}
+    \item 高和底面的边长都增加为原来的$n$倍。
+    \item 高增加原来的$n$倍，底面边长缩为原来的$\frac{1}{n}$.
+\end{enumerate}
+    \item 正三棱锥底边长为$a$, 侧棱互相垂直，求它的体积。
+    \item 圆锥的底面半径为$r$, 母线与底面成$\alpha$角，求圆锥的体
+    积。
+    \item 圆锥的高和母线的比为4:5, 体积为$96\pi {\rm cm^3}$, 求圆锥的
+    全面积。
+    \item 将半径为50cm, $\theta=90^{\circ}$的扇形，卷起来围成圆锥形的
+    容器，可以盛水多少公斤？（水的比重$d=1$克/${\rm cm^3}$, 精
+    确到1公斤）
+    \item 圆锥的轴截面是顶角为$\alpha$的等腰三角形，这个三角形的
+    外接圆半径为$R$, 求圆锥的体积。
+    \item 证明：任何棱锥的体积都等于$\frac{1}{3}$
+    的底面积乘以高。
+\end{enumerate}
+\end{ex}
+
+\subsection{棱台和圆台的体积}
+ 我们已知，棱台、圆台分别
+是棱锥和圆锥用平行于底面的平面截去一个锥体得到的，因
+此，台体的体积可以用两个锥体的体积之差来计算。
+
+设任意台体（棱台或圆台）的上、下底面的面积分别是
+$S_1$和$S_2$, 高是$h$ (图2.72).
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1.4]
+\tkzDefPoints{1/.5/S_2, 1/1.5/S_1}
+\draw[dashed](S_1) ellipse[x radius=.6, y radius=.2];
+\draw[dashed](S_2) ellipse[x radius=1, y radius=.3];
+\tkzDefPoints{0/.5/A_2, .4/1.5/A_1, 2/.5/B_2, 1.6/1.5/B_1}
+\tkzInterLL(A_1,A_2)(B_1,B_2)  \tkzGetPoint{H}
+\tkzDrawSegments(A_2,H  B_2,H)
+\draw(A_2) arc [start angle =-180, end angle =0, x radius=1, y radius=.3];
+\draw(A_1) arc [start angle =-180, end angle =0, x radius=.6, y radius=.2];
+\tkzDrawSegments[dashed](H,S_2)    
+\tkzLabelPoints[left](S_1,S_2)
+\tkzLabelSegment[right](S_1,S_2){$h$}
+\tkzLabelSegment[right](S_1,H){$x$}
+
+
+\tkzDefPoints{3/0.5/A, 5/0.5/C, 3.6/-.1/B, 4.2/1.1/D, 4/3/G, 4/0.5/S}
+
+\foreach \x in {A,B,C,D,S}
+{
+    \tkzDefPointWith[linear, K=.63](G,\x) \tkzGetPoint{\x'}
+}
+
+\tkzDrawPolygon(G,A,B,C)
+\tkzDrawSegments[dashed](G,D G,S C,D D,A C',D' D',A')
+
+\tkzDrawSegments(A',B' B',C' G,B)
+
+\tkzLabelSegment[left](S,S'){$h$}
+\tkzLabelSegment[right](S',G){$x$}
+\tkzLabelPoint[right](S){$S_2$}
+\tkzLabelPoint[right](S'){$S_1$}
+
+\tkzDefPoints{-1.5/-.5/a, 4.5/-.5/b, 6/1.25/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+
+\tkzDrawSegments(a,b b,c d,a)
+\tkzInterLL(c,d)(H,A_1) \tkzGetPoint{tmp1}
+\tkzInterLL(c,d)(H,B_2) \tkzGetPoint{tmp2}
+\tkzInterLL(c,d)(G,A') \tkzGetPoint{tmp3}
+\tkzInterLL(c,d)(G,C') \tkzGetPoint{tmp4}
+
+\tkzDrawSegments(c,tmp4 tmp3,tmp2 tmp1,d)
+
+\tkzDrawPoints(S,S',S_1,S_2)
+
+\node at (-1.3,-.5)[above right]{$\alpha$};
+
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+设截得台体时去掉锥体
+的高是$x$, 去掉的锥体和原
+来的锥体的体积分别是$V_1$和
+$V_2$, 这时，
+\[V_1=\frac{1}{3}S_1 x,\qquad V_2=\frac{1}{3}S_2(x+h)\]
+
+所以台体的体积
+\begin{equation}\label{2-eq2}
+    V_{\text{台体}}=V_2-V_1=\frac{1}{3}S_2(x+h)-\frac{1}{3}S_1x
+\end{equation}
+
+现在的问题是要求出$x$. 因为台体的上、下底面相似，
+并且易知，它们的面积之比等于顶点到平行底面的距离平方
+之比，所以
+\[\frac{x^2}{(x+h)^2}=\frac{S_1}{S_2},\quad \frac{x}{x+h}=\frac{\sqrt{S_1}}{\sqrt{S_2}},\quad x\sqrt{S_2}=(x+h)\sqrt{S_1}\]
+
+由此解得
+\[x=\frac{h\sqrt{S_1}}{\sqrt{S_2}-\sqrt{S_1}},\qquad x+h=\frac{h\sqrt{S_2}}{\sqrt{S_2}-\sqrt{S_1}}\]
+代入(\ref{2-eq2})式得
+\[\begin{split}
+    V_{\text{台体}}&=\frac{1}{3}\left[\frac{hS_2\sqrt{S_2}}{\sqrt{S_2}-\sqrt{S_1}}-\frac{hS_1\sqrt{S_1}}{\sqrt{S_2}-\sqrt{S_1}}\right]\\
+    &=\frac{h}{3}\left[\frac{S_2^{\tfrac{3}{2}}-S_1^{\tfrac{3}{2}}}{\sqrt{S_2}-\sqrt{S_1}}\right]\\
+    &=\frac{1}{3}h\left(S_2+\sqrt{S_2S_1}+S_1\right)
+\end{split}\]
+
+由此，我们得到下面定理。
+
+\begin{blk}
+{定理} 如果台体（棱台、圆台）的上，下底面面积分别
+是$S_1$和$S_2$, 高是$h$, 那么台体的计算公式是
+\[V_{\text{台体}}=\frac{1}{3}h\left(S_1+\sqrt{S_1S_2}+S_2\right)\]    
+\end{blk}
+
+\begin{blk}
+{推论} 如果圆台的上、下底面半径分别是$r_1$和$r_2$, 那么
+它的体积 
+\[V_{\text{圆台}}=\frac{1}{3}\pi h(r^2_1+r_1r_2+r^2_2)\] 
+\end{blk}
+
+\begin{example}
+    棱台的高为20cm, 体积为$1720{\rm cm^3}$, 两个底面对
+    应边的比为5:8, 求两底面面积．
+\end{example}
+
+\begin{solution}
+    设两底面面积为$S_1$和$S_2$, 根据已经条件，则有
+\[\frac{S_1}{S_2}=\frac{5^2}{8^2}=\frac{25}{64}\]   
+    设$S_1=25x({\rm cm^2}),\quad S_2=64x({\rm cm^2})$，由棱台的体积公式知
+\[    1720=\frac{1}{3}\x 20\x \left[25x+64x+\sqrt{25x\cdot 64x}\right]=860x\]
+
+$\therefore\quad x=2$
+
+$\therefore\quad S_1=50({\rm cm^2}),\quad S_2=128({\rm cm^2})$
+
+答：棱台的上底面积为$50{\rm cm^2}$, 下底面积为$128{\rm cm^2}$.
+\end{solution}
+
+\begin{example}
+    一个圆环铁片，它的内半径为45cm, 外半径是
+75cm, 用它的$\frac{1}{3}$
+作圆台形水桶的侧面，这个水桶容积是多
+少${\rm cm^3}$？
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+
+    
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+    如图2.73, $\ell=45$(cm), $L=75$(cm)，
+圆环部分$ABCD$等于$\frac{1}{3}$
+圆环。以它为侧面的水桶（圆台）的
+体积设为$V_{\text{圆台}}$，根据已知条件列出下列方程。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+答：水桶容积是$8167\sqrt{2}\pi {\rm cm^3}$.
+\end{solution}
+
+
+\begin{example}
+    已知：正六边形$ABCDEF$, 直
+线$MN$在正六边形所在的平面内，通过$F$
+点而与$CF$垂直，正六边形$ABCDEF$绕着
+$MN$轴旋转，所得旋转体的体积为$V_{\text{旋转}}$，
+求：$V_{\text{旋转}}$。
+\end{example}
+
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+\tkzDefPoints{1.5/0/C, 0/0/O'', -1.5/0/F, -1.5/2.5/M, -1.5/-2.5/N}
+\tkzDefPoint(60:1.5){B}
+\tkzDefPoint(120:1.5){A}
+\tkzDefPoint(-60:1.5){D}
+\tkzDefPoint(-120:1.5){E}
+\tkzDefPointBy[projection= onto M--N](A) \tkzGetPoint{O}
+\tkzDefPointBy[projection= onto M--N](E) \tkzGetPoint{O'}
+\tkzLabelPoints[left](O,F,O')
+\tkzLabelPoints[right](M,N,C)
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](D,E)
+\tkzDrawPolygon(A,B,C,D,E,F)
+\tkzDrawSegments(C,F M,N)
+\tkzDrawSegments[dashed](O,A O',E)
+
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{solution}
+如图2.74, 延长$BA$, $DE$分别
+与$MN$交于$O$和$O'$, 易知
+\begin{equation}\label{2-eq3}
+\begin{split}
+    V_{\text{旋转}}&=2V_{\text{圆台}}-2V_{\text{圆锥}}=2\left(V_{\text{圆台}}-V_{\text{圆锥}}\right)\\
+    &=2\left(\frac{1}{3}\pi\cdot FO\cdot (FC^2+FC\cdot OB+OB^2)-\frac{1}{3}\pi \cdot OA^2 \cdot OF\right)\\
+    &=\frac{2}{3}\pi \cdot OF (FC^2+OB^2+FC\cdot OB-OA^2)
+\end{split}
+\end{equation}
+
+设正六边形$ABCDEF$的一边长为$a$, 
+则
+\[FC=2a,\qquad OA=\frac{1}{2}a,\qquad OB=\frac{3}{2}a,\qquad OF=\frac{\sqrt{3}}{2}a\]
+代入(\ref{2-eq3})式，因此：
+\[V_{\text{旋转}}=\frac{2}{3}\pi \frac{\sqrt{3}}{2}a\left(4a^2+\frac{9}{4}a^3+3a^2-\frac{a^2}{4}\right)
+=3\pi \sqrt{3}a^3\]
+\end{solution}
+
+
+\begin{rmk}
+    一个多边形绕着在它面内且不通过多边形内部任
+何一点的轴旋转，所得旋转体的体积等于由矩形、直角三角形、直角梯形绕着它们的一条直角边旋转所形成的圆柱、圆
+锥、圆台的体积经过加法或减法某种确定的组合而算得的体
+积。
+\end{rmk}
+
+\begin{ex}
+\begin{enumerate}
+    \item 如果用$S_1$表示上底面积，$S_2$表示下底面积，试说明柱、
+    锥、台体的体积都可以用公式$V=\frac{1}{3}h\left(S_1+S_2+\sqrt{S_1S_2}\right)$
+    表示。
+    \item 
+    已知上、下底面边长分别是$a$、$b$, 高是$h$, 求下列正棱
+    台的全面积和体积。
+\begin{multicols}{2}
+\begin{enumerate}
+    \item 正四棱台
+    \item 正六棱台
+\end{enumerate}
+\end{multicols}
+    \item 圆台的高为3, 一个底面半径是另一个底面半径的2
+    倍，母线和下底的夹角为$45^{\circ}$, 求它的体积。
+    \item 圆台一个底面半径是另一个底面半径的4倍，把它的高
+    三等分，过各分点作两个平行于底的平面，求这圆台被
+    分成三部分体积的比。
+    \item 一个正四棱台，斜高和两底面边长的比为5:8:2, 体
+    积为$1\frac{3}{4}{\rm m^3}$, 求它的全面积。
+    \item 
+    圆台的体积是$234\sqrt{3}{\rm cm^3}$, 侧面展开图是半圆环，它的
+    大半径等于小半径的3倍，求这个圆台的上底面半径。
+    \item 
+    正六边形的边长为$a$, 以它的一边所在的直线为轴旋转
+    一周，求所得旋转体的体积和表面积。
+\end{enumerate}
+\end{ex}
+
+\subsection{球和球缺的体积}
+
+为了求出球体积计算公式，我们把半径为$R$的半球装在底面半径和高都等于$R$的圆柱内，使
+半球的大圆截面和圆柱的底面重合，圆柱的上底必与半球相
+切。图2.75是圆柱和半球的轴截面，半圆与圆柱轴截面矩形
+$ABCD$相切于$CD$边上一点$E$.
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1.3]
+\draw(-2,0) rectangle (2,2);
+\draw(-2,0) arc (180:0:2);
+\tkzDefPoints{0/0/O, -2/0/A, 2/0/B, 0/2/E, -2/2/D, 2/2/C}
+\tkzDefPointWith[linear, K=.4](D,A) \tkzGetPoint{F}
+\tkzDefPointWith[linear, K=.4](C,B) \tkzGetPoint{J}
+\tkzInterLL(F,J)(D,O)  \tkzGetPoint{G}
+\tkzInterLL(F,J)(C,O)  \tkzGetPoint{I}
+\tkzInterLL(F,J)(E,O)  \tkzGetPoint{H}
+\tkzLabelPoints[left](D,F,A)
+\tkzLabelPoints[right](C,J,B)
+\tkzLabelPoints[above](G,I)
+\tkzLabelPoints[above right](E,H)
+\tkzDrawSegments(C,O D,O F,J)
+\tkzDrawLines[dashdotted](E,O)
+\tkzInterLC(F,J)(O,A)  \tkzGetPoints{K}{L}
+\tkzLabelPoints[below](K,L)
+\tkzLabelPoints[below right](O)
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+连结$OE$、$OC$和$OD$, 则$\triangle COD$是等腰直角三角形，
+$\angle COD=90^{\circ}$, 又$OE\bot CD$, $OE$也平分$\angle COD$. 这样，我
+们又得到一个顶点在半球心$O$, 底面半径为$CE=R$的圆锥的
+截面$\triangle COD$.
+
+用和半球底面大圆截面平行的
+任意一个平面去截半球，此截面与
+轴截面上的圆柱、圆锥母线$AD$、
+$OD$、$OE$、$OC$、$BC$分别交于$F$、$G$、
+$H$、$I$、$J$各点，而与球的大圆上的
+半圆弧交于$K$、$L$两点。
+
+显然，$OH=HG=$和圆锥底面平行的截面半径$r$. 
+
+又，$HK$为和半球底面平行的截面小圆的半径$r'$, 连结
+$OK$, 则$OK=HF=R$.
+
+在直角三角形$OKH$中有
+\[OK^2=OH^2+HK^2\]
+即
+\[HF^2=HG^2+HK^2,\qquad R^2=r^2+{r'}^2\]
+
+$\therefore\quad \pi R^2=\pi r^2+\pi {r'}^2$
+
+这就是说，用任何一个平行于半球底面的平面去截圆柱
+和半球，总会截得下面的关系：
+\[\text{圆柱的截面面积}=\text{圆锥的截面面积}+\text{半球的截面面积}\]
+因此，根据祖暅原理得到
+\[V_{\text{圆柱}}=V_{\text{圆锥}}+V_{\text{半球}}\]
+即：
+\[\pi R^2\cdot R=\frac{1}{3}\pi R^2\cdot R+V_{\text{半球}}\quad \Rightarrow\quad V_{\text{半球}}=\frac{2}{3}\pi R^3\]
+
+$\therefore\quad V_{\text{球}}=\frac{4}{3}\pi R^3$
+
+由此，我们得到下面的定理。
+
+\begin{blk}
+   {定理} 如果球的半径是$R$, 那么它的体积计算公式是
+\[V_{\text{球}}=\frac{4}{3}\pi R^3\]
+\end{blk}
+
+\begin{blk}
+    {定义} 球冠和截得它的截面所围成的几何体叫做球缺，
+球冠的高叫做球缺的高，截面叫做球缺的底面。球带和截得
+它的两个截面所围成的几何体叫做球台，球带的高叫做球台
+的高，两个截面叫做球台的底面。
+\end{blk}
+
+球缺体积公式可仿球的体积公式的求法推出。
+设球的半径是$R$, 球缺的高
+是$h$, 图2.76所示，弓形$PEQ$为
+球缺的轴截面，$SE$为球缺的高，
+故$SE=h$.
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoints{0/0/O, -2/0/D', 2/0/C', -2/2/D, 2/2/C, 0/2/E}
+\tkzDefPointWith[linear, K=.4](D,D')\tkzGetPoint{F}
+\tkzDefPointWith[linear, K=.6](D,D')\tkzGetPoint{A}
+\tkzDefPointWith[linear, K=.4](C,C')\tkzGetPoint{F'}
+\tkzDefPointWith[linear, K=.6](C,C')\tkzGetPoint{B}
+\tkzInterLL(D,O)(F,F')\tkzGetPoint{G} 
+\tkzInterLL(D,O)(A,B)\tkzGetPoint{M} 
+\tkzInterLL(C,O)(F,F')\tkzGetPoint{G'} 
+\tkzInterLL(C,O)(A,B)\tkzGetPoint{N} 
+\tkzInterLC(A,B)(O,E) \tkzGetPoints{P}{Q}
+\tkzInterLC(F,F')(O,E) \tkzGetPoints{K}{K'}
+\tkzInterLL(E,O)(F,F')\tkzGetPoint{H}
+\tkzInterLL(E,O)(A,B)\tkzGetPoint{S}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments[dashed](O,K O,M O,N A,D' B,C' C',D' O,S)
+\tkzDrawSegments(M,D N,C S,E F,F')
+\tkzDrawArc[very thick, color=black](O,Q)(P)
+\draw[dashed] (C') arc(0:180:2);
+
+\tkzLabelPoints[left](D,F,A)
+\tkzLabelPoints[right](C,B)
+\tkzLabelPoints[above](E,G,M,N)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[above left](K)
+\tkzLabelPoints[above right](H)
+\tkzLabelPoints[below right](S,P)
+\tkzLabelPoints[below left](Q)
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+梯形$MNCD$为圆台的轴截
+面，$NS$为圆台上底面半径，$CE$为圆台下底面半径。
+
+矩形$ABCD$为底面半径等于$R$, 高等于$h$的圆柱的轴截
+面。
+
+平行于球缺底面的任意平面截圆柱轴截面上的母线$AD$
+于$F$点，截球缺轴截面上的母线$\wideparen{PE}$于$K$点，截圆台的轴截
+面上的母线$MD$于$G$点。
+
+在等腰直角$\triangle OHG$中，
+\[\begin{split}
+    OH=HG&=\text{平行圆台底面的截面圆半径}r\\
+HK&=\text{平行球缺底面的截面圆半径}r'
+\end{split}\]
+
+连结$OK$, 则$HF=OK=$平行圆柱底面的截面圆半径$R$. 
+
+在直角三角形$OKH$中，有
+\[OK^2=OH^2+HK^2\]
+即：
+\[HF^2=HG^2+HK^2,\qquad R^2=r^2+{r'}^2\]
+
+$\therefore\quad \pi R^2=\pi r^2+\pi {r'}^2$
+
+这就是说，用任何一个平行于球缺底面的平面去截圆柱
+和球缺，总会截得下面的关系：
+\[\text{圆柱截面面积}=\text{圆台截面面积}+\text{球缺截面面积}\]
+因此，根据祖暅原理得到
+\[\begin{split}
+ V_{\text{圆柱}}&=V_{\text{圆台}}+V_{\text{球缺}}\\
+V_{\text{球缺}}&=V_{\text{圆柱}}-V_{\text{圆台}}\\
+& =  \pi Rh^2-\frac{1}{3}\pi h[R^2+R(R-h)+(R-h)^2]\\
+&=\pi Rh^2-\frac{1}{3}\pi h^3=\frac{1}{3}\pi h^2(3R-h)
+\end{split}\]
+
+由此我们得到下面的定理：
+
+\begin{blk}
+   {定理} 如果球的半径是$R$, 球缺的高是$h$, 那么球缺体积
+计算公式是： 
+\[V_{\text{球缺}}=\frac{1}{3}\pi h^2(3R-h)\]
+\end{blk}
+
+\begin{blk}
+    {推论}
+若球缺底面半径是$r$, 高是$h$, 则球缺的体积是
+\[V_{\text{球缺}}=\frac{1}{6}\pi h(3r^2+h^2)\]
+\end{blk}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[scale=.6]
+\draw(0,0)node[below]{$O$}circle(3);
+\draw(30:3) arc [start angle =0, end angle =-180, x radius=1.5*1.732, y radius=.6];
+\draw[dashed](30:3) arc [start angle =0, end angle =180, x radius=1.5*1.732, y radius=.6];
+\draw[dashed](0,0)--node[below]{$R$}(30:3)node[right]{$A$}--(0,1.5);
+\draw[dashed](0,0)--(0,1.5)node[left]{$H$}--node[right]{$h$}(0,2.5);
+\tkzDrawPoint(0,2.5)
+
+
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{proof}
+    如图2.77, 设截得球缺的球的
+半径是$R$, 由直角三角形$OAH$, 得到
+\[r^2=R^2-(R-h)^2=2hR-h^2\]
+
+$\therefore\quad R=\frac{r^2}{2h}+\frac{h}{2}$
+
+将$R$代入球缺体积公式，则有
+\[V_{\text{球缺}}=\pi h^2\left(\frac{r^2}{2h}+\frac{h}{2}-\frac{h}{3}\right)=\frac{1}{6}\pi h(3r^2+h^2)\]
+\end{proof}
+
+
+球台的体积可以由计算两个球缺的差得到。
+
+\begin{example}
+    正三棱柱里有一个内切球（即球面和正棱柱的所
+有各面都相切）已知正三棱柱的体积为$48\sqrt{3}{\rm cm^3}$, 求内切球
+的体积，（图2.78(1)）
+\end{example}
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{0/0/A, 4/0/B, 1.5/-1.4/C, 0/2/A'}
+\tkzDefPointsBy[translation = from A to A'](B,C){B',C'}
+\tkzDrawPolygon(A',B',C')
+\tkzDrawSegments(A,C B,C A,A' B,B' C,C')
+\tkzDrawSegments[dashed](A,B)
+\draw[dashed](1.8,.6) circle (1.2);
+\node at (2,-2.5){(1)};
+\end{scope}
+\begin{scope}[xshift=6cm]
+    \tkzDefPoints{0/2/A, 4/2/C}
+    \tkzDefEquilateral(C,A) \tkzGetPoint{B}
+\tkzDrawPolygon(A,B,C)
+\tkzDefMidPoint(A,C)\tkzGetPoint{D}
+\tkzDefTriangleCenter[ortho](B,C,A)
+\tkzGetPoint{O}
+\draw(O) circle (2/1.732);
+\tkzLabelPoints[above](A,D,C)
+\tkzLabelPoints[below](O,B)
+\tkzDrawSegments[dashed](A,O D,O)
+\node at (2,-2.5){(2)};
+
+\end{scope}
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+\begin{solution}
+    设内切球的半径为$r$, 则$2r$为正三棱
+柱的高。如果正三棱柱
+的底面正三角形的一边长为$a$, 那么正三棱柱的底面积：
+\[S_{\text{底}}=\frac{1}{2}a^2\sin60^{\circ}=\frac{\sqrt{3}}{4}a^2\]
+又，根据已知条件有
+\[\frac{\sqrt{3}}{4}a^2\cdot 2r=48\sqrt{3}\]
+因此：
+\begin{equation}\label{2-eq1}
+  r=\frac{96}{a^2}  
+\end{equation}
+
+因为球内切于正三棱柱，所以它们在正三棱柱一个底面
+上的正射影为图2.78(2), 正$\triangle ABC$是正三棱柱底面正三角
+形，其内切圆$O$为内切球之大圆，设$\odot O$切$AC$于$D$, 连$OD$, 
+$OA$, 在直角$\triangle OAD$中，
+
+$\because\quad \angle OAD=30^{\circ}$
+
+$\therefore\quad r=OD=\frac{1}{2}OA=\frac{\sqrt{3}}{6}a$
+
+$\therefore\quad a=\frac{6}{\sqrt{3}}r=2\sqrt{3}r$
+
+$\therefore\quad a^2=12r^2$ 代入(\ref{2-eq1})式
+
+$\therefore\quad r=2{\rm (cm)}$
+
+$\therefore\quad $内切球体积
+\[V_{\text{球}}=\frac{4}{3}\pi \x 2^3=\frac{32}{3}\pi {\rm (cm^3)}\]
+
+答：内切球的体积是$\frac{32}{3}\pi {\rm (cm^3)}$.
+\end{solution}
+
+\begin{example}
+    钢铆钉钉头呈球缺形，钉身呈圆柱形，尺寸如图2.79(单位mm), 已知钢的比重是7.8${\rm g/cm^3}$, 求铆钉的重量（精确到0.1g）
+\end{example}
+
+\begin{solution}
+    钉头的体积是
+\[\begin{split}
+    V_{\text{球缺}}&=\frac{1}{3}\pi h^2(3R-h)\\
+    &\approx \frac{1}{3}\x 3.14\x 6^2\x (3\x 10-6)\approx 904({\rm mm^3})
+\end{split}\]
+钉身的体积是
+\[V_{\text{圆柱}}=\pi R_1^2h_1\approx 3.14\x 5^2\x 20\approx 1570({\rm mm^3})\]
+所以铆钉的重量是：
+\[7.8\x \frac{904+1570}{1000}\approx 19.3{\rm (g)}\]
+
+答：铆钉的重量约为19.3克。
+\end{solution}
+
+
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=.6]
+\draw(180-66.42:2.5) arc (180-66.42:180+66.42:2.5);
+\draw(180-66.42:2.5)--(180+66.42:2.5);
+\draw(-1,-1.25) rectangle (4,1.25);
+
+\draw[|<->|](-2.5,-2.5)--node[below]{6}(-1,-2.5);
+\draw[<->](-1,-1.8)--node[fill=white]{20}(4,-1.8);
+\draw(4,-1.25)--(4,-2);
+\draw[|<->|](4.25,1.25)--node[right]{$\phi 10$}(4.25,-1.25);
+\draw[->](0,0)--node[above]{$R10$}(160:2.5);
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoint(30:3){B}
+\tkzDefPoint(150:3){A}
+\tkzDefPoints{0/0/O, 0/3/C, 0/1.5/D}
+\draw[very thick] (B) arc [start angle =0, end angle =-180, x radius=1.5*1.732, y radius=.6];
+\draw[dashed] (B) arc [start angle =0, end angle =180, x radius=1.5*1.732, y radius=.6];
+\tkzDrawSegments(A,O B,O)
+\tkzDrawSegments[dashed](C,O B,D)
+\tkzLabelPoints[left](A,D)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[above](C)
+\draw(B) arc (30:150:3);
+\tkzMarkAngle[mark=none, size=.4](B,O,D)
+\tkzLabelAngle[pos=.8](B,O,D){$60^{\circ}$}
+\tkzLabelSegment[right](C,D){$h$}
+\tkzLabelSegment[below](B,O){$R$}
+
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
+
+\begin{example}
+    一扇形的半径为$R$, 中心角是$60^{\circ}$, 绕着它的一条边
+    即扇形的半径旋转，求旋转体的体积。
+\end{example}
+
+\begin{solution}
+    这个旋转体的图形如图2.80所示，它是由球冠和圆锥侧
+面所围成的几何体。我们把它叫
+做球扇形，并把它看成是无数个
+顶点在球心，底面在球冠面上的
+小锥体的组合，设每个小锥体的
+底面面积是$S_1,S_2,S_3,\ldots$. 
+
+球扇形的底面面积是球冠面积$S_{\text{球冠}}$，那么
+\[S_{\text{球冠}}=S_1+S_2+S_3+\cdots\]
+球扇形的体积
+\[\begin{split}
+    V&=\frac{1}{3}S_1R+\frac{1}{3}S_2R+\frac{1}{3}S_3R+\cdots\\
+&=\frac{1}{3}R(S_1+S_2+S_3+\cdots)=\frac{1}{3}RS_{\text{球冠}}
+\end{split}    
+\]
+
+$\because\quad S_{\text{球冠}}=2\pi Rh$
+
+$\therefore\quad V=\frac{1}{3}R(2\pi Rh)=\frac{2}{3}\pi R^2h$
+
+$\because\quad h=R-OD,\quad OD=\frac{1}{2}R$
+
+$\therefore\quad h=\frac{1}{2}R$
+
+$\therefore\quad V=\frac{2}{3}\pi R^2\cdot \frac{1}{2}R=\frac{1}{3}\pi R^3$
+
+答：这个球扇形的体积是$\frac{1}{3}\pi R^3$.
+\end{solution}
 
 
 
