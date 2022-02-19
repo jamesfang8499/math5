@@ -4397,9 +4397,27 @@ $\therefore\quad S_1=50({\rm cm^2}),\quad S_2=128({\rm cm^2})$
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1, >=latex]
+\draw(0,0) circle (1);
+\draw(0,0) circle (2.5);
+\draw(-150:2.5)node[left]{$B$}--(-150:1)node[right]{$A$}--(0,0)--(-30:1)node[left]{$D$}--(-30:2.5)node[right]{$C$};
+\fill[pattern=north east lines](-150:1)--(-150:2.5) arc (-150:-30:2.5)--(-30:1) arc (-30:-150:1);
+\draw[fill=white](0,-1-.6) circle (.6);
+\draw[->](0,-1-.6)--node[above]{$r$}+(-45:.6);
+\draw[->](-30:2.5+1.3) circle (1.3);
+\draw[->](-30:2.5+1.3)--node[above]{$R$}+(-45:1.3);
 
-    
+\draw[decorate,decoration={brace,raise=2pt}] (-150:1) --node[above left]{$\ell$}(0,0) ;
+\draw[decorate,decoration={brace,raise=2pt}] (0,0) --node[above right]{$L$} (-30:2.5);
+
+
+\tkzDefPoints{3/0/A, 4.3/0/B, 3.6/1.5/C, 3/1.5/D, 3.6/0/E}
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelSegment[right](B,C){$L-\ell$}
+\tkzLabelSegment[below](A,B){$R$}
+\tkzLabelSegment[above](D,C){$r$}
+\tkzLabelSegment[left](E,C){$h$}
+\tkzDrawSegments(C,E)
 \end{tikzpicture}
     \caption{}
 \end{figure}
@@ -4409,26 +4427,24 @@ $\therefore\quad S_1=50({\rm cm^2}),\quad S_2=128({\rm cm^2})$
 圆环部分$ABCD$等于$\frac{1}{3}$
 圆环。以它为侧面的水桶（圆台）的
 体积设为$V_{\text{圆台}}$，根据已知条件列出下列方程。
+\begin{numcases}{}
+    \frac{1}{3}(2\pi\ell)=2\pi r\\
+    \frac{1}{3}(2\pi L)=2\pi R\\
+    h=\sqrt{(L-\ell)^2-(R-r)^2}
+\end{numcases}
+
+由(2.12)，得：$\frac{1}{3}(2\pi\cdot 45)=2\pi r\quad \Rightarrow\quad r=15$
+
+由(2.13)，得：$\frac{1}{3}(2\pi\cdot 75)=2\pi R\quad \Rightarrow\quad R=25$
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+由(2.14)，得：
+\[h=\sqrt{(75-45)^2-(25-15)^2}=\sqrt{30^2-10^2}=\sqrt{800}\]
+\[\begin{split}
+    V_{\text{圆台}}&=\frac{1}{3}\pi h(R^2+Rr+r^2)\\
+    &=\frac{1}{3}\pi\sqrt{800}(25^2+25\x 15+15^2)\\
+    &\approx 8167\sqrt{2}\pi ({\rm cm^3})
+\end{split}\]
 
 答：水桶容积是$8167\sqrt{2}\pi {\rm cm^3}$.
 \end{solution}

@@ -889,150 +889,78 @@ $\therefore\quad (A\cup B)\cup C\subseteq A\cup (B\cup C)$
 $\therefore\quad (A\cup B)\cup C=A\cup (B\cup C)$
 \end{proof}
 
+\begin{blk}
+  {定理} 对于补集有以下法则成立（德·摩根法则）
+\begin{enumerate}
+  \item $ \overline{A\cap B}=\bar A\cup\bar B$
+  \item $\overline{A\cup B}=\bar A\cap \bar B$
+\end{enumerate}
+\end{blk}
 
+\begin{proof}
+\begin{enumerate}
+  \item \[\begin{split}
+    x\in \overline{A\cap B} & \quad \Longleftrightarrow\quad x\notin A\cap B\\
+    & \quad \Longleftrightarrow\quad \text{若$x\in A$则$x\notin B$,\quad 若$x\in B$则$x\notin A$}\\
+    & \quad \Longleftrightarrow\quad x\notin A\text{ 或 }x\notin B\\
+    & \quad \Longleftrightarrow\quad x\in\bar{A}\text{ 或 }x\in\bar{B}\\
+    & \quad \Longleftrightarrow\quad x\in\left(\bar{A}\cup\bar{B}\right)\\
+  \end{split}\]
 
+ $\therefore\quad \overline{A\cap B}=\bar A\cup\bar B$ 
+  \item 类似地可以证明2式。
+\end{enumerate}
+\end{proof}
 
+\begin{blk}
+  {定理} 对于三个集合$A$、$B$、$C$, 有以下分配律成立
+\begin{enumerate}
+  \item 交对并的分配律：$A\cap (B\cup C)=(A\cap B)\cup(A\cap C)$
+  \item 并对交的分配律：$A\cup(B\cap C)=(A\cup B)\cap (A\cup C)$
+\end{enumerate}
+\end{blk}
+
+\begin{proof}
+  同学们可用定义证明1, 这里我们仅利用1和德·摩根法则证2.
+\[\begin{split}
+    \overline{A \cup(B \cap C)} &=\bar{A} \cap(\overline{B \cap C}) \\
+    &=\bar{A} \cap(\bar{B} \cup \bar{C}) \\
+    &=(\bar{A} \cap \bar{B}) \cup(\bar{A} \cap \bar{C}) \\
+    &=\overline{A \cup B} \cup \overline{A \cup C} \\
+    &=\overline{(A \cup B) \cap(A \cup C)}
+\end{split}\]
+对上式两端取补集，据$\overline{\bar A}=A$, 则有：
+\[A\cup (B\cap C)=(A\cup B) \cap (A\cup C)\]
+\end{proof}
 
 \begin{example}
-  
+  设$A$、$B$、$C$、$D$都是集合，证明：
+\[A\cap (B\cup C\cup D)=(A\cap B)\cup (A\cap C)\cup (A\cap D)\]
 \end{example}
 
-\begin{example}
-  
-\end{example}
+\begin{proof}
+\begin{align*}
+  A\cap (B\cup C\cup D)&= A\cap \big(B\cup(C\cup D)\big)  \tag{结合律}\\
+  &=(A\cap B)\cup \big(A\cap (C\cup D)\big)  \tag{分配律}\\
+  &=(A\cap B)\cup \big((A\cap C)\cup  (A\cap D)\big)\tag{分配律}\\
+  &=(A\cap B)\cup (A\cap C)\cup  (A\cap D)  \tag{结合律}
+\end{align*}
+\end{proof}
 
 \begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-
-  
-\end{example}
-
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-\begin{example}
-  
-\end{example}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
+  试用$\bar A$、$\bar B$、$\bar C$表示$\overline{(A\cap B)\cup (B\cap C)}$
 \end{example}
 
 
 \begin{solution}
-  
+\begin{align*}
+  \overline{(A\cap B)\cup (B\cap C)}&=\overline{(B\cap A)\cup (B\cap C)}  \tag{交换律}\\
+  &=\overline{B\cap (A\cup C)} \tag{分配律}\\
+  &=\bar B\cup \overline{(A\cup C)} \tag{德·摩根法则}\\
+  &=\bar B\cup (\bar A\cap \bar C) \tag{德·摩根法则} 
+\end{align*} 
 \end{solution}
-
-\begin{example}
   
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-
-
-
-
-
-
 
 
 \begin{ex}
@@ -1649,6 +1577,209 @@ $\therefore\quad P\in BD$.
 
 
 
+\begin{example}
+  
+\end{example}
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+
+
+\begin{solution}
+  
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{example}
+  
+\end{example}
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{example}
+  
+\end{example}
+
+
+\begin{solution}
+  
+\end{solution}
 
 
 
@@ -1686,17 +1817,38 @@ $\therefore\quad P\in BD$.
     
 \end{solution}
 
-\begin{solution}
+\begin{example}
     
-\end{solution}
+\end{example}
 
 \begin{solution}
     
 \end{solution}
 
+\begin{example}
+    
+\end{example}
+
 \begin{solution}
     
 \end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
 \begin{example}
     
 \end{example}
@@ -1708,27 +1860,11 @@ $\therefore\quad P\in BD$.
     
 \end{example}
 
-\begin{solution}
-    
-\end{solution}
-\begin{example}
-    
-\end{example}
-
 
 \begin{solution}
     
 \end{solution}
-\begin{example}
-    
-\end{example}
 
-\begin{example}
-    
-\end{example}
-\begin{example}
-    
-\end{example}
 
 
 
@@ -1961,6 +2097,154 @@ $AP=18.9$cm, $BP=29.4$cm, $CD=57.5$cm, 求$CP$和$DP$
 \item 一条长$2a$的线段夹在互相垂直的两个平面之间，它和两
 个平面所成的角都是$30^{\circ}$, 求这条线段与这两个平面的
 交线所成的角。
+
+\item 已知：$AB$和平面$\pi$所成的角是$\theta_1$, 
+$AC$在$\pi$内，$AC$和$AB$在$\pi$内的射
+影$AB'$成角$\theta_2$, 设$\angle BAC=\theta$, 
+求证：$\cos\theta=\cos\theta_1\cdot \cos\theta_2$.
+\item 二面角$\pi_1-\ell-\pi_2$是$\theta_1$, $A\in\ell$, 
+$AC\subset \pi_1$, 且$AC$与$\ell$的交角为$\theta_2$, 
+设$AC$与$\pi_2$所成的角为$\theta$.
+
+求证：$\sin\theta=\sin\theta_1\cdot \sin\theta_2$.
+
+提示：分$0<\theta_1<\frac{\pi}{2},\; \theta_1=\frac{\pi}{2},\; \frac{\pi}{2}<\theta_1<\pi$画图证明）
+\item 已知：一个直角三角形的两直角边为$a,b$, 把这个三角
+形沿斜边上的高折成直二面角，求两直角边夹角的余
+弦。
+\item 把长和宽各为4和3的长方形$ABCD$沿对角线$AC$折成
+直二面角，求顶点$B$和$D$的距离。
+\item 在$120^{\circ}$的二面角内有一点，它与两个面的距离分别为2
+和3, 求这个点到这个二面角棱的距离．
+
+\begin{figure}[htp]\centering
+\begin{tikzpicture}[>=latex, scale=1.2]
+\tkzDefPoints{-.5/-.5/a, 3.5/-.5/b, 4.5/1/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzDefPoints{1/.5/A, 3/.5/B', 3/2/B, 2.5/-.2/C}
+\tkzDrawSegments(B,B' A,C)
+\tkzDrawLines[add=0 and .2](A,B A,B')
+\tkzMarkAngles[mark=none, size=.8](C,A,B')
+\tkzMarkAngles[mark=none, size=.5](B',A,B)
+\tkzLabelAngle[pos=1](C,A,B'){$\theta_2$}
+\tkzLabelAngle[pos=.7](B',A,B){$\theta_1$}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[below right](B')
+  \end{tikzpicture}
+  \caption*{第10题}
+  \end{figure}
+
+\item 图为正方体
+\begin{enumerate}
+\item 求作：平面$A'BD$和平面$DAB'$的交线。
+\item 求证：平面$A'BD\bot $平面$DAB'$.
+\item 求证：$AC'\bot$平面$A'BD$.
+\item 求证：平面$A'BD$与平面$CD'B'$平行。
+\item 求证：$AC'$与平面$A'BD$、平面$CB'D'$的交点是$AC'$的三等分点。
+\item 求证：$A'B$与$AC'$是异面直线。
+\item 求$A'B$与$AC'$所成的角及它们之间的距离。
+\end{enumerate}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=.8]
+  \tkzDefPoints{0/0/D, 3/0/A, 4/1/B, 0/3/D'}
+  \tkzDefPointsBy[translation = from A to B](D){C}
+  \tkzDefPointsBy[translation = from D to D'](A,B,C){A',B',C'}
+  \tkzDrawPolygon[dashed](A,B,C,D)
+  \tkzDrawPolygon(A',B',C',D')
+  \tkzLabelPoints[below](A,D)
+  \tkzLabelPoints[above](B',C')
+  \tkzLabelPoints[left](C,D')
+  \tkzLabelPoints[right](A',B)
+  \tkzDrawSegments(A,D A,B A',B D,D' A,A' B,B')
+  \tkzDrawSegments[dashed](C,C' C',A)
+  \end{tikzpicture}
+  \caption*{第15题}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{-1/-.3/a, 4/-.3/b, 5/1.5/c}
+  \tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDefPoints{.3/1/B, 3.8/1.2/D, 2.5/.3/C, 2.2/3.5/A}
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelPoints[below](B,C,D)
+\tkzLabelPoints[above](A)
+\tkzDrawSegments[dashed](B,D)
+\tkzDrawSegments(A,C a,b b,c d,a)
+\node at (-.5,0){$\pi$};
+\tkzInterLL(c,d)(A,B)  \tkzGetPoint{tmp1}
+\tkzInterLL(c,d)(A,D)  \tkzGetPoint{tmp2}
+\tkzDrawSegments[dashed](tmp1,tmp2)
+\tkzDrawSegments(d,tmp1 c,tmp2)
+
+
+  \end{tikzpicture}
+  \caption*{第18题}
+  \end{minipage}
+  \end{figure}
+
+\item 如果直线$a$和直线$b$不平行，平面$\pi_1\bot a$, 平面$\pi_2\bot b$, 
+求证：$\pi_1$和$\pi_2$必相交，且交线垂直于直线$a,b$.
+\item 设$P$为$\triangle ABC$所在平面$\pi$外一点，
+\begin{enumerate}
+  \item 如果$P$点到$\triangle ABC$各顶点距离相等，$O$是$\triangle ABC$
+的外心，求证：$OP\bot\pi$.
+\item 如果$P$点到$\triangle ABC$各边的距离相等，$H$是$\triangle ABC$
+的内心，求证：$PH\bot\pi$.
+\end{enumerate}
+\item 如图，已知：$AB\bot CD$, $AC\bot BD$. 
+求证：$AD\bot BC$.
+\item 平面$\pi$过$\triangle ABC$的重心$G$, 
+求证：在平面$\pi$的同侧的两个顶点到平面$\pi$的距离的和
+等于另一个顶点到平面$\pi$的距离。
+\item 已知线段$AB$在平面$\pi$内，线段$AC\bot \pi$, 线段$BD\bot AB$
+且$BD$与$\pi$所成的角为$30^{\circ}$, 若$AB=a$, $AC=BD=b$, 
+求：$C$和$D$间的距离。
+\item 直角三角形$ABC$的斜边$AB$在平面$\alpha$内，两条直角边与
+$\alpha$的夹角分别是$\theta_1$和$\theta_2$, $\triangle ABC$所在平面与$\alpha$所成的二
+面角是$\theta$, 求证：$\sin^2\theta=\sin^2\theta_1+\sin^2\theta_2$.
+\item 平行四边形$ABCD$和它的对角线的交点$O$, 在平面$\pi$内
+的射影是$A'B'C'D'$及$O'$, 求证：
+\[OO'=\frac{1}{2}(AA'+CC')= \frac{1}{2}(BB'+DD')\]
+\item 如果两个平面分别垂直于两条异面直线中的一条，求
+证：这两个平面的交线就平行于这两条异面直线的公垂
+线。
+\item 已知：二面角$\alpha-AB-\beta$是直二面
+角，$P\in AB$, $PX\subset \beta$, $PY\subset \alpha$, 并且
+$\angle XPB=\angle YPB=45^{\circ}$. 
+求：$\angle XPY$的大小。
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 0/3/A, 2.5/4/A', 2/2.4/A''}
+\tkzDefPointsBy[translation = from A to B](A'){B'}
+\tkzDefPointsBy[translation = from A to B](A''){B''}
+\tkzDrawPolygon(A,B,B'',A'')
+\tkzDrawSegments(A,A' A',B')
+\tkzDefPointWith[linear, K=.23](B'',A'') \tkzGetPoint{X}
+\tkzDefPointWith[linear, K=.2](B',A') \tkzGetPoint{Y}
+\tkzDefPointWith[linear, K=.7](B,A) \tkzGetPoint{P}
+\tkzInterLL(A'',B'')(P,Y) \tkzGetPoint{tmp1}
+\tkzInterLL(A'',B'')(B,B') \tkzGetPoint{tmp2}
+\tkzDrawSegments(X,P Y,tmp1 B',tmp2)
+\tkzDrawSegments[dashed](P,tmp1 B,tmp2)
+\tkzLabelPoints[right](X,Y)
+\tkzLabelPoints[left](A,P,B)
+\node at (B'')[above left]{$\beta$};
+\node at (A')[below left]{$\alpha$};
+\end{tikzpicture}
+  \caption*{第24题}
+\end{figure}
+
+
+
+
 
 
 
