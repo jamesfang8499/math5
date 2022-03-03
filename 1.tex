@@ -1901,6 +1901,445 @@ $\therefore\quad P\in BD$.
 
 
 
+下面我们给异面直线间的距离下定义。
+
+\begin{blk}
+  {定义} 两条异面直线间公垂线段的长叫作两条异面直线的距离。
+\end{blk}
+
+
+由前面关于异面直线公垂线段的作法可知异面直线$\ell_1$和$\ell_2$的距离，也就是$\ell_1$和过$\ell_2$且平行于$h$的平面$\pi$间的距离。
+
+\begin{example}
+  已知：在图1.54中，正方体$A_1A_2A_3A_4-B_1B_2B_3B_4$中，面的对角线$A_2B_3$和$B_2B_4$的公垂线段为$CD$, 求证：线段$CD$等于正方体对角线的三分之一。
+\end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B_1, 3/0/B_2, 4/1/B_3, 0/3/A_1}
+\tkzDefPointsBy[translation= from B_2 to B_3](B_1){B_4}
+\tkzDefPointsBy[translation= from B_1 to A_1](B_2,B_3,B_4){A_2,A_3,A_4}
+\tkzDrawPolygon(A_1,A_2,A_3,A_4)
+\tkzDrawPolygon[dashed](B_1,B_2,B_3,B_4)
+\tkzDrawSegments(A_1,B_1 A_2,B_2 A_3,B_3 B_1,B_2 B_2,B_3 A_2,B_3)
+\tkzDrawSegments[dashed](A_4,B_4 B_2,B_4 A_2,B_4)
+\tkzLabelPoints[above](A_3,A_4)
+\tkzLabelPoints[below](B_1,B_2)
+\tkzLabelPoints[right](A_2,B_3)
+\tkzLabelPoints[left](A_1,B_4)
+\tkzDefPointWith[linear, K=.6](B_4,B_2)\tkzGetPoint{D}
+\tkzDefPointWith[linear, K=.6](A_2,B_3)\tkzGetPoint{C}
+\tkzDefPointWith[linear, K=.6](B_2,B_3)\tkzGetPoint{E}
+\tkzDefPointWith[linear, K=.4](B_2,B_3)\tkzGetPoint{F}
+\tkzDrawSegments[dashed](C,D D,F D,E)
+\tkzDrawSegments(C,F C,E)
+\tkzLabelPoints[right](E,C)
+\tkzLabelPoints[below](F)
+\tkzLabelPoints[left](D)
+
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{proof}
+  自$C$和$D$分别向$B_2B_3$引垂线$CE$、$DF$, 由于
+$A_2B_2\parallel CE$、 $A_2B_2\bot B_1B_2$
+
+$\therefore\quad CE\bot B_1B_2$
+
+$\therefore\quad CE\bot$平面$B_1B_2B_3$
+
+同理$DF\bot $平面$B_2B_3A_3$.
+
+连$DE$, $CF$, 根据三垂线定理的逆定理，则
+$B_2B_4\bot DE$, $A_2B_3\bot CF$, 于是$\triangle B_2DE$和$\triangle B_3CF$都是等腰直角三角形。
+
+在$\triangle B_2DE$中，$B_2F=FE$；在$\triangle B_3CF$中，$FE=EB_3$。
+
+$\therefore\quad CE, DF$都等于正方体棱
+长的三分之一。
+
+设棱长为$a$, 则$CE=DF=\frac{1}{3}a$, 在$\triangle B_2DE$中，算出$DE=\frac{\sqrt{2}}{3}a$, 再在直角$\triangle CED$中，算出$CD=\frac{\sqrt{3}}{3}a$, 但正方体对角线$A_2B_4=\sqrt{a^2+a^2+a^2}=\sqrt{3}a$
+
+$\therefore\quad CD$等于对角线的三分之一。
+\end{proof}
+
+\begin{ex}
+\begin{enumerate}
+  \item 设正方体$A'B'C'D'-ABCD$的棱长为$a$,
+\begin{enumerate}
+  \item 求$AA'$和$BC$间的距离；
+  \item 求$AA'$与$BD'$间的距离。
+\end{enumerate}
+  
+  \item 设正方体$ABCD-A'B'C'D'$的棱长为$a$, $M\in CD$.
+\begin{enumerate}
+  \item 求$A'B$与$CC'$的距离；
+  \item 求$A'B$与$CM$的距离。
+\end{enumerate}
+\end{enumerate}
+\end{ex}
+
+
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 2.5/0/B, 3.5/1/C, 0/2.5/A'}
+\tkzDefPointsBy[translation= from B to C](A){D}
+\tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawPolygon[dashed](A,B,C,D)
+\tkzDrawSegments(A,B B,C A,A' B,B' C,C')
+\tkzDrawSegments[dashed](D,D' B,D')
+\tkzLabelPoints[above](C',D')
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[right](C,B')
+\tkzLabelPoints[left](A',D)
+  \end{tikzpicture}
+  \caption*{第1题}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/B', 2.5/0/C', 1.5/1/D', 0/2.5/B}
+\tkzDefPointsBy[translation= from C' to D'](B'){A'}
+\tkzDefPointsBy[translation= from B' to B](C',D',A'){C,D,A}
+\tkzDrawPolygon[dashed](A',B',C',D')
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A',B' B',C' A,A' B,B' C,C' A',B)
+\tkzDrawSegments[dashed](D,D')
+\tkzLabelPoints[above](A,D)
+\tkzLabelPoints[below](C',B')
+\tkzDefPointWith[linear, K=.6](D,C)\tkzGetPoint{M}
+\tkzDrawSegments[dashed](M,C')
+\tkzLabelPoints[left](A',B)
+\tkzLabelPoints[right](D',C,M)
+  \end{tikzpicture}
+  \caption*{第2题}
+  \end{minipage}
+\end{figure}
+
+\subsection*{习题1.5}
+\begin{enumerate}
+  \item 矩形$ABCD$的一边$AB$在平面$\pi$内转动时，$AB$的对边$CD$
+  是否总和面$\pi$平行？为什么？
+  \item “一条直线与一个平面平行时，这条直线就平行于平面
+  内的任何直线”的说法正确吗？
+  \item 求证：和三角形两边同时垂直的直线，也和第三边垂直。
+  \item 求证：如果一条直线平行于一个平面，那么这个平面的任何垂线都和这条直线垂直。
+  \item 求证：如果一条直线垂直于一个平面，那么垂直于这条直线的任何直线或者平行于平面，或者在平面内。
+  \item 设直线$a\parallel$直线$b$, $a\subset$平面$\alpha$, $b\subset$平面$\beta$, $\alpha\cap\beta=\ell$, 求证：$\ell\parallel a$, $\ell\parallel b$.
+  \item 如果一条直线和一个平面平行，那么过这个平面内的一点与这条直线平行的直线必在这个平面内。
+  \item 已知空间四边形$ABCD$, $E$、$F$、$G$、$H$分别是边$AB$、
+  $BC$、$CD$、$AD$的中点，求证：
+\begin{enumerate}
+  \item $BD\parallel$平面$EFG$
+  \item $AC\parallel $平面$EFG$
+\end{enumerate}
+
+\item 已知：平面$\alpha$、$\beta$, $\alpha\cap\beta=CD$，
+$PA\bot\alpha$于$A$, $PB\bot\beta$于$B$. 求证：$CD\bot AB$.
+\item 求证：过直线上一点和这条直线相垂直的所有直线的集合是一个平面。
+\item 证明：过一点和一个平面垂直的直线只有一条。
+
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{-1/2/C'',  0/.5/C, 2.8/.5/C', 4/2/D'}
+    \tkzDefPointsBy[translation= from C' to D'](C,C''){D,D''}
+\tkzLabelPoint[right](C''){$\alpha$}
+\tkzLabelPoint[above](C'){$\beta$}
+\tkzDrawSegments(C'',C C',C C',D' C'',D'')
+\tkzDefPoints{2/3.5/P, 2/1.25/B}
+\tkzDefMidPoint(C,D) \tkzGetPoint{E}
+\tkzDrawSegments[dashed](D,E)
+\tkzDrawSegments(C,E)
+\tkzDefPointsBy[translation= from C to E](C''){A'}
+\tkzDefPointWith[linear,K=.5](E,A')\tkzGetPoint{A}
+\tkzDrawPolygon(P,A,E,B)
+\tkzDrawSegments(A,B)
+\tkzInterLL(A,P)(D,D'')\tkzGetPoint{tmp1}
+\tkzInterLL(B,P)(D,D')\tkzGetPoint{tmp2}
+\tkzDrawSegments[dashed](D,tmp2 D,tmp1)
+\tkzDrawSegments(tmp1,D'' tmp2,D')
+\tkzLabelPoints[above](P,D)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](C)
+
+
+
+  \end{tikzpicture}
+  \caption*{第9题}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/.5/A', 3.5/.5/B', 4/2/C'}
+    \tkzDefPointsBy[translation= from B' to C'](A'){D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzLabelPoint[above right](A'){$\pi$}
+\tkzDefPoints{.7/1.2/C, 3/1.1/D, 2/1.8/B, 2/3/A, 1.4/.8/E}
+\tkzDrawPolygon(B,C,D)
+\tkzDrawPolygon(B,A,E)
+\tkzLabelPoints[below](C,D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[right](B,E)
+
+  \end{tikzpicture}
+  \caption*{第12题}
+  \end{minipage}
+\end{figure}
+
+\item 已知如图，$AB=5$cm, 
+$AB\bot BC$, $AB\bot BD$, $BC,BD\subset $平面$\pi$, $E\in\pi$, $BE=7$cm. 试求：
+\begin{enumerate}
+  \item $EB$和$AB$成多少度角？
+  \item $CD$和$AB$成多少度角？
+  \item 线段$AE$有多长？
+\end{enumerate}
+\item 从平面外一点$D$向平面$\pi$引垂线$DA$及斜线$DB$、$DC$, 
+$A$为垂足，$B$、$C$均为斜足，已知 $DA=a$, $\angle BDA=\angle CDA=60^{\circ}$，$\angle BDC=90^{\circ}$，求$BC$的长.
+\item 求证：两条平行线和同一个平面所成角相等。其逆命
+题成立吗？
+\item 求证：如果平面$\pi'$和直线$a$都垂直于平面$\pi$, 并且$a\not\subset\pi'$，那么$a\parallel \pi'$.
+
+\item 高空中有一气球，它和地面的距离是$h$, 在气球的东南
+处看气球的仰角是$\theta_1$, 同时在地球的西南处看气球的仰角是$\theta_2$, $A,B$两地距离为$a$. 求证：
+\[h=\frac{a}{\sqrt{\cot^2\theta_1+\cot^2\theta_2}}\]
+\item 证明：两条异面直线不能同时和一个平面垂直。
+\item 如果$\triangle ABC$的各边所在直线与平面$\pi$都平行，那么
+$\triangle ABC$在$\pi$上的射影与$\triangle ABC$全等。
+\item 证明不与平面垂直的两条平行直线在该平面上的射影是
+平行线。
+\item 已知斜线长是它在平面上射影的两倍，求斜线和该平面
+所成的角。
+
+\item 从平面外一点引平面的两条斜线段，求证：较长的斜线
+段和平面所成的角较小。
+\item $D$点是平面外一点，$DA\bot $平面$M$, 垂足是$A$; $DB$、$DC$和平面$M$斜交，斜足分别是$B$、$C$, 已知$DA=a$, $\angle BDA=\angle CDA=60^{\circ}$，$\angle BDC=90^{\circ}$，求$BC$的长.
+\item 如果一点和正多边形的各顶点距离相等，那么这点在正
+多边形所在平面内的射影是这个正多边形的中心。
+\item 求证：如果一个角所在的平面外一点到角的两边的距离
+相等，那么这一点在这个平面内的射影在这个角的平分线上。
+\item 平面$\alpha$内有一个正六边形，它的中心是$O$, 边长为2cm,
+ $OH\bot \alpha$, $OH=4$cm, 求$H$点到这个正六边形的顶点和边的距离。
+\item 一个直角所在的平面外有一点，这点和直角顶的距离是
+23cm, 和两条直角边的距离都是17cm, 求这点到直角所在平面的距离。
+\item 从平面外一点$P$到这个平面引垂线$PO$, 以及斜线$PA$、
+$PB$, $O$、$A$、$B$分别为垂足和斜足，已知 $PA=8$cm, $PB=5$cm, 它们在$\pi$上的射影$OA$和$OB$的比为$4:\sqrt{3}$, 求$P$点到$\pi$的距离。
+\item $AB$和$CD$是平面$\pi$内相离28cm的两条平行线，$EF$是平面$\pi$外和$AB$平行且相距17cm, 和$\pi$相距15cm的一条直线，求$EF$和$CD$的距离。
+
+\item 如图长方体$A'B'C'D'-ABCD$的长和宽都是4cm, 高是2cm, 求：
+\begin{enumerate}
+ \item $BC$和$A'C'$所成的角是多少度？
+\item $AA'$和$DD'$、$B'C'$和$CD$的距离各是多少？
+\item $AA'$和$BD'$、$A'B'$和$BD'$的距离各是多少？
+\end{enumerate}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 4/0/B, 5.5/1.5/C, 0/2/A'}
+\tkzDefPointsBy[translation= from B to C](A){D}
+\tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawPolygon[dashed](A,B,C,D)
+\tkzDrawSegments[dashed](D,D' B,D')
+\tkzDrawSegments(A,B B,C A',C' B,C' A,A' B,B' C,C')
+\tkzLabelPoints[above](C',D')
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[left](A',D)
+\tkzLabelPoints[right](B',C)
+\end{tikzpicture}
+  \caption*{第29题}
+\end{figure}
+
+
+\item 求证：如果直角的一边和一个平面平行，另一边不和这个平面垂直，那么这个直角在这个平面内的射影也是直角。
+\end{enumerate}
+
+\section{平面与平面的位置关系}
+\subsection{两个平面的相关位置}
+
+空间的一条直线和一个平面的位置关系，我们已经知道了，现画图如下：
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[>=latex]
+  \begin{scope}
+  \tkzDefPoints{0.5/0/A, 2.5/0/B, 3/1/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \node at (A)[above right]{$\alpha$};
+\draw(1,1.5)--(3,1.5)node[right]{$\ell$};
+\node at (2,-.5){$\ell\cap \alpha=\emptyset$ （平行）};
+\end{scope}
+\begin{scope}[xshift=5cm]
+  \tkzDefPoints{0.5/0/A, 2.5/0/B, 3/1/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \node at (A)[above right]{$\alpha$};
+\draw(1,.25)--(2.3,.75)node[right]{$\ell$};
+\node at (2,-.5){$\ell\subset \alpha$ （包含）};
+
+\end{scope}
+\begin{scope}[yshift=-4cm]
+  \tkzDefPoints{0.5/1/A, 2.5/1/B, 3/2/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \node at (A)[above right]{$\alpha$};
+\node at (2,0){$\ell\cap \alpha=P$ （相交）};
+\draw[->](3.5,1.5)--node[above]{特殊化}(5,1.5);
+\tkzDefPoints{1/2.5/a, 2.5/.5/b}
+\tkzDefPointWith[linear, K=.5](a,b)\tkzGetPoint{P}
+\tkzInterLL(a,b)(A,B) \tkzGetPoint{Q}
+\tkzDrawSegments(a,P Q,b)
+\tkzLabelPoints[right](P)
+\tkzLabelPoint[above](a){$\ell$}
+\end{scope}
+\begin{scope}[xshift=5cm, yshift=-4cm]
+  \tkzDefPoints{0.5/1/A, 2.5/1/B, 3/2/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \node at (A)[above right]{$\alpha$};
+  \tkzDefPoints{2/2.5/a, 2/.5/b}
+  \tkzDefPointWith[linear, K=.5](a,b)\tkzGetPoint{P}
+  \tkzInterLL(a,b)(A,B) \tkzGetPoint{Q}
+  \tkzDrawSegments(a,P Q,b)
+  \tkzLabelPoint[above](a){$\ell$}
+  \tkzLabelPoint[below](b){$\ell\bot \alpha$ （垂直）}
+\end{scope}
+\end{tikzpicture}
+
+  \caption{}
+\end{figure}
+
+如果，我们把直线$\ell$换成平面$\beta$, 那么$\alpha$和$\beta$的位置关系将怎样呢？不难发现也有直线与平面类似的位置关系：
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[>=latex]
+\begin{scope}
+  \tkzDefPoints{0/0/A, 3/0/B, 3.5/1/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \node at (A)[above right]{$\beta$};
+  \tkzDefPoints{0/1.5/A', 3/1.5/B', 3.5/2.5/C'}
+  \tkzDefPointsBy[translation= from B' to C'](A'){D'}
+  \tkzDrawPolygon(A',B',C',D')
+  \node at (A')[above right]{$\alpha$};
+\end{scope}
+\begin{scope}[xshift=5cm]
+  \tkzDefPoints{0/.5/A, 3/.5/B, 3.5/1.5/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \node at (A)[above right]{$\alpha$};
+  \node at (C)[below left]{$\beta$};
+\end{scope}
+\begin{scope}[yshift=-3.5cm]
+  \tkzDefPoints{0/.5/A, 3/.5/B, 3.5/1.5/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDefPoints{.5/2/a, 2.5/-.5/b, 2.5/1.5/d}
+  \tkzInterLL(a,b)(A,B) \tkzGetPoint{c}
+\tkzDefPointsBy[translation= from c to d](a,b){a',b'}
+\tkzDrawSegments(A,B B,C D,A a,b b,b' c,d d,a' a,a' C,d)
+\tkzInterLL(C,D)(a,b) \tkzGetPoint{tmp1}
+\tkzInterLL(C,B)(d,b') \tkzGetPoint{tmp2}
+\tkzDrawSegments(tmp1,D tmp2,b')
+\node at (A)[above right]{$\alpha$};
+\node at (a)[right]{$\beta$};
+\tkzLabelSegment[right](c,d){$\ell$}
+\draw[->](4,1.5)--node[above]{特殊化}(5.5,1.5);
+\end{scope}
+\begin{scope}[xshift=6cm, yshift=-3.5cm]
+  \tkzDefPoints{0/.5/A, 3/.5/B, 3.5/1.5/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDefPoints{1.5/2/a, 1.5/.5/b, 2.4/1.5/c}
+\tkzDefPointsBy[translation= from b to c](a){a'}
+\tkzDrawSegments(A,B B,C D,A)
+\tkzDrawPolygon(a,b,c,a')
+\tkzInterLL(C,D)(a,b) \tkzGetPoint{tmp1}
+\tkzDrawSegments(tmp1,D c,C)
+\node at (A)[above right]{$\alpha$};
+\node at (a)[right]{$\beta$};
+  
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+一般两个平面有三种位置关系
+\begin{enumerate}
+\item 两个平面重合。
+\item 两个平面相交——两个平面的交集是一条直线（即
+只有一条公共直线）。
+\item 两个平面平行——两个平面的交集是空集（即两个
+平面没有公共点）。
+\end{enumerate}
+
+如果使用集合符号，平面与平面的三种位置关系定义如下：
+
+\begin{blk}{定义}
+\begin{enumerate}
+\item 平面$\alpha$和平面$\beta$重合$\Longleftrightarrow \alpha=\beta$.
+\item 平面$\alpha$和平面$\beta$平行$\Longleftrightarrow \alpha\cap \beta=\emptyset$.
+\item 平面$\alpha$和平面$\beta$相交于直线$\ell \Longleftrightarrow \alpha\cap \beta=\ell$.
+\end{enumerate}
+\end{blk}
+
+当平面$\alpha$平行于平面$\beta$时，记作$\alpha\parallel \beta$(或$\beta\parallel \alpha$).
+
+有时我们也把两个平面重合看作两个平面平行的极限情况，这时我们也可以说：两个平面$\pi_1$和$\pi_2$平行$\Longleftrightarrow \pi_1\cap \pi_2=\emptyset$或$\pi_1=\pi_2$. 不过通常说两个平面行是指两个相异平面的平行。
+
+\begin{ex}
+\begin{enumerate}
+  \item 如果平面$\alpha\parallel$平面$\beta$, $\ell\subset \alpha$, 求证 $\ell\parallel \beta$.
+  \item 平面上相异三条直线可有如下各种位置关系。如果把各组的三条直线换成空间的三个平面，那么这三个平面可有哪几种位置关系？试画图说明之。
+  \item 空间两个平面在各种位置关系的情况下，把空间分成哪几部分？试画出图形，并说明差集$V-(\pi_1\cup \pi_2)$是哪几块空间区域？
+  \item 如果$\pi_1$、$\pi_2$、$\pi_3$是空间$V$中三个平面，那么差集$V-(\pi_1\cup \pi_2\cup \pi_3)$是哪几块空间区域？
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\begin{scope}
+\draw(0,0)--(2.5,0);
+\draw(0,1)--(2.5,1);
+\draw(0,-1)--(2.5,-1);
+\end{scope}
+\begin{scope}[xshift=3cm]
+  \draw(0,-.5)--(2.5,-.5);
+\draw(0.5,-1)--(1.5,1);
+\draw(0,.5)--(2.5,.5);
+\end{scope}
+\begin{scope}[xshift=6cm]
+  \draw(0,0)--(2.5,0);
+\draw(0,-1)--(2,1);
+\draw(0,1)--(2,-1);
+\end{scope}
+\begin{scope}[xshift=9cm]
+  \draw(0,0)--(2.5,0);
+\draw(0,-.5)--(2,1);
+\draw(2.5,-.5)--(.5,1);
+\end{scope}
+\end{tikzpicture}
+  \caption*{第2题}
+\end{figure}
+
+\subsection{两个平面平行的判定定理和性质定理}
+\begin{blk}{两个平面平行的判定定理} 
+  如果在一个平面内有两条相交直线平行于另一个平面，那么这两个平面平行。
+\end{blk}
+
+
+
+
+
 
 \begin{example}
     
