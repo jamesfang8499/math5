@@ -1859,20 +1859,955 @@ $\therefore\quad P\in BD$.
 我们把不在同一平面内的两条直线叫作\textbf{异面直线}。如图
 1.26的(1)、(2)中的直线$a$、$b$表示的都是异面直线。
 
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\begin{scope}
+  \tkzDefPoints{0/0/a,3/0/b,4/1.5/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzLabelPoint[above right](a){$M$}
+\tkzDefPoints{1.5/2/B, 2/1/A}
+\draw(1,.6)--(3,.6)node[right]{$b$};
+\tkzInterLL(A,B)(a,b)\tkzGetPoint{tmp1}
+\tkzDefPointWith[linear,K=3](B,A)\tkzGetPoint{D}
+\tkzDrawSegments(D,tmp1)
+\tkzLabelPoint[above](B){$a$}
+\tkzLabelPoints[right](A)
+\node at (2,-1.5){(1)};
+\tkzDrawSegments(A,B)
+
+\end{scope}
+\begin{scope}[xshift=6cm]
+  \tkzDefPoints{0/-.8/A,3/-.8/B,4/0.5/B', -1/.7/C}
+  \tkzDefPointsBy[translation = from B to B'](A,C){A',C'}
+\tkzDrawPolygon(C,A,B,B',A',C')
+\tkzLabelPoint[right](C){$M$}
+\tkzLabelPoint[above right](A){$N$}
+\tkzDrawSegments(A,A')
+\draw(0,1)--node[right]{$a$}(0,0);
+\draw(1.5,-.2)--node[above]{$b$}(3,-.2);
+
+
+\node at (1,-1.5){(2)};
+
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+空间的两条直线有如下的位置关系：
+\subsubsection{在同一个平面内}
+\begin{enumerate}
+\item 相交直线——只有一个公共点。
+\item 平行直线——没有公共点。
+\item 重合直线。
+\end{enumerate}
+
+当两条平行直线中的一条，在保持与另一条直线平行的
+条件下无限接近另一条直线时，结果两条平行直线必然重
+合。因此，我们把两条直线重合看成是两条直线平行的极限
+情况。因此，当我们说两条直线平行时，不排除重合这一极
+限情况；当我们说两条相异直线平行时，这就排除了重合的
+可能性。
+
+\subsubsection{不在同一个平面内}
+异面直线——没有公共点。
+如果使用集合语言，上述空间两条直线的位置关系可以
+定义如下：
+
+\begin{blk}{定义}
+\begin{enumerate}
+  \item  空间两条直线$\ell_1$和$\ell_2$相交$\Longleftarrow\ell_1\cap\ell_2=P$
+  （$P$是$\ell_1$与$\ell_2$的唯一公共点）
+  \item  空间两条直线$\ell_1$和$\ell_2$平行（$\ell_1\parallel \ell_2$）$\Longleftarrow \ell_1$和$\ell_2$
+  共面且$\ell_1\cap\ell_2=\emptyset$或$\ell_1=\ell_2$（重合）
+  \item  空间两条直线$\ell_1$和$\ell_2$异面$\Longleftarrow \ell_1$和$\ell_2$不共面。
+\end{enumerate}
+\end{blk}
+
+\begin{blk}{问题1}
+  下图中，如果$a\parallel b$, $a\subset M$, $b\subset N$, 那么$a,b$是异面
+直线吗？
+\end{blk}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{0/0/A, 2/0/B, 3.5/1.5/C, -.5/1.2/A'}
+\tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDrawPolygon(A,B,C,C',B',A')
+\tkzDrawSegments(B,B')
+\tkzLabelPoint[above right](A){$M$}
+\tkzLabelPoint[above](B){$N$}
+\tkzDefPoints{.5/1/a, .85/.2/b, 2.4/1.8/a'}
+\tkzDefPointsBy[translation= from a to a'](b){b'}
+\tkzDrawSegments(a,b a',b')
+\tkzLabelSegment[right](a,b){$a$}
+\tkzLabelSegment[left](a',b'){$b$}
+
+\end{scope}
+\begin{scope}[xshift=6cm]
+  \tkzDefPoints{0/0/A_1, 3/0/B_1, 4/1/C_1, 0/2/A}
+\tkzDefPointsBy[translation = from B_1 to C_1](A_1){D_1}
+\tkzDefPointsBy[translation = from A_1 to A](B_1,C_1,D_1){B,C,D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A_1,B_1 B_1,C_1 A,A_1 B,B_1 C,C_1)
+\tkzDrawSegments[dashed](A_1,D_1 D_1,C_1 D,D_1)
+\tkzLabelPoints[below](A_1,B_1)
+\tkzLabelPoints[above](C,D)
+\tkzLabelPoints[left](A,D_1)
+\tkzLabelPoints[right](C_1,B)
+
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{blk}{问题2}
+  长方体$ABCD-A_1B_1C_1D_1$中，$AD$棱与哪些棱成异面直线？$AB$棱与哪些棱成异面直线？
+$AA_1$棱与哪些棱成异面直线？
+\end{blk}
+
+\subsection{平行于同一条直线的二条直线}
+“如果三条直线$a,b,c$中，
+$a\parallel c$, $b\parallel c$, 那么$a\parallel b$” 当$a$、$b$、$c$共面
+时是成立的，如果$a,b,c$不共面时，这个命题是否还成立呢？
+
+\begin{blk}
+  {定理} 平行于第三条直线的两条直线互相平行。
+\end{blk}
+
+已知：如图1.27不在同一平面上的三条直线$a,b,c$中，
+$a\parallel b$, $c\parallel b$. 
+
+求证：$a\parallel c$.
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/P, 3/0/Q, 1.9/1/Q', 3/2.5/Q''}
+\tkzDefPointsBy[translation= from Q to P](Q',Q''){P',P''}
+\tkzDefPointWith[linear, K=.7](Q',Q)\tkzGetPoint{R}
+\tkzDrawPolygon(P,P',P'',Q'',R)
+\tkzDrawSegments[dashed](P',Q' Q',Q'' Q',R)
+\tkzDrawSegments(P,Q Q,R P,P'')
+\tkzLabelPoints[below](P)
+\tkzLabelPoint[above right](P'){$\pi_1$}
+\tkzLabelPoint[below right](P'){$\pi_2$}
+\tkzLabelPoint[above right](P){$\pi_3$}
+\tkzLabelSegment[below](P,Q){$c$}
+\tkzLabelSegment[above](P',Q'){$b$}
+\tkzLabelSegment[above](P'',Q''){$a$}
+\tkzLabelSegment[above](P,R){$c'$}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+\begin{proof}
+  $\because\quad a\parallel b,\quad c\parallel b$
+
+  $\therefore\quad a,b$确定一个平面$\pi_1$，
+
+  $\because\quad b,c$确定一个平$\pi_2$，设$P\in c$, 则$P,a$确定一个平面$\pi_3$. 设$\pi_2\cap \pi_3=c'$，
+  那么
+\[\begin{split}
+  c'\cap \pi_1&=(\pi_2\cap \pi_3)\cap \pi_1\\
+  &=(\pi_2\cap \pi_3\cap \pi_1)\cap \pi_1\\
+  &=(\pi_2\cap \pi_1)\cap (\pi_3\cap \pi_1)\\
+  &=b\cap a=\emptyset
+\end{split}\]
+
+$\therefore\quad c'\cap b=\emptyset,\quad c'\cap a=\emptyset$
+
+$\therefore\quad c'\parallel b,\quad c'\parallel a$
+
+又$\because\quad c\parallel b$且$c\cap c'=P,\quad c,c',b\subset \pi_2$
+
+$\because\quad c=c',\quad c'\parallel a$
+
+$\therefore\quad a\parallel c$
+\end{proof}
+
+上述定理可简写作：
+\begin{blk}{}
+  若$a\parallel b$, $c\parallel b$, 则$a\parallel c$.
+\end{blk}
+
+如果改写一下，把条件中的$c\parallel b$写成$b\parallel c$, 那么有：“若$a\parallel b$, $b\parallel c$则$a\parallel c$”。这就是直线平行的传递性。因此，上述
+定理也叫直线平行的传递性定理。
+
+
+\begin{example}
+  如图1.28，设有空间四边形$ABCD$，$E$、$F$、$G$、$H$分别是$AB$、$BC$、$CD$和$DA$边中点，求证：四边形$EFGH$是平行四边形.
+\end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoints{0/0/B, 3/-.2/C, 1.5/.6/D, 1.4/2.2/A}
+\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+\tkzDefMidPoint(A,D)\tkzGetPoint{H}
+\tkzDefMidPoint(C,D)\tkzGetPoint{G}
+\tkzDefMidPoint(C,B)\tkzGetPoint{F}
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments[dashed](B,D)
+\tkzLabelPoints[below](B,C,F)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](E,D)
+\tkzLabelPoints[right](H,G)
+
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+\begin{proof}
+连结$BD$，
+$\because E$、$H$分别是$\triangle ABD$的$AB$、$AD$
+边的中点，
+
+$\therefore\quad EH\parallel BD,\quad EH=\frac{1}{2}BD$.
+
+同理：$FG\parallel BD,\quad FG=\frac{1}{2}BD$．
+
+$\therefore\quad EH\displaystyle\mathop{=}^{\parallel} FG$.
+
+$\therefore\quad $四边形$EFGH$是平行四边形。
+\end{proof}
+
+\begin{blk}{问题1}
+ 上例中，若$AC=BD$，则四边形$EFGH$是什么图形？
+\end{blk}
+
+\begin{blk}{问题2}
+  上例中，若
+$\frac{AE}{EB}=\frac{AH}{HD}=\frac{CF}{FB}=\frac{CG}{GD}$，
+则四边形
+$EFGH$是什么图形？
+\end{blk}
+
+\begin{blk}{问题3}
+  上例中，若
+  $\frac{AE}{EB}=\frac{AH}{HD}=\frac{BF}{FC}=\frac{DG}{GC}$，
+则四边形
+$EFGH$是什么图形？
+\end{blk}
+
+\begin{blk}{问题4}
+  上例中，若$\frac{AE}{EB}=\frac{AH}{HD}\ne \frac{CF}{FB}=\frac{CG}{GD}$，
+则四边形
+$ABCD$是什么图形？
+\end{blk}
+
+\begin{blk}{问题5}
+  上例中，$EG$、$HF$是否是异面直线？为什么？
+\end{blk}
+
+
+在初中，已经知道，在同一平面上的两个角，如果它们
+的边分别平行和同向，这两个角就相等。事实上，如果两个角不在同一平面上，这个定理仍然成立。
+
+\begin{blk}
+  {定理} 如果一个角的两边分别平行于另一个角的两边，并且方向相同，那么这两个角相等。
+\end{blk}
+
+已知：$\angle AOB$和$\angle A'O'B'$中，$AO\parallel A'O'$，$BO\parallel B'O'$并且方向相同。（图1.29）
+
+求证：$\angle AOB=\angle A'O'B'$.
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/O', 3/.2/B', 1.5/1/A', .2/2.5/O}
+\tkzDefPointsBy[translation= from O' to O](A',B'){A,B}
+\tkzDrawSegments[dashed](O,O')
+\tkzDrawLines[add=0 and .5](O,A O,B O',A' O',B')
+\tkzDrawPolygon[dashed](A,B,B',A')
+\tkzLabelPoints[left](O',O, A')
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](B')
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{proof}
+  假定$OA=O'A'$，$OB=O'B'$，连结$OO'$，$BB'$，$AA'$，$AB$和$A'B'$
+
+$\because \quad AO\parallel A'O',\quad AO=A'O'$
+
+$\therefore\quad AA'O'O$是平行四边形，
+
+又$\because\quad BO\parallel B'O',\quad BO=B'O'$
+
+$\therefore\quad BB'O'O$是平行四边形
+
+$\therefore\quad AA'\displaystyle\mathop{=}^{\parallel} OO',\quad BB'\displaystyle\mathop{=}^{\parallel}OO'$
+
+$\therefore\quad AA'\displaystyle\mathop{=}^{\parallel}BB'$
+
+$\therefore\quad AA'B'B$是平行四边形
+
+$\therefore\quad AB=A'B'$
+
+$\therefore\quad \triangle AOB\cong\triangle A'O'B'$
+
+$\therefore\quad \angle AOB=\angle A'O'B'$
+\end{proof}
+
+\begin{blk}{问题}
+  设直线$a\parallel$直线$a'$，点$A\in a$，点$A'\in a'$，直线$b$，$b'$
+分别过$A$和$A'$且$b\parallel b'$，那么$a$与$b$所成的角等于$a'$与$b'$所成的
+角或者两角互补。为什么？
+\end{blk}
+
+\subsection{两条异面直线所成的角}
+在平面几何中，两条相交直线的夹角是指这两条直线相交时所成的锐角或直角，并规定两条平行直线的夹角为$0^{\circ}$。当两条直线的夹角为直角时，则称这两条直线互相垂直。
+
+在空间我们利用同一平面上两条直线的交角来定义两条异面直线所成的角。
+
+\begin{blk}
+  {定义} 设$a$，$b$是两条异面直线（图1.30(1)），在空间任取一点$P$，过$P$分别引直线$a'$，$b'$，使$a'\parallel a$，$b'\parallel b$，则$a'$、$b'$所成的锐角或直角便称作这两条异面直线$a$、$b$所成的角。（图1.30(2)）
+\end{blk}
+
+\begin{figure}[htp]
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}
+\tkzDefPoints{-1/-.5/A, 3/-.5/B, 4/1/C}
+\tkzDefPointsBy[translation= from B to C](A){D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelPoint[above right](A){$\alpha$}
+\draw(0,0)--(2.5,0)node[above]{$a$};
+\tkzDefPoints{1/2/b, 2.5/-1.5/c}
+\tkzDefPointWith[linear, K=.4](b,c)  \tkzGetPoint{p}
+\tkzInterLL(b,c)(A,B) \tkzGetPoint{tmp}
+\tkzDrawSegments[dashed, thick](p,tmp)
+\tkzDrawSegments[thick](b,p tmp,c)
+\tkzLabelPoints[right](b)
+\node at (1.5,-2){(1)};
+\end{scope}
+\begin{scope}[xshift=5cm]
+\tkzDefPoints{0/0/A, 3/0/a', 1/1.5/b', 2/-1.5/b}
+\tkzInterLL(A,a')(b',b)\tkzGetPoint{P}
+\tkzDrawSegments[thick](A,a' b',b)
+\tkzLabelPoints[right](a',b')
+\tkzLabelPoints[below left](P)
+\node at (1.5,-2){(2)};
+\end{scope}
+  \end{tikzpicture}
+  \caption{}
+\end{figure}
+
+在上述定义中，两条异面直线$a$，$b$的夹角的大小与$P$点的取法是无关的，它仅由$a$，$b$的位置唯一确定。这是因为，如果在$a$，$b$上确定了方向，$a'$和$b'$也取相同的方向，由上一小节的“等角定理”可知，不管$P$点取在什么地方，$a'$，$b'$所成角的大小总是相等不变的。这就是说$a'$，$b'$所成锐角或直角的大小完全被直线$a$，$b$唯一确定。因此$a'$和$b'$所成的角反映了$a$，$b$的相互位置关系。
+
+由于在上述定义中，$P$点的位置可任意选取，所以$P$点可以取在$a$上，也可以取在$b$上。图1.31中，我们把$P$点取在$b$，过$P$引$a'\parallel a$，那么$a'$和$b$所成的角就是异面直线$a$，$b$所成的角。
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \tkzDefPoints{-1/-.5/A, 3/-.5/B, 4/1/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawPolygon(A,B,C,D)
+  \tkzLabelPoint[above right](A){$\alpha$}
+  \draw(0,0)--(2.5,0)node[above]{$a$};
+  \draw(0.5,0.5)--(3,0.5)node[above]{$a'$};
+  \tkzDefPoints{1/2/b, 2.5/-1.5/c}
+  \tkzDefPointWith[linear, K=.4](b,c)  \tkzGetPoint{P}
+  \tkzInterLL(b,c)(A,B) \tkzGetPoint{tmp}
+  \tkzDrawSegments[dashed, thick](P,tmp)
+  \tkzDrawSegments[thick](b,P tmp,c)
+  \tkzLabelPoints[right](b,P)
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+如果两条异面直线所成的角是直角，那么就说这两条异面直线互相垂直。
+
+\begin{blk}
+  {问题1} 如果说“两条直线$a$和$b$互相垂直”，那么怎样理
+解才是正确的？
+\end{blk}
+
+\begin{blk}{问题2}
+  在正方体$ABCD-A_1B_1C_1D_1$中（见下图）
+\begin{enumerate}
+  \item $AA_1$和$D_1C_1$的交角是多少度？
+\item $AC$和$A_1B_1$的交角是多少度？
+\item $DA_1$和$AC$的交角是多少度？
+\item $AC$和$D_1B_1$的交角是多少度？
+\end{enumerate}
+\end{blk}
+
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A_1,2.5/0/B_1, 3.5/1/C_1, 0/2.5/A}
+\tkzDefPointsBy[translation = from B_1 to C_1](A_1){D_1}
+\tkzDefPointsBy[translation = from A_1 to A](B_1,C_1,D_1){B,C,D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon[dashed](A_1,B_1,C_1,D_1)
+\tkzDrawSegments[dashed](D,D_1 D,A_1 B_1,D_1)
+\tkzDrawSegments(A,A_1 B,B_1 C,C_1 A_1,B_1 C_1,B_1 A,C)
+\tkzLabelPoints[below](A_1,B_1)
+\tkzLabelPoints[above](C,D)
+\tkzLabelPoints[left](A,D_1)
+\tkzLabelPoints[right](B,C_1)
+\end{tikzpicture}
+  \caption*{问题2}
+\end{figure}
+
+\begin{blk}{问题3}
+  如果空间有三条直线$a$，$b$，
+$c$，设$a\parallel b$，$a\bot c$，那么$b$与$c$是什么关
+系？为什么？
+\end{blk}
+
+\subsection*{习题1.4}
+\begin{enumerate}
+  \item   分别在两个平面内的直线是异面直线吗？举出异面直线
+  的几个实例.
+  \item 直线$a$和异面直线$b$和$c$相交，画出每两条相交直线所确
+  定的平面，并且注上字母.
+  \item 在长方体$ABCD-A_1B_1C_1D_1$的
+  $AC$面上有一点$P$，
+\begin{enumerate}
+\item 过$P$点画平行于$C_1D_1$的直线．
+\item 过$P$点画平行于$A_1D_1$的直线，
+\end{enumerate}
+  怎么画法？
+  \item 求证：一条直线和两条平行直线中的一条所成的角等于
+  $\theta$，则该直线与另一条所成的角也等于$\theta$．
+
+\item 垂直于同一条直线的两条直线，可能有几种位置关系？
+
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A_1,3/0/B_1, 4/1/C_1, 0/2/A}
+    \tkzDefPointsBy[translation = from B_1 to C_1](A_1){D_1}
+    \tkzDefPointsBy[translation = from A_1 to A](B_1,C_1,D_1){B,C,D}
+    \tkzDrawPolygon(A,B,C,D)
+    \tkzDrawPolygon[dashed](A_1,B_1,C_1,D_1)
+    \tkzDrawSegments[dashed](D,D_1)
+    \tkzDrawSegments(A,A_1 B,B_1 C,C_1 A_1,B_1 C_1,B_1)
+    \tkzLabelPoints[below](A_1,B_1)
+    \tkzLabelPoints[above](C,D)
+    \tkzLabelPoints[left](A,D_1)
+    \tkzLabelPoints[right](B,C_1)
+  \end{tikzpicture}
+  \caption*{第3题}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/C,3/0/D,1.5/.8/E, .8/1.8/A}
+    \tkzDefPointsBy[translation = from C to D](A,E){B,F}
+  \tkzDrawPolygon(A,B,D,C)
+\tkzDrawSegments[dashed](A,E E,F E,C)
+\tkzDrawSegments(B,F D,F)
+\tkzLabelPoints[below](C,D)
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](F)
+\tkzMarkAngles[mark=none, size=.5](E,C,A F,D,B)
+  \end{tikzpicture}
+  \caption*{第6题}
+  \end{minipage}
+\end{figure}
+
+\item 已知：六点$A$、$B$、$C$、$D$、$E$、$F$
+不共面，并且$AB\displaystyle\mathop{=}^{\parallel} CD$，
+$AB\displaystyle\mathop{=}^{\parallel}EF$.
+求证：
+\begin{enumerate}
+  \item $C$、$D$、$F$、$E$四点共面.
+  \item $CE\displaystyle\mathop{=}^{\parallel} DF$
+  \item $\angle ACE=\angle BDF$
+\end{enumerate}
+
+\item 若二直线$\ell_1\cap\ell_2=\emptyset$，则$\ell_1\parallel \ell_2$，对吗？
+\item 画两个相交平面，在这两个平面内各画一条直线使它们
+成为：平行线；相交直线；异面直线.
+\item 和两条异面直线$AB$、$CD$同时相交的两条直线$AC$、$BD$一
+定是异面直线，为什么？
+\item 已知长方体$ABCD-A'B'C'D'$中，长和宽都是$\sqrt{3}$cm，
+高是1cm，求：
+\begin{enumerate}
+  \item $B'C$和$AC$的夹角；
+  \item $AA'$和$B'C'$的
+夹角各是多少度？
+\end{enumerate}
+
+\item 已知：$\alpha\cap\beta=\ell$， $A\in\ell$， $B\in\ell$，$C\in\alpha$， $D\in\beta$，$D\notin \ell$，$C\notin\ell$．
+
+求证：$AC$和$BD$是异面直线.
+
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A',3/0/B', 4/1/C', 0/2/A}
+    \tkzDefPointsBy[translation = from B' to C'](A'){D'}
+    \tkzDefPointsBy[translation = from A' to A](B',C',D'){B,C,D}
+    \tkzDrawPolygon(A,B,C,D)
+    \tkzDrawPolygon[dashed](A',B',C',D')
+    \tkzDrawSegments[dashed](D,D')
+    \tkzDrawSegments(A,A' B,B' C,C' A',B' C',B' A,C B',C)
+    \tkzLabelPoints[below](A',B')
+    \tkzLabelPoints[above](C,D)
+    \tkzLabelPoints[left](A,D')
+    \tkzLabelPoints[right](B,C')
+  \end{tikzpicture}
+  \caption*{第10题}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/C',3/0/D',1.5/1.3/E', .8/3/A'}
+    \tkzDefPointsBy[translation = from C' to D'](A',E'){B',F'}
+  \tkzDrawPolygon(A',B',F',D',C',E')
+  \tkzDrawSegments(E',F')
+\tkzLabelPoint[right](F'){$\ell$}
+\node at (.5,0)[above]{$\alpha$};
+\tkzLabelPoint[below right](A'){$\beta$}
+\tkzDefPointWith[linear, K=.5](E',F') \tkzGetPoint{B}
+\tkzDefPointWith[linear, K=.7](E',F') \tkzGetPoint{A}
+\tkzDefPointsBy[translation = from E' to B](A'){A''}
+\tkzDefPointsBy[translation = from E' to A](C'){C''}
+\tkzDefPointWith[linear, K=.8](B,A'') \tkzGetPoint{D}
+\tkzDefPointWith[linear, K=.8](A,C'') \tkzGetPoint{C}
+\tkzDrawSegments(B,D A,C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below left](B)
+
+
+\tkzLabelPoints[left](C,D)
+  \end{tikzpicture}
+  \caption*{第11题}
+  \end{minipage}
+\end{figure}
+
+\end{enumerate}
+
+\section{直线与平面的位置关系}
+在现实生活和生产中，除了要考虑直线与直线的位置关系外，还常常要考虑直线与平面的位置关系。例如直立的电线杆和地面是垂直的，铁路桥上的铁轨和水面是平行的等等。
+\subsection{直线和平面的三种位置关系} 
+
+一条直线和一个平
+面的位置关系有以下三种情况。
+\begin{enumerate}
+\item 直线在平面内——有二个以上的公共点（即有无数
+个公共点）。
+\item 直线和平面相交——只有一个公共点。
+\item 直线和平面平行——没有公共点。
+\end{enumerate}
+
+如图1.32的(1)、(2)、(3)所示，是当平面$\pi$在水平位置时，直线$\ell$和$\pi$三种位置关系图的一般画法。
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{0/0/A',2.5/0/B', 3/1/C'}
+\tkzDefPointsBy[translation= from B' to C'](A'){D'}
+\tkzLabelPoint[above right](A'){$\pi$}
+\draw(.75,.3)--(2.3,.8)node[right]{$a$};
+\tkzDrawPolygon(A',B',C',D')
+\node at (1.5,-1){(1)};
+
+\end{scope}
+\begin{scope}[xshift=4cm]
+  \tkzDefPoints{0/0/A',2.5/0/B', 3/1/C'}
+\tkzDefPointsBy[translation= from B' to C'](A'){D'}
+\tkzLabelPoint[above right](A'){$\pi$}
+\tkzDrawPolygon(A',B',C',D')
+\node at (1.5,-1){(2)};
+\tkzDefPoints{1/1.7/a, 2.2/-.5/b}
+\tkzInterLL(a,b)(A',B') \tkzGetPoint{tmp}
+\tkzDefPointWith[linear, K=.5](a,b)\tkzGetPoint{A}
+\tkzDrawSegments(A,a tmp,b)
+\tkzLabelPoints[right](A)
+\tkzLabelSegment[right](a,A){$\ell$}
+\end{scope}
+\begin{scope}[xshift=8cm]
+  \tkzDefPoints{0/0/A',2.5/0/B', 3/1/C'}
+\tkzDefPointsBy[translation= from B' to C'](A'){D'}
+\tkzLabelPoint[above right](A'){$\pi$}
+\draw(1,1.5)--(2.5,1.5)node[right]{$a$};
+\tkzDrawPolygon(A',B',C',D')
+\node at (1.5,-1){(3)};
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+使用集合符号，直线与平面的三种位置关系可定义如下：
+
+\begin{blk}
+{定义}
+\begin{enumerate}
+\item 直线$\ell$在平面$\pi$内$\Longleftrightarrow\ell\cap\pi=\ell$．
+\item 直线$\ell$在平面$\pi$平行$\Longleftrightarrow\ell\cap\pi=\emptyset$．
+\item 直线$\ell$在平面$\pi$相交$\Longleftrightarrow\ell\cap\pi=P$．
+（$P$是$\ell$与$\pi$的唯一公共点）
+\end{enumerate}
+当直线$\ell$与平面$\pi$平行时，也记作$\ell\parallel\pi$（或$\pi\parallel\ell$）。
+\end{blk}
+
+问：试举出直线和平面三种位置关系的实例来。
+
+\subsection{直线与平面平行}
+\begin{blk}
+  {定理}
+  若直线$a\parallel$平面$\alpha$，直线$a\subset$平面$\beta$，$\alpha\cap \beta=b$，则$\alpha\parallel a$的充要条件是$a\parallel b$.
+\end{blk}
+
+\begin{proof}
+先证必要性．
+设 $a\parallel\alpha$，$a\subset \beta$，$\alpha\cap\beta=b$（图1.33）
+由于：
+\[a\cap b=a\cap(\alpha\cap \beta)=(a\cap\alpha)\cap \beta=\emptyset\cap\beta=\emptyset\]
+
+又$\because\quad a,b\subset\beta$
+
+$\therefore\quad  a\parallel b$.
+
+这就告诉了我们：\textbf{如果一条直线和一个平面平行，经过这条直线的一个平面和这个平面相交，那么这条直线就和交线平行}（这就是直线和平面平行的性质定理）。
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, .6/.9/A', .2/2/A'', 3/0/B}
+\tkzDefPointsBy[translation= from A to B](A',A''){B',B''}
+\tkzDrawPolygon(A,A',A'',B'',B',B)
+\tkzDrawSegments(A',B')
+\tkzLabelPoint[above right](A){$\alpha$}
+\tkzLabelPoint[below right](A''){$\beta$}
+\tkzLabelSegment[above](A'',B''){$a$}
+\tkzLabelSegment[above](A',B'){$b$}
+\tkzDefPointWith[linear,K=1.6](B,B')\tkzGetPoint{b}
+\tkzDefPointsBy[translation= from B' to b](A'){a}
+\tkzInterLL(a,b)(B',B'')\tkzGetPoint{tmp}
+\tkzDrawSegments(tmp,b b,B')
+
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+再证充分性。借助上图，由于
+\[a\cap\alpha\subset \beta\cap\alpha=b\]
+
+$\therefore\quad a$若与$\alpha$相交，其交点必在$b$上，
+但因 $a\cap b=\emptyset$.
+
+$\therefore\quad a\cap\alpha=\emptyset,\quad a\parallel\alpha$.
+
+这就告诉我们：\textbf{若平面外的一条直线和平面内的一条直
+线平行，则这条直线就和这个平面平行}（这就是直线和平面平行的判定定理）。
+\end{proof}
+
+
+\begin{example}
+  如图1.34，已知：$\alpha\cap\beta=c$，$a\parallel \alpha$，$b\parallel \beta$，$a\parallel b$，求证：$a\parallel c$，$b\parallel c$.
+\end{example}
+
+\begin{proof}
+取点$P\in c$，设$P$与$a$所确定的平面交$\alpha$于$a'$，$P$与$b$所确定的平面交$\beta$于$b'$，则$a\parallel a'$，又
+
+$\because\quad a\parallel b\qquad \therefore\quad a'\parallel b$
+
+$\because\quad b\parallel b'$，而$a'\cap b'=P$
+
+$\therefore\quad a'=b'=c$
+
+$\therefore\quad a\parallel c,\quad b\parallel c$.
+\end{proof}
+
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/P, -2.5/-.8/P', 1.8/-1/P'', 0/3/C}
+\tkzDefPointsBy[translation= from P to C](P',P''){C',C''}
+\tkzDrawPolygon(P',P,P'',C'',C,C')
+\tkzDrawSegments(C,P)
+\tkzLabelPoint[below right](C'){$\alpha$}
+\tkzLabelPoint[below left](C''){$\beta$}
+\tkzLabelPoint[above](C){$c$}
+\tkzDefPoints{-.7/2.2/a', .5/2.2/b'}
+\tkzDefPoints{-1.5/2/b'', 1/2/a''}
+\tkzDefPointsBy[translation= from C to P](b'',a''){b,a}
+\tkzDrawSegments(a,a'' b,b'' P,a' P,b')
+\tkzLabelPoints[below](a,b,P)
+\tkzLabelPoints[above](a',b')
+
+
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A_1,3/0/B_1, 4/1/C_1, 0/3/A}
+\tkzDefPointsBy[translation = from B_1 to C_1](A_1){D_1}
+\tkzDefPointsBy[translation = from A_1 to A](B_1,C_1,D_1){B,C,D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+\tkzInterLL(A_1,C_1)(B_1,D_1)\tkzGetPoint{O'}
+
+\tkzDrawPolygon[dashed](A_1,B_1,C_1,D_1)
+\tkzDrawSegments[dashed](D,D_1 D,A_1 B_1,D_1 A_1,C_1 B_1,O D,O'  C_1,D)
+\tkzDrawSegments(A,A_1 B,B_1 C,C_1 A_1,B_1 C_1,B_1 A,C B,D)
+\tkzLabelPoints[below](A_1,B_1,O')
+\tkzLabelPoints[above](C,D,O)
+\tkzLabelPoints[left](A,D_1)
+\tkzLabelPoints[right](B,C_1)
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+\end{figure}
+
+
+\begin{example}
+已知如图1.35，在正方体$ABCD-A_1B_1C_1D_1$中$O$和$O'$分别是$AC$和$BD$、$A_1C_1$和$B_1D_1$的交点。
+
+  求证：$B_1O\parallel$ 平面 $A_1C_1D$．
+\end{example}
+
+\begin{proof}  
+  $\because\quad ABCD-A_1B_1C_1D_1$是正方体
+
+$\therefore\quad   B_1BDD_1$是平行四边形，
+
+$\therefore\quad BD=B_1D_1,\quad  BD\parallel B_1D_1$,
+
+又$\because\quad O$、$O'$分别是$AC$和$BD$，$A_1C_1$和$B_1D_1$的交点，
+
+$\therefore\quad O$、$O'$分别是$BD$和$B_1D_1$的中点，
+
+$\therefore\quad DO=B_1O'$,
+
+$\therefore\quad   DO\parallel B_1O'$
+
+$\therefore\quad   DOB_1O'$是平行四边形
+
+$\therefore\quad   B_1O\parallel DO'$
+
+$\because\quad DO'\subset$平面$A_1C_1D$
+
+$\therefore\quad  B_1O\parallel$ 平面$AC_1D$．
+\end{proof}
+
+\begin{ex}
+\begin{enumerate}
+  \item 求证：空间四边形两邻边中点的连线平行于另外两边所
+  确定的平面。
+  \item 设$a$、$b$为两条异面直线，是
+  否可以经过$a$作一个平面$\pi$，
+  使得$b\parallel \pi$？
+  \item 如图所示的一块木头，直线
+  $B_1C_1\parallel$ 平面$AC$，点$P\in$平面$AC$，要经过$P$点和$B_1C_1$把
+  木头锯开，怎样锯法？
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A_1, 3/0/B_1, 4/.7/C_1, 1/.7/D_1}
+\tkzDefPoints{0/2/A, 3/1/B, 4/1.7/C, 1/2.7/D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon[dashed](A_1,B_1,C_1,D_1)
+\tkzDrawSegments[dashed](D,D_1)
+\tkzDrawSegments(A,A_1  B,B_1 C,C_1 A_1,B_1 B_1,C_1)
+\tkzLabelPoints[above](C,D)
+\tkzLabelPoints[below](A_1,B_1)
+\tkzLabelPoints[left](A,D_1)
+\tkzLabelPoints[right](B,C_1)
+\end{tikzpicture}
+  \caption*{第3题}
+\end{figure}
+
+\subsection{直线与平面垂直}
+
+在平面上，$P,P'$两点关于直
+线$\ell$成轴对称的条件是线段$PP'$被$\ell$垂直平分。（图1.36(1)）
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\begin{scope}[scale=1.3]
+\draw(0,0)node[left]{$\ell$}--(2.5,0);
+\draw(1,-1)node[right]{$P'$}--(1,1)node[right]{$P$};
+\tkzDrawPoint(1,-1)
+\tkzDrawPoint(1,1)
+\node at (1,-2){(1)};
+\end{scope}
+\begin{scope}[scale=.8, xshift=6cm]
+\tkzDefPoints{0/0/a, 6/0/b, 7.5/2/c, 2/0/N, 4.5/2/Q, 2/2.5/N', 2/-2.5/N''}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDefPointsBy[translation = from N to Q](N',N''){Q',Q''}
+\tkzDrawPolygon(N',N,Q,Q')  
+\tkzDrawSegments(N,Q)
+\tkzLabelPoints[below left](N)
+\tkzLabelPoints[above right](Q)
+\tkzDefPoints{3.5/3.2/P, 3.5/2/p}
+\tkzInterLL(P,p)(N,Q)\tkzGetPoint{M}
+\tkzDefPointWith[linear,K=2](P,M)\tkzGetPoint{P'}\tkzDefPoints{4/.5/A, 6.5/1.7/B}
+\tkzLabelPoints[left](P,M,A)
+\tkzLabelPoints[below left](P')
+\tkzDrawSegments(P,M P,N P',N)
+\tkzLabelPoints[right](B)
+\tkzDrawPolygon(P,A,B)
+\tkzDefPointWith[linear, K=.45](A,B)\tkzGetPoint{C}
+\tkzDrawSegments(P,C N,N'' N'',Q'')
+\tkzInterLL(P,P')(a,b)  \tkzGetPoint{t1}
+\tkzInterLL(A,P')(a,b)  \tkzGetPoint{t2}
+\tkzInterLL(C,P')(a,b)  \tkzGetPoint{t3}
+\tkzInterLL(B,P')(a,b)  \tkzGetPoint{t4}
+\tkzInterLL(Q,Q'')(a,b)  \tkzGetPoint{t5}
+\tkzDrawSegments(t1,P' t2,P'  t3,P'  t4,P' t5,Q'')
+\tkzDrawSegments[dashed](t1,M t2,A  t3,C  t4,B)
+
+\tkzInterLL(N,N')(c,d)  \tkzGetPoint{t6}
+\tkzInterLL(P,B)(c,d)  \tkzGetPoint{t7}
+\tkzLabelPoints[above](C)
+\tkzDrawSegments(a,b b,c c,t7 t6,d d,a)
+\tkzDrawSegments[dashed](t6,t7)
+\tkzLabelPoint[above](b){$\pi$}
+\tkzLabelPoint[right](N'){$\pi'$}
+\node at (3,-3.3){(2)};
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+在三维空间，也有相应的基本定理
+
+\begin{blk}
+   {定理} 在空间$V$中，和相异两点$P$、$P'$距离相等的点的
+集合是一个平面$\pi$, 它和线段$PP'$相交于$PP'$的中点$M$, 而且
+$PP'$和$\pi$的任何直线都垂直（我们称$\pi$为线段$PP'$的垂直平分
+面）。
+\end{blk}
+
+\begin{proof}
+如图1.36(2), 设$\pi=\{X|X\in V,\; PX=P'X\}$, 
+即$\pi$是空间$V$中，所有和$P$、$P'$距离相等的点所成的集合。
+
+设$\pi$是经过$P$、$P'$的任意一个平面，在$\pi$上，$PP'$的垂
+直平分线在$\pi$内，由于$\pi'$的任意性，所以$\pi$中必有不共线的
+点存在。又$\pi$显然是$V$的一个真子集，以下证明$\pi$具有平面的
+另一重要特征。
+
+设$M$是线段$PP'$的中点，$A$、$B$是$\pi$中相异两点，$C\in$直
+线$AB$. 连$PA,PB,PC,P'A,P'B,P'C$.
+
+$\because\quad A,B\in\pi$
+
+$\therefore\quad PA=P'A,\quad PB=P'B$
+
+又$AB=AB$,
+
+$\therefore\quad \triangle PAB\cong \triangle P'AB$ (SSS)
+
+$\therefore\quad \angle PAC=\angle P'AC$
+
+由于$AC=AC$, $PA=P'A$,
+
+$\therefore\quad \triangle PAC=\triangle P'AC$ (SAS)
+
+$\therefore\quad PC=P'C$
+
+$\therefore\quad C\in\pi$.
+
+可见，$\pi$中任意两点所确定的直线还被包含在$\pi$中。
+这样，由平面的定义可知：$\pi$是一个平面。
+
+现在我们来证明$PP'$垂直于$\pi$内任何一条直线。
+
+设 $\pi\cap PP'=M$
+令$NM$是$\pi$上的任一直线，如果$PP'$, $NM$所确定的平面
+为$\pi'$, 那么连接$PN$, $P'N$, 则在平面$\pi'$上，
+$\triangle PMN\cong \triangle P'MN$
+
+$\therefore\quad \angle PMN=\angle P'MN=\frac{\pi}{2}$
+
+$\therefore\quad PP'$垂直于平面$\pi$上过$M$点的任何一条直线。
+
+对平面$\pi$内任一直线$\ell$, 在$\pi$内过点$M$作直线$\ell'\parallel \ell$
+
+$\because\quad \ell'$是$\pi$内过点$M$的直线
+
+$\therefore\quad PP'\bot \ell',\quad PP'\bot \ell$.
+\end{proof}
+
+由这个定理可以看出，平面外一条直线垂直于平面内任
+何直线是可能的。因此，我们可以对直线与平面的垂直作如
+下定义。
+
+\begin{blk}
+  {定义} 若直线$\ell\cap \pi=M$, $\ell$和$\pi$内的任何一条直线都垂
+直，则称$\ell$和$\pi$垂直。记作$\ell\bot \pi$. 点$M$叫垂足，$\ell$叫作平面$\pi$的垂
+线。平面$\pi$叫作直线$\ell$的垂面。如果直线$\ell$垂直于平面$\pi$, 记作
+$\ell\bot \pi$. 这样一来，上述定理就成了直线与平面垂直的存在定
+理了。但要判断一条直线和平面内所有的直线都垂直，一般
+比较困难。因此，我们利用直线与平面垂直的存在定理的推
+论较为方便。
+\end{blk}
+
+\begin{blk}
+{推论1} 设$\ell\cap \pi=M$, $\ell_1$, $\ell_2$是$\pi$中两条相交直线，则
+$\ell\bot \pi$的充要条件是$\ell\bot \ell_1$且$\ell\bot \ell_2$.
+（图1.37)
+\end{blk}
+
+\begin{proof}
+必要性是显然的。现
+在证明充分性，即证：若一条直
+线垂直于平面内两条相交直线，
+则这条直线和这个平面互相垂
+直。
+
+在平面$\pi$上，过$M$点引直线
+$\ell_1'\parallel \ell_1$, $\ell_2'\parallel \ell_2$, 则$\ell\bot\ell_1'$, $\ell\bot\ell_2'$, 
+$\ell_1'\cap \ell_2'=M$.
+
+在$\ell$上取点$P,P'$, 使$PM=P'M$,
+在$\ell_1'$和$\ell_2'$上各取异于$M$的点$A_1$、$A_2$, 得$PA_1=P'A_1$, $PA_2=P'A_2$.
+
+$\therefore\quad $点$M$、$A_1$、$A_2$在线段$PP'$的垂直平分面上，且$M$、
+$A_1$、$A_2$不共线，因此平面$MA_1A_2$是线段$PP'$的垂直平分面，
+但$M',A_1,A_2\in \pi$, 因为过不共线三点只能确定一个平面，
+所以，平面$\pi$就是平面$MA_1A_2$.
+
+$\therefore\quad \ell\bot \pi$.
+
+（推论1的充分性也叫二垂线定理和直线与平面垂直的
+判定定理）
+\end{proof}
+
+
+\begin{blk}
+  {推论2} 设直线$\ell_1\bot \pi$, 则直线$\ell_2\bot \pi$的充要条件是$\ell_1\parallel\ell_2$.
+\end{blk}
+
+\begin{proof}
+  
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+\end{proof}
 
 
 
@@ -1900,6 +2835,270 @@ $\therefore\quad P\in BD$.
 \end{example}
 
 
+\begin{ex}
+  \begin{enumerate}
+    \item 已知：如图，正方体$A'B'C'D'-ABCD$中，$E\in$平
+    面$A'C'$.
+  \begin{enumerate}
+    \item 求证：$BD'\bot AC$.
+    \item 在平面$A'C'$内画一条直线垂直于直线$CE$.
+  \end{enumerate}
+  
+    \item 已知：点$O$是$\triangle ABC$的垂心，$OP\bot $平面$ABC$. 求证：$PA\bot BC$.
+    \item 如图，$ABCD$是矩形，$PA\bot $
+    平面$AC$, 连$PB,PC,PD$. 试指出图中有几个直角三角形？并说明道理。
+  
+    \item 叙述并证明三垂线定的逆定理。
+  \end{enumerate}
+  \end{ex}
+  
+  \begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{0/0/A, 3/0/B, 4/1/C, 0/3/A', 2.8/3.5/E}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+  \tkzDrawPolygon[dashed](A,B,C,D)
+  \tkzDrawPolygon(A',B',C',D')
+  \tkzDrawSegments[dashed](D,D' D',B A,C C,E)
+  \tkzDrawSegments(A,B B,C A,A' B,B' C,C')
+  \tkzLabelPoints[above](C',D')
+  \tkzLabelPoints[below](A,B)
+  \tkzLabelPoints[left](A',D,E)
+  \tkzLabelPoints[right](B',C)
+    \end{tikzpicture}
+    \caption*{第1题}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+      \tkzDefPoints{0/0/A, 3/0/B, 3.8/1.3/C, 0/3/A', 0/3.5/P}
+      \tkzDefPointsBy[translation= from B to C](A){D}
+      \tkzDrawPolygon(A,B,C,D)
+      \tkzDrawSegments(P,A P,B P,C P,D)
+      \tkzLabelPoints[below](A,B)
+      \tkzLabelPoints[above](P)
+      \tkzLabelPoints[left](D)  
+      \tkzLabelPoints[right](C)  
+    \end{tikzpicture}
+    \caption*{第3题}
+    \end{minipage}
+  \end{figure}
+  
+  \subsection{距离}
+  
+  我们已经知道，两点间距离、点到直线的距离和两条平行直线间的距离，它们是反映点与点、点与直线和两条平行直线相对位置状况的重要几何量。在这一节，我们把距离的概念推广到三维空间中点到平面的距离、一条直线和与它平行的平面间的距离以及两条异面直线间的距离。从平面$\pi$外一点$P$, 可以作一条且只可作一条直线$PM$垂直于平面$\pi$, 设$M$为垂足。（见5.3的练习4题）设$Q$为$\pi$中之任意一点，容易证明：$PM\le PQ$. 由于线段$PM$的长是唯一确定的，并且连结$P$与$\pi$中任意一点所得的线段中$PM$ 最短，我们就把$PM$叫作$P$点到平面$\pi$的距离。（图1.49）
+  
+  \begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+      \tkzDefPoints{0/0/A, 3/0/B, 3.8/1.3/C, 2.5/.7/M, 2.5/2.5/P, 1.3/.4/Q}
+      \tkzDefPointsBy[translation= from B to C](A){D}
+      \tkzDrawPolygon(A,B,C,D)
+      \tkzDrawPolygon(P,M,Q)
+      \tkzLabelPoints[above](P)
+      \tkzLabelPoints[right](M)
+  \tkzLabelPoints[left](Q)
+  \tkzLabelPoint[below left](C){$\pi$}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{0/0/a, 3/0/b, 3.8/1.3/c}
+      \tkzDefPointsBy[translation= from b to c](a){d}
+  \tkzDefPointWith[linear, K=.5](a,d) \tkzGetPoint{E}
+  \tkzDefPointWith[linear, K=.5](b,c) \tkzGetPoint{F}
+  \tkzDefPoints{3.4/2.5/G, .4/2.5/H}
+  \tkzDrawPolygon(E,F,G,H)
+  \tkzDefPoints{1.5/.65/A', 2.8/.65/B', 1.5/1.8/A, 2.8/1.8/B}
+  \tkzDrawLine(A,B)
+  \tkzLabelSegment[above](A,B){$\ell$}
+  \tkzLabelPoints[above](A,B)
+  \tkzLabelPoints[below](A',B')
+  \tkzDrawSegments(A,A' B,B')
+  \tkzLabelPoint[above right](a){$\alpha$}
+  \tkzLabelPoint[below right](H){$\beta$}
+  \tkzInterLL(A',B')(a,d) \tkzGetPoint{tmp1}
+  \tkzInterLL(F,G)(c,d) \tkzGetPoint{tmp2}
+  \tkzDrawSegments(a,b b,c c,tmp2 tmp1,a)
+  \tkzDrawSegments[dashed](tmp1,d d,tmp2)
+  
+  
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+  \end{figure}
+  
+  \begin{blk}
+    {定义} 从平面外一点向这个平面引垂线，这点和垂足间的距离叫做这个点到这个平面的距离。
+  \end{blk}
+  
+  如果已知一条直线$\ell$平行于平面$\alpha$(图1.50) 容易证明$\ell$上各点到$\alpha$的距离相等。因为，如果在直线$\ell$上任取两点$A$、$B$, 过$A$、$B$引平面$\alpha$的垂线$AA'$、$BB'$, $A'$、$B'$分别为垂足。由于$AA'\bot\alpha$, $BB'\bot \alpha$
+  
+  $\therefore\quad AA'\parallel BB'$
+  
+  设$AA'$, $BB'$确定的平面
+  为$\beta$, $\beta\cap\alpha=A'B'$
+  
+  $\because\quad \ell\parallel \alpha,\qquad \therefore\quad \ell\parallel A'B'$
+  
+  又$\because\quad AA'\parallel BB'$
+  
+  $\therefore\quad AA'=BB'$.
+  
+  因此，我们可如下定义一条直线和一个平面平行时，它们之间的距离。
+  
+  \begin{blk}
+    {定义} 一条直线和一个平面平行，这条直线上任一点到平面的距离，叫做这条直线和平面的距离。
+  \end{blk}
+  
+  若$P$点在平面$\pi$内，则定义$P$点到$\pi$的距离为0, 若直线$\ell$与平面$\pi$相交或在$\pi$内，则定义$\ell$到$\pi$的距离为0.
+  
+  \begin{blk}
+    {问题1} 正三角形的边长为$3a$, 正三角形所在平面外一点到它的三个顶点的距离都是$2a$, 求这个点到这个平面的距离。
+  \end{blk}
+  
+  \begin{blk}
+    {问题2} 设直线$\ell_1\parallel$平面$\alpha$, $\ell_1$在$\alpha$上的射影为$\ell$, 平面$\beta$过$\ell_1$, $\beta\cap\alpha=\ell_2$ 
+  \begin{enumerate}
+    \item 求证 $\ell_2/\ell$
+    \item 如果$\ell_1$和$\ell_2$的距离为25cm, $\ell_2$和$\ell$的距离为10cm, 那么$\ell$和平面$\alpha$的距离为多少？
+  \end{enumerate}
+  \end{blk}
+  
+  \begin{blk}{问题3} 
+    $\triangle ABC$中，$AB=6$cm，$AC=8$cm，$\angle A=90^{\circ}$，$\triangle ABC$所在平面为$\alpha$，$PA\bot \alpha$且$P$点到$\alpha$的距离为10cm，
+  \begin{enumerate}
+    \item 求$P$点到$B$点、$C$点的距离。
+    \item 求$P$点到直线$BC$的距离。
+  \end{enumerate}
+  \end{blk}
+  
+  
+  下面我们讨论两条异面直线的距离。在正方体$A'B'C'D'-ABCD$中，棱$AA'$和$B'C'$所在的直线是异面直线，直线$A'B'$和它们都垂直相交。我们说直线$A'B'$是异面直线$AA'$和$B'C'$的公垂线。（图1.51）
+  
+  \begin{figure}[htp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=.8]
+      \tkzDefPoints{0/0/A, 3/0/B, 4/1/C, 0/3/A'}
+      \tkzDefPointsBy[translation= from B to C](A){D}
+      \tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+      \tkzDrawPolygon[dashed](A,B,C,D)
+      \tkzDrawPolygon(A',B',C',D')
+      \tkzDrawSegments[dashed](D,D')
+      \tkzDrawSegments(A,B B,C A,A' B,B' C,C')
+      \tkzLabelPoints[above](C',D')
+      \tkzLabelPoints[below](A,B)
+      \tkzLabelPoints[left](A',D)
+      \tkzLabelPoints[right](B',C)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{0/0/A, 4/0/B, 5/1.8/C}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDrawSegments(A,B B,C D,A)
+  \tkzDefPoints{2/.5/P_1, 3/1/P_2, 3/3/P_3}
+  \tkzDrawLine[add= .6 and 0](P_1,P_2)
+  \tkzDrawLine[add= 0 and 0.9, dashed](P_1,P_2)
+  \tkzLabelPoints[below](P_1,P_2)
+  \tkzDefPoints{3/.4/a, 4/.9/a'}
+  \tkzDrawLine[add= 1 and 1](P_1,a)
+  \tkzDrawLine[add= 0 and 1.5](a',P_2)
+  \tkzDefPointWith[linear, K=2.5](a',P_2)\tkzGetPoint{a''}
+  \tkzDefPointsBy[translation= from P_2 to P_3](a',a''){b',b''}
+  \tkzDrawPolygon(a',a'',b'',b')
+  \tkzDrawSegments(P_3,P_2)
+  \tkzInterLL(a',b')(C,D)\tkzGetPoint{tmp1}
+  \tkzInterLL(a'',b'')(C,D)\tkzGetPoint{tmp2}
+  \tkzDrawSegments[dashed](tmp1,tmp2)
+  \tkzDrawSegments(C,tmp1 D,tmp2)
+  \tkzLabelPoints[above](P_3)
+  \tkzLabelSegment[above](b'',P_3){$\ell_1$}
+  \tkzLabelPoint[right](a'){$\ell$}
+  \node at (1.2,.2){$\ell_2$};
+  \node at (4,.4){$\ell_3$};
+  \node at (A)[above right]{$\pi$};
+  \tkzLabelPoint[below right](b''){$\pi'$}
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+  \end{figure}
+  
+  \begin{blk}
+    {定义} 同时和两条异面直线都垂直相交的直线叫做这两条异面直线的公垂线。
+  \end{blk}
+  
+  \begin{example}
+    已知：直线$\ell_1$和$\ell_2$为异面直线。（图1.52）
+  
+  求证：$\ell_1$和$\ell_2$的公垂线存在并且唯一。
+  \end{example}
+  
+  \begin{proof}
+  在直线$\ell_2$上任取一点$P_1$, 过$P_1$引$\ell_3\parallel \ell_1$并
+  设$\ell_3$和$\ell_2$所确定的平面为$\pi$, 则$\ell_1\parallel\pi$, 设$\ell_1$在$\pi$内的射影为$\ell$, 令$\ell_1$和$\ell$所确定的平面为$\pi'$, 显然$\ell=\pi\cap \pi'$。
+  
+  $\because \quad \ell_1\parallel \pi,\qquad \therefore\quad \ell_1\parallel \ell$
+  
+  又$\because\quad \ell_1\parallel \ell_3,\qquad \therefore\quad \ell_3\parallel \ell$
+  
+  $\because\quad \ell_2,\ell_3,\ell\subset \pi$且$\ell_2$交$\ell_3$于$P_1$, 
+  
+  $\therefore\quad \ell_2$必交$\ell$于一点$P_2$, 在平面$\pi'$内过$P_2$作直线垂直于$\ell$, 则必垂直$\ell_1$于$P_3$, 由$\ell$是$\ell_1$在平面$\pi$上的射影，
+  
+  $\therefore\quad P_3P_2\bot\pi,\quad P_3P_2\bot \ell_2$, 
+  
+  又$P_3P_2\bot l_1$
+  
+  $\therefore\quad P_3P_2$是$\ell_1$和$\ell_2$的公垂线。 
+  \end{proof}
+  
+  下面我们证明$\ell_1$和$\ell_2$的公垂线是唯一的。（图1.53）
+  
+  \begin{figure}[htp]
+    \centering
+  \begin{tikzpicture}
+    \tkzDefPoints{-.5/-.5/A, 4/-.5/B, 5/1.5/C}
+    \tkzDefPointsBy[translation= from B to C](A){D}
+    \tkzDrawPolygon(A,B,C,D)
+  \tkzDefPoints{.5/.5/p, .5/3/p', 2/.8/P_2, 3.5/1.1/P}
+  \tkzDefPointsBy[translation = from p to p'](P_2,P){P_1,P_1'}
+  \tkzDrawLines[add=0 and 1.5](p,P_2 p',P_1)
+  \tkzDrawSegments(P_1,P_2 P_1',P)
+  \tkzLabelPoints[above](P_1,P_1')
+  \tkzLabelPoints[below](P_2,P)
+  \node at (A)[above right]{$\pi$};
+\node at (.5,.7){$\ell$};
+\node at (4.5,3.7){$\ell_1$};
+\tkzDefPoints{3/.4/P_2'}
+\tkzDrawLines[add=1 and .5](P_2,P_2')
+\tkzDrawSegments(P,P_2' P_1',P_2')
+\tkzLabelPoints[below left](P_2')
+\node at (3.8,.2){$\ell_2$};
+  \end{tikzpicture}
+    \caption{}
+  \end{figure}
+  
+  若$P_1P_2$、$P_1'P_2'$都是$\ell_1$和$\ell_2$的公垂线，上面已经证明，
+  $P_1P_2\bot\pi$，因为$\ell_1\parallel \ell_2$，所以$P_1'P_2'\bot\ell$，又由于$P_1'P_2'\bot \ell_2$，所以$P_1'P_2'\bot \pi$，于是$P_1P_2\parallel P_1'P_2'$，因此$\ell_1$与$\ell_2$共面，这和$\ell_1$与$\ell_2$是异面直线相矛盾，所以$\ell_1$与$\ell_2$的公垂线只能有唯一的一条$P_1P_2$．
+  
+  两条异面直线$\ell_1$和$\ell_2$的公垂线的垂足间线段称为异面直线的公垂线段. 不难证明，两条异面直线的公垂线段是连结端点分别在两条异面直线上所得到的线段中最短的线段，事实上在图1.53中，$\ell\parallel \ell_1$，设$\ell$和$\ell_1$所确定的平面为$\pi'$，在$\pi'$上过$P_1'$作$P_1'P\parallel P_1P_2$，则$P_1P_2=PP_1'$，因为$P_1P_2\bot $平
+  面$P_2P_2'P$，所以$P_1'P\bot $平面$P_2P_2'P$，于是，$P_1'P\bot PP_2'$，
+  显然，$P'_1P_2'\ge PP_1'$，所以$P_1P_2\le P_1'P_2'$．
+  
+    
+  
 
 下面我们给异面直线间的距离下定义。
 
