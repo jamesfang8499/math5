@@ -643,28 +643,47 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \item 画出半径为2cm的球的三视图．
     \item 根据二视图，试
     补画出它的左视图，并画视图所表示的立体的直观图．
+\begin{figure}[htp]
+  \centering
+\includegraphics[scale=.4]{fig/ch1-tu2.png}
+  \caption*{第2题}
+\end{figure}
+
+
     \item 试回答下列二视图(1)—(4)中每一个是立
     体直观图(a)—(d)中的哪一个的视图．
-
+    \begin{figure}[htp]
+      \centering
+    \includegraphics[scale=.5]{fig/ch1-tu3.png}
+    \end{figure}
+    \begin{figure}[htp]
+      \centering
+    \includegraphics[scale=.5]{fig/ch1-tu4.png}
+      \caption*{第3题}
+    \end{figure}
     （注：(2)与(3)中的点划线表示的是该视图所表示的
     立体的轴线及中心线）
 
     \item 补全下列各视图的投影．
-    \item 根据下列三视图，用两种方法画出它们所表示的立体直观图．
+    \begin{figure}[htp]
+      \centering
+    \includegraphics[scale=.5]{fig/ch1-tu5.png}
+    \end{figure}
+    \begin{figure}[htp]
+      \centering
+    \includegraphics[scale=.5]{fig/ch1-tu6.png}
+      \caption*{第4题}
+    \end{figure}   
+
+
+    \item 根据三视图，用两种方法画出它们所表示的立体直观图．
+    \begin{figure}[htp]
+      \centering
+    \includegraphics[scale=.5]{fig/ch1-tu7.png}
+      \caption*{第5题}
+    \end{figure}
+    （注：图中尺寸单位为mm）
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1116,7 +1135,62 @@ $B$\\
 
 \begin{figure}[htp]
   \centering
-  
+\begin{tikzpicture}
+\begin{scope}
+\tkzDefPoints{0/0/A, 1.5/0/B, 1.5/1.5/D, 3/0/C, 3.75/1/C'}
+\tkzDefPointsBy[translation= from C to C'](A,B,D){A',B',D'}
+\tkzDrawSegments(A,C C',C B',C' D',B' D,D' D,B A,A' B,B')
+\tkzInterLL(A',C')(B,D)\tkzGetPoint{T}
+\tkzDrawSegments(T,A')
+\tkzLabelPoint[above left](C){$M$}
+\tkzLabelPoint[right](D){$N$}
+
+
+\node at (1.5,-1.25){(1)};
+\end{scope}
+\begin{scope}[xshift=4cm, scale=.7]
+  \tkzDefPoints{0/0/A1,4/0/B1,5/1/C1, 4.2/1.75/B2}
+    \tkzDefPointsBy[translation= from B1 to C1](A1){D1}
+    \tkzDefPointsBy[translation= from B1 to B2](A1,C1,D1){A2,C2,D2}
+\tkzDefMidPoint(A1,B1)\tkzGetPoint{E1}
+\tkzDefMidPoint(C1,D1)\tkzGetPoint{F1}
+\tkzDefMidPoint(A2,B2)\tkzGetPoint{E2}
+\tkzDefMidPoint(C2,D2)\tkzGetPoint{F2}
+\tkzDefPointWith[linear, K=2](E1,E2) \tkzGetPoint{E3}
+\tkzDefPointWith[linear, K=1.7](E2,E1) \tkzGetPoint{E4}
+\tkzDefPointWith[linear, K=2](F1,F2) \tkzGetPoint{F3}
+\tkzDefPointWith[linear, K=1.7](F2,F1) \tkzGetPoint{F4}
+
+\tkzDrawSegments[thick](A1,B1 B1,C1 D1,A1 A2,B2 B2,C2 D2,A2 E3,E4 E1,F1 E2,F2 E3,F3 F3,F2 F4,E4 F1,C1 F2,C2)
+\tkzLabelPoint[above left](B1){$\beta$}
+\tkzLabelPoint[above left](B2){$\alpha$}
+\tkzLabelPoint[right](E3){$\gamma$}
+
+\tkzInterLL(C1,D1)(E1,E2) \tkzGetPoint{T1}
+\tkzInterLL(C2,D2)(E1,E2) \tkzGetPoint{T2}
+\tkzDrawSegments[thick](T1,D1 T2,D2)
+
+\tkzInterLL(A1,B1)(F1,F2) \tkzGetPoint{T3}
+\tkzInterLL(A2,B2)(F1,F2) \tkzGetPoint{T4}
+\tkzDrawSegments[thick](F4,T3 T4,F1)
+
+\node at (2,-2){(2)};
+\end{scope}
+\begin{scope}[xshift=9cm, scale=.8]
+  \tkzDefPoints{0/0/E, .6/.9/B, .2/2.5/A, 3/0/F}
+\tkzDefPointsBy[translation= from E to F](A,B){D,C}
+\tkzDrawPolygon(A,B,E,F,C,D)
+\tkzDrawSegments(C,B)
+\tkzDefPointWith[linear,K=1.6](F,C)\tkzGetPoint{b}
+\tkzDefPointsBy[translation= from C to b](B){a}
+\tkzInterLL(a,b)(C,D)\tkzGetPoint{tmp}
+\tkzDrawSegments(tmp,b b,C)
+\tkzLabelPoints[left](A,B,E)
+\tkzLabelPoints[right](D,F)
+\tkzLabelPoints[above left](C)
+\node at (1.5,-1.5){(3)};
+\end{scope}
+\end{tikzpicture}
   \caption{}
 \end{figure}
 
@@ -2776,8 +2850,45 @@ $\ell\bot \pi$. 这样一来，上述定理就成了直线与平面垂直的存�
 \begin{blk}
 {推论1} 设$\ell\cap \pi=M$, $\ell_1$, $\ell_2$是$\pi$中两条相交直线，则
 $\ell\bot \pi$的充要条件是$\ell\bot \ell_1$且$\ell\bot \ell_2$.
-（图1.37)
+（图1.37）
 \end{blk}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/a, 4/0/b, 5/2/c, 2.5/1.2/M, 1.5/1.5/A, 1.2/.7/B, 2.5/3/P}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzLabelPoint[above right](a){$\pi$}
+\tkzDefPointWith[linear,K=2.2](A,M)\tkzGetPoint{A'}
+\tkzDefPointWith[linear,K=2.1](B,M)\tkzGetPoint{B'}
+\tkzDrawSegments(A,A' B,B')
+\tkzDefPointWith[linear,K=2](P,M)\tkzGetPoint{P'}
+\tkzInterLL(a,b)(P,P') \tkzGetPoint{T1}
+\tkzDrawSegments[dashed](T1,M)
+\tkzDrawLines[add=1.2 and 0](P',T1)
+\tkzDrawLines[add=0 and .5](M,P)
+\tkzDrawPoints(P,P')\tkzLabelPoints[right](P,P')
+\tkzLabelPoint[right](A'){$\ell_2'$}
+\tkzLabelPoint[right](B'){$\ell_1'$}
+\tkzDefPoints{1.6/.7/a', 1.5/.2/b'}
+\tkzDefPointsBy[translation= from A to a'](A'){a''}
+\tkzDefPointsBy[translation= from B to b'](B'){b''}
+\tkzInterLL(a',a'')(b',b'')\tkzGetPoint{M'}
+\tkzDrawLines[add=0 and 1](a',M' b',M')
+\tkzDefPointWith[linear,K=2](a',M')\tkzGetPoint{l_2}
+\tkzDefPointWith[linear,K=2](b',M')\tkzGetPoint{l_1}
+\tkzLabelPoint[right](l_1){$\ell_1$}
+\tkzLabelPoint[right](l_2){$\ell_2$}
+\tkzLabelPoints[above left](M)
+\tkzDefPointWith[linear,K=.25](A',M)\tkzGetPoint{A_2}
+\tkzDefPointWith[linear,K=.25](B',M)\tkzGetPoint{A_1}
+\tkzLabelPoints[above](A_1,A_2)
+\tkzDrawPoints(A_1,A_2)
+\node at (2.5,3.8)[right]{$\ell$};
+\end{tikzpicture}
+  \caption{}
+\end{figure}
 
 \begin{proof}
 必要性是显然的．现
@@ -2810,38 +2921,789 @@ $\therefore\quad \ell\bot \pi$.
 \end{blk}
 
 \begin{proof}
+\begin{enumerate}
+  \item 充分性：
+  设$\ell_1\bot \pi$, $\ell_1\parallel \ell_2$, 不妨设$\ell_1$与$\ell_2$相异，
+  在平面$\pi$内作两条相交直线$a,b$ (图1.38)
+  
+  $\because \ell_1\bot \pi$
+  
+  $\therefore\quad \ell_1\bot a,\quad \ell_1\bot b$
+  
+  $\because \ell_1\parallel \ell_2$
+
+  $\therefore\quad \ell_2\bot a,\quad \ell_2\bot b$
+
+  $\therefore\quad \ell_2\bot \pi$
+
+  \begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a', 4/0/b', 5/2/c', 2.5/.8/M, 1.5/1.2/A, 1.2/.3/B, 2.5/3/P}
+\tkzDefPointsBy[translation= from b' to c'](a'){d'}
+\tkzDrawPolygon(a',b',c',d')
+\tkzLabelPoint[above right](a'){$\pi$}
+\tkzDefPointWith[linear,K=2.2](A,M)\tkzGetPoint{b}
+\tkzDefPointWith[linear,K=2.1](B,M)\tkzGetPoint{a}
+\tkzDrawSegments(A,b B,a)
+\draw(2,0)--(2,-1);
+\draw(3,0)--(3,-1);
+\draw(2,3)node[right]{$\ell_1$}--(2,1.25);
+\draw(3,3)node[right]{$\ell_2$}--(3,1.25);
+\tkzLabelPoints[right](a,b)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a', 3/0/b', 4/0/c', 5.5/1.75/d', 3/2.5/b, 1.5/1.2/A, 1.2/.3/B, 2.5/3/P}
+\tkzDefPointsBy[translation= from c' to d'](a',b'){f',e'}
+\tkzDefPointsBy[translation= from b' to b](e'){e}
+\tkzDrawPolygon(b', c',d',e')
+\tkzDrawPolygon(b',e',e,b)
+\tkzDrawSegments(a',b' f',a')
+\tkzInterLL(b,b')(e',f')\tkzGetPoint{t1}
+\tkzDrawSegments(f',t1)
+\tkzDrawSegments[dashed](e',t1)
+\node at (.5,0)[above]{$\pi$};
+\node at (4.5,3.5)[left]{$\pi'$};
+\tkzDefPointWith[linear, K=.6](b',e')\tkzGetPoint{P}
+\tkzDefPointsBy[translation= from e' to P](e){P'}
+\tkzDefPointWith[linear, K=.8](P,P')\tkzGetPoint{P0}
+\draw(P)--(3.2,2.5)node[right]{$\ell'_2$};
+\tkzLabelPoint[right](P0){$\ell_2$}
+\tkzLabelPoints[right](P)
+\draw(1.8,.5)--(1.8,3)node[left]{$\ell_1$};
+\tkzDrawSegments(P,P0)
+\node at (3.2,.5){$\ell$};
+
+
+\end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
   
 
+  \item 必要性：
+  设$ \ell_1\bot \pi$, $ \ell_2\bot \pi$, $\ell_2\cap\pi =P$ (图1.39) 过$P$作直线$\ell_2'\parallel \ell_1$，假定假定$\ell_2'$与$\ell_2$相异，
 
+  $\because \ell_1\bot \pi$
 
+  $\therefore\quad \ell_2'\bot \pi$
 
+  设$\pi'$为$\ell_2$、$\ell_2'$所确定的平面，$\pi\cap \pi'=\ell$,
 
+$\because\quad \ell_2\bot \pi$
+
+$\therefore\quad \ell_2\bot\ell_1$,
+
+同理，$\ell_2'\bot\ell$. 而$\ell,\ell_2,\ell_2'\subset \pi'$, 且有
+  一个公共点$P$, 这与平面几何中“过一点与已知直线垂直的
+  直线只有一条”这一定理相矛盾
+  
+$\therefore\quad \ell_2'=\ell_2$, 即$\ell_2\parallel \ell_1$\footnote{这里同时证明了过平面上一点只有一条直线和这个平面垂直。}.
+\end{enumerate}
 \end{proof}
 
+  推论2也称作直线和平面垂直的性质定理。
 
+\begin{blk}{问题}
+  一条直线如果垂直于平面内的两条直线，这条直线
+  垂直于这个平面吗？
+\end{blk}
+
+\begin{example}
+如图1.40(1), $A_1$、$A_2$是空间一点$A$在主视图平面$\alpha$
+和俯视平面$\beta$上的主视图和俯视图。求证$A_1A_2\bot XY$.
+
+为证明方便起见，我们把$A$点二视图（图1.40(1)）改画
+成图1.40(2). $\alpha$在铅直位置，$\beta$在水平位置，$A$点在$\alpha,\beta$上的
+主视图和俯视图$A_1$、$A_2$实际上是由$A$点分别向$\alpha$、$\beta$平面作垂
+线所得到的垂足。以前我们讲过的一个物体在某投影平面上
+的投影图，实际上是这个物体的轮廓线上所有点在该投影平
+面上的投影所得到的图形。
+\end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\begin{scope}
+\draw(0,-2) rectangle(3,2);
+\draw(0,0)node[left]{$X$}--(3,0)node[right]{$Y$};
+\node at (0,-2)[above right]{$\beta$};
+\node at (0,2)[below right]{$\alpha$};
+\draw(1.2,1)node[right]{$A_1$}--(1.2,-1)node[right]{$A_2$};
+\node at (1.2,0)[below left]{$A_0$};
+\node at (1.5,-2.5){(1)};
+\end{scope}
+\begin{scope}[xshift=5cm]
+\tkzDefPoints{0/0/X, 3/0/Y, 0/2/X', 1.75/-1.75/X''}
+\tkzDefPointsBy[translation=from X to Y](X',X''){Y',Y''}
+\tkzDrawPolygon(X',Y',Y,Y'',X'',X)
+\tkzLabelPoints[left](X)
+\tkzLabelPoints[right](Y)
+\tkzLabelPoint[below left](Y'){$\alpha$}
+\tkzLabelPoint[above right](X''){$\beta$}
+\tkzDefPoints{1.2/0/A_0, 1.2/1.3/A_1, 2.2/-1/A_2, 2.2/.3/A}
+\tkzDrawPolygon(A_0,A_1,A,A_2)
+\tkzLabelPoints[above](A_1)
+\tkzLabelPoints[right](A,A_2)
+\tkzLabelPoints[below](A_0)
+\tkzInterLL(X,Y)(A,A_2)\tkzGetPoint{T1}
+\tkzDrawSegments[dashed](A_0,T1)
+\tkzDrawSegments(X,A_0 T1,Y)
+\node at (2.5,-2.5){(2)};
+\tkzLabelPoint[below left](A){$\gamma$}
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{proof}
+  在图1.40(2)中，
+  
+$\because\quad AA_1\bot\alpha,\quad AA_2\bot\beta$,
+
+又$\because\quad\alpha\cap\beta=XY$,
+
+$\therefore\quad AA_1\bot XY,\quad AA_2\bot XY$.
+
+设$\gamma$是$AA_1$和$AA_2$所确定的平面，
+则$XY\bot\alpha$, 设垂足为$A_0$
+
+$\because\quad A_1A_0, A_2A_0\subset \gamma$.
+
+$\therefore\quad XY\bot A_1A_0,\quad XY\bot A_2A_0$
+
+$\therefore\quad \angle AA_0X=\angle A_2A_0X=90^{\circ}$.
+
+$\therefore\quad $当把图1.40(2)还原成图1.41(1)之后，$A_1A_2$必与$XY$
+垂直.
+\end{proof}
+
+\begin{example}
+   如图1.41, $\triangle ABC$在平面$\alpha$内，$\angle ABC=90^{\circ}$, $D$
+是$AC$中点，$P\notin\alpha$, $PA=PB=PC$.
+
+求证：$PD\bot \alpha$.
+\end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{.5/0/a, 4.5/0/b, 5.5/2/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDefPoints{2/1.5/A, 4.5/1.7/C, 2.7/.8/B, 3.3/3.7/P}
+\tkzDrawPolygon(A,B,C,P)
+\tkzDefMidPoint(A,C)\tkzGetPoint{D}
+\tkzDrawSegments[dashed](A,C D,B P,D)
+\tkzDrawSegments(a,b b,c d,a P,B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](P)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[above right](D)
+\tkzInterLL(c,d)(P,A) \tkzGetPoint{T1}
+\tkzInterLL(c,d)(P,C) \tkzGetPoint{T2}
+\tkzDrawSegments(c,T2 d,T1)
+\tkzDrawSegments[dashed](T1,T2)
+\tkzLabelPoint[above right](a){$\alpha$}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{proof}
+$\because\quad $在$\triangle ABC$中，$\angle ABC=90^{\circ}$, $D$是$AC$中点，
+
+$\therefore\quad AD=AD=DC$.
+
+又$\because\quad PA=PB=PC$，
+而$PD$为公共边，
+
+$\therefore\quad \triangle PAD\cong \triangle PBD\cong \triangle PCD$
+
+$\therefore\quad \angle PDA=\angle PDC=\angle PDB$
+
+$\because\quad \angle PDA=\angle PDC=90^{\circ}$
+
+$\therefore\quad \angle PDB=90^{\circ}$
+
+$\therefore\quad PD\bot DC,\quad PD\bot DB$
+
+$\therefore\quad PD\bot \alpha$.
+\end{proof}
+
+\begin{ex}
+\begin{enumerate}
+  \item 设直线$\ell\bot$平面$\alpha$, 直线$m\bot $直线$\ell$, 那么$m$与$\alpha$一定平行吗？
+  为什么？
+  \item 设$OX$、$OY$、$OZ$三条直线两两互相垂直，点$A\in OX$, 点
+  $B\in OY$, 点$C\in OZ$, 求证：$OX\bot BC$, $OY\bot AC$, $OZ\bot 
+  AB$.
+  \item 在下面各个二视图(1)、(2)、(3)、(4)中，反映两条线段$AB$、
+  $CD$相交的是哪些？异面的是哪些？
+  （提示：利用例1.14的结论）
+  \item 求证：过平面外（内）一点只能作一条直线与已知平面垂
+  直。
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[scale=.9]
+\begin{scope}
+\tkzDefPoints{0/0/X, 3.5/0/Y, .5/0/A, 3/1/B, 3/-1.5/B', .5/-1/A', .8/1.5/C, .8/-2/C', 2.3/0/D}
+\tkzLabelPoints[left](X)
+\tkzLabelPoints[right](Y)
+\tkzLabelPoints[above](C,A,B)
+\tkzLabelPoints[below](C',A',B')
+\tkzLabelPoints[above right](D)
+\tkzLabelPoint[below right](D){$D'$}
+\node at (2,-2.5){(1)};
+\tkzDrawSegments[dashed](A,A' B,B' C,C')
+\tkzDrawSegments(A,B A',B' C,D C',D X,Y)
+\end{scope}
+\begin{scope}[xshift=6cm]
+  \tkzDefPoints{0/0/X, 3.5/0/Y, .5/1/A, 3/1/B, 3/-2/B', .5/-1/A', .8/1.5/C, .8/-1.5/C', 2.3/0/D', 2.3/-1/D}
+\tkzLabelPoints[left](X)
+\tkzLabelPoints[right](Y)
+\tkzLabelPoints[above](C,A,B)
+\tkzLabelPoints[below](C',A',B')
+\tkzLabelPoints[above right](D')
+\tkzLabelPoints[right](D)
+\node at (2,-2.5){(2)};
+
+\tkzDrawSegments[dashed](A,A' B,B' C,C' D,D')
+\tkzDrawSegments(A,B A',B' C,D' C',D X,Y)
+\end{scope}
+\begin{scope}[yshift=-5cm]
+  \tkzDefPoints{0/0/X, 3.5/0/Y, .5/0/A, 3/1.5/B, 3/-2/B', .5/-1/A', .8/1.5/D, .8/-1.6/D', 2.3/0/C, 2.3/-.8/C'}
+\tkzLabelPoints[left](X)
+\tkzLabelPoints[right](Y)
+\tkzLabelPoints[above](C,A,B)
+\tkzLabelPoints[below](C',A',B')
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[below](D')
+\node at (2,-2.5){(3)};
+
+\tkzDrawSegments[dashed](A,A' B,B' C,C' D,D')
+\tkzDrawSegments(A,B A',B' C,D C',D' X,Y)
+
+\end{scope}
+\begin{scope}[xshift=6cm,yshift=-5cm]
+  \tkzDefPoints{0/0/X, 3.5/0/Y, .5/1/A, 3/1/B, 3/-1.7/B', .5/-1.7/A', .8/0/C, .8/-1/C', 2.3/1.5/D, 2.3/-2/D'}
+  \tkzLabelPoints[left](X)
+  \tkzLabelPoints[right](Y)
+  \tkzLabelPoints[above](C,A,B)
+  \tkzLabelPoints[below](C',A',B')
+  \tkzLabelPoints[right](D)
+  \tkzLabelPoints[right](D')
+  \node at (2,-2.5){(4)};
+  
+  \tkzDrawSegments[dashed](A,A' B,B' C,C' D,D')
+  \tkzDrawSegments(A,B A',B' C,D C',D' X,Y)
+\end{scope}
+\end{tikzpicture}
+  \caption*{第3题}
+\end{figure}
+
+\subsection{正射影}
+\begin{blk}
+  {定义} 从平面$\alpha$外一点$P$向$\alpha$作垂线，垂足是$P'$, 点$P'$
+叫作点$P$在平面$\alpha$内的正射影（简称射影）。前面讲过的点
+在投影平面上的投影图，就是该点在投影平面上的正射影。
+
+一个图形$F$上所有点在平面$\alpha$内的正射影的集合$F'$叫作
+图形$F$在平面$\alpha$内的正射影（简称射影）。
+\end{blk}
+
+
+直线在平面内的射影，当直线垂直于平面的时候，显然
+只是一点，在不垂直的时候，就是直线。（图1.42）
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/a, 8/0/b, 9/2/c}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDrawSegments(a,b b,c d,a)
+\tkzDefPoints{1.5/1/P', 1.5/3/P, 2.5/1.2/A', 4/1/B', 2.5/2.2/A, 4/2.6/B}
+\tkzDefMidPoint(A,B)\tkzGetPoint{X}
+\tkzDefMidPoint(A',B')\tkzGetPoint{X'}
+\tkzDrawSegments(A,B A',B')
+\tkzDrawSegments[dashed](P,P' A,A' B,B' X,X')
+\tkzLabelPoints[below](P',A',B')
+\tkzLabelPoints[above](P,A,B)
+
+\tkzDefPoints{5/1/A', 5/2.3/A, 7/1.2/B', 7/1.7/B, 7.5/3.2/C, 7.5/.6/C'}
+\tkzDrawPolygon(A',B',C')
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments[dashed](A,A' B,B' C,C')
+\tkzLabelPoints[below](A',C')
+\tkzLabelPoints[above](A,C)
+\tkzInterLL(c,d)(A,B)\tkzGetPoint{T1}
+\tkzInterLL(c,d)(C,B)\tkzGetPoint{T2}
+\tkzDrawSegments(c,T2 d,T1)
+\tkzLabelPoints[right](B,B')
+\node at (6.75,2.5){$F$};
+\node at (6.75,1){$F'$};
+
+\node at (a)[above right]{$\alpha$};
+
+
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+\begin{blk}
+  {定理} 不与平面垂直的直线在该平面内的射影，就是这
+条直线上的任意两点在平面内射影所确定的直线。
+\end{blk}
+
+已知：直线$\ell$与平面$\alpha$不垂直，$A\in\ell$, $B\in\ell$, $A'$、$B'$分
+别是$A$、$B$在$\alpha$上的射影。（图1.43）
+
+求证：$\ell$在$\alpha$上的射影是直线
+$A'B'$.
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{-.5/0/a, 4/0/b, 3/1.8/c}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPoints{0/1.2/A', 2.5/.8/B', 0/2.5/A, 2.5/3/B}
+\tkzDefMidPoint(A,B)\tkzGetPoint{C}
+\tkzDefMidPoint(A',B')\tkzGetPoint{C'}
+\tkzDrawSegments(a,b b,c a,d A,A' B,B' C,C' A',B')
+\tkzDrawLines(A,B)
+\tkzLabelPoints[below](A',B',C')
+\tkzLabelPoints[above](A,B,C)
+\tkzInterLL(c,d)(A,A')\tkzGetPoint{T1}
+\tkzInterLL(c,d)(B,B')\tkzGetPoint{T2}
+\tkzDrawSegments[dashed](T1,T2)
+\tkzDrawSegments(d,T1 c,T2)
+\tkzLabelPoint[below right](d){$\alpha$}
+\tkzLabelPoint[below left](B){$\beta$}
+\node at (-.65,2.5){$\ell$};
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{proof}
+  $\because\quad AA'\bot \alpha,\quad BB'\bot\alpha$,
+
+$\therefore\quad AA'\parallel BB'$
+
+$\therefore\quad AA'$和$BB'$确定一个平
+面$\beta$, 则$\ell\subset\beta$.
+
+在$\ell$上任取异于$A$、$B$的一点$C$, 过$C$作$CC'\parallel AA'$交$A'B'$于$C$.
+
+$\because\quad AA'\bot \alpha$
+
+$\therefore \quad CC'\bot\alpha$
+
+$\therefore\quad  C'$是$C$点在$\alpha$上的射影。
+
+$\therefore\quad \ell$在$\alpha$上的射影是直线$A'B'$.
+\end{proof}
+
+\begin{blk}
+  {问题1}当直线$\ell$和平面$\alpha$垂直时，$\ell$在$\alpha$内的射影将怎样？
+\end{blk}
+
+
+\begin{blk}
+  {问题2}当直线$\ell$和平面$\alpha$相交而不垂直时，如何求$\ell$在$\alpha$内的
+射影？
+\end{blk}
+
+\begin{blk}
+  {定义} 一条直线和一个平面相交但不垂直，这条直线叫
+作这个平面的斜线，斜线和平面的交点叫斜足。斜线上一点
+与斜足间的线段叫做这点到这个平面的斜线段。
+\end{blk}
+
+\begin{blk}
+{定理} 从平面外一点向这个平面引若干条斜线段，则
+\begin{enumerate}
+  \item 斜线段相等$\Longleftrightarrow$斜线段的射影相等。
+  \item 斜线段较长$\Longleftrightarrow$斜线段的射影
+较长。
+\end{enumerate}
+\end{blk}
 
 
 \begin{example}
-  
+  已知：$AB$、$AC$是平面$\alpha$的两条
+斜线段，$AO\bot\alpha$, $OC$、
+$OB$分别是$AC$、$AB$在$\alpha$内的射影．（图1.44）
+
+求证：
+\begin{enumerate}
+  \item $AB=AC\quad \Longleftrightarrow \quad OC=OB$
+  \item $AB>AC\quad \Longleftrightarrow \quad OC<OB$
+\end{enumerate}
 \end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+\tkzDefPoints{0/0/a, 4/0/b, 5/1.5/c}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPoints{1/.5/C, 3.5/.5/B, 2.1/1.2/O, 2.1/3/A}
+\tkzDrawPolygon(a,b,c,d)
+\tkzDrawPolygon(A,C,O,B)
+\tkzDrawSegments(A,O)
+\tkzLabelPoints[below](B,C,O)
+\tkzLabelPoints[above](A)
+\tkzLabelPoint[above right](a){$\alpha$}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+\begin{proof}
+$\because\quad AO\bot\alpha$
+
+$\therefore \quad \angle AOC=\angle AOB=90^{\circ}$，
+在直角$\triangle AOC$和直角$\triangle AOB$中，$AO$是公共的直
+角边，由勾股定理可知：
+\begin{enumerate}
+  \item $AB=AC\quad \Longleftrightarrow \quad OB=OC$
+  \item $AB>AC\quad \Longleftrightarrow \quad OB<OC$
+\end{enumerate}
+\end{proof}
+
+\begin{blk}
+  {问题1} $AO$经过$\odot O$的圆心$O$, 并且和$\odot O$所在平面垂
+直，那么
+\begin{enumerate}
+  \item $A$点到$\odot O$上各点的距离是否相等？为什么？
+  \item 若$AO\bot$平面$\alpha$, $\odot O$所在的平面$\alpha$上有$B$、$C$两点
+分别在$\odot O$的内部和外部，则$AB$、$AC$有什么
+关系？为什么？
+\end{enumerate}
+\end{blk}
+
+
+\begin{blk}
+  {问题2} 已知：$S$是$\triangle ABC$所在平面$P$外的一点，并且$SA
+=SB=SC$.
+
+求证：$S$点在$P$上的射影$S'$是$\triangle ABC$的外心。
+\end{blk}
+
+为了给研究直线$\ell$和平面$\alpha$所成的角作准备，我们来证
+明下面的定理。
+
+\begin{blk}
+  {定理} 直线和平面相交而不垂直，这条直线与平面内经
+过这个交点的直线所成的角中，以这条直线和它在平面内的
+正射影所成的角为最小。
+\end{blk}
+
+已知：直线$\ell\cap$平面$\alpha=A$, 但$\ell$不垂直$\alpha$, $P\in\ell$, $P$在$\alpha$内的
+射影为$P'$, $AQ$是$\alpha$
+内过$A$的任一条直线。（图1.45）
+
+求证：$\angle PAP'<\angle PAQ$.
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \tkzDefPoints{-0.5/0/a, 4/0/b, 5/1.5/c}
+  \tkzDefPointsBy[translation= from b to c](a){d}
+  \tkzDefPoints{1/1/A, 2.3/.5/Q, 3/1/P', 3/3/P}
+  \tkzDrawPolygon(Q,P,P')
+  \tkzDrawPolygon(a,b,c,d)
+  \tkzDrawLines[add=0 and .3](A,Q A,P' A,P)
+  \tkzLabelPoints[below](P',Q)
+  \tkzLabelPoints[above](P)
+  \tkzLabelPoints[left](A)
+  \tkzLabelPoint[above right](a){$\alpha$}
+\node at (3.7,3.5){$\ell$};
+
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{proof}
+  设$PQ\bot AQ$, 连$P'Q$.
+
+  $\because\quad PP'\bot\alpha$
+
+$\therefore\quad \triangle PQP'$中$\angle PP'Q=90^{\circ}$
+
+$\therefore\quad PQ>PP'$
+
+在$\triangle PP'A$和$\triangle PQA$中，
+
+$\because\quad \angle PP'A=90^{\circ},\quad \angle PQA=90^{\circ}$
+
+$\therefore\quad \sin\angle PAQ=\frac{PQ}{PA},\quad \sin\angle PAP'=\frac{PP'}{PA}$
+
+$\therefore\quad \sin\angle  PAQ>\sin\angle PAP'$
+
+$\because\quad \angle PAQ$和$\angle PAP'$都是锐角，
+
+$\therefore\quad \angle PAQ>\angle PAP'$.
+\end{proof}
+
+有了上述定理，我们就可以给直线和平面的夹角下定义
+了。
+
+
+\begin{blk}
+  {定义} 平面的一条斜线和它在平面内的射影所成的锐角
+叫作这条直线和这个平面所成的角（或夹角）。
+\end{blk}
+
+在特殊情况下，直线和平面垂直，我们就说直线和平面
+所成的角是直角。如果一条直线和一个平面平行或在平面
+内，我们说这条直线和这个平面所成的角是$0^{\circ}$的角。
+
+
+\begin{blk}
+  {定理} 设直线$\ell$和平面$\alpha$所成的角是$\theta$, $\ell$上的线段$AB$
+的射影是$A'B'$, 那么，
+$A'B'=AB\cos\theta$ (图1.46).
+\end{blk}
+
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \tkzDefPoints{-0.5/0/a, 4/0/b, 5/1.5/c}
+  \tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPoints{0.5/.8/O, 2/.8/A', 3.3/.8/B', 3.3/3/B, 2/1.5/A''}
+\tkzInterLL(A',A'')(O,B)\tkzGetPoint{A}
+\tkzDefPointsBy[translation=from A' to B'](A){B''}
+\tkzDrawPolygon(A,B,B',A')
+\tkzDrawSegments(A,B'')
+\tkzDrawSegments[dashed](O,A O,A')
+\tkzLabelPoints[below](A',B')
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B'')
+\tkzLabelPoints[above](B)
+\tkzLabelAngle[pos=.6](A',O,A){$\theta$}
+\tkzLabelAngle[pos=.6](B'',A,B){$\theta$}
+\tkzDrawPolygon(a,b,c,d)
+\tkzLabelPoint[above right](a){$\alpha$}
+\tkzLabelSegment[above](A,B){$\ell$}
+\tkzMarkAngles[mark=none, size=.4](A',O,A B'',A,B)
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+\begin{proof}
+$\because\quad AA',BB'\bot \alpha$
+
+$\therefore\quad AA'\parallel BB'$
+
+$\therefore\quad AA'$和$BB'$确定一个平面
+$\beta$, 过$A$引$AB''\parallel A'B'$交
+$BB'$于$B''$，则$\angle BAB''=\theta$，
+且AA'B'B”是矩形，
+
+$\therefore\quad A'B'=AB''=AB\cos\theta$.
+\end{proof}
+
+\begin{blk}{问题1}
+  当$\theta=0^{\circ}$时，$AB$和$A'B'$有什么关系？
+\end{blk}
+
+\begin{blk}{问题2}
+  当$\theta=90^{\circ}$时，$A'B'$将成为怎样的图形？
+\end{blk}
+
+\begin{blk}{问题3}
+  当$0^{\circ}<\theta<90^{\circ}$时，$AB$和$A'B'$大小关系怎样？
+\end{blk}
+
+
+\begin{blk}{问题4}
+  在空间的两条直线$a$、$b$互相平行的时候，它们在
+  平面内的射影是否也是平行线？
+  \end{blk}
+
+\begin{blk}{问题5}
+  空间的三角形在平面$\alpha$内的射影将是怎样的图
+  形？
+  \end{blk}
+
+\subsection{三垂线定理}
+
+我们知道平面的垂线垂直于平面上
+  的一切直线，那么平面的斜线和平面内的哪些直线互相垂
+  直呢？
+  
+\begin{blk}
+{定理} 在平面内的一条直线，如果和这个平面的一条斜
+  线的射影垂直，那么它也和这条斜线垂直。
+  \end{blk}
+
+已知：如图1.47, $AA'$和$AB$分别是平面$\alpha$的垂线和斜
+线，$A'B$是$AB$在$\alpha$内的射线，$CD\subset \alpha$, $CD\bot A'B$.
+
+求证：$CD\bot AB$.
+
+\begin{proof}
+ $\because\quad  CD\subset \alpha,\quad AA'\bot \alpha$
+
+$\therefore\quad  AA'\bot CD$
+
+又$\because\quad A'B\bot CD$
+
+$\therefore\quad CD\bot $平面$AA'B$
+
+$\because\quad AB\subset $平面$AA'B$
+
+$\therefore\quad CD\bot AB$.
+\end{proof}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[scale=.8]
+\begin{scope}
+  \tkzDefPoints{-1/0/a, 3/0/b, 4/1.5/c}
+  \tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPoints{.5/.8/A', 2.5/.8/B, .5/2.5/A}
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](A')
+\tkzLabelPoints[right](B)
+\tkzDrawPolygon(A',B,A)
+\tkzInterLL(c,d)(A,A')\tkzGetPoint{T1}
+\tkzInterLL(c,d)(A,B)\tkzGetPoint{T2}
+\tkzDrawSegments(c,T2 d,T1 a,b b,c d,a)
+\tkzDefPoints{.5/0/C'}
+\tkzDefPointsBy[translation= from b to c](C'){D'}
+\tkzDefPointWith[linear, K=.8](C',D')\tkzGetPoint{D}
+\tkzDefPointWith[linear, K=.2](C',D')\tkzGetPoint{C}
+\tkzDrawSegments(C,D)
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[right](C)
+\node at (a)[above right]{$\alpha$};
+\node at (1,-.5){(1)};
+\end{scope}
+\begin{scope}[xshift=5cm]
+  \tkzDefPoints{-1/0/a, 3/0/b, 4/1.5/c}
+  \tkzDefPointsBy[translation= from b to c](a){d}
+  \tkzDefPoints{.5/.8/A', 2.5/.8/B, .5/2.5/A}
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[left](A')
+  \tkzLabelPoints[right](B)
+  \tkzDrawPolygon(A',B,A)
+  \tkzInterLL(c,d)(A,A')\tkzGetPoint{T1}
+  \tkzInterLL(c,d)(A,B)\tkzGetPoint{T2}
+  \tkzDrawSegments(c,T2 d,T1 a,b b,c d,a)
+
+\tkzDefPoints{2/0/C'}
+\tkzDefPointsBy[translation= from b to c](C'){D'}
+\tkzDefPointWith[linear, K=.8](C',D')\tkzGetPoint{D}
+\tkzDefPointWith[linear, K=.2](C',D')\tkzGetPoint{C}
+\tkzDrawSegments(C,D)
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[right](C)
+
+\node at (1,-.5){(2)};
+\node at (a)[above right]{$\alpha$};
+\end{scope}
+\begin{scope}[xshift=10cm]
+  \tkzDefPoints{-1.5/0/a, 2.5/0/b, 3.5/1.5/c}
+  \tkzDefPointsBy[translation= from b to c](a){d}
+  \tkzDefPoints{.5/.8/A', 2.5/.8/B, .5/2.5/A}
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[below](A')
+  \tkzLabelPoints[below](B)
+  \tkzDrawPolygon(A',B,A)
+  \tkzInterLL(c,d)(A,A')\tkzGetPoint{T1}
+  \tkzInterLL(c,d)(A,B)\tkzGetPoint{T2}
+  \tkzDrawSegments(c,T2 d,T1 a,b b,c d,a)
+  \node at (.5,-.5){(3)};
+  \node at (c)[below left]{$\alpha$};
+
+  \tkzDefPoints{-.8/0/C'}
+  \tkzDefPointsBy[translation= from b to c](C'){D'}
+  \tkzDefPointWith[linear, K=.8](C',D')\tkzGetPoint{D}
+  \tkzDefPointWith[linear, K=.2](C',D')\tkzGetPoint{C}
+  \tkzDrawSegments(C,D)
+\tkzLabelPoints[left](C,D)
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+
+这个定理称为三垂线定理，其逆定理也成立，即“\textbf{在平
+面内的一条直线，如果和这个平面的一条斜线垂直，那么它
+也和这条斜线的射影垂直}”也真。
+
+所以，\textbf{平面内的一条直线和这个平面的一条斜线垂直的
+充要条件是它和斜线在平面内的射影垂直}。
+
+
+\begin{example}
+  设$O$点是正三角形$ABC$的中心，线段$PO$垂直于
+$\triangle ABC$所在的平面$\alpha$, $OP=h$，$AB=a$, 求$P$点到$\triangle ABC$各边
+的距离。（图1.48）
+\end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \tkzDefPoints{-2/0/a, 2.5/0/b, 4/2.25/c}
+  \tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzDefPoints{-1/.5/B, 2/.5/C}
+\tkzDefMidPoint(B,C)\tkzGetPoint{D}
+\tkzDefPointsBy[translation= from b to c](D){D'}
+\tkzDefPointWith[linear, K=.7](D,D') \tkzGetPoint{A}
+\tkzDefMidPoint(A,C)\tkzGetPoint{E}
+\tkzInterLL(B,E)(A,D)\tkzGetPoint{O}
+\tkzDrawSegments(A,B B,C A,C A,D B,E)
+\tkzLabelPoints[below](B,C,D)
+\tkzLabelPoints[right](A)
+\tkzLabelPoints[below right](O)
+\tkzDefLine[orthogonal = through O](d,c) \tkzGetPoint{p}
+\tkzDefMidPoint(O,p)\tkzGetPoint{P}
+\tkzDefPointWith[linear, K=.7](O,p) \tkzGetPoint{P}
+\tkzDrawSegments(P,O P,D)
+\tkzLabelPoints[above](P)
+\tkzLabelPoint[below right](d){$\alpha$}
+\tkzLabelSegment[right](P,O){$h$}
+\tkzLabelSegment[left](A,B){$a$}
+\end{tikzpicture}  
+  \caption{}
+\end{figure}
 
 \begin{solution}
-  
-\end{solution}
-\begin{example}
-  
-\end{example}
+设$OD\bot BC$
 
-\begin{solution}
-  
+$\because\quad BC\subset \alpha$, $OD$是$PD$
+在$\alpha$内的射影。
+
+$\therefore\quad PD\bot BC$
+
+$\therefore\quad PD$之长就是$P$点到$BC$边的距离。
+
+$\because\quad $正三角形$ABC$的
+边长为$a$.
+
+$\therefore\quad $边心距$OD=\frac{\sqrt{3}}{6}a$
+
+$\therefore\quad PD=\sqrt{OP^2+OD^2}=\sqrt{h^2+\frac{3a^2}{6^2}}=\frac{1}{6}\sqrt{36h^2+3a^2}$
+
+同理，求得$P$点到$AC$、$AB$边的距离都是$\frac{1}{6}\sqrt{36h^2+3a^2}$
+
+答：$P$点到$\triangle ABC$各边的距离为$\frac{1}{6}\sqrt{36h^2+3a^2}$.
 \end{solution}
 
-\begin{example}
-  
-\end{example}
-\begin{example}
-  
-\end{example}
 
 
 \begin{ex}
@@ -3547,409 +4409,1429 @@ $PB$, $O$、$A$、$B$分别为垂足和斜足，已知 $PA=8$cm, $PB=5$cm, 它�
   如果在一个平面内有两条相交直线平行于另一个平面，那么这两个平面平行．
 \end{blk}
 
+已知：如图1.57, 平面$\alpha$内有直线$a$、$b$, 并且$a\cap b=P$，
+$a\cap $平面$\beta=\emptyset$, 
+$b\cap$平面$\beta=\emptyset$.
+
+求证：$\alpha\parallel \beta$.
 
 
+\begin{proof}
+  假定$\alpha\nparallel \beta$, 不妨设
+$\alpha\cap\beta=\ell\ne \emptyset$
+
+$\because\quad \alpha\parallel \beta,\quad b\parallel \beta$ 且$\ell\subset\alpha$,
+
+$\therefore\quad \ell \parallel a$且 $\ell\parallel b$
+
+$\therefore\quad a\parallel b$，这和题设$a\cap b=P$矛盾，
+
+$\therefore\quad \alpha\nparallel \beta$ 是不可能的，
+
+$\therefore\quad \alpha\parallel \beta$.
+\end{proof}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A,3/0/B,3.5/1/C, 2.5/1.5/B'}
+\tkzDefPoints{0.6/0/O}
+\tkzDefPointsBy[translation= from B to C](A,O){D,O'}
+\tkzDefPointsBy[translation= from B to B'](A,C,D){A',C',D'}
+\tkzDrawSegments(A,B B,C D,A A',B' C',D' D',A')
+\tkzLabelSegment[right](B,C){$\ell$}
+\tkzDrawArc[color=black, thick](O,B)(B')
+\tkzDrawArc[color=black, thick](O',C)(C')
+\tkzInterLC(C,D)(O,B) \tkzGetPoints{t1}{t2}
+\tkzDrawSegments(t2,D)
+\tkzDrawSegments[dashed](t2,C)
+\tkzLabelPoint[above right](A){$\beta$}
+\tkzLabelPoint[above right](A'){$\alpha$}
+\tkzDefPoints{0.2/1.7/b', 2/2.3/b, 0.3/2.3/a', 2/1.7/a}
+\tkzInterLL(a,a')(b,b')\tkzGetPoint{P}
+\tkzDrawSegments(a,a' b,b')
+\tkzLabelPoints[right](a,b)
+\tkzLabelPoints[below](P)
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A1,3.5/0/B1,4/1.2/C1, 3.5/2/B2}
+    \tkzDefPointsBy[translation= from B1 to C1](A1){D1}
+    \tkzDefPointsBy[translation= from B1 to B2](A1,C1,D1){A2,C2,D2}
+    \tkzDrawSegments(A1,B1 B1,C1 A1,D1)
+\tkzDrawPolygon(A2,B2,C2,D2)
+\tkzLabelPoint[above right](A1){$\beta$}
+\tkzLabelPoint[above right](A2){$\alpha$}
+
+
+\tkzDefPoints{.8/2.2/B', 3.3/2.8/b, 1.1/2.8/AA', 2.6/2.2/a}
+\tkzInterLL(a,AA')(b,B')\tkzGetPoint{A}
+\tkzDrawSegments(a,AA' b,B')
+\tkzLabelPoints[right](a,b)
+\tkzLabelPoints[above](A)
+\tkzDefPoints{.8/.3/B}
+\tkzDefPointsBy[translation= from B' to B](b,AA',a,A){b',AA,a',A'}
+\tkzLabelPoints[right](a',b')
+\tkzLabelPoints[below](A')
+\tkzDrawSegments(a',AA A',B)
+\tkzDrawSegments[dashed](B',B b,b' AA,AA' a,a' A,A')
+\tkzLabelPoint[above right](B){$\pi_1$}
+\tkzLabelPoint[right](AA){$\pi_2$}
+\tkzInterLL(B',B)(A2,B2) \tkzGetPoint{T1}
+\tkzInterLL(b,b')(A2,B2) \tkzGetPoint{T2}
+\tkzInterLL(AA,AA')(A2,B2) \tkzGetPoint{T3}
+\tkzInterLL(a,a')(A2,B2) \tkzGetPoint{T4}
+\tkzInterLL(A,A')(A2,B2) \tkzGetPoint{T5}
+\tkzDrawSegments(T1,B T2,b' T3,AA T4,a' T5,A')
+\tkzInterLL(b',b)(C1,D1) \tkzGetPoint{T6}
+\tkzInterLL(B',B)(C1,D1) \tkzGetPoint{T7}
+\tkzDrawSegments[dashed](T6,T7)
+\tkzDrawSegments(T6,C1 T7,D1)
+\tkzInterLL(B,b')(a,a') \tkzGetPoint{T8}
+\tkzDrawSegments[dashed](T8,A')
+\tkzDrawSegments(T8,b')
+\end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+\begin{blk}
+  {推论} 垂直于同一条直线的
+两个平面互相平行。
+\end{blk}
+
+已知：如图1.58,平面$\alpha,\beta$ 都垂直于直线$AA'$.
+
+求证：$\alpha\parallel \beta$.
+
+\begin{proof}
+  经过直线$AA'$分别作平面$\pi_1$和$\pi_2$, 它们分别和
+$\alpha,\beta$ 相交于直线$a$、$a'$和$b$、$b'$.
+
+$\because\quad AA'\bot \alpha,\quad AA'\bot \beta$,
+
+$\therefore\quad AA'\bot a,\quad AA'\bot a'$,
+
+$\therefore\quad a\parallel a',\quad a'\parallel \alpha$.
+
+同理，$b'\parallel \alpha$.
+
+又$\because\quad a'\cap b'=A'\ne \emptyset$
+
+$\therefore\quad \alpha\parallel \beta$.
+\end{proof}
+
+
+\begin{blk}
+  {两个平行平面的性质定理} 如果两个平行平面和第三个
+平面同时相交，那么它们的交线平行。
+\end{blk}
+
+已知：如图1.59, 平面$\alpha,\beta,\gamma$中，$\alpha\cap \beta=\emptyset$, $\alpha\cap \gamma=\ell_1$, 
+$\beta\cap\gamma=\ell_2$.
+
+求证：$\ell_1\parallel \ell_2$.
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \tkzDefPoints{0/0/A1,4/0/B1,5/1/C1, 4.2/1.75/B2}
+    \tkzDefPointsBy[translation= from B1 to C1](A1){D1}
+    \tkzDefPointsBy[translation= from B1 to B2](A1,C1,D1){A2,C2,D2}
+\tkzDefMidPoint(A1,B1)\tkzGetPoint{E1}
+\tkzDefMidPoint(C1,D1)\tkzGetPoint{F1}
+\tkzDefMidPoint(A2,B2)\tkzGetPoint{E2}
+\tkzDefMidPoint(C2,D2)\tkzGetPoint{F2}
+\tkzDefPointWith[linear, K=2](E1,E2) \tkzGetPoint{E3}
+\tkzDefPointWith[linear, K=1.7](E2,E1) \tkzGetPoint{E4}
+\tkzDefPointWith[linear, K=2](F1,F2) \tkzGetPoint{F3}
+\tkzDefPointWith[linear, K=1.7](F2,F1) \tkzGetPoint{F4}
+
+\tkzDrawSegments[thick](A1,B1 B1,C1 D1,A1 A2,B2 B2,C2 D2,A2 E3,E4 E1,F1 E2,F2 E3,F3 F3,F2 F4,E4 F1,C1 F2,C2)
+\tkzLabelPoint[above left](B1){$\beta$}
+\tkzLabelPoint[above left](B2){$\alpha$}
+\tkzLabelPoint[right](E3){$\gamma$}
+
+\tkzInterLL(C1,D1)(E1,E2) \tkzGetPoint{T1}
+\tkzInterLL(C2,D2)(E1,E2) \tkzGetPoint{T2}
+\tkzDrawSegments[dashed](T1,F1 T2,F2)
+\tkzDrawSegments[thick](T1,D1 T2,D2)
+
+\tkzInterLL(A1,B1)(F1,F2) \tkzGetPoint{T3}
+\tkzInterLL(A2,B2)(F1,F2) \tkzGetPoint{T4}
+\tkzDrawSegments[dashed](T3,F1 T4,F2)
+\tkzDrawSegments[thick](F4,T3 T4,F1)
+\tkzLabelSegment[left](E2,F2){$\ell_1$}
+\tkzLabelSegment[left](E1,F1){$\ell_2$}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+
+\begin{proof}
+由于：
+\[\begin{split}
+  \ell_1\cap \ell_2=(\alpha\cap \gamma)\cap (\beta\cap \gamma)&=(\alpha\cap \beta)\cap (\gamma\cap \gamma)\\
+  &=(\alpha\cap \beta)\cap \gamma\\
+  &=\emptyset\cap\gamma=\emptyset
+\end{split}\]
+
+又$\because\quad \ell_1,\ell_2\subset\gamma$
+
+$\therefore\quad\ell_1\parallel \ell_2$.
+\end{proof}
+
+\begin{blk}
+  {推论1} 如果一条直线与二平行平面之一相交，那么它必
+与另一平面相交。
+\end{blk}
+
+
+\begin{blk}
+  {推论2} 如果一条直线垂直于两个平行平面中的一个平
+面，那么也垂直于另一个平面。
+\end{blk}
+
+如图1.58, 设平面$\alpha\parallel$平面$\beta$, 直线$AA'\bot\alpha$于$A'$, 则$AA'$必交平面$\beta$于一点$A'$ (推论1), 经过$AA'$的平面$\pi_1$和$\pi_2$
+分别与$\alpha$和$\beta$的交线设为$a$、$a'$和$b$、$b'$,
+
+$\because\quad a\parallel \beta \qquad \therefore\quad a\parallel a'$
+
+$\because\quad AA'\bot \alpha$
+
+$\therefore\quad AA'\bot a,\quad \quad AA'\bot a'$
+
+同理，$AA'\bot b'\qquad \therefore\quad AA'\bot\beta$.
+
+
+
+\begin{blk}
+  {定义} 和两个平行平面同时垂直的直线叫做这两个平行
+平面的公垂线。
+\end{blk}
+
+
+\begin{blk}
+  {推论} 夹在两个平行平面间的公垂线段的长都相等。
+\end{blk}
+
+
+\begin{blk}
+{定义} 夹在两个平行平面间的公垂线段的长叫做这两个
+平行平面间的距离。
+  \end{blk}
+
+\begin{example}
+  已知：如图1.60中，不共面三线段$AA'$、$BB'$、
+  $CC'$互相平分于一点$O$.
+
+  求证：平面$ABC\parallel$ 平面$A'B'C'$.
+\end{example}
+
+\begin{proof}
+连接$AB'$、$BA'$,
+
+$\because\quad AA'$和$BB'$互相平分于
+  $O$点，
+
+$\therefore\quad $四边形$AB'A'B$是平行
+  四边形，
+
+$\therefore\quad AB\parallel A'B'$.
+
+  同理，$BC\parallel B'C'$,
+
+$\therefore\quad$ 平面$ABC\parallel $ 平面$A'B'C'$.
+  \end{proof}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{0/0/A1,3.5/0/B1,4.5/1.5/C1, 4/2.7/B2}
+  \tkzDefPointsBy[translation= from B1 to C1](A1){D1}
+  \tkzDefPointsBy[translation= from B1 to B2](A1,C1,D1){A2,C2,D2}
+  \tkzDrawPolygon(A1,B1,C1,D1)
+\tkzDrawPolygon(A2,B2,C2,D2)
+
+\tkzDefPoints{1.5/3.25/A, 3.5/3.25/B, 3/4/C, 2.35/2.1/O}
+\tkzDefPointWith[linear, K=2](A,O) \tkzGetPoint{A'}
+\tkzDefPointWith[linear, K=2](B,O) \tkzGetPoint{B'}
+\tkzDefPointWith[linear, K=2](C,O) \tkzGetPoint{C'}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPolygon(A',B',C')
+\tkzLabelPoints[left](A,B',C')
+\tkzLabelPoints[right](A',B,C,O)
+\tkzDrawSegments[dashed](A,B' A',B)
+\tkzInterLL(A2,B2)(A,A')\tkzGetPoint{T1}
+\tkzInterLL(A2,B2)(B,B')\tkzGetPoint{T2}
+\tkzInterLL(A2,B2)(C,C')\tkzGetPoint{T3}
+\tkzDrawSegments[dashed](A,T1 B,T2 C,T3)
+\tkzDrawSegments(A',T1 B',T2 C',T3)
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/A1,3.5/0/B1,4/1/C1, 3.5/1.5/B2, 3.5/3/B3}
+    \tkzDefPointsBy[translation= from B1 to C1](A1){D1}
+    \tkzDefPointsBy[translation= from B1 to B2](A1,C1,D1){A2,C2,D2}
+    \tkzDefPointsBy[translation= from B1 to B3](A1,C1,D1){A3,C3,D3}
+    \tkzDrawPolygon(A1,B1,C1,D1)
+  \tkzDrawPolygon(A2,B2,C2,D2)
+  \tkzDrawPolygon(A3,B3,C3,D3)
+
+\tkzDefPoints{1.5/3.6/A_1, 2.3/3.6/A'_1}
+\tkzDefPoints{1/.6/A_3, 1.8/.6/A''_3, 2.7/.2/A'_3}
+\tkzDefMidPoint(A_1,A_3)\tkzGetPoint{A_2}
+\tkzDefMidPoint(A'_1,A'_3)\tkzGetPoint{A'_2}
+\tkzDefMidPoint(A'_1,A''_3)\tkzGetPoint{A''_2}
+\tkzDrawSegments[thick](A_1,A'_1 A_3,A''_3 A_2,A''_2 A''_3,A'_3 A''_2,A'_2)
+\tkzLabelPoints[left](A_1,A_2,A_3)
+\tkzLabelPoints[right](A'_1)
+\tkzLabelPoints[above left](A''_2,A''_3)
+\tkzLabelPoints[above right](A'_2,A'_3)
+
+\tkzInterLL(A2,B2)(A_1,A_3) \tkzGetPoint{T1}
+\tkzInterLL(A2,B2)(A'_1,A''_3) \tkzGetPoint{T2}
+\tkzInterLL(A2,B2)(A'_1,A'_3) \tkzGetPoint{T3}
+
+\tkzInterLL(A3,B3)(A_1,A_3) \tkzGetPoint{T4}
+\tkzInterLL(A3,B3)(A'_1,A''_3) \tkzGetPoint{T5}
+\tkzInterLL(A3,B3)(A'_1,A'_3) \tkzGetPoint{T6}
+
+\tkzDrawSegments[thick](T1,A_3 T2,A''_3 T3,A'_3 T4,A_2 T5,A''_2 T6,A'_2)
+\tkzDrawSegments[dashed](T1,A_2 T2,A''_2 T3,A'_2 T4,A_1 T5,A'_1 T6,A'_1)
+
+\tkzDefPointWith[linear, K=1.8](A_2,A_3)\tkzGetPoint{A11}
+\tkzDefPointWith[linear, K=1.8](A''_2,A''_3)\tkzGetPoint{A12}
+\tkzDefPointWith[linear, K=1.8](A'_2,A'_3)\tkzGetPoint{A13}
+\tkzDefPointWith[linear, K=1.6](A_2,A_1)\tkzGetPoint{A21}
+\tkzDefPointWith[linear, K=1.6](A'_2,A'_1)\tkzGetPoint{A22}
+\tkzDrawSegments[thick](A_1,A21 A'_1,A22)
+\tkzLabelPoint[above](A21){$\ell_1$}
+\tkzLabelPoint[above](A22){$\ell_2$}
+
+\tkzInterLL(A1,B1)(A_2,A_3) \tkzGetPoint{T7}
+\tkzInterLL(A1,B1)(A''_2,A''_3) \tkzGetPoint{T8}
+\tkzInterLL(A1,B1)(A'_2,A'_3) \tkzGetPoint{T9}
+
+\tkzDrawSegments[dashed](T7,A_3 T8,A''_3 T9,A'_3)
+\tkzDrawSegments[thick](T7,A11 T8,A12 T9,A13)
+\tkzLabelPoint[below](A12){$\ell_3$}
+\tkzLabelPoint[below left](C3){$\alpha$}
+\tkzLabelPoint[below left](C2){$\beta$}
+\tkzLabelPoint[below left](C1){$\gamma$}
+
+
+
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
 
 
 
 \begin{example}
+  已知如图1.61, 平面$\alpha\parallel$ 平面$\beta\parallel$平面$\gamma$，直线$\ell_1$和$\ell_2$分别交$\alpha$、$\beta$、$\gamma$于$A_1$、$A_2$、$A_3$和$A_1'$、$A_2'$、$A_3'$.
+
+  求证：$\frac{A_1A_2}{A_2A_3}=\frac{A_1'A_2'}{A_2'A_3'}$
+\end{example}
+
+\begin{proof}
+  如$\ell_1$和$\ell_2$共面，结论是显
+  然的。现在假设$\ell_1$和$\ell_2$不共面，那么
+  过$A_1'$引直线$\ell_3\parallel \ell_1$, 交$\beta$于$A_2''$，交$\gamma$
+  于$A_3''$．令$\ell_1$和$\ell_3$确定的平面为$\pi_1$, $\ell_3$和$\ell_2$确定的平面为$\pi_2$, 由平行平面
+  的性质定理容易看出：
+\[  A_1A_1'\parallel A_2A_2''\parallel A_3A_3'',\qquad 
+  A_2''A2'\parallel A_3''A_3'\]
+
+$\therefore\quad \frac{A_1A_2}{A_2A_3}=\frac{A_1'A_2''}{A_2''A_3''}=\frac{A_1'A_2'}{A_2'A_3'}$
+  \end{proof}
+
+\begin{ex}
+\begin{enumerate}
+  \item 下列说法是否正确。
+\begin{enumerate}
+  \item 分别在两个平行平面内的两条直线都平行。
+  \item 如果一个平面内的两条直线平行于另一个平面，那么
+    这两个平面平行。
+    \item 如果一个平面内的任何一条直线都平行于另一个平面
+    那么这两个平面平行。
+\end{enumerate}
+
+  \item 夹在两个平行平面间的线段相等。
+  \item 求证：夹在两个平面间的三条不共面线段如果平行相
+  等，那么这两个平面平行。
+  \item 空间任意两条不相交直线能否有公共的平行平面？如果有，画图表示它们。
+  \item 画两个平行平面，分别在两个平面内画两条平行直线。
+  \item 如果一条直线和两个平行平面相交，求证：它和两个平
+  面交成等角。
+\end{enumerate}
+  \end{ex}
+
+\subsection{平面平行的传递性}
+
+\begin{blk}
+  {定理} 经过平面外一点，存在唯一一个平面和已知平面
+平行。
+\end{blk}
+
+已知：如图1.62, $P$点在平
+面$\pi$ 外，
+
+求证：过$P$平行于$\pi$ 的平面
+存在且唯一。
+
+\begin{proof}
+存在性是很容易证明
+的，因为$P\notin \pi$, 所以过$P$可以任作
+两条相异直线都平行于$\pi$, 则由平行平面的判定定理可知，
+过P的两条相交直线所确定的平面便平行于$\pi$.
+
+下面来证定理结论的唯一性（图1.62）.
+
+设过$P$点有两个平面$\alpha$和$\beta$都和平面$\pi$平行。
+那么$\alpha$和$\beta$必相交于过$P$点的一条直线$\ell$. 在平面$\pi$ 上画一
+条直线$m$与$\ell$异面。设$P$和$m$所确定的平面为$\pi'$, 显然$\pi'\cap \pi=m$. 由于$\pi'$和$\alpha$、$\beta$有公共点$P$, 所以$\pi'$必分别交$\alpha$、$\beta$于一条
+直线，设交$\alpha$于直线$b$, 交$\beta$于直线$a$. 因为$\alpha\parallel \pi$, $\beta\parallel \pi$. 所以
+$a\parallel m$, $b\parallel m$, 但$a\cap b=P$, 与平行公理矛盾，因此，过$P$只能有
+一个平面与$\pi$平行。
+\end{proof}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{0/0/A,3/0/B,4/1/C, 0/1.3/A'}
+  \tkzDefPointsBy[translation= from B to C](A){D}
+  \tkzDefPointsBy[translation= from A to A'](B,C,D){B',C',D'}
+\tkzDefMidPoint(A',D') \tkzGetPoint{P}
+\tkzDefMidPoint(A,D) \tkzGetPoint{P'}
+\tkzDefMidPoint(B',C') \tkzGetPoint{Q}
+\tkzDefMidPoint(B,C) \tkzGetPoint{Q'}
+\tkzDefPointWith[linear,K=2](P',P)\tkzGetPoint{P''}
+\tkzDefPointWith[linear,K=2](Q',Q)\tkzGetPoint{Q''}
+\tkzDefMidPoint(Q,Q'')\tkzGetPoint{R}
+\tkzDefPointsBy[translation= from Q to R](B',C'){B'',C''}
+\tkzDrawPolygon(A,B,Q',P')
+\tkzDrawPolygon(A',P,R,B'')
+\tkzDrawPolygon(P',P'',Q'',Q')
+\tkzDrawSegments(A',B' B',C')
+
+\tkzInterLL(Q,Q'')(D',C'')\tkzGetPoint{T1}
+\tkzInterLL(Q,Q'')(D',C')\tkzGetPoint{T2}
+\tkzInterLL(Q,P)(A',B'')\tkzGetPoint{T3}
+\tkzInterLL(C,D)(Q,Q')\tkzGetPoint{T4}
+\tkzDrawSegments(T1,C'' T2,C' C'',R T3,Q T4,C C,Q')
+\tkzDrawSegments[dashed](D',T1 D',T2 D',P P,T3 T4,D D,P')
+
+\tkzLabelPoints[left](P)
+\tkzLabelPoint[below left](A'){$\ell$}
+\tkzLabelSegment[below](Q',P'){$m$}
+\node at (.5,0)[above]{$\pi$};
+\tkzLabelPoint[below right](P''){$\pi'$}
+\tkzLabelPoint[above left](B'){$\beta$}
+\tkzLabelPoint[above left](B''){$\alpha$}
+\tkzLabelSegment[above left](R,P){$b$}
+\tkzLabelSegment[above right](T3,Q){$a$}
+
+
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=.8]
+\tkzDefPoints{0/0/A,3/0/B,3.5/1/C, 2.5/1.5/B', 0/-1.5/A''}
+\tkzDefPoints{0.6/0/O}
+\tkzDefPointsBy[translation= from B to C](A,O){D,O'}
+\tkzDefPointsBy[translation= from B to B'](A,C,D){A',C',D'}
+\tkzDrawSegments(A,B B,C D,A A',B' C',D' D',A')
+
+\tkzDrawArc[color=black, thick](O,B)(B')
+\tkzDrawArc[color=black, thick](O',C)(C')
+\tkzInterLC(C,D)(O,B) \tkzGetPoints{t1}{t2}
+\tkzDrawSegments(t2,D)
+\tkzDrawSegments[dashed](t2,C)
+\tkzLabelPoint[above right](A){$\beta$}
+\tkzLabelPoint[above right](A'){$\alpha$}
+\tkzDefPointsBy[translation= from A to A''](B,C,D){B'',C'',D''}
+\tkzDrawPolygon(A'',B'',C'',D'')
+\tkzLabelPoint[above right](A''){$\pi$}
+\tkzLabelPoint[right](C){$\ell$}
+
+\tkzDefMidPoint(B,C)\tkzGetPoint{P}
+\tkzDrawPoints(P)\tkzLabelPoints[below right](P)
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+
+
+\begin{blk}
+  {定理} 平行于同一平面的两个平面平行。
+\end{blk}
+
+
+已知：如图1.63, 平面$\alpha,\beta,\pi$中，
+$\alpha\parallel \pi$, $\beta\parallel \pi$.
+
+求证：$\alpha\parallel \beta$.
+
+\begin{proof}
+  假定$\alpha\nparallel\beta$, 那么$\alpha$与$\beta$必
+相交，设$\alpha\cap \beta=\ell$, 由于$\alpha,\beta$都和$\pi$
+平行，那么过$\ell$上任一点$P$便有两个
+平面$\pi$平行了，此与上一定理矛盾。
+
+所以$\alpha\parallel \beta$.
+\end{proof}
+
+\begin{rmk}
+如果把本定理的条件稍加改
+写，因为$\beta\parallel \pi$, 即$\pi\parallel \beta$. 那么定理可改述如下：“若平面$\alpha\parallel$平
+面$\pi$, 平面$\pi\parallel$平面$\beta$, 则平面$\alpha\parallel$平面$\beta$.” 这就看出平面平行
+具有传递性了。
+\end{rmk}
+
+\begin{ex}
+\begin{enumerate}
+  \item 一个平面若与两平行平面之一相交，也必与另一平面相交.
+  \item 已知直线$a$和平面$\alpha$、$\beta$, 如果$a\parallel \alpha$, $a\parallel \beta$, 那么$\alpha\parallel \beta$正确
+  吗？如果正确，作出证明；如果不正确，画图举出反例。
+  \item 已知直线$a,b$, 平面$\pi$, 如果$a\parallel \pi$, $b\parallel \pi$, 那么$a\parallel b$正确
+  吗？如果正确，作出证明，如果不正确，画图举出反例.
+\end{enumerate}
+\end{ex}
+
+\subsection{二面角}
+\begin{blk}
+  {定义} 一个平面内的一条直线把这个平面分成两部分，
+每一部分叫作半平面（或射面）。
+\end{blk}
+
+一条直线和过这条直线引两个半平面所组成的图形叫作
+二面角（如图1.64），这条直线叫做二面角的棱，这两个半
+平面叫做二面角的面。棱为$\ell$, 面为$\pi_1$和$\pi_2$的二面角表示作
+$\pi_1-\ell-\pi_2$, 也可简记作$\pi_1\ell\pi_2$.
+
+在二面角$\alpha-\ell-\beta$中（如图1.65）.
+
+在棱$\ell$上任取两点$O$和$O'$, 过$O$和$O'$在平面$\alpha$和平面$\beta$内
+分别引射线$OA$、$OA'$、$OB$、$OB'$都与$\ell$垂直，则$OA\parallel OA'$, 
+$OB\parallel OB'$, 则$\angle AOB=\angle A'O'B'$. 因此，过二面角的棱上任
+一点，在每一面内引棱的垂线，这样两条垂线的夹角都相
+等，与顶点在棱上的位置无关。
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 2.5/0/b, 2/-.8/c, 0/3/a'}
+\tkzDefPointsBy[translation= from a to a'](b,c){b',c'}
+\tkzDrawPolygon(a,c,c',a')
+\tkzDrawSegments(b,b' b',a')
+\tkzLabelPoint[below left](c'){$\pi_1$}
+\tkzLabelPoint[below left](b'){$\pi_2$}
+\tkzInterLL(a,b)(c,c')\tkzGetPoint{t1}
+\tkzDrawSegments[dashed](a,t1)
+\tkzDrawSegments(t1,b)
+\tkzLabelSegment[left](a,a'){$\ell$}
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 2.8/0/b, 2/-.8/c, 0/3/a'}
+\tkzDefPointsBy[translation= from a to a'](b,c){b',c'}
+\tkzDrawPolygon(a,c,c',a')
+\tkzDrawSegments(b,b' b',a')
+\tkzLabelPoint[above left](c){$\alpha$}
+\tkzLabelPoint[above left](b){$\beta$}
+\tkzInterLL(a,b)(c,c')\tkzGetPoint{t1}
+\tkzDrawSegments[dashed](a,t1)
+\tkzDrawSegments(t1,b)
+\tkzLabelSegment[left](a,a'){$\ell$}
+\tkzDefPoints{0/1/O',0/2/O}
+\tkzDefPointWith[linear, K=.7](a,c) \tkzGetPoint{A''}
+\tkzDefPointWith[linear, K=.9](a,b) \tkzGetPoint{B''}
+\tkzDefPointsBy[translation= from a to O'](A'',B''){A',B'}
+\tkzDefPointsBy[translation= from a to O](A'',B''){A,B}
+\tkzDrawSegments(O,A O',A')
+\tkzInterLL(O,B)(c,c')\tkzGetPoint{t2}
+\tkzInterLL(O',B')(c,c')\tkzGetPoint{t3}
+\tkzDrawSegments(t2,B t3,B')
+\tkzDrawSegments[dashed](O,t2 O',t3)
+
+\tkzLabelPoints[right](A,A')
+\tkzLabelPoints[above](B,B')
+\tkzLabelPoints[left](O,O')
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+
+
+\begin{blk}
+ {定义} 以二面棱上任意一点为端点，在它的两个面内
+分别作垂直于棱的两条射线，这两条射线所成的角叫做二面
+角的平面角。在图1.65中$\angle AOB$就是二面角$\alpha-\ell-\beta$的平面
+角。 
+\end{blk}
+
+二面角的平面角是用来度量二面角的大小的，我们说二
+面角的大小是多少度。就是指它的平面角的大小是多少度。
+
+\begin{example}
+  有一山坡的倾斜角是$30^{\circ}$（就是山坡和地面所成
+  的二面角是$30^{\circ}$）。山坡上有一直路和斜坡底线成$60^{\circ}$角，沿这
+  条直线小路上升100米，问升高
+  了多少？
+\end{example}
+
+\begin{solution}
+  如图1.66, 设$ABCD$是坡面，$EF$是小路，
+  $EF=100$米。设$FH$是$F$到地平面的距离，那
+  么$FH$就是上升的高度。
+
+  经过$H$作$HG\bot AB$于$G$, 由三垂线定理，$FG\bot AB$, 则
+  $\angle FGH$就是坡面和地面所成二面角的平面角，所以$\angle FGB
+  =30^{\circ}$.
+
+$\therefore\quad FH=FG\sin 30^{\circ}=FE\sin 60^{\circ}\sin 30^{\circ}=100\x\frac{\sqrt{3}}{2}\x\frac{1}{2}=25\sqrt{3}(\text{米})$
+
+答：沿这条小路向上走100米，升高$25\sqrt{3}$米。
+\end{solution}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 4/0/B, 5/1/C', 5/2.5/C}
+\tkzDefPointsBy[translation = from B to A](C,C'){D,D'}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments[dashed](D',C' D',D D',A)
+\tkzDrawSegments(B,C' C,C')
+\tkzLabelPoints[below](A,B)\tkzLabelPoints[above](C,D)
+\tkzDefPoints{3/2/F, 3/.8/H, 1/0/E}
+
+\tkzDefPointsBy[translation = from C to F](B){G'}
+\tkzInterLL(A,B)(F,G')\tkzGetPoint{G}
+\tkzDrawSegments[dashed](F,H H,G)
+\tkzDrawSegments(F,E F,G)
+
+\tkzLabelPoints[above](F)
+\tkzLabelPoints[right](H)
+\tkzLabelPoints[below](E,G)
+
+\tkzLabelAngle[pos=.9](C',B,C){$30^{\circ}$}
+\tkzLabelAngle[pos=.9](H,G,F){$30^{\circ}$}
+\tkzLabelAngle[pos=.6](G,E,F){$60^{\circ}$}
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 4/0/b, 5/1/b', 4.2/3/b''}
+\tkzDefPointsBy[translation = from b to a](b',b''){a',a''}
+\tkzDrawPolygon(a,b,b',b'',a'',a')
+\tkzDefPoints{2/1/C, 4/1/A}
+\tkzDefPointsBy[translation = from b' to C](b,b''){C',C''}
+\tkzDefPointWith[linear, K=.8](C,C'')\tkzGetPoint{B}
+\tkzDefPointWith[linear, K=.6](C,C')\tkzGetPoint{O}
+\tkzDrawPolygon(A,B,O)
+\tkzDrawSegments(a',b' C,B C,O)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](O,B)
+\tkzLabelPoints[above right](C)
+\tkzLabelPoint[below left](b''){$P$}
+\tkzLabelPoint[above left](b){$Q$}
+
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+
+\begin{example}
+  已知：如图1.67, 自二面角$P-AC-Q$的棱上一
+  点$A$在面$P$内引一条射线$AB$, 和棱$AC$成$45^{\circ}$角，和另一个面
+  $Q$成$30^{\circ}$角，求二面角$P-AC-Q$的度数。
+\end{example}
+
+\begin{solution}
+    自射线$AB$上一点$B$向
+平面$Q$作垂线$BO$, 设其为长$a$, 
+$O$为垂足，连结$OA$.
+则$\angle BAO$为$AB$与平面$Q$所
+成之角，等于$30^{\circ}$.
+
+在直角$\triangle AOB$中，$BO=a$, 
+所以$AB=2a$, $AO=\sqrt{3}a$.
+
+自$O$点向棱作垂线$OC$, 设$C$为垂足，根据三垂线定理，
+$BC\bot AC$, 所以$\angle BCO$为二面角$P-AC-Q$的平面角。
+
+在直角$\triangle ABC$中，$\angle BAC=45^{\circ}$, $AB=2a$, 
+
+$\therefore\quad AC=\sqrt{2}a$.
+
+在直角$\triangle AOC$中，$AO=\sqrt{3}a,\quad AC=\sqrt{2}a$,
+
+$\therefore\quad OC=a$.
+
+在直角$\triangle BOC$中，$OC=a$, $BO=a$, $\angle BOC=90^{\circ}$
+
+$\therefore\quad \angle BCO=45^{\circ}$
+
+$\therefore\quad $二面角$P-AC-Q$为$45^{\circ}$的二面角。
+
+答：二面角$P-AC-Q$的度数为$45^{\circ}$.
+\end{solution}
+
+\begin{ex}
+\begin{enumerate}
+  \item 拿一张正三角形的纸片$ABC$, 以它的高$AD$为折痕，折
+  成一个二面角，试指出这个二面角的棱、面和平面角。
+  \item 在$30^{\circ}$的二面角的一个面内有一个点，它到另一个面的
+  距离是10cm, 求它到棱的距离。
+  \item 已知在$120^{\circ}$的二面角内，有一点到棱的距离为20cm, 并
+  且这一点到两个面的距离都相等，试求出这个距离来。
+  \item 已知二面角$MaN$中$P\in M$, $PQ\bot $平面$N$于$Q$, $QC\bot a$于
+  $C$, 并且$PQ=5\sqrt{3}$, $QC=5$, 求二面角$MaN$的度数。
+\end{enumerate}
+\end{ex}
+
+\subsection{两个平面垂直的判定定理和性质定理}
+\begin{blk}
+  {定义} 平面角是直角的二面角叫直二面角。
+\end{blk}
+
+
+两个平面相交，如果所成的二面角是直二面角，我们就
+说这两个平面互相垂直。
+
+图1.68中的(1)、(2)、(3)画的就是平面$\alpha\bot$平面$\beta$. 
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[scale=.8]
+\begin{scope}
+\tkzDefPoints{0/0/a, 3/0/b, 4/1/c, 1.5/0/e, 1.5/1.5/f}
+\tkzDefPointsBy[translation= from b to c](a,e,f){d,e',f'}
+\tkzDrawPolygon(e,f,f',e')
+\tkzDrawSegments(a,b b,c d,a e',c)
+\tkzInterLL(c,d)(e,f)\tkzGetPoint{t1}
+\tkzDrawSegments(d,t1)
+\tkzDrawSegments[dashed](t1,e')
+\tkzLabelPoint[above left](b){$\beta$}
+\tkzLabelPoint[right](f){$\alpha$}
+\node at (1.5,-1){(1)};
+\end{scope}
+\begin{scope}[xshift=5cm]
+\tkzDefPoints{0/0/a, 3/0/b, 4/1.5/c, .5/2.5/P', 3.5/2.5/Q', .5/-.5/P'', 3.5/-.5/Q''}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefMidPoint(a,d)\tkzGetPoint{P}
+\tkzDefMidPoint(b,c)\tkzGetPoint{Q}
+  \tkzDrawPolygon(P,Q,Q',P')
+\tkzDrawSegments(a,b b,c P,a Q,Q'' P'',Q'')
+\tkzInterLL(a,b)(P,P')\tkzGetPoint{T1}
+\tkzInterLL(c,d)(Q,Q')\tkzGetPoint{T2}
+\tkzDrawSegments[dashed](P,d d,T2 T1,P)
+\tkzDrawSegments(T1,P'' T2,c)
+\tkzLabelPoint[below right](P'){$\alpha$}
+\tkzLabelPoint[above left](b){$\beta$}
+\node at (1.5,-1){(2)};
+\end{scope}
+\begin{scope}[xshift=10cm]
+  \tkzDefPoints{0/.5/a, 2/.5/b, 1/-.5/c, 0/3/a'}
+\tkzDefPointsBy[translation= from a to a'](b,c){b',c'}
+\tkzDrawPolygon(b,c,c',b')
+\tkzInterLL(a,b)(c,c')\tkzGetPoint{T1}
+\tkzDrawSegments(a',b' a,a' a,T1)
+\tkzDrawSegments[dashed](T1,b)
+\tkzLabelPoint[below right](a'){$\alpha$}
+\tkzLabelPoint[right](c'){$\beta$}
+\node at (1,-1){(3)};
+
+\end{scope}
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{blk}
+  {两个平面垂直的判定定理} 如果一个平面经过另一个平
+  面的一条垂线，那么这两个平面垂直。
+\end{blk}
+
+已知：如图1.69, 直线$CD\bot $平面$\alpha$于$D$, 直线$CD$在
+平面$\beta$内。
+
+求证：$\alpha\bot\beta$.
+
+\begin{proof}
+  设$\alpha,\beta$的交线是过$D$
+  的一条直线$AB$. 在平面$\alpha$内作直线$ED\bot AB$.
+
+$\because\quad CD\bot \alpha, \quad CD\subset \beta$
+
+$\therefore\quad CD\bot AB$.
+
+$\because\quad $平面$\alpha,\beta$相交于$AB,\quad CD\bot AB,\quad ED\bot AB$,
+
+$\therefore\quad \angle CDE$是二面角$\alpha-AB-\beta$的平面角。
+
+又$\because\quad ED\subset\alpha,\quad CD\bot \alpha$,
+
+$\therefore\quad CD\bot ED,\quad \angle CDE=90^{\circ}$
+
+$\therefore\quad $二面角$\alpha-AB-\beta$是直二面角。
+
+$\therefore\quad \alpha\bot \beta$.
+\end{proof}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 4/0/b, 5/1/c, 1.8/0/A, 3.2/1/B, 1.8/2/A'}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPointsBy[translation= from A to A'](B){B'}
+\tkzDrawPolygon(A,B,B',A')
+\tkzDrawSegments(a,b b,c d,a c,B)
+\tkzLabelPoints[below](A)
+\tkzLabelPoints[above right](B)
+\tkzInterLL(c,d)(A,A')\tkzGetPoint{t1}
+\tkzDrawSegments(d,t1)
+\tkzDrawSegments[dashed](t1,B)
+\tkzDefPoints{2.5/.5/D, 4/.5/E, 2.5/2/C}
+\tkzDrawSegments(C,D D,E)
+\tkzLabelPoints[below](D,E)
+\tkzLabelPoints[right](C)
+\node at (.5,0)[above]{$\alpha$};
+\tkzLabelPoint[below right](A'){$\beta$}
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 3/0/b, 4/1.5/c}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPointWith[linear, K=.667](a,d)\tkzGetPoint{e}
+\tkzDefPointWith[linear, K=.667](b,c)\tkzGetPoint{f}
+\tkzDefPoints{3.667/3/f', .667/3/e'}
+\tkzDrawPolygon(e',e,a,b,f,f')
+\tkzDrawSegments(e,f f,c)
+\tkzInterLL(c,d)(f,f')\tkzGetPoint{t1}
+\tkzDrawSegments[dashed](d,e d,t1)
+\tkzDrawSegments(c,t1)
+
+\node at (.5,0)[above]{$\beta$};
+\tkzLabelPoint[below right](e'){$\alpha$}
+
+\tkzDefPoints{2.3/1/B, 2.3/2.5/A}
+\tkzDefPointsBy[translation = from f to B](b){C'}
+\tkzDefPointWith[linear, K=.8](B,C')\tkzGetPoint{C}
+\tkzDrawSegments(A,B B,C)
+\tkzLabelPoints[left](A,C)
+\tkzLabelPoints[above left](B)
+\node at (3,1)[below]{$\ell$};
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+\begin{blk}
+  {两个平面垂直的性质定理} 如果两个平面互相垂直，那
+么在其中一个平面内垂直于它们交线的直线垂直于另一个平
+面。
+\end{blk}
+
+已知：如图1.70, 平面$\alpha\bot $平面$\beta$, 
+$\alpha\cap\beta =\ell$, 直线$AB\bot\ell$, $AB\subset\alpha$. 
+
+求证：$AB\bot\beta$.
+
+\begin{proof}
+设$AB\bot\ell$于$B$点，过$B$点在$\beta$平
+面内作$CB\bot\ell$.
+
+$\because\quad CB\bot\ell$于$B$, $CB\subset \beta$; 
+$AB\bot\ell$于$B$, $AB\subset\alpha$
+
+$\therefore\quad \angle ABC$是二面角$\alpha-\ell-\beta$的平面角．
+
+$\therefore\quad$ 平面$\alpha\bot$平面$\beta$,
+
+$\therefore\quad ABC=90^{\circ},\qquad AB\bot BC$
+
+又$\because\quad AB\bot \ell$, 而$\ell\cap CB=B,\quad \ell\subset \beta,\quad BC\subset \beta$
+
+$\therefore\quad AB\bot$平面$\beta$.
+\end{proof}
+
+\begin{example}
+  已知：如图1.71, 平面$\pi_1\bot $平面$\pi_2$, $\pi_1\cap \pi_2=\ell$, 点
+$A,B\in \ell$, $AB=10$cm, 在平面$\pi_1$内引$AC\bot\ell$, 
+$AC=3$cm, 在平面$\pi_2$内引$BD\bot\ell$, $BD=5$cm. 求线
+段$CD$的长。
+\end{example}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{0/0/a, 3/0/b, -1.5/-1.5/c, 0/4/a'}
+\tkzDefPointsBy[translation= from a to a'](b,c){b',c'}
+\tkzDrawPolygon(a,b,b',a',c',c)
+\draw(a)node[below]{$\ell$}--(a');
+\tkzDefPoints{0/.5/B, 0/3/A, 1.5/.5/D, 1.5/3/E, -1/2/C}
+\tkzDrawPolygon(A,B,D,E)
+\tkzLabelPoints[right](D,E)
+\tkzLabelPoints[above right](A)
+\tkzLabelPoints[left](B,C)
+\tkzDrawSegments(A,C E,C C,D)
+\tkzLabelPoint[above left](b){$\pi_2$}
+\node at (-1,-0.5){$\pi_1$};
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+\begin{solution}
+  在平面$\pi_2$内引$AE\displaystyle\mathop{=}^{\parallel}BD$, 连结$ED,CE$.
+
+$\because\quad   AE,BDC\subset \pi_2,\quad AE\displaystyle\mathop{=}^{\parallel}BD,\quad BD\bot \ell$.
+
+$\therefore\quad  ABDE$是矩形。
+
+$\therefore\quad ED=AB=10{\rm cm},\quad AE=5{\rm cm}$.
+
+$\because\quad   AE\bot \ell$于$A$, $AE\subset \pi_2$, $CA\bot \ell$于$A$, $CA\subset \pi_1$
+
+$\therefore\quad \angle CAE$是二面角$\pi_1-\ell-\pi_2$的平面角。
+
+$\because\quad $平面$\pi_1\bot$平面$\pi_2$,
+
+$\therefore\quad\angle CAE=90^{\circ}$.
+
+$\therefore\quad AC=3{\rm cm}$.
+
+$\therefore\quad CE=\sqrt{3^2+5^2}=\sqrt{34}{\rm (cm)}$
+
+$\because\quad CA\bot\ell,\quad \pi_1\bot \pi_2$,
+
+$\therefore\quad CA\bot \pi_2$
+
+$\therefore\quad AE$是$CE$在$\pi_2$内的射影，
+
+$\because\quad DE\bot AE,\quad DE\subset \pi_2$
+
+$\therefore\quad DE\bot CE\quad CED=90^{\circ}$
+
+$\therefore\quad $在直角三角形$CED$中，
+\[CD=\sqrt{10^2+(\sqrt{34})^2}=\sqrt{134}{\rm (cm)}\]
+
+答：线段$CD$的长为$\sqrt{134}{\rm cm}$.
+\end{solution}    
+
+\begin{ex}
+\begin{enumerate}
+  \item  如果$\angle ABC$是二面角$\alpha-\ell-\beta$的平面角，求证：
+\begin{enumerate}
+  \item 平面$ABC\bot $平面$\alpha$
+  \item 平面$ABC\bot$平面$\beta$.
+\end{enumerate}
+
+  \item   已知：直角等腰三角形$ABC$中，$AB=AC$, $AD$是斜边
+  $BC$上的高，如果以$AD$为折痕使$\triangle ABD$和$\triangle ACD$折成互
+  相垂直的两个平面，求证：$BD\bot CD$; $\angle BAC=
+  60^{\circ}$.
+  \item  已知：如图，如果$\alpha\bot\beta$, $A\in\alpha$, $AB\bot\beta$.
+  
+  求证：$AB\subset \alpha$.
+
+  \item  试画出：
+\begin{enumerate}
+  \item 互相垂直的两个平面的图形。
+  \item 两两垂直的三个平面的图形。
+\end{enumerate}
+
+  \item  在$ 60^{\circ}$的二面角的棱上有两个点$A$、$B$; $AC$、$BD$分别是
+  在二面角的两个面内垂直于$AB$的线段，已知：$AB=4$cm、
+  $AC=6$cm、$BD=8$cm, 求$C$、$D$两点间距离。
+\end{enumerate}
+\end{ex}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \begin{scope}
+\tkzDefPoints{0/0/a, 4/0/b, 5/1/c, 1.8/0/A, 3.2/1/B, 1.8/2/A'}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPointsBy[translation= from A to A'](B){B'}
+\tkzDrawPolygon(A,B,B',A')
+\tkzDrawSegments(a,b b,c d,a c,B)
+\tkzInterLL(c,d)(A,A')\tkzGetPoint{t1}
+\tkzDrawSegments(d,t1)
+
+\tkzDefPoints{2.5/.5/D, 2.5/2/C, 3.2/.3/E}
+\tkzDrawSegments(C,D C,E)
+\node at (.5,0)[above]{$\beta$};
+\tkzLabelPoint[below right](A'){$\alpha$}
+\tkzLabelPoint[right](C){$A$}
+\tkzLabelPoint[right](D){$B$}
+
+  \end{scope}
+  \begin{scope}[xshift=6cm]
+\tkzDefPoints{0/0/a, 4/0/b, 5/1/c, 1.8/0/A, 3.2/1/B, 1.8/2/A'}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPointsBy[translation= from A to A'](B){B'}
+\tkzDrawPolygon(A,B,B',A')
+\tkzDrawSegments(a,b b,c d,a c,B)
+\tkzInterLL(c,d)(A,A')\tkzGetPoint{t1}
+\tkzDrawSegments(d,t1)
+
+\tkzDefPoints{2.5/.5/D, 3.4/2.5/E, 2.5/2/C}
+\tkzDrawSegments(C,D D,E)
+\node at (.5,0)[above]{$\beta$};
+\tkzLabelPoint[below right](A'){$\alpha$}
+\tkzLabelPoint[right](C){$B$}
+\tkzLabelPoint[right](D){$A$}
+
+
+  \end{scope}
+\end{tikzpicture}
+  \caption*{第3题}
+\end{figure}
     
+
+
+\section*{习题1.6}
+\addcontentsline{toc}{subsection}{习题1.6}
+\begin{enumerate}
+  \item 画两个相交平面，在这两个相交平面内，各画一条直
+  线，使它们成为平行直线；相交直线；异面直线。
+  \item 画两个相交平面，在一个平面内画一条直线和另一个平
+  面平行。
+  \item 在共点$O$的三条不共面直线$a$、$b$、$c$上，在$O$点的两侧分别
+  取$A$、$A'$, $B$、$B'$和$C$、$C'$使$AO=2A'O$, $BO=2B'O$, 
+  $CO=2C'O$, 求证：平面$ABC\parallel$ 平面$A'B'C'$.
+  \item 求证：如果一条直线与两个相交平面都平行，那么这条
+  直线与这两个平面的交线平行。
+  \item 求证：过已知平面外一点且平行于这个平面的直线，都
+  在过已知点且平行于这个平面的平面内。
+  \item 设平面$\pi_1\parallel \pi_2$, 平面$\pi_2$上有四边形$ABCD$, 平面$\pi_2$上有四
+  边形$A'B'C'D'$, 如果直线$AA'$、$BB'$、$CC'$、$DD'$交于
+  一点$P$, 则这两个四边形相似。试证明这一命题，然后
+  把它推广到任意多边形的情况。
+  \item 求证：如果一个平面与另一个平面的平行线垂直，那么
+  这两个平面互相垂直。
+  \item 求证：如果三条共点的直线，两两互相垂直，那么它们
+  之中每两条直线所确定的平面也两两互相垂直。
+  \item 求证：如果两个相交平面都和第三个平面垂直，那么它
+  们的交线也和第三个平面垂直。
+  \item 已知二面角$\alpha a\beta$的度数为$\theta$ ($0<\theta\le \frac{\pi}{2}$), 
+  在$\alpha$面上有
+  $\triangle ABC$, 它在$\beta$面上的射影为$\triangle A'B'C'$. 
+
+  求证：$S_{\triangle A'B'C'}=S_{\triangle ABC}\cdot \cos\theta$.
+  \item 一条长为$2a$的线段，夹在互相垂直的两个平面之间，
+  它和这两个平面所成的角分别是$45^{\circ}$和$30^{\circ}$, 求这条
+  线段的两个端点在这两个平面的交线上的射影间的距
+  离。
+\item 已知二面角$\pi_1-AB-\pi_2$为
+$120^{\circ}$, $AC\subset \pi_1$, $BD\subset \pi_2$, 
+且$AC\bot AB$, $BD\bot AB$, 
+$AB=AC=BD=a$, 求$CD$
+的长。
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \tkzDefPoints{0/0/a', 3/0/b', -1.5/1.5/c', 4/1.5/b}
+\tkzDefPointsBy[translation= from b' to b](a',c'){a,c}
+\tkzDrawPolygon(a',b',b,a,c,c')
+\tkzDrawSegments(a,a')
+\tkzDefPointWith[linear, K=.33](a',a)\tkzGetPoint{A}
+\tkzDefPointWith[linear, K=.66](a',a)\tkzGetPoint{B}
+\tkzDefPointsBy[translation= from a' to c'](A){A''}\tkzDefPointsBy[translation= from a' to b'](B){B''}
+\tkzDefPointWith[linear, K=.8](A,A'')\tkzGetPoint{C}
+\tkzDefPointWith[linear, K=.6](B,B'')\tkzGetPoint{D}
+\tkzDrawSegments(A,C C,D B,D)
+\tkzLabelPoints[left](B,C)
+\tkzLabelPoints[right](A,D)
+\tkzLabelPoint[above left](b'){$\pi_2$}
+\tkzLabelPoint[below=5pt](c){$\pi_1$}
+
+
+\end{tikzpicture}
+  \caption*{第12题}
+\end{figure}
+
+\item 一条直线和两个平行平面相
+交成$60^{\circ}$角，这直线被这两个平面截得的线段长18cm, 
+求这两个平面间的距离。
+\item 在二面角（小于$90^{\circ}$)的一个面内有已知点$A$, 从$A$向另
+一个面作垂线$AC$, 又从$A$向棱作垂线$AE$, 并且连结
+$CE$, 如果$AC=11.8$cm, $AE=12.4$cm, 求这个二面角
+的度数。
+\item 一个直二面角内一点到两个面的距离分别是12cm和
+16cm, 求这点到二面角棱的距离。
+\item 求证：如果一个二面角是$\alpha$度，空间一点到这个二面角
+的两个面所引垂线的夹角是$\beta$度，那么$\alpha=\beta$或$\alpha+\beta=180^{\circ}$.
+\item 三个平面，如果两两互相垂直，求证：每两个平面相交
+而得的三条直线也两两垂直。
+\item 从二面角内一点到二面角的两个面作垂线，经过这两条
+垂线作一个平面，求证：这个平面垂直于二面角的棱。
+\item 证明：两个平行平面$\alpha$、$\beta$与另外两个平行平面$\pi_1$和$\pi_2$相
+交，所成的四条直线互相平行。
+\item 求证：垂直于同一条直线的两个平面互相平行。
+\item 求证：经过圆$O$的直径$AB$的一个端点$A$, 作圆所在平面
+的垂线，设垂线上任一点是$P$, 圆周上任一点是$C$, 那
+么平面$PAC\bot $平面$PBC$.
+\item 一条直线与直二面角的两个面所成的角分别是$\alpha$和$\beta$, 
+求证：$\alpha+\beta\le 90^{\circ}$.
+\end{enumerate}
+
+\section{空间的对称性}
+在平面几何中，平面有一个基本性质，就是平面对任一
+直线的对称性。同样地在立体几何中，空间也有一相应的性
+质，就是空间$V$对于任一平面$\pi$的对称性，平面$\pi$把空间分成两
+部分（平面$\pi$除外），有居于$\pi$的一侧的点$P,Q,\ldots$, 就有居于$\pi$
+的另一侧的对应点$P',Q',\ldots$, 使得$PP',QQ',\ldots$, 被
+$\pi$
+垂直平分。
+
+为了深入了解空间$V$对于任一平面$\pi$的对称性，我们先
+来介绍两个集合间映射的概念。
+
+\begin{blk}
+ {定义} 设有两个集合$A$、$B$, 如果按某种对应关系使集合
+$A$的任一元素$a$都有集合$B$中的唯一的一个元素$b$和它相对应，
+那么我们就说这种对应关系为集合$A$到集合$B$的映射，并说$b$
+是$a$的象，$a$是$b$的原象。 
+\end{blk}
+
+例如，设有两个集合$A$、$B$, 
+\[\begin{split}
+  A&=\{x|1\le x\le 2,\; x\in\mathbb{R}\}\\
+B&=\{y|2\le y\le 4,\; y\in\mathbb{R}\}
+\end{split}\]
+
+那么不难看出对给定的对应关系$y=2x$是$A$到$B$的一个映
+射。因为任取$A$中的一个元素如$\frac{3}{2}$，
+那么由关系式$y=2x$可知，$y=2\x\frac{3}{2}=3$, $3\in B$, 这样$B$中就有唯一的一个元素3和
+$A$中的元素$\frac{3}{2}$
+相对应。
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}[>=latex, xscale=1.4]
+\draw[->](-.5,0)--(3,0)node[right]{$x$};
+\draw[->](0,-.5)--(0,5)node[right]{$y$};
+\draw[very thick](0,0)--(2.5,5)node[right]{$y=2x$};
+\node at (1,0)[below]{$A(1,0)$};
+\node at (2,0)[below]{$B(2,0)$};
+\node at (0,2)[left]{$A'(0,2)$};
+\node at (0,4)[left]{$B'(0,4)$};
+\draw[dashed](0,2)--(1,2)--(1,0);
+\draw[dashed](0,4)--(2,4)--(2,0);
+\node at (0,0)[below left]{$O$};
+
+
+\end{tikzpicture}
+  \caption{}
+\end{figure}
+
+如果画出图象（图1.72），
+那么对应关系$y=2x$从几何的角
+度便可看成是$x$轴上的线段$AB$到
+$y$轴上的线段$A'B'$的映射。
+
+有了集合间映射的概念，便可以给空间$V$对平面$\pi$的对称下定义了。
+
+\begin{blk}
+  {定义} 空间$V$对给定平面$\pi$的对称是一具有下列性质的
+映射$R_{\pi}:V\mapsto V$, 对任何点$P\in V$, 它的像是$R_{\pi}(P)=P'$, 
+线段$PP'$被平面$\pi$垂直平分。
+\end{blk}
+
+\begin{blk}
+  {定理} 上述定义的映射$R_{\pi}$是一个保距映射，即对$V$中
+任给两点$P,Q$, 总有$d(R_{\pi}(P),R_{\pi}(Q))=d(P,Q)$\footnote{$d(P,Q)$表示$P$、$Q$两点间距离。}.
+\end{blk}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 4/0/b, 5/1.5/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzLabelPoint[below right](d){$\pi$}
+\tkzDefPoints{1.2/.5/P, 3.3/1.2/Q}
+\tkzDrawSegments[very thick](P,Q)
+\tkzLabelPoints[left](P)
+\tkzLabelPoints[right](Q)
+\tkzLabelPoint[below](P){$(P')$}
+\tkzLabelPoint[below right](Q){$(Q')$}
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/a, 3/0/b, 4/1.5/c}
+\tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDefPoints{2/.8/Q_0, 3/.8/P, 2/2.5/Q}
+\tkzDefPointWith[linear, K=2](Q,Q_0) \tkzGetPoint{Q'}
+\tkzDrawSegments(Q,Q_0 Q,P P,Q_0 a,b b,c d,a)
+\tkzInterLL(a,b)(Q',Q_0)\tkzGetPoint{T1}
+\tkzInterLL(a,b)(Q',P)\tkzGetPoint{T2}
+\tkzInterLL(c,d)(Q,Q_0)\tkzGetPoint{T3}
+\tkzInterLL(c,d)(Q,P)\tkzGetPoint{T4}
+\tkzDrawSegments(T1,Q' T2,Q' c,T4 d,T3)
+\tkzDrawSegments[dashed](T1,Q_0 T2,P)
+\tkzLabelPoints[left](Q_0)
+\tkzLabelPoints[right](P)
+\tkzLabelPoints[above](Q)
+\tkzLabelPoints[below](Q')
+\tkzLabelPoint[below right](d){$\pi$}
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+\begin{proof}
+\begin{enumerate}
+  \item 若$P,Q\in \pi$, 则$P'=P$, 
+  $Q'=Q$, 显然有：$d(P',Q')=  d(P,Q)$. (图1.73)
+  
+  \item 若$P\in\pi$, $Q\notin\pi$, 由定义可
+  知线段$QQ'\bot\pi$且$QQ'$被$\pi$平分于$Q_0$, 由图1.74容易看出
+  $\triangle PQQ_0\cong \triangle PQ'Q_0$. 所以
+\[  d(P',Q')=d(P,Q')=d(P,Q)\]
+
+\item 若$P,Q\notin \pi$, $PP'$与$QQ'$共线，由图1.75, 容易看
+出：$d(P',Q')=d(P,Q)$.
+\item 若$P,Q\notin \pi$, $PP'$与$QQ'$不共线，则线段$PP'$和$QQ'$
+都被$\pi$垂直平分，所以$PP'\parallel QQ'$, 因此$P$、$Q$、$P'$、$Q'$共面。
+
+过$P$作$PQ_1$垂直$QQ'$于$Q_1$, 过$P'$作$PQ'_1$垂直$QQ'$于$Q_1'$, 
+则$Q_1$的像便是$Q_1'$, 由3知：$d(Q,Q_1)=d(Q',Q_1')$, 由勾
+股定理得$d(P,Q)=d(P',Q')$. (图1.76)
+\end{enumerate}  
+\end{proof}
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+  \tkzDefPoints{0/0/a, 3/0/b, 4/1.5/c}
+  \tkzDefPointsBy[translation = from b to c](a){d}
+  \tkzDefPoints{2/2/Q, 2/2.5/P, 2/.8/O}
+\tkzDrawPolygon(a,b,c,d)
+\tkzLabelPoint[below right](d){$\pi$}
+\tkzDefPointWith[linear,K=2](P,O)\tkzGetPoint{P'}
+\tkzDefPointWith[linear,K=2](Q,O)\tkzGetPoint{Q'}
+\tkzDrawPoints(Q,P,Q',P')
+\tkzLabelPoints[right](Q,P,Q',P')
+\draw[dashed](2,0)--(O);
+\draw(P)--(O);
+\draw(2,0)--(P');
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+      \tkzDefPoints{0/0/a, 3/0/b, 4/1.8/c}
+  \tkzDefPointsBy[translation = from b to c](a){d}
+\tkzDefMidPoint(a,d)\tkzGetPoint{M}
+\tkzDefMidPoint(b,c)\tkzGetPoint{N}
+\tkzDefPoints{.5/3/M', .5/-1/M''}
+\tkzDefPointsBy[translation = from M to N](M',M''){N',N''}
+\tkzDrawPolygon(a,b,N,M)
+\tkzDrawPolygon(M',N',N,M)
+\tkzInterLL(M,M')(a,b)\tkzGetPoint{T1}
+\tkzInterLL(N,N')(c,d)\tkzGetPoint{T2}
+\tkzDrawSegments[dashed](d,M d,T2 M,T1)
+\tkzDrawSegments(T2,c c,N T1,M'' M'',N'' N'',N)
+\node at (.5,0)[above right]{$\pi$};
+\tkzDefPoints{1.5/2/P, 2.5/2/Q_1, 2.5/2.5/Q}
+\foreach \x in {P,Q_1,Q}
+{
+  \tkzDefPointBy[reflection = over M--N](\x)
+  \tkzGetPoint{\x'}
+}
+\tkzDrawPolygon(P,Q,Q_1)
+\tkzDrawPolygon(P',Q',Q_1')
+\tkzLabelPoints[left](P,P')
+\tkzLabelPoints[right](Q,Q_1,Q',Q_1')
+\tkzInterLL(a,b)(P,P')\tkzGetPoint{T3}
+\tkzInterLL(a,b)(Q,Q')\tkzGetPoint{T4}
+\tkzInterLL(c,d)(P,P')\tkzGetPoint{T5}
+\tkzInterLL(c,d)(Q,Q')\tkzGetPoint{T6}
+
+\tkzDrawSegments[dashed](T3,T5 T4,T6)
+\tkzDrawSegments(P,T5 T3,P' T6,Q_1 T4,Q_1')
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+\begin{example}
+  设$\pi_1\bot \pi$, 若$P\in \pi_1$, 求证：$R_{\pi}(P)\in \pi_1$.
 \end{example}
-\begin{solution}
-    
-\end{solution}
+
+\begin{proof}
+  设$R_{\pi}(P)=P'$,
+  
+  $\because\quad \pi_1\bot \pi,\quad P\in \pi_1,\quad PP'\bot \pi$,
+
+  $\therefore\quad PP'\subset \pi_1,\quad P'=R_{\pi}(P)\in \pi_1$. (图1.77)  
+\end{proof}
+
+由上例可以看出，$\pi_1$上的点被$R_{\pi}$
+映射到$\pi_1$, 也就是映射$R_{\pi}$在$\pi_1$上的作
+用相当于以$\pi$和$\pi_1$的交线$\ell$为轴的对
+称。
+
+\begin{figure}[htp]\centering
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+\begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A, 1.3/0/B, 2.5/1/B', 1.3/1.7/D, 1.3/-1.7/E, 3/0/C, 3.75/1/C'}
+\tkzDefPointsBy[translation= from C to C'](A){A'}
+\tkzDefPointsBy[translation= from B to B'](D,E){D',E'}
+\tkzDefPoints{1.9/1.7/P}
+\tkzDefMidPoint(B,B')\tkzGetPoint{P0}
+\tkzDefPointWith[linear,K=2](P,P0)\tkzGetPoint{P'}
+
+
+\tkzDrawSegments(A,C C',C B',C' D',B' D,D' D,B A,A' B,B')
+\tkzInterLL(A,C)(B',E')\tkzGetPoint{T1}
+\tkzInterLL(A',C')(D,E)\tkzGetPoint{T2}
+\tkzInterLL(P,P')(A,C)\tkzGetPoint{T3}
+\tkzDrawSegments(T1,E' T2,A' P,P0 T3,P')
+\tkzDrawSegments[dashed](T1,B' T2,B' T3,P0)
+\node at (.5,0)[above]{$\pi$};
+\tkzDrawSegments(B,E E,E')
+\tkzLabelPoints[right](P)
+\tkzLabelPoints[left](P')
+\tkzLabelPoint[right](D){$\pi_1$}
+
+
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+\tkzDefPoints{0/0/A', 2.75/0/B', 3.5/1/C', 0/2.75/A}
+\tkzDefPointsBy[translation= from B' to C'](A'){D'}
+\tkzDefPointsBy[translation= from A' to A](B',C',D'){B,C,D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon[dashed](A',B',C',D')
+\tkzDrawSegments(A',B' B',C' A,A' B,B' C,C' B,D)
+\tkzDrawSegments[dashed](D,D' B',D')
+\tkzLabelPoints[above](C,D)
+\tkzLabelPoints[below](A',B')
+\tkzLabelPoints[right](C',B)
+\tkzLabelPoints[left](A,D')
+\tkzDefPointWith[linear, K=.4](B,B')\tkzGetPoint{Q}
+\tkzDefPointWith[linear, K=.4](A,A')\tkzGetPoint{Q''}
+\tkzDefPointWith[linear, K=.4](C,C')\tkzGetPoint{Q'}
+\tkzDefPointWith[linear, K=.6](Q,Q')\tkzGetPoint{P'}
+\tkzDefPointWith[linear, K=.6](Q,Q'')\tkzGetPoint{P}
+\tkzDrawSegments(Q,Q' P,Q)
+\tkzDefMidPoint(P',P)\tkzGetPoint{P_0}
+\tkzDrawSegments[dashed](P',P P_0,Q)
+\tkzLabelPoints[left](P)
+\tkzLabelPoints[right](Q')
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[above left](P_0)
+\tkzLabelPoints[below](P')
+
+
+  \end{tikzpicture}
+  \caption{}
+  \end{minipage}
+  \end{figure}
+
+
+\begin{blk}
+  {定义} 空间图形$F$对于给定平面
+$\pi$的对称是一个具有下列性质的映射
+$R_{\pi}:\; F\mapsto F$, 对于任何点$P\in F$, 其像
+为$R_{\pi}(P)=P'$, 线段$PP'$被$\pi$垂直平分。$\pi$称为$F$的对称面，
+$P$和$P'$互称关于$\pi$的对称点。
+\end{blk}
 
 
 \begin{example}
-    
+  已知：立方体$ABCD-A' B'C' D'$.
+
+  求证：对角面$BDD'B'$所在平面是立方体的对称面（图
+  1.78）。
 \end{example}
 
 \begin{solution}
-    
+  正方体$ABCD-  A'B'C'D'$上任取一点$P$(不妨
+  取点$P\in$面$BAA'B'$) 
+  
+  设对角面
+  $BDD'B'$所在平面为$\pi$，作$PP_0
+  \bot \pi$于$P_0$，引$P_0Q\bot BB'$于$Q$, 由
+  三垂线定理可知，$PQ\bot BB'$, 
+
+  $\therefore\quad BB'\bot $平面$PP_0Q$.
+  
+  设平面
+  $PP_0Q$与平面$BB'C'$的交线为$QQ'$, 在$QQ'$上截取$QP'=PQ$, 
+  连$P'P_0$, 则$P'P_0\subset $平面$PP_0Q$. 
+  
+  由于$DB\parallel P_0Q,\quad PQ\parallel AB$,
+
+$\therefore\quad \angle PQP_0=\angle ABD=45^{\circ}$, 
+
+同理，$\angle P'QP_0=\angle CBD=45^{\circ}$, 
+
+容易看出$\triangle PP_0Q\cong \triangle P'P_0Q$. (SAS)
+
+$\therefore\quad \angle P'P_0Q=\angle PP_0Q=90^{\circ}$,
+
+$\therefore\quad P,P_0,P'$三点共线，$PP_0=P_0P'$
+
+$\therefore\quad PP'$
+  被平面$\pi$垂直平分。
+  
+  $\therefore\quad P'=R_{\pi}(P)$. 
+  
+  因此，平面$\pi$是正方体
+  $ABCD-A'B'C'D'$的对称面。
 \end{solution}
-
-\begin{example}
-    
-\end{example}
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
-
-
-\begin{example}
-    
-\end{example}
-
-
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-\begin{example}
-    
-\end{example}
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-\begin{example}
-  
-\end{example}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{example}
-  
-\end{example}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-\begin{solution}
-  
-\end{solution}
-
-
-\begin{example}
-  
-\end{example}
-
-
-\begin{solution}
-  
-\end{solution}
-
-
-
-\begin{example}
-    
-\end{example}
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-\begin{solution}
-    
-\end{solution}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-
-\begin{example}
-    
-\end{example}
-
-\begin{solution}
-    
-\end{solution}
-\begin{example}
-    
-\end{example}
-
-
-\begin{solution}
-    
-\end{solution}
-
-
-
-
 
 
 \section*{习题1.7}
@@ -4116,7 +5998,76 @@ $\pi_1$和$\pi_2$, 并使$\pi_1$和$\pi_2$交线上两点$P$、$Q$间的距离�
 
 \begin{figure}[htp]
     \centering
-    
+\begin{tikzpicture}
+\begin{scope}
+\draw(0,0)--(4,0)node[right]{$\ell_1$};
+\draw[dashed](0,1.5)--(4,1.5);
+\tkzDefPoints{2/1.5/P, 3/1/A, 2/0/Q, .5/0/A', -1/1.5/C}
+\tkzDefPointWith[linear, K=2](A,P)\tkzGetPoint{P'}
+\tkzDefPointWith[linear, K=1.5](P,A)\tkzGetPoint{P''}
+\tkzLabelPoint[right](P''){$\ell_2$}
+\tkzDrawLines[add=2 and .5](P,A)
+\tkzDrawSegments(A,A' P,Q)
+\tkzLabelPoints[above](P,A)
+\tkzLabelPoints[below](A')
+\tkzLabelPoints[above right](Q)
+\tkzMarkAngles[mark=none, size=.7](P',P,C)
+\tkzLabelAngle[pos=1.1](P',P,C){$60^{\circ}$}
+\node at (2,-.5){(1)};
+\end{scope}
+\begin{scope}[xshift=6cm]
+\tkzDefPoints{0/0/a, 3.5/0/b, 4.5/1.5/c}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzLabelPoint[above left](b){$\pi_1$}
+\node at (2,-.5){(2)};
+\tkzDefPoints{.5/.3/a', 3.5/1.2/b', 1/1.3/c', 3/.5/d'}
+\tkzInterLL(a',b')(c',d')\tkzGetPoint{Q}
+\tkzDrawSegments(a',b')
+\tkzDrawSegments[dashed](c',d')
+\tkzLabelPoint[right](b'){$\ell_1$}
+\tkzDefLine[orthogonal= through Q](a,b) \tkzGetPoint{P'}
+\tkzDefMidPoint(Q,P') \tkzGetPoint{P}
+\tkzDefPointsBy[translation= from Q to P](c',d'){c'',d''}
+\tkzDefPointWith[linear, K=1.1](c'',d'')\tkzGetPoint{A}
+\tkzDefPointWith[linear, K=.7](Q,a')\tkzGetPoint{A'}
+\tkzDrawSegments(A',A P,Q)
+\tkzLabelPoints[above](P,A)
+\tkzLabelPoints[below](A',Q)
+\tkzLabelPoint[left](c''){$\ell_2$}
+\tkzDrawLines[add=0 and .4](c'',d'')
+\tkzMarkAngles[mark=none, size=.5](d',Q,b')
+\tkzLabelAngle[pos=.8](d',Q,b'){$60^{\circ}$}
+\end{scope}
+\begin{scope}[yshift=-3.5cm, xshift=3cm]
+  \tkzDefPoints{0/0/a, 3.5/0/b, 4.5/1.5/c, 4/2.75/f}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDefPointsBy[translation= from c to f](d){e}
+\tkzDrawPolygon(a,b,c,f,e,d)
+
+\tkzDefPointWith[linear, K=.2](c,d)\tkzGetPoint{P}
+\tkzDefPointWith[linear, K=.8](c,d)\tkzGetPoint{Q}
+\tkzDefPointsBy[translation= from c to P](b){P'}
+\tkzDefPointsBy[translation= from c to P](f){P''}
+\tkzDefPointsBy[translation= from c to Q](b){Q'}
+\tkzDefPointWith[linear, K=.7](Q,Q')\tkzGetPoint{A'}
+\tkzDefPointWith[linear, K=.7](P,P')\tkzGetPoint{A''}
+\tkzDefPointWith[linear, K=.7](P,P'')\tkzGetPoint{A}
+\tkzDrawLines[add=0 and .2](Q,A' P,A)
+\tkzDrawLines[add=0 and .2, dashed](P,A'')
+\tkzLabelPoints[above](Q)
+\tkzLabelPoints[above right](P)
+\tkzLabelPoints[right](A,A')
+\tkzDrawSegments(c,d A,A')
+\tkzLabelPoint[below right](e){$\pi_2$}
+\tkzLabelSegment[left](Q,A'){$\ell_1$}
+\tkzLabelSegment[left](P,A){$\ell_2$}
+\tkzLabelPoint[above left](b){$\pi_1$}
+\node at (2,-.5){(3)};
+\tkzMarkAngles[mark=none, size=.3](A,P,A'')
+\tkzLabelAngle[pos=.6](A,P,A''){$60^{\circ}$}
+\end{scope}
+\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -4328,27 +6279,26 @@ $\angle XPB=\angle YPB=45^{\circ}$.
   \caption*{第24题}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
