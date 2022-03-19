@@ -1396,7 +1396,24 @@ $A$、$B$两点间的球面距离．
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.6]{fig/2-29.png}
+\begin{tikzpicture}[>=latex]
+    \tkzDefPoints{0/0/O, 2/0/M}
+    \draw[dashed] (O) ellipse [x radius=2, y radius=.8];
+    \draw[thick] (M) arc [x radius=2, y radius=.8, start angle =0, end angle =-180];
+\tkzLabelPoints[below](O)
+\tkzDefPoints{-2.5/1.5/a, 2.5/1.5/b, 3/2.5/c}
+\tkzDefPointsBy[translation= from b to c](a){d}
+\tkzDrawPolygon(a,b,c,d)
+\tkzInterLC(a,b)(O,M) \tkzGetPoints{t1}{t2}
+\tkzDrawArc[thick, color=black](O,t1)(t2)
+\tkzDrawArc[dashed, color=black](O,t2)(t1)
+\tkzLabelPoint[above right](a){$\alpha$}
+\tkzDefPoints{0/1.8/K, .75/1.75/K'}
+\tkzLabelPoints[left](K',K)
+\tkzDrawSegments[dashed](O,K O,K')
+\tkzDrawPoints(K',K)
+
+\end{tikzpicture}   
     \caption{}
 \end{figure}
 
@@ -1443,11 +1460,6 @@ $A$、$B$两点间的球面距离．
 里）
 \end{example}
 
-\begin{figure}[htp]
-    \centering
-\includegraphics[scale=.6]{fig/2-30.png}
-    \caption{}
-\end{figure}
 
 \begin{solution}
     如图2.30, 设点$O$是地球的
@@ -1467,16 +1479,49 @@ $\therefore\quad AM=AO\cos45^{\circ}\approx 6370\x0.7071\approx 4504$
 答：$A$地在一小时内转过的路程约为1179公里．
 \end{solution}
 
+\begin{figure}[htp]\centering
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+  \begin{tikzpicture}[>=latex, scale=1]
+    \tkzDefPoints{0/0/O, 2/0/B, 0/1.414/M}
+    \tkzDefPoint(45:2){A}
+    \tkzDrawCircle(O,A)
+    \tkzDrawSegments[dashed](A,M M,O O,B O,A)
+    \tkzMarkAngle[mark=none, size=.4](B,O,A)    
+    \tkzLabelAngle[pos=.7](B,O,A){$45^{\circ}$}    
+    \draw[dashed] (O) ellipse [x radius=2, y radius=.5];
+    \draw[dashed] (M) ellipse [x radius=1.414, y radius=.25];
+    \tkzLabelPoints[right](A,B)
+    \tkzLabelPoints[left](M,O)
+    \draw[thick] (B) arc [x radius=2, y radius=.5, start angle =0, end angle =-180];
+    \draw[thick] (A) arc [x radius=1.414, y radius=.25, start angle =0, end angle =-180];
+    
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=latex, scale=1]
+      \tkzDefPoints{0/0/O, 2/0/M}
+    \tkzDrawCircle(O,M)
+    \draw[dashed] (O) ellipse [x radius=2, y radius=.8];
+    \draw[thick] (M) arc [x radius=2, y radius=.8, start angle =0, end angle =-180];
+\tkzDefPoints{-1.2/-.62/A, .5/-.75/B}
+\tkzDrawPoints(A,B)
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](O)
+\tkzMarkAngle[mark=none, size=.3](A,O,B)    
+\tkzLabelAngle[pos=.6](A,O,B){$50^{\circ}$}  
+\tkzDrawSegments[dashed](O,A O,B)
+    \end{tikzpicture}
+    \caption{}
+    \end{minipage}
+    \end{figure}
+
 \begin{example}
     已知球面上$A$、$B$两点的球面距离为$5\pi$cm, 过这
 两点的半径的夹角$\angle AOB$是50度，求这个球的半径．
 \end{example}
-
-\begin{figure}[htp]
-    \centering
-\includegraphics[scale=.6]{fig/2-31.png}
-    \caption{}
-\end{figure}
 
 
 \begin{solution}
