@@ -18,7 +18,31 @@
 \usepackage[font=bf,labelfont=bf,labelsep=quad]{caption}
 
 \usepackage{tikz}
+\usepackage{tikz-3dplot} 
+\usepackage{pgfplots}
+\usetikzlibrary{3d, calc, math, intersections, patterns}
 
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+{\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+	\def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+	\def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+	\tikz@canvas@is@plane
+}
+\makeatother  
+
+\tikzset{
+	mark position/.style args={#1(#2)}{
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position #1 with \coordinate (#2);
+			}
+		}
+	}
+}
 
 \usepackage{ntheorem}
 \theoremseparator{\;}
@@ -51,13 +75,13 @@
 \renewcommand{\proofname}{\bf 证明：}
 \newenvironment{proof}{{\noindent \bf 证明：}}{}%{\hfill $\square$\par}
 
-\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\E}{\mathbb{E}}
 \renewcommand{\Pr}{\mathbb{P}}
 \newcommand{\EP}{\mathbb{E}^{\mathbb{P}}}
 \newcommand{\EQ}{\mathbb{E}^{\mathbb{Q}}}
 \newcommand{\dif}{\,{\rm d}}
-\newcommand{\Var}{{\rm Var}}
-\newcommand{\Cov}{{\rm Cov}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
 \newcommand{\x}{\times}
 
 
