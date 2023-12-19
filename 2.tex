@@ -99,7 +99,28 @@
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.7]{fig/2-4.png}
+	\begin{tikzpicture}[scale=1]
+		\draw[dashed] (0,0) arc (90:-5:2 and 0.8) coordinate[pos=0.6](C2) coordinate[at end](X2);
+		\draw (X2) arc (-8:-105:2.5 and 1) coordinate[pos=0.5](P2) coordinate[at end](A2);
+		\draw[dashed] (0,0)--(A2);
+		\draw (0,2.5) arc (90:-5:2 and 0.8) coordinate[pos=0.6](C1) coordinate[at end](X1);
+		\draw (X1) arc (-8:-105:2.5 and 1) coordinate[pos=0.5](P1) coordinate[at end](A1);
+		\draw (0,2.5)--(A1);
+		\draw[dashed] (0,2.5)--(0,0) (C1)--(C2) (0,0)--(C2);
+		\draw (0,2.5)--(C1) (A1)--(A2) (P1)--(P2) (X1)--(X2);
+		\node[label=above:$B_1$] at (0,2.5) {};
+		\node[label={[xshift=-0.25cm,yshift=-0.2cm]$B_2$}] at (0,0) {};
+		\node[label=right:$C_1$] at (C1) {};
+		\node[label={[yshift=-0.6cm]$C_2$}] at (C2) {};
+		\node[label=above:$P_1$] at (P1) {};
+		\node[label=below:$P_2$] at (P2) {};
+		\node[label={[xshift=-0.15cm,yshift=0.5cm]$\ell$}] at (P2) {};
+		\node[label=left:$A_1$] at (A1) {};
+		\node[label=left:$A_2$] at (A2) {};
+		\node[label=left:$A_1$] at (A1) {};
+		\node[label={[xshift=0.45cm,yshift=-0.15cm]$\alpha_1	$}] at (A1) {};
+		\node[label={[xshift=0.45cm,yshift=-0.15cm]$\alpha_2$}] at (A2) {};
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -265,7 +286,7 @@ B'C'D'E'$. 也有用棱柱一条对角线的两
 面互相平行． 
 \end{blk}
 
-已知：图2.7平行六面体$ABCD-A_1B_1C_1D_1$中，四边形
+已知：图2.7平行六面体$ABCD$-$A_1B_1C_1D_1$中，四边形
 $ABB_1A_1$和$DCC_1D_1$是相对的两个面．
 
 求证：$\parallelogram ABB_1A\cong \parallelogram DCC_1D_1$且平面$A_1B\parallel \text{平面}D_1C$.
@@ -620,21 +641,79 @@ $\therefore\quad R\sqrt{3}\left(15-R\sqrt{3}\right)=54 \quad \Rightarrow\quad R^
     比．
 \end{blk}
 
-已知：锥面$S-ABC\cdots$, 平行平面$\alpha_1$与$\alpha_2$都不通过顶
+已知：锥面$S$-$ABC\cdots$, 平行平面$\alpha_1$与$\alpha_2$都不通过顶
 点$S$与锥面相交，得到截面图形$F_1$（在$\alpha_1$上）与$F_2$（在$\alpha_2$上），
-又$SO_1\bot\alpha_1$于$O_1$, $SO_2\bot\alpha_2$于$O_2$(图2.14)
+又$SO_1\bot\alpha_1$于$O_1$, $SO_2\bot\alpha_2$于$O_2$（图2.14）.
 
 求证：截面图形$F_1\backsim F_2$, 其相似比
-$K=\frac{SO_1}{SO_2}$
+$K=\frac{SO_1}{SO_2}$。
 
-\begin{figure}[htp]
+\begin{figure}[ht]
     \centering
-\includegraphics[scale=.6]{fig/2-14.png}
+	\tdplotsetmaincoords{75}{0}
+	\begin{tikzpicture}[scale=0.8,tdplot_main_coords]
+		\def\zone{1.5}
+		\def\ztwo{2.5}
+		\pgfmathsetmacro{\zratio}{\ztwo/\zone}
+		\coordinate (S) at (0,0,{-\zone + \zone*1.5/(\ztwo/\zone-1)});
+		\coordinate (O1) at (0,0,-\zone);
+		\coordinate (O2) at (0,0,-\ztwo*1.5);
+		\draw[dashed] (S)--($(S)!1.15!(O2)$);
+		\draw ($(S)!1.15!(O2)$)--($(S)!1.4!(O2)$);
+		\node[label=above:$S$] at (S) {};
+		\begin{scope}[canvas is xy plane at z={-\zone}]
+			\draw ({-1.5*\zratio},{2*\zratio})--({-2.5*\zratio},{-2*\zratio})--({1.5*\zratio},{-2*\zratio})--({2.5*\zratio},{2*\zratio})--cycle;
+			\draw[dashed] plot[domain=-1:1,variable=\t] (\t, {1+0.3*sin(\t*270-90)});
+			\draw[dashed] (-1,1) arc (-225:-180:1.4142) coordinate[at end](westend);
+			\draw[dashed] (1,1) arc (45:0:1.4142) coordinate[at end](eastend);
+			\draw (westend) arc (-180:0:1.4142) coordinate[pos=0.2](X1) coordinate[pos=0.6](Y1) coordinate[pos=0.7](Z1);
+			\draw[dashed] (O1)--(X1)--(Y1)--cycle;
+			\node[label={[xshift=-0.1cm,yshift=-0.6cm]$X_1$}] at (X1) {};
+			\node[label={[xshift=-0.2cm,yshift=-0.2cm]$O_1$}] at (O1) {};
+			\node[label={[xshift=0.2cm,yshift=-0.6cm]$Y_1$}] at (Y1) {};
+			\node[label=right:$F_1$] at (eastend) {};
+			\node[label={[xshift=-0.5cm,yshift=-0.55cm]$\alpha_1$}] at ({2.5*\zratio},{2*\zratio}) {};
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z={-\ztwo*1.5}]
+			\draw ({-2*\zratio},{2*\zratio})--({-3*\zratio},{-2*\zratio})--({2*\zratio},{-2*\zratio})--({3*\zratio},{2*\zratio})--cycle;
+			\draw[dashed] plot[domain={-\zratio}:\zratio,variable=\t] (\t, {(1+0.3*sin(\t/\zratio*270-90))*\zratio});
+			\draw[dashed] (-\zratio,1*\zratio) arc (-225:-180:{1.4142*\zratio}) coordinate[at end](westend2);
+			\draw[dashed] (\zratio,1*\zratio) arc (45:0:{1.4142*\zratio}) coordinate[at end](eastend2);
+			\draw (westend2) arc (-180:0:{1.4142*\zratio}) coordinate[pos=0.2](X2) coordinate[pos=0.6](Y2) coordinate[pos=0.7](Z2);
+			\draw[dashed] (O2)--(X2)--(Y2)--cycle;
+			\node[label={[xshift=-0.1cm,yshift=-0.6cm]$X_2$}] at (X2) {};
+			\node[label={[xshift=-0.3cm,yshift=-0.6cm]$O_2$}] at (O2) {};
+			\node[label={[xshift=0.2cm,yshift=-0.6cm]$Y_2$}] at (Y2) {};
+			\node[label=right:$F_2$] at (eastend2) {};
+			\node[label={[xshift=-0.5cm,yshift=-0.55cm]$\alpha_2$}] at ({3*\zratio},{2*\zratio}) {};
+		\end{scope}
+		\draw (S)--(westend);
+		\draw[dashed] (westend)--($(S)!1.15!(westend)$);
+		\draw ($(S)!1.15!(westend)$)--(westend2);
+		\draw[dashed] (westend2)--($(S)!1.15!(westend2)$);
+		\draw ($(S)!1.15!(westend2)$)--($(S)!1.5!(westend2)$) node[at end,below] (westendExt) {$A$};
+		
+		\draw (S)--(eastend);
+		\draw[dashed] (eastend)--($(S)!1.15!(eastend)$);
+		\draw ($(S)!1.15!(eastend)$)--(eastend2);
+		\draw[dashed] (eastend2)--($(S)!1.15!(eastend2)$);
+		\draw ($(S)!1.15!(eastend2)$)--($(S)!1.4!(eastend2)$) node[at end,below] (eastendExt) {$C$};
+		
+		\draw (S)--(X1);
+		\draw[dashed] (X1)--($(S)!1.1!(X1)$);
+		\draw ($(S)!1.1!(X1)$)--(X2);
+		\draw[dashed] (X2)--($(S)!1.1!(X2)$);
+		\draw ($(S)!1.1!(X2)$)--($(S)!1.4!(X2)$) node[at end,below] (XExt) {$X$};
+		
+		\draw (S)--(Y1); 	\draw[dashed] (Y1)--($(S)!1.06!(Y1)$);	\draw ($(S)!1.06!(Y1)$)--(Y2);	\draw[dashed] (Y2)--($(S)!1.06!(Y2)$);	\draw ($(S)!1.06!(Y2)$)--($(S)!1.35!(Y2)$) node[at end,below] (YExt) {$Y$};
+		
+		\draw (S)--(Z1); 	\draw[dashed] (Z1)--($(S)!1.15!(Z1)$);	\draw ($(S)!1.15!(Z1)$)--(Z2);	\draw[dashed] (Z2)--($(S)!1.08!(Z2)$);	\draw ($(S)!1.08!(Z2)$)--($(S)!1.35!(Z2)$)  node[at end,below] (ZExt) {$B$};;
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
 \begin{proof}
-任引锥面$S-ABC\cdots$的一条母线$SX$, 由于$F_1$
+任引锥面$S$-$ABC\cdots$的一条母线$SX$, 由于$F_1$
 和$F_2$都是锥面的截面，所以$SX$
 必与$F_1$和$F_2$分别交于$X_1$和$X_2$两
 点，这时，$X_2$可以看成$F_1$上$X_1$的
@@ -690,7 +769,7 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 锥的棱侧．
 
 如果棱锥的底面是三角形、四边形……$n$边形，那么棱锥
-就分别叫做\textbf{三棱锥，四棱锥，五棱锥……$n$棱锥}（见图2.15）、棱锥的表示法可以用表示顶点和底面顶点的
+就分别叫做\textbf{三棱锥、四棱锥、五棱锥……$n$棱锥}（见图2.15）、棱锥的表示法可以用表示顶点和底面顶点的
 几个字母来表示，例如棱锥$S-ACD$. 
 \end{blk}
 
@@ -765,10 +844,10 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
     \item 求这个三棱锥的高．
 \end{enumerate}
 
-已知：在棱锥$S-ABC$中，$AB=BC=CA=12$cm, 
+已知：在棱锥$S$-$ABC$中，$AB=BC=CA=12$cm, 
 面$SAB$、$SBC$、$SCA$都和底面$ABC$成$45^{\circ}$角．
 \begin{enumerate}
-    \item 求证：$S-ABC$是正三棱锥；
+    \item 求证：$S$-$ABC$是正三棱锥；
     \item 求三棱锥的高$SO$.
 \end{enumerate}
 \end{example}
@@ -785,7 +864,7 @@ $\therefore\quad \angle SDO=\angle SEO=\angle SFO=45^{\circ}$
 于是$OD=OE=OF$．
 
 即：$O$点是$\triangle ABC$的内心，又因为正三角形的内心、外
-心、重心、垂心重合，所以三棱锥$S-ABC$是正三棱锥．
+心、重心、垂心重合，所以三棱锥$S$-$ABC$是正三棱锥．
 
 又$OD=\frac{1}{3}CD=\frac{1}{3}\sqrt{CB^2-BD^2}=\frac{1}{3}\sqcup12^2-6^2=\frac{1}{3}\x 6\sqrt{3}=2\sqrt{3}$
 
@@ -844,7 +923,7 @@ $\therefore\quad SO=OD=2\sqrt{3}$ (cm)
 叫做圆锥的顶点和轴，圆锥面母线夹在顶点和截面之间的部
 分叫做圆锥的母线．圆锥面夹在顶点和截面之间的部分叫作
 圆锥的侧面．圆锥可以用它的顶点以及它的底面上三个点的
-字母来表示，如图2.18的圆锥可以记作圆锥$S-ABC$, 也可
+字母来表示，如图2.18的圆锥可以记作圆锥$S$-$ABC$, 也可
 以简记作圆锥$S$.
 \end{blk}
 
@@ -860,7 +939,7 @@ $\therefore\quad SO=OD=2\sqrt{3}$ (cm)
 圆锥的母线．显然圆锥的任一条母线$\ell$和高$h$, 以及这条母
 线$\ell$在底面上的射影即底面半径$r$组成一个直角三角形，根据
 勾股定理有：
-\[\ell^2=h^2+r^2\]
+\[\ell^2=h^2+r^2.\]
 
 圆锥有下面的一些性质：
 \begin{enumerate}
@@ -877,7 +956,7 @@ $\therefore\quad SO=OD=2\sqrt{3}$ (cm)
 求证：与圆锥底面圆相切的直线，和过切点所作的
 母线互相垂直．
 
-已知：圆锥$V-ABC$, 底面圆的切线$AT$, 母线$VA$
+已知：圆锥$V$-$ABC$, 底面圆的切线$AT$, 母线$VA$
 （图2.19）
 
 \begin{figure}[htp]
@@ -1702,7 +1781,23 @@ $\angle AOB=50^{\circ}$, $AB=5\pi$cm. 设球的半
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.6]{fig/2-34.png}
+	\tdplotsetmaincoords{40}{0}
+	\begin{tikzpicture}[scale=0.8,tdplot_main_coords]
+		\begin{scope}[canvas is xy plane at z=0]
+			\draw[dashed] (0,0) -- (1,2) -- (2.5,2) -- (3.5, 0);
+			\draw (3.5,0) -- (2.2, 1) -- (1.3, 1) -- (0,0);
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z=3]
+			\draw (0,0) -- (1,2) -- (2.5,2) -- (3.5, 0) -- (2.2, 1) -- (1.3, 1) -- (0,0);
+		\end{scope}
+		\draw (0,0,0)--++(0,0,3) (3.5,0,0)--++(0,0,3) (2.2,1)--++(0,0,3) (1.3,1)--++(0,0,3);
+		\draw[dashed] (1,2,0)--++(0,0,3) (2.5,2,0)--++(0,0,3);
+		\foreach \i in {1,...,11} {
+			\draw (1.3, 1, \i*0.25) -- (0,0,\i*0.25);
+			\draw (1.3, 1, \i*0.25) -- (2.2, 1, \i*0.25);
+			\draw (3.5, 0, \i*0.25) -- (2.2, 1, \i*0.25);
+		}
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -1840,7 +1935,7 @@ $\therefore\quad S_{\text{矩形}ADD_1A_1}=A_1A\cdot AD=a\cdot 2a=2a^2$
 
 
 \begin{example}
-    正三棱锥$V-ABC$中的底面边长为$a$, 侧棱和底
+    正三棱锥$V$-$ABC$中的底面边长为$a$, 侧棱和底
 面的夹角为$\alpha$, $D$为侧棱$VA$上一点，截面$DBC$与底面$ABC$
 所成的角等于侧棱和高所成的角，求
 此截面面积（图2.37）．
@@ -1887,7 +1982,7 @@ $\frac{\sqrt{3}}{4}a^2\sin\alpha$
 \end{solution}
 
 \begin{example}
-    正三棱锥$S-ABC$的底边
+    正三棱锥$S$-$ABC$的底边
     长为$a$, 侧棱长为$b$. 
     
 \begin{enumerate}
@@ -1987,10 +2082,10 @@ $\therefore\quad \frac{BC}{BC}=\frac{GD}{SC}$
 即
 \[\frac{a-x}{a}=\frac{x}{b}\quad \Rightarrow\quad x=\frac{ab}{a+b}\]
 所以正方形$DEFG$的面积
-\[S_{\text{正方形}DEFG}=\left(\frac{ab}{a+b}\right)^2\]
+\[S_{\text{正方形}DEFG}=\left(\frac{ab}{a+b}\right)^2.\]
 
 答：正方形$DEFG$的面积为
-$\left(\frac{ab}{a+b}\right)^2$
+$\left(\frac{ab}{a+b}\right)^2$.
 \end{enumerate}
 \end{solution}
 
@@ -2062,12 +2157,12 @@ $\left(\frac{ab}{a+b}\right)^2$
     锥的高$SO_2$, 交棱台上、下两底面于$O_1$和$O_2$交中截面于$O_0$,
     连$B_1O_1$、$B_0O_0$、$B_2O_2$，易知，
 $B_1O_1\parallel B_0O_0\parallel B_2O_2$，故有
-\[\frac{S_0}{S_1}=\frac{(a+h)^2}{a^2},\qquad \frac{S_2}{S_1}=\frac{(a+h)^2}{a^2}\]
+\[\frac{S_0}{S_1}=\frac{(a+h)^2}{a^2},\qquad \frac{S_2}{S_1}=\frac{(a+h)^2}{a^2}.\]
 即：
-\[\frac{\sqrt{S_0}}{\sqrt{S_1}}=\frac{a+h}{a}=1\x \frac{h}{a},\qquad \frac{\sqrt{S_2}}{\sqrt{S_1}}=\frac{a+2h}{a}=1+\frac{2h}{a}\]
+\[\frac{\sqrt{S_0}}{\sqrt{S_1}}=\frac{a+h}{a}=1 + \frac{h}{a},\qquad \frac{\sqrt{S_2}}{\sqrt{S_1}}=\frac{a+2h}{a}=1+\frac{2h}{a}.\]
 从两式中消去$\frac{h}{a}$，得
-\[\frac{2\sqrt{S_0}}{\sqrt{S_1}}-\frac{\sqrt{S_2}}{\sqrt{S_1}}=1\]
-因此：$\sqrt{S_0}=\frac{1}{2}\left(\sqrt{S_1}+\sqrt{S_2}\right)$
+\[\frac{2\sqrt{S_0}}{\sqrt{S_1}}-\frac{\sqrt{S_2}}{\sqrt{S_1}}=1.\]
+因此：$\sqrt{S_0}=\frac{1}{2}\left(\sqrt{S_1}+\sqrt{S_2}\right)$.
 
 同理可以证明圆台的中截面面积也为上式．
 \end{proof}
@@ -2214,7 +2309,7 @@ $\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
     体．
     \item 底面是菱形的直棱柱对角线长分别是9cm和15cm, 侧棱
     是5cm, 求它的底面边长．
-    \item 在直平行六面体$ABCD-A_1B_1C_1D_1$中，若$AD=1$m,
+    \item 在直平行六面体$ABCD$-$A_1B_1C_1D_1$中，若$AD=1$m,
     $AB=2$m, $AA_1=3$m, $\angle DAB=60^{\circ}$，求对角线$BD_1$和$AC_1$
     的长．
     \item 圆柱有一个内接直三棱柱，直三棱柱的一个侧面经过连
@@ -2252,7 +2347,7 @@ $\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
 画出正四棱锥的二视图与直观图．
 \item 已知圆锥底面半径为4cm, 母线与底面所成的角为$60^{\circ}$,
 求圆锥内接正四棱锥的斜高．
-\item 正六棱锥$S-ABCDEF$的侧棱为$4a$, 底面正六边形边长
+\item 正六棱锥$S$-$ABCDEF$的侧棱为$4a$, 底面正六边形边长
 为$a$, 求过$SA$和$SC$的对角面的面积．
 \item 正三棱台的上、下两底的边长分别为2cm和6cm, 侧棱
 和底面成$60^{\circ}$角，求棱台的高和斜高．
@@ -2809,7 +2904,7 @@ $\therefore\quad $当$\sin2\beta=1$时，即$2\beta=\frac{\pi}{2},\quad \beta=\f
 \end{blk}
 
 \begin{example}
-    已知三棱锥$V-ABC$中，直角$\triangle ABC$的两条直角
+    已知三棱锥$V$-$ABC$中，直角$\triangle ABC$的两条直角
 边$AB=6$cm, $BC=8$cm, 高$VO=12$cm, 并且$O$点是$\triangle ABC$的
 内心，求棱锥的全面积．
 \end{example}
@@ -2973,7 +3068,7 @@ $\therefore\quad \frac{\alpha}{2}=60^{\circ},\qquad \alpha=120^{\circ}$
     角．
     \item 求底面边长为$2a$, 高为$2a$的正四棱锥的内切圆锥的侧面
     积．
-    \item 已知正三棱锥$V-ABC$, 底
+    \item 已知正三棱锥$V$-$ABC$, 底
     面每边长为$a$, 侧棱和底面
     所成的角为$45^{\circ}$, 求它的全
     面积．
@@ -3434,7 +3529,7 @@ $\therefore\quad S_{\text{圆台侧}}=2\pi MR\cdot CD$
    \draw(2,0) arc (0:45:2); 
 \draw(-2,0) arc (180:135:2);
 \draw[dashed](0,0) ellipse [x radius=2, y radius=.4];
-\draw(0,1.414) ellipse [x radius=1.414, y radius=.3];
+\draw(0,1.414) ellipse [x radius=1.414, y radius=.2];
 \draw[dashed](0,0)--node[right]{$h$}(0,1.414);
 \draw(2,0)node[right]{$E$}  arc [start angle =0, end angle =-180, x radius=2, y radius=.4];
 \node at (1.414,1.414)[above]{$A$};
@@ -3783,7 +3878,7 @@ $\therefore\quad  V (B) > V (A)$
 我国古数学家祖暅早在公元五世纪，便提出了性质
 3, 他说：“缘幂势既同，则积不容异”．并首先应用
 这个原理推得球体积的计算公式．因而我们把性质3叫
-做祖暅原理．在欧洲直到十七世纪才有意大利的卡发雷利提
+做祖暅原理．在欧洲直到十七世纪才有意大利的卡瓦列里提
 出这个事实．
 
 \begin{blk}
@@ -4193,7 +4288,7 @@ $\therefore\quad 2\pi R=3h\quad\Rightarrow\quad R=\frac{\sqrt{3}h}{2\pi}$
 成$n$片高为$\frac{h}{n}$
 的薄片，这些薄片
 的底面都是和侧棱相交的相似三角形．以这些三角形为底面作$n$
-个各有一部分在棱锥$S-ABC$外部的三棱柱，设这些三棱柱的体
+个各有一部分在棱锥$S$-$ABC$外部的三棱柱，设这些三棱柱的体
 积由顶点方向顺次为$V_1,V_2,V_3,\ldots,V_n$. 另外仍以平行于底
 面$\triangle ABC$的相似三角形为底在棱锥的内部作$(n-1)$个三
 棱柱，设这些棱柱的积由顶点的方向顺次为$V'_1,V'_2,\ldots,V_{n-1}'$.
@@ -4400,7 +4495,7 @@ $\therefore\quad S_1=S_2$
 \end{figure}
 
 \begin{solution}
-    设棱锥$S-ABCD$满足已知条件，并设棱锥底面矩形
+    设棱锥$S$-$ABCD$满足已知条件，并设棱锥底面矩形
 $ABCD$的对边$BC=AD=x$. 依
 题意则有棱锥的高$SO=x$, 底
 面对角线长为$2x$, 那么底面面
@@ -5169,7 +5264,7 @@ $b$、$c$, 求证：它的体积
 \[V=\frac{1}{12}\sqrt{16\ell^2 s(s-a)(s-b)(s-c)-a^2b^2c^2}\]
 其中$s=\frac{1}{2}(a+b+c)$
 
-\item 三棱锥$S-ABC$中，侧面$SCB\bot$侧面 $ABC$, 又$SC=SB
+\item 三棱锥$S$-$ABC$中，侧面$SCB\bot$侧面 $ABC$, 又$SC=SB
 =1$, 在顶点处的各面角等于$60^{\circ}$, 求这个三棱锥的体
 积．
 \item 已知棱台两底面面积分别为$245{\rm cm^2}$, $80{\rm cm^2}$, 截得棱台
@@ -5226,7 +5321,7 @@ $\frac{1}{2}$cm, 求截得球缺的球
     \item 证明：正$n$棱柱每相邻两个侧面所成面二面角等于
 \[\frac{(n-2)\x 180^{\circ}}{n}\]
 
-\item 直平行六面体$ABCD-A_1B_1C_1D_1$中已知下底$ABCD$的
+\item 直平行六面体$ABCD$-$A_1B_1C_1D_1$中已知下底$ABCD$的
 边$AB$及$AD$上的高$BE$分别等于26cm和24cm, 又$BE$分
 $AD$成2:3, 六面体的高$AA_1$等于45cm, 求这个六面体
 的截$ADC_1B_1$的面积．
@@ -5255,7 +5350,27 @@ $AA_1=h$, 求长方体的侧面积．
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[scale=.7]{fig/10ti.png}
+    \tdplotsetmaincoords{65}{0}
+    \begin{tikzpicture}[scale=1,tdplot_main_coords]
+    	\def\b{3}
+    	\def\h{4}
+    	\pgfmathsetmacro{\rx}{\b/2}
+    	
+    	\begin{scope}[canvas is xy plane at z = -\h]
+    		\draw (-\rx,0) arc (-180:0:\rx);
+    		\draw[dashed] (-\rx,0) arc (180:0:\rx);
+    	\end{scope}
+    	\coordinate (O) at (0,0,0);
+    	\node[label=above:$S$] at (O) {};
+    	\draw (O)--(-\rx,0,-\h);
+    	\draw (O)--(\rx,0,-\h);
+    	
+    	\def\rate{0.3}
+    	\draw plot[variable=\t,domain=-180:0] ({\rx*(1-(1+\t/180)*\rate)*cos(\t)}, {\rx*(1-(1+\t/180)*\rate)*sin(\t)}, {\h*((1 + \t/180)*\rate-1)});
+    	\draw[dashed] plot[variable=\t,domain=0:180] ({\rx*(1-(1+\t/180)*\rate)*cos(\t)}, {\rx*(1-(1+\t/180)*\rate)*sin(\t)}, {\h*((1 + \t/180)*\rate-1)}) coordinate(B);
+    	\node[label=left:$A$] at (-\rx,0,-\h){};
+    	\node[label=left:$B$] at (B){};
+    \end{tikzpicture}
     \caption*{第10题}
 \end{figure}
 
@@ -5301,7 +5416,7 @@ $a$、$b$、$c$, 这三条棱中每两条所成的角是$60^{\circ}$. 求平行�
 \item 一个棱锥的体积是$V$, 把棱锥的高三等分，过两个分点
 的平行于底面的截面将这个三棱锥分成三部分，求中间
 一部分的体积．
-\item 三棱锥$S-ABC$中，侧棱$SA$、$SB$、$SC$的长分别是$a$、
+\item 三棱锥$S$-$ABC$中，侧棱$SA$、$SB$、$SC$的长分别是$a$、
 $b$、$c$,又$\angle ASB=60^{\circ}$, $\angle ASC=\angle BSC=90^{\circ}$, 求这
 个棱锥的体积．
 \item 一个直角三角形的两条直角边为15cm和20cm, 以斜边
@@ -5370,7 +5485,7 @@ $V_2$.
 组成的四个全等三角形，求此四面体的体积．
 \item 若$M$、$N$分别为立方体$ABCD-A_1B_1C_1D_1$的面$A_1C_1$和
 $B_1C$的中心，求$DM$和$AN$的距离．
-\item 正四棱锥$S-ABCD$中，底面的边长为$a$, 侧棱长为$b$,
+\item 正四棱锥$S$-$ABCD$中，底面的边长为$a$, 侧棱长为$b$,
 \begin{enumerate}
     \item 求这棱锥的体积；
     \item 求这棱锥的侧面积；

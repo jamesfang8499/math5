@@ -1341,7 +1341,15 @@ $B$\\
   \end{minipage}
   \begin{minipage}[t]{0.48\textwidth}
   \centering
-\includegraphics[scale=.6]{fig/1-19.png}
+	\begin{tikzpicture}
+		\draw (-1,0) arc (180:0:1);
+		\draw (-1,0)--(0,1);
+		\draw (-0.707,0.707)--++(1.5,1.5) arc (135:0:1) --(1,0);
+		\draw (-1.5,0.7)--(-0.714143,0.7) (-0.5,0.7)--(0.714143,0.7) ++(0.4,0)--++(1.5,0);
+		\node at (-0.7,0.5) {$A$};
+		\node at (1.1,0.5) {$B$};
+		\node at (1.2,2.2) {$\beta$};
+	\end{tikzpicture}
   \caption*{(2)}
   \end{minipage}
   \caption{}
@@ -2792,7 +2800,7 @@ $PP'$和$\pi$的任何直线都垂直（我们称$\pi$为线段$PP'$的垂直平
 另一重要特征．
 
 设$M$是线段$PP'$的中点，$A$、$B$是$\pi$中相异两点，$C\in$直
-线$AB$. 连$PA,PB,PC,P'A,P'B,P'C$.
+线$AB$. 连$PA$, $PB$, $PC$, $P'A$, $P'B$, $P'C$.
 
 $\because\quad A,B\in\pi$
 
@@ -3003,11 +3011,11 @@ $\therefore\quad \ell_2\bot\ell_1$,
   一个公共点$P$, 这与平面几何中“过一点与已知直线垂直的
   直线只有一条”这一定理相矛盾
   
-$\therefore\quad \ell_2'=\ell_2$, 即$\ell_2\parallel \ell_1$\footnote{这里同时证明了过平面上一点只有一条直线和这个平面垂直。}.
+$\therefore\quad \ell_2'=\ell_2$, 即$\ell_2\parallel \ell_1$\footnote{这里同时证明了过平面上一点只有一条直线和这个平面垂直. }.
 \end{enumerate}
 \end{proof}
 
-  推论2也称作直线和平面垂直的性质定理。
+  推论2也称作直线和平面垂直的性质定理. 
 
 \begin{blk}{问题}
   一条直线如果垂直于平面内的两条直线，这条直线
@@ -3016,14 +3024,14 @@ $\therefore\quad \ell_2'=\ell_2$, 即$\ell_2\parallel \ell_1$\footnote{这里同
 
 \begin{example}
 如图1.40(1), $A_1$、$A_2$是空间一点$A$在主视图平面$\alpha$
-和俯视平面$\beta$上的主视图和俯视图。求证$A_1A_2\bot XY$.
+和俯视平面$\beta$上的主视图和俯视图. 求证$A_1A_2\bot XY$.
 
 为证明方便起见，我们把$A$点二视图（图1.40(1)）改画
 成图1.40(2). $\alpha$在铅直位置，$\beta$在水平位置，$A$点在$\alpha,\beta$上的
 主视图和俯视图$A_1$、$A_2$实际上是由$A$点分别向$\alpha$、$\beta$平面作垂
-线所得到的垂足。以前我们讲过的一个物体在某投影平面上
+线所得到的垂足. 以前我们讲过的一个物体在某投影平面上
 的投影图，实际上是这个物体的轮廓线上所有点在该投影平
-面上的投影所得到的图形。
+面上的投影所得到的图形. 
 \end{example}
 
 \begin{figure}[htp]
@@ -3146,7 +3154,7 @@ $\therefore\quad PD\bot \alpha$.
   $CD$相交的是哪些？异面的是哪些？
   （提示：利用例1.14的结论）
   \item 求证：过平面外（内）一点只能作一条直线与已知平面垂
-  直。
+  直. 
 \end{enumerate}
 \end{ex}
 
@@ -3212,16 +3220,16 @@ $\therefore\quad PD\bot \alpha$.
 \subsection{正射影}
 \begin{blk}
   {定义} 从平面$\alpha$外一点$P$向$\alpha$作垂线，垂足是$P'$, 点$P'$
-叫作点$P$在平面$\alpha$内的正射影（简称射影）。前面讲过的点
-在投影平面上的投影图，就是该点在投影平面上的正射影。
+叫作点$P$在平面$\alpha$内的正射影（简称射影）. 前面讲过的点
+在投影平面上的投影图，就是该点在投影平面上的正射影. 
 
 一个图形$F$上所有点在平面$\alpha$内的正射影的集合$F'$叫作
-图形$F$在平面$\alpha$内的正射影（简称射影）。
+图形$F$在平面$\alpha$内的正射影（简称射影）. 
 \end{blk}
 
 
 直线在平面内的射影，当直线垂直于平面的时候，显然
-只是一点，在不垂直的时候，就是直线。（图1.42）
+只是一点，在不垂直的时候，就是直线. （图1.42）
 
 \begin{figure}[htp]
   \centering
@@ -3260,11 +3268,11 @@ $\therefore\quad PD\bot \alpha$.
 
 \begin{blk}
   {定理} 不与平面垂直的直线在该平面内的射影，就是这
-条直线上的任意两点在平面内射影所确定的直线。
+条直线上的任意两点在平面内射影所确定的直线. 
 \end{blk}
 
 已知：直线$\ell$与平面$\alpha$不垂直，$A\in\ell$, $B\in\ell$, $A'$、$B'$分
-别是$A$、$B$在$\alpha$上的射影。（图1.43）
+别是$A$、$B$在$\alpha$上的射影. （图1.43）
 
 求证：$\ell$在$\alpha$上的射影是直线
 $A'B'$.
@@ -3306,7 +3314,7 @@ $\because\quad AA'\bot \alpha$
 
 $\therefore \quad CC'\bot\alpha$
 
-$\therefore\quad  C'$是$C$点在$\alpha$上的射影。
+$\therefore\quad  C'$是$C$点在$\alpha$上的射影. 
 
 $\therefore\quad \ell$在$\alpha$上的射影是直线$A'B'$.
 \end{proof}
@@ -3323,16 +3331,16 @@ $\therefore\quad \ell$在$\alpha$上的射影是直线$A'B'$.
 
 \begin{blk}
   {定义} 一条直线和一个平面相交但不垂直，这条直线叫
-作这个平面的斜线，斜线和平面的交点叫斜足。斜线上一点
-与斜足间的线段叫做这点到这个平面的斜线段。
+作这个平面的斜线，斜线和平面的交点叫斜足. 斜线上一点
+与斜足间的线段叫做这点到这个平面的斜线段. 
 \end{blk}
 
 \begin{blk}
 {定理} 从平面外一点向这个平面引若干条斜线段，则
 \begin{enumerate}
-  \item 斜线段相等$\Longleftrightarrow$斜线段的射影相等。
+  \item 斜线段相等$\Longleftrightarrow$斜线段的射影相等. 
   \item 斜线段较长$\Longleftrightarrow$斜线段的射影
-较长。
+较长. 
 \end{enumerate}
 \end{blk}
 
@@ -3394,21 +3402,21 @@ $\therefore \quad \angle AOC=\angle AOB=90^{\circ}$，
   {问题2} 已知：$S$是$\triangle ABC$所在平面$P$外的一点，并且$SA
 =SB=SC$.
 
-求证：$S$点在$P$上的射影$S'$是$\triangle ABC$的外心。
+求证：$S$点在$P$上的射影$S'$是$\triangle ABC$的外心. 
 \end{blk}
 
 为了给研究直线$\ell$和平面$\alpha$所成的角作准备，我们来证
-明下面的定理。
+明下面的定理. 
 
 \begin{blk}
   {定理} 直线和平面相交而不垂直，这条直线与平面内经
 过这个交点的直线所成的角中，以这条直线和它在平面内的
-正射影所成的角为最小。
+正射影所成的角为最小. 
 \end{blk}
 
 已知：直线$\ell\cap$平面$\alpha=A$, 但$\ell$不垂直$\alpha$, $P\in\ell$, $P$在$\alpha$内的
 射影为$P'$, $AQ$是$\alpha$
-内过$A$的任一条直线。（图1.45）
+内过$A$的任一条直线. （图1.45）
 
 求证：$\angle PAP'<\angle PAQ$.
 
@@ -3454,17 +3462,17 @@ $\therefore\quad \angle PAQ>\angle PAP'$.
 \end{proof}
 
 有了上述定理，我们就可以给直线和平面的夹角下定义
-了。
+了. 
 
 
 \begin{blk}
   {定义} 平面的一条斜线和它在平面内的射影所成的锐角
-叫作这条直线和这个平面所成的角（或夹角）。
+叫作这条直线和这个平面所成的角（或夹角）. 
 \end{blk}
 
 在特殊情况下，直线和平面垂直，我们就说直线和平面
-所成的角是直角。如果一条直线和一个平面平行或在平面
-内，我们说这条直线和这个平面所成的角是$0^{\circ}$的角。
+所成的角是直角. 如果一条直线和一个平面平行或在平面
+内，我们说这条直线和这个平面所成的角是$0^{\circ}$的角. 
 
 
 \begin{blk}
@@ -3544,7 +3552,7 @@ $\therefore\quad A'B'=AB''=AB\cos\theta$.
   
 \begin{blk}
 {定理} 在平面内的一条直线，如果和这个平面的一条斜
-  线的射影垂直，那么它也和这条斜线垂直。
+  线的射影垂直，那么它也和这条斜线垂直. 
   \end{blk}
 
 已知：如图1.47, $AA'$和$AB$分别是平面$\alpha$的垂线和斜
@@ -3642,16 +3650,16 @@ $\therefore\quad CD\bot AB$.
 
 这个定理称为三垂线定理，其逆定理也成立，即“\textbf{在平
 面内的一条直线，如果和这个平面的一条斜线垂直，那么它
-也和这条斜线的射影垂直}”也真。
+也和这条斜线的射影垂直}”也真. 
 
 所以，\textbf{平面内的一条直线和这个平面的一条斜线垂直的
-充要条件是它和斜线在平面内的射影垂直}。
+充要条件是它和斜线在平面内的射影垂直}. 
 
 
 \begin{example}
   设$O$点是正三角形$ABC$的中心，线段$PO$垂直于
 $\triangle ABC$所在的平面$\alpha$, $OP=h$，$AB=a$, 求$P$点到$\triangle ABC$各边
-的距离。（图1.48）
+的距离. （图1.48）
 \end{example}
 
 \begin{figure}[htp]
@@ -3686,11 +3694,11 @@ $\triangle ABC$所在的平面$\alpha$, $OP=h$，$AB=a$, 求$P$点到$\triangle 
 设$OD\bot BC$
 
 $\because\quad BC\subset \alpha$, $OD$是$PD$
-在$\alpha$内的射影。
+在$\alpha$内的射影. 
 
 $\therefore\quad PD\bot BC$
 
-$\therefore\quad PD$之长就是$P$点到$BC$边的距离。
+$\therefore\quad PD$之长就是$P$点到$BC$边的距离. 
 
 $\because\quad $正三角形$ABC$的
 边长为$a$.
@@ -4502,7 +4510,7 @@ $\therefore\quad \alpha\parallel \beta$.
 
 \begin{blk}
   {推论} 垂直于同一条直线的
-两个平面互相平行。
+两个平面互相平行. 
 \end{blk}
 
 已知：如图1.58,平面$\alpha,\beta$ 都垂直于直线$AA'$.
@@ -4529,7 +4537,7 @@ $\therefore\quad \alpha\parallel \beta$.
 
 \begin{blk}
   {两个平行平面的性质定理} 如果两个平行平面和第三个
-平面同时相交，那么它们的交线平行。
+平面同时相交，那么它们的交线平行. 
 \end{blk}
 
 已知：如图1.59, 平面$\alpha,\beta,\gamma$中，$\alpha\cap \beta=\emptyset$, $\alpha\cap \gamma=\ell_1$, 
@@ -4588,13 +4596,13 @@ $\therefore\quad\ell_1\parallel \ell_2$.
 
 \begin{blk}
   {推论1} 如果一条直线与二平行平面之一相交，那么它必
-与另一平面相交。
+与另一平面相交. 
 \end{blk}
 
 
 \begin{blk}
   {推论2} 如果一条直线垂直于两个平行平面中的一个平
-面，那么也垂直于另一个平面。
+面，那么也垂直于另一个平面. 
 \end{blk}
 
 如图1.58, 设平面$\alpha\parallel$平面$\beta$, 直线$AA'\bot\alpha$于$A'$, 则$AA'$必交平面$\beta$于一点$A'$ (推论1), 经过$AA'$的平面$\pi_1$和$\pi_2$
@@ -4612,18 +4620,18 @@ $\therefore\quad AA'\bot a,\quad \quad AA'\bot a'$
 
 \begin{blk}
   {定义} 和两个平行平面同时垂直的直线叫做这两个平行
-平面的公垂线。
+平面的公垂线. 
 \end{blk}
 
 
 \begin{blk}
-  {推论} 夹在两个平行平面间的公垂线段的长都相等。
+  {推论} 夹在两个平行平面间的公垂线段的长都相等. 
 \end{blk}
 
 
 \begin{blk}
 {定义} 夹在两个平行平面间的公垂线段的长叫做这两个
-平行平面间的距离。
+平行平面间的距离. 
   \end{blk}
 
 \begin{example}
@@ -4748,7 +4756,7 @@ $\therefore\quad$ 平面$ABC\parallel $ 平面$A'B'C'$.
 
 \begin{proof}
   如$\ell_1$和$\ell_2$共面，结论是显
-  然的。现在假设$\ell_1$和$\ell_2$不共面，那么
+  然的. 现在假设$\ell_1$和$\ell_2$不共面，那么
   过$A_1'$引直线$\ell_3\parallel \ell_1$, 交$\beta$于$A_2''$，交$\gamma$
   于$A_3''$．令$\ell_1$和$\ell_3$确定的平面为$\pi_1$, $\ell_3$和$\ell_2$确定的平面为$\pi_2$, 由平行平面
   的性质定理容易看出：
@@ -4760,22 +4768,22 @@ $\therefore\quad \frac{A_1A_2}{A_2A_3}=\frac{A_1'A_2''}{A_2''A_3''}=\frac{A_1'A_
 
 \begin{ex}
 \begin{enumerate}
-  \item 下列说法是否正确。
+  \item 下列说法是否正确. 
 \begin{enumerate}
-  \item 分别在两个平行平面内的两条直线都平行。
+  \item 分别在两个平行平面内的两条直线都平行. 
   \item 如果一个平面内的两条直线平行于另一个平面，那么
-    这两个平面平行。
+    这两个平面平行. 
     \item 如果一个平面内的任何一条直线都平行于另一个平面
-    那么这两个平面平行。
+    那么这两个平面平行. 
 \end{enumerate}
 
-  \item 夹在两个平行平面间的线段相等。
+  \item 夹在两个平行平面间的线段相等. 
   \item 求证：夹在两个平面间的三条不共面线段如果平行相
-  等，那么这两个平面平行。
-  \item 空间任意两条不相交直线能否有公共的平行平面？如果有，画图表示它们。
-  \item 画两个平行平面，分别在两个平面内画两条平行直线。
+  等，那么这两个平面平行. 
+  \item 空间任意两条不相交直线能否有公共的平行平面？如果有，画图表示它们. 
+  \item 画两个平行平面，分别在两个平面内画两条平行直线. 
   \item 如果一条直线和两个平行平面相交，求证：它和两个平
-  面交成等角。
+  面交成等角. 
 \end{enumerate}
   \end{ex}
 
@@ -4783,14 +4791,14 @@ $\therefore\quad \frac{A_1A_2}{A_2A_3}=\frac{A_1'A_2''}{A_2''A_3''}=\frac{A_1'A_
 
 \begin{blk}
   {定理} 经过平面外一点，存在唯一一个平面和已知平面
-平行。
+平行. 
 \end{blk}
 
 已知：如图1.62, $P$点在平
 面$\pi$ 外，
 
 求证：过$P$平行于$\pi$ 的平面
-存在且唯一。
+存在且唯一. 
 
 \begin{proof}
 存在性是很容易证明
@@ -4800,12 +4808,12 @@ $\therefore\quad \frac{A_1A_2}{A_2A_3}=\frac{A_1'A_2''}{A_2''A_3''}=\frac{A_1'A_
 
 下面来证定理结论的唯一性（图1.62）.
 
-设过$P$点有两个平面$\alpha$和$\beta$都和平面$\pi$平行。
+设过$P$点有两个平面$\alpha$和$\beta$都和平面$\pi$平行. 
 那么$\alpha$和$\beta$必相交于过$P$点的一条直线$\ell$. 在平面$\pi$ 上画一
-条直线$m$与$\ell$异面。设$P$和$m$所确定的平面为$\pi'$, 显然$\pi'\cap \pi=m$. 由于$\pi'$和$\alpha$、$\beta$有公共点$P$, 所以$\pi'$必分别交$\alpha$、$\beta$于一条
+条直线$m$与$\ell$异面. 设$P$和$m$所确定的平面为$\pi'$, 显然$\pi'\cap \pi=m$. 由于$\pi'$和$\alpha$、$\beta$有公共点$P$, 所以$\pi'$必分别交$\alpha$、$\beta$于一条
 直线，设交$\alpha$于直线$b$, 交$\beta$于直线$a$. 因为$\alpha\parallel \pi$, $\beta\parallel \pi$. 所以
 $a\parallel m$, $b\parallel m$, 但$a\cap b=P$, 与平行公理矛盾，因此，过$P$只能有
-一个平面与$\pi$平行。
+一个平面与$\pi$平行. 
 \end{proof}
 
 \begin{figure}[htp]\centering
@@ -4881,7 +4889,7 @@ $a\parallel m$, $b\parallel m$, 但$a\cap b=P$, 与平行公理矛盾，因此�
 
 
 \begin{blk}
-  {定理} 平行于同一平面的两个平面平行。
+  {定理} 平行于同一平面的两个平面平行. 
 \end{blk}
 
 
@@ -4894,7 +4902,7 @@ $\alpha\parallel \pi$, $\beta\parallel \pi$.
   假定$\alpha\nparallel\beta$, 那么$\alpha$与$\beta$必
 相交，设$\alpha\cap \beta=\ell$, 由于$\alpha,\beta$都和$\pi$
 平行，那么过$\ell$上任一点$P$便有两个
-平面$\pi$平行了，此与上一定理矛盾。
+平面$\pi$平行了，此与上一定理矛盾. 
 
 所以$\alpha\parallel \beta$.
 \end{proof}
@@ -4903,14 +4911,14 @@ $\alpha\parallel \pi$, $\beta\parallel \pi$.
 如果把本定理的条件稍加改
 写，因为$\beta\parallel \pi$, 即$\pi\parallel \beta$. 那么定理可改述如下：“若平面$\alpha\parallel$平
 面$\pi$, 平面$\pi\parallel$平面$\beta$, 则平面$\alpha\parallel$平面$\beta$.” 这就看出平面平行
-具有传递性了。
+具有传递性了. 
 \end{rmk}
 
 \begin{ex}
 \begin{enumerate}
   \item 一个平面若与两平行平面之一相交，也必与另一平面相交.
   \item 已知直线$a$和平面$\alpha$、$\beta$, 如果$a\parallel \alpha$, $a\parallel \beta$, 那么$\alpha\parallel \beta$正确
-  吗？如果正确，作出证明；如果不正确，画图举出反例。
+  吗？如果正确，作出证明；如果不正确，画图举出反例. 
   \item 已知直线$a,b$, 平面$\pi$, 如果$a\parallel \pi$, $b\parallel \pi$, 那么$a\parallel b$正确
   吗？如果正确，作出证明，如果不正确，画图举出反例.
 \end{enumerate}
@@ -4919,13 +4927,13 @@ $\alpha\parallel \pi$, $\beta\parallel \pi$.
 \subsection{二面角}
 \begin{blk}
   {定义} 一个平面内的一条直线把这个平面分成两部分，
-每一部分叫作半平面（或射面）。
+每一部分叫作半平面（或射面）. 
 \end{blk}
 
 一条直线和过这条直线引两个半平面所组成的图形叫作
 二面角（如图1.64），这条直线叫做二面角的棱，这两个半
-平面叫做二面角的面。棱为$\ell$, 面为$\pi_1$和$\pi_2$的二面角表示作
-$\pi_1-\ell-\pi_2$, 也可简记作$\pi_1\ell\pi_2$.
+平面叫做二面角的面. 棱为$\ell$, 面为$\pi_1$和$\pi_2$的二面角表示作
+$\pi_1$-$\ell$-$\pi_2$, 也可简记作$\pi_1\ell\pi_2$.
 
 在二面角$\alpha-\ell-\beta$中（如图1.65）.
 
@@ -4933,7 +4941,7 @@ $\pi_1-\ell-\pi_2$, 也可简记作$\pi_1\ell\pi_2$.
 分别引射线$OA$、$OA'$、$OB$、$OB'$都与$\ell$垂直，则$OA\parallel OA'$, 
 $OB\parallel OB'$, 则$\angle AOB=\angle A'O'B'$. 因此，过二面角的棱上任
 一点，在每一面内引棱的垂线，这样两条垂线的夹角都相
-等，与顶点在棱上的位置无关。
+等，与顶点在棱上的位置无关. 
 
 \begin{figure}[htp]\centering
   \begin{minipage}[t]{0.48\textwidth}
@@ -4990,24 +4998,24 @@ $OB\parallel OB'$, 则$\angle AOB=\angle A'O'B'$. 因此，过二面角的棱上
 \begin{blk}
  {定义} 以二面棱上任意一点为端点，在它的两个面内
 分别作垂直于棱的两条射线，这两条射线所成的角叫做二面
-角的平面角。在图1.65中$\angle AOB$就是二面角$\alpha-\ell-\beta$的平面
-角。 
+角的平面角. 在图1.65中$\angle AOB$就是二面角$\alpha$-$\ell$-$\beta$的平面
+角.  
 \end{blk}
 
 二面角的平面角是用来度量二面角的大小的，我们说二
-面角的大小是多少度。就是指它的平面角的大小是多少度。
+面角的大小是多少度. 就是指它的平面角的大小是多少度. 
 
 \begin{example}
   有一山坡的倾斜角是$30^{\circ}$（就是山坡和地面所成
-  的二面角是$30^{\circ}$）。山坡上有一直路和斜坡底线成$60^{\circ}$角，沿这
+  的二面角是$30^{\circ}$）. 山坡上有一直路和斜坡底线成$60^{\circ}$角，沿这
   条直线小路上升100米，问升高
   了多少？
 \end{example}
 
 \begin{solution}
   如图1.66, 设$ABCD$是坡面，$EF$是小路，
-  $EF=100$米。设$FH$是$F$到地平面的距离，那
-  么$FH$就是上升的高度。
+  $EF=100$米. 设$FH$是$F$到地平面的距离，那
+  么$FH$就是上升的高度. 
 
   经过$H$作$HG\bot AB$于$G$, 由三垂线定理，$FG\bot AB$, 则
   $\angle FGH$就是坡面和地面所成二面角的平面角，所以$\angle FGB
@@ -5015,7 +5023,7 @@ $OB\parallel OB'$, 则$\angle AOB=\angle A'O'B'$. 因此，过二面角的棱上
 
 $\therefore\quad FH=FG\sin 30^{\circ}=FE\sin 60^{\circ}\sin 30^{\circ}=100\x\frac{\sqrt{3}}{2}\x\frac{1}{2}=25\sqrt{3}(\text{米})$
 
-答：沿这条小路向上走100米，升高$25\sqrt{3}$米。
+答：沿这条小路向上走100米，升高$25\sqrt{3}$米. 
 \end{solution}
 
 \begin{figure}[htp]\centering
@@ -5074,7 +5082,7 @@ $\therefore\quad FH=FG\sin 30^{\circ}=FE\sin 60^{\circ}\sin 30^{\circ}=100\x\fra
 \begin{example}
   已知：如图1.67, 自二面角$P-AC-Q$的棱上一
   点$A$在面$P$内引一条射线$AB$, 和棱$AC$成$45^{\circ}$角，和另一个面
-  $Q$成$30^{\circ}$角，求二面角$P-AC-Q$的度数。
+  $Q$成$30^{\circ}$角，求二面角$P-AC-Q$的度数. 
 \end{example}
 
 \begin{solution}
@@ -5088,7 +5096,7 @@ $O$为垂足，连结$OA$.
 所以$AB=2a$, $AO=\sqrt{3}a$.
 
 自$O$点向棱作垂线$OC$, 设$C$为垂足，根据三垂线定理，
-$BC\bot AC$, 所以$\angle BCO$为二面角$P-AC-Q$的平面角。
+$BC\bot AC$, 所以$\angle BCO$为二面角$P-AC-Q$的平面角. 
 
 在直角$\triangle ABC$中，$\angle BAC=45^{\circ}$, $AB=2a$, 
 
@@ -5102,7 +5110,7 @@ $\therefore\quad OC=a$.
 
 $\therefore\quad \angle BCO=45^{\circ}$
 
-$\therefore\quad $二面角$P-AC-Q$为$45^{\circ}$的二面角。
+$\therefore\quad $二面角$P$-$AC$-$Q$为$45^{\circ}$的二面角.
 
 答：二面角$P-AC-Q$的度数为$45^{\circ}$.
 \end{solution}
@@ -5110,24 +5118,24 @@ $\therefore\quad $二面角$P-AC-Q$为$45^{\circ}$的二面角。
 \begin{ex}
 \begin{enumerate}
   \item 拿一张正三角形的纸片$ABC$, 以它的高$AD$为折痕，折
-  成一个二面角，试指出这个二面角的棱、面和平面角。
+  成一个二面角，试指出这个二面角的棱、面和平面角. 
   \item 在$30^{\circ}$的二面角的一个面内有一个点，它到另一个面的
-  距离是10cm, 求它到棱的距离。
+  距离是10cm, 求它到棱的距离. 
   \item 已知在$120^{\circ}$的二面角内，有一点到棱的距离为20cm, 并
-  且这一点到两个面的距离都相等，试求出这个距离来。
+  且这一点到两个面的距离都相等，试求出这个距离来. 
   \item 已知二面角$MaN$中$P\in M$, $PQ\bot $平面$N$于$Q$, $QC\bot a$于
-  $C$, 并且$PQ=5\sqrt{3}$, $QC=5$, 求二面角$MaN$的度数。
+  $C$, 并且$PQ=5\sqrt{3}$, $QC=5$, 求二面角$MaN$的度数. 
 \end{enumerate}
 \end{ex}
 
 \subsection{两个平面垂直的判定定理和性质定理}
 \begin{blk}
-  {定义} 平面角是直角的二面角叫直二面角。
+  {定义} 平面角是直角的二面角叫直二面角. 
 \end{blk}
 
 
 两个平面相交，如果所成的二面角是直二面角，我们就
-说这两个平面互相垂直。
+说这两个平面互相垂直. 
 
 图1.68中的(1)、(2)、(3)画的就是平面$\alpha\bot$平面$\beta$. 
 
@@ -5179,11 +5187,11 @@ $\therefore\quad $二面角$P-AC-Q$为$45^{\circ}$的二面角。
 
 \begin{blk}
   {两个平面垂直的判定定理} 如果一个平面经过另一个平
-  面的一条垂线，那么这两个平面垂直。
+  面的一条垂线，那么这两个平面垂直. 
 \end{blk}
 
 已知：如图1.69, 直线$CD\bot $平面$\alpha$于$D$, 直线$CD$在
-平面$\beta$内。
+平面$\beta$内. 
 
 求证：$\alpha\bot\beta$.
 
@@ -5197,13 +5205,13 @@ $\therefore\quad CD\bot AB$.
 
 $\because\quad $平面$\alpha,\beta$相交于$AB,\quad CD\bot AB,\quad ED\bot AB$,
 
-$\therefore\quad \angle CDE$是二面角$\alpha-AB-\beta$的平面角。
+$\therefore\quad \angle CDE$是二面角$\alpha-AB-\beta$的平面角. 
 
 又$\because\quad ED\subset\alpha,\quad CD\bot \alpha$,
 
 $\therefore\quad CD\bot ED,\quad \angle CDE=90^{\circ}$
 
-$\therefore\quad $二面角$\alpha-AB-\beta$是直二面角。
+$\therefore\quad $二面角$\alpha-AB-\beta$是直二面角. 
 
 $\therefore\quad \alpha\bot \beta$.
 \end{proof}
@@ -5264,7 +5272,7 @@ $\therefore\quad \alpha\bot \beta$.
 \begin{blk}
   {两个平面垂直的性质定理} 如果两个平面互相垂直，那
 么在其中一个平面内垂直于它们交线的直线垂直于另一个平
-面。
+面. 
 \end{blk}
 
 已知：如图1.70, 平面$\alpha\bot $平面$\beta$, 
@@ -5294,7 +5302,7 @@ $\therefore\quad AB\bot$平面$\beta$.
   已知：如图1.71, 平面$\pi_1\bot $平面$\pi_2$, $\pi_1\cap \pi_2=\ell$, 点
 $A,B\in \ell$, $AB=10$cm, 在平面$\pi_1$内引$AC\bot\ell$, 
 $AC=3$cm, 在平面$\pi_2$内引$BD\bot\ell$, $BD=5$cm. 求线
-段$CD$的长。
+段$CD$的长. 
 \end{example}
 
 \begin{figure}[htp]
@@ -5321,13 +5329,13 @@ $AC=3$cm, 在平面$\pi_2$内引$BD\bot\ell$, $BD=5$cm. 求线
 
 $\because\quad   AE,BDC\subset \pi_2,\quad AE\displaystyle\mathop{=}^{\parallel}BD,\quad BD\bot \ell$.
 
-$\therefore\quad  ABDE$是矩形。
+$\therefore\quad  ABDE$是矩形. 
 
 $\therefore\quad ED=AB=10{\rm cm},\quad AE=5{\rm cm}$.
 
 $\because\quad   AE\bot \ell$于$A$, $AE\subset \pi_2$, $CA\bot \ell$于$A$, $CA\subset \pi_1$
 
-$\therefore\quad \angle CAE$是二面角$\pi_1-\ell-\pi_2$的平面角。
+$\therefore\quad \angle CAE$是二面角$\pi_1$-$\ell$-$\pi_2$的平面角. 
 
 $\because\quad $平面$\pi_1\bot$平面$\pi_2$,
 
@@ -5355,7 +5363,7 @@ $\therefore\quad $在直角三角形$CED$中，
 
 \begin{ex}
 \begin{enumerate}
-  \item  如果$\angle ABC$是二面角$\alpha-\ell-\beta$的平面角，求证：
+  \item  如果$\angle ABC$是二面角$\alpha$-$\ell$-$\beta$的平面角，求证：
 \begin{enumerate}
   \item 平面$ABC\bot $平面$\alpha$
   \item 平面$ABC\bot$平面$\beta$.
@@ -5371,13 +5379,13 @@ $\therefore\quad $在直角三角形$CED$中，
 
   \item  试画出：
 \begin{enumerate}
-  \item 互相垂直的两个平面的图形。
-  \item 两两垂直的三个平面的图形。
+  \item 互相垂直的两个平面的图形. 
+  \item 两两垂直的三个平面的图形. 
 \end{enumerate}
 
   \item  在$ 60^{\circ}$的二面角的棱上有两个点$A$、$B$; $AC$、$BD$分别是
   在二面角的两个面内垂直于$AB$的线段，已知：$AB=4$cm、
-  $AC=6$cm、$BD=8$cm, 求$C$、$D$两点间距离。
+  $AC=6$cm、$BD=8$cm, 求$C$、$D$两点间距离. 
 \end{enumerate}
 \end{ex}
 
@@ -5429,26 +5437,26 @@ $\therefore\quad $在直角三角形$CED$中，
 \addcontentsline{toc}{subsection}{习题1.6}
 \begin{enumerate}
   \item 画两个相交平面，在这两个相交平面内，各画一条直
-  线，使它们成为平行直线；相交直线；异面直线。
+  线，使它们成为平行直线；相交直线；异面直线. 
   \item 画两个相交平面，在一个平面内画一条直线和另一个平
-  面平行。
+  面平行. 
   \item 在共点$O$的三条不共面直线$a$、$b$、$c$上，在$O$点的两侧分别
   取$A$、$A'$, $B$、$B'$和$C$、$C'$使$AO=2A'O$, $BO=2B'O$, 
   $CO=2C'O$, 求证：平面$ABC\parallel$ 平面$A'B'C'$.
   \item 求证：如果一条直线与两个相交平面都平行，那么这条
-  直线与这两个平面的交线平行。
+  直线与这两个平面的交线平行. 
   \item 求证：过已知平面外一点且平行于这个平面的直线，都
-  在过已知点且平行于这个平面的平面内。
+  在过已知点且平行于这个平面的平面内. 
   \item 设平面$\pi_1\parallel \pi_2$, 平面$\pi_2$上有四边形$ABCD$, 平面$\pi_2$上有四
   边形$A'B'C'D'$, 如果直线$AA'$、$BB'$、$CC'$、$DD'$交于
-  一点$P$, 则这两个四边形相似。试证明这一命题，然后
-  把它推广到任意多边形的情况。
+  一点$P$, 则这两个四边形相似. 试证明这一命题，然后
+  把它推广到任意多边形的情况. 
   \item 求证：如果一个平面与另一个平面的平行线垂直，那么
-  这两个平面互相垂直。
+  这两个平面互相垂直. 
   \item 求证：如果三条共点的直线，两两互相垂直，那么它们
-  之中每两条直线所确定的平面也两两互相垂直。
+  之中每两条直线所确定的平面也两两互相垂直. 
   \item 求证：如果两个相交平面都和第三个平面垂直，那么它
-  们的交线也和第三个平面垂直。
+  们的交线也和第三个平面垂直. 
   \item 已知二面角$\alpha a\beta$的度数为$\theta$ ($0<\theta\le \frac{\pi}{2}$), 
   在$\alpha$面上有
   $\triangle ABC$, 它在$\beta$面上的射影为$\triangle A'B'C'$. 
@@ -5457,12 +5465,12 @@ $\therefore\quad $在直角三角形$CED$中，
   \item 一条长为$2a$的线段，夹在互相垂直的两个平面之间，
   它和这两个平面所成的角分别是$45^{\circ}$和$30^{\circ}$, 求这条
   线段的两个端点在这两个平面的交线上的射影间的距
-  离。
-\item 已知二面角$\pi_1-AB-\pi_2$为
+  离. 
+\item 已知二面角$\pi_1$-$AB$-$\pi_2$为
 $120^{\circ}$, $AC\subset \pi_1$, $BD\subset \pi_2$, 
 且$AC\bot AB$, $BD\bot AB$, 
 $AB=AC=BD=a$, 求$CD$
-的长。
+的长. 
 
 \begin{figure}[htp]
   \centering
@@ -5489,22 +5497,22 @@ $AB=AC=BD=a$, 求$CD$
 
 \item 一条直线和两个平行平面相
 交成$60^{\circ}$角，这直线被这两个平面截得的线段长18cm, 
-求这两个平面间的距离。
+求这两个平面间的距离. 
 \item 在二面角（小于$90^{\circ}$)的一个面内有已知点$A$, 从$A$向另
 一个面作垂线$AC$, 又从$A$向棱作垂线$AE$, 并且连结
 $CE$, 如果$AC=11.8$cm, $AE=12.4$cm, 求这个二面角
-的度数。
+的度数. 
 \item 一个直二面角内一点到两个面的距离分别是12cm和
-16cm, 求这点到二面角棱的距离。
+16cm, 求这点到二面角棱的距离. 
 \item 求证：如果一个二面角是$\alpha$度，空间一点到这个二面角
 的两个面所引垂线的夹角是$\beta$度，那么$\alpha=\beta$或$\alpha+\beta=180^{\circ}$.
 \item 三个平面，如果两两互相垂直，求证：每两个平面相交
-而得的三条直线也两两垂直。
+而得的三条直线也两两垂直. 
 \item 从二面角内一点到二面角的两个面作垂线，经过这两条
-垂线作一个平面，求证：这个平面垂直于二面角的棱。
+垂线作一个平面，求证：这个平面垂直于二面角的棱. 
 \item 证明：两个平行平面$\alpha$、$\beta$与另外两个平行平面$\pi_1$和$\pi_2$相
-交，所成的四条直线互相平行。
-\item 求证：垂直于同一条直线的两个平面互相平行。
+交，所成的四条直线互相平行. 
+\item 求证：垂直于同一条直线的两个平面互相平行. 
 \item 求证：经过圆$O$的直径$AB$的一个端点$A$, 作圆所在平面
 的垂线，设垂线上任一点是$P$, 圆周上任一点是$C$, 那
 么平面$PAC\bot $平面$PBC$.
@@ -5514,21 +5522,21 @@ $CE$, 如果$AC=11.8$cm, $AE=12.4$cm, 求这个二面角
 
 \section{空间的对称性}
 在平面几何中，平面有一个基本性质，就是平面对任一
-直线的对称性。同样地在立体几何中，空间也有一相应的性
+直线的对称性. 同样地在立体几何中，空间也有一相应的性
 质，就是空间$V$对于任一平面$\pi$的对称性，平面$\pi$把空间分成两
 部分（平面$\pi$除外），有居于$\pi$的一侧的点$P,Q,\ldots$, 就有居于$\pi$
 的另一侧的对应点$P',Q',\ldots$, 使得$PP',QQ',\ldots$, 被
 $\pi$
-垂直平分。
+垂直平分. 
 
 为了深入了解空间$V$对于任一平面$\pi$的对称性，我们先
-来介绍两个集合间映射的概念。
+来介绍两个集合间映射的概念. 
 
 \begin{blk}
  {定义} 设有两个集合$A$、$B$, 如果按某种对应关系使集合
 $A$的任一元素$a$都有集合$B$中的唯一的一个元素$b$和它相对应，
 那么我们就说这种对应关系为集合$A$到集合$B$的映射，并说$b$
-是$a$的象，$a$是$b$的原象。 
+是$a$的象，$a$是$b$的原象.  
 \end{blk}
 
 例如，设有两个集合$A$、$B$, 
@@ -5538,10 +5546,10 @@ B&=\{y|2\le y\le 4,\; y\in\mathbb{R}\}
 \end{split}\]
 
 那么不难看出对给定的对应关系$y=2x$是$A$到$B$的一个映
-射。因为任取$A$中的一个元素如$\frac{3}{2}$，
+射. 因为任取$A$中的一个元素如$\frac{3}{2}$，
 那么由关系式$y=2x$可知，$y=2\x\frac{3}{2}=3$, $3\in B$, 这样$B$中就有唯一的一个元素3和
 $A$中的元素$\frac{3}{2}$
-相对应。
+相对应. 
 
 \begin{figure}[htp]
   \centering
@@ -5565,19 +5573,19 @@ $A$中的元素$\frac{3}{2}$
 如果画出图象（图1.72），
 那么对应关系$y=2x$从几何的角
 度便可看成是$x$轴上的线段$AB$到
-$y$轴上的线段$A'B'$的映射。
+$y$轴上的线段$A'B'$的映射. 
 
-有了集合间映射的概念，便可以给空间$V$对平面$\pi$的对称下定义了。
+有了集合间映射的概念，便可以给空间$V$对平面$\pi$的对称下定义了. 
 
 \begin{blk}
   {定义} 空间$V$对给定平面$\pi$的对称是一具有下列性质的
 映射$R_{\pi}:V\mapsto V$, 对任何点$P\in V$, 它的像是$R_{\pi}(P)=P'$, 
-线段$PP'$被平面$\pi$垂直平分。
+线段$PP'$被平面$\pi$垂直平分. 
 \end{blk}
 
 \begin{blk}
   {定理} 上述定义的映射$R_{\pi}$是一个保距映射，即对$V$中
-任给两点$P,Q$, 总有$d(R_{\pi}(P),R_{\pi}(Q))=d(P,Q)$\footnote{$d(P,Q)$表示$P$、$Q$两点间距离。}.
+任给两点$P,Q$，总有$d(R_{\pi}(P),R_{\pi}(Q))=d(P,Q)$\footnote{$d(P,Q)$表示$P$、$Q$两点间距离. }.
 \end{blk}
 
 \begin{figure}[htp]\centering
@@ -5635,7 +5643,7 @@ $y$轴上的线段$A'B'$的映射。
 \item 若$P,Q\notin \pi$, $PP'$与$QQ'$共线，由图1.75, 容易看
 出：$d(P',Q')=d(P,Q)$.
 \item 若$P,Q\notin \pi$, $PP'$与$QQ'$不共线，则线段$PP'$和$QQ'$
-都被$\pi$垂直平分，所以$PP'\parallel QQ'$, 因此$P$、$Q$、$P'$、$Q'$共面。
+都被$\pi$垂直平分，所以$PP'\parallel QQ'$, 因此$P$、$Q$、$P'$、$Q'$共面. 
 
 过$P$作$PQ_1$垂直$QQ'$于$Q_1$, 过$P'$作$PQ'_1$垂直$QQ'$于$Q_1'$, 
 则$Q_1$的像便是$Q_1'$, 由3知：$d(Q,Q_1)=d(Q',Q_1')$, 由勾
@@ -5715,7 +5723,7 @@ $y$轴上的线段$A'B'$的映射。
 由上例可以看出，$\pi_1$上的点被$R_{\pi}$
 映射到$\pi_1$, 也就是映射$R_{\pi}$在$\pi_1$上的作
 用相当于以$\pi$和$\pi_1$的交线$\ell$为轴的对
-称。
+称. 
 
 \begin{figure}[htp]\centering
   \begin{minipage}[t]{0.48\textwidth}
@@ -5784,17 +5792,17 @@ $y$轴上的线段$A'B'$的映射。
 \begin{blk}
   {定义} 空间图形$F$对于给定平面
 $\pi$的对称是一个具有下列性质的映射
-$R_{\pi}:\; F\mapsto F$, 对于任何点$P\in F$, 其像
-为$R_{\pi}(P)=P'$, 线段$PP'$被$\pi$垂直平分。$\pi$称为$F$的对称面，
-$P$和$P'$互称关于$\pi$的对称点。
+$R_{\pi}:\; F\mapsto F$，对于任何点$P\in F$，其像
+为$R_{\pi}(P)=P'$，线段$PP'$被$\pi$垂直平分. 
+$\pi$称为$F$的对称面，$P$和$P'$互称关于$\pi$的对称点. 
 \end{blk}
 
 
 \begin{example}
-  已知：立方体$ABCD-A' B'C' D'$.
+  已知：立方体$ABCD$-$A' B'C' D'$.
 
   求证：对角面$BDD'B'$所在平面是立方体的对称面（图
-  1.78）。
+  1.78）. 
 \end{example}
 
 \begin{solution}
@@ -5825,12 +5833,12 @@ $\therefore\quad \angle P'P_0Q=\angle PP_0Q=90^{\circ}$,
 $\therefore\quad P,P_0,P'$三点共线，$PP_0=P_0P'$
 
 $\therefore\quad PP'$
-  被平面$\pi$垂直平分。
+  被平面$\pi$垂直平分. 
   
   $\therefore\quad P'=R_{\pi}(P)$. 
   
   因此，平面$\pi$是正方体
-  $ABCD-A'B'C'D'$的对称面。
+  $ABCD-A'B'C'D'$的对称面. 
 \end{solution}
 
 
