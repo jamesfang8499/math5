@@ -194,7 +194,40 @@ $\angle A_1B_1C_1=\angle A_2B_2C_2$．
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.7]{fig/2-5.png}
+	\tdplotsetmaincoords{70}{-7}
+	\begin{tikzpicture}[scale=1,tdplot_main_coords]
+		\def\a{1.3}
+		\coordinate (D) at ({\a*cos(18)},{\a*sin(18)},0);
+		\coordinate (E) at (0,\a,0);
+		\coordinate (A) at ({-\a*cos(18)},{\a*sin(18)},0);
+		\coordinate (B) at ({-\a*cos(54)},{-\a*sin(54)},0);
+		\coordinate (C) at ({\a*cos(54)},{-\a*sin(54)},0);
+		\draw (A)--(B)--(C)--(D);
+		\draw[dashed] (A)--(E)--(D);
+		\coordinate (shift) at (0.5,0,3);
+		\foreach \l in {A,B,...,E} {	\coordinate (\l') at ($(\l)+(shift)$); }
+		\draw (A')--(B')--(C')--(D')--(E')--cycle;
+		\draw (A)--(A') (B)--(B') (C)--(C') (D)--(D');
+		\draw[dashed] (E)--(E');
+		\node[label=left:$A$] at (A) {}; 
+		\node[label=below:$B$] at (B) {}; 
+		\node[label=below:$C$] at (C) {};
+		\node[label=right:$D$] at (D) {};
+		\node[label={[xshift=-0.13cm,yshift=-0.25cm]$E$}] at (E) {};
+		\node[label=left:$A'$] at (A') {};
+		\node[label={[xshift=-0.25cm,yshift=-0.6cm]$B'$}] at (B') {}; 
+		\node[label={[xshift=-0.2cm,yshift=-0.6cm]$C'$}] at (C') {};
+		\node[label=right:$D'$] at (D') {};
+		\node[label=above:$E'$] at (E') {};	
+		\draw[dashed] (A')--(C);
+		\coordinate (H) at (0.4,0,0);
+		\coordinate (H') at (0.4,0,3);
+		\draw[fill] (H) circle (0.05);
+		\draw[fill] (H') circle (0.05);
+		\draw[dashed] (H)--(H');
+		\node[label={[yshift=-0.6cm]$H$}] at (H) {};
+		\node[label={[xshift=0.2cm,yshift=-0.4cm]$H'$}] at (H') {};
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -204,8 +237,7 @@ $\angle A_1B_1C_1=\angle A_2B_2C_2$．
 线．
 
 棱柱的表示法是写出两个底面各顶点
-的字母，中间用一条短横线隔开，如图
-2.5的五棱柱就表示作棱柱$ABCDE$-$A'
+的字母，中间用一条短横线隔开，如图2.5的五棱柱就表示作棱柱$ABCDE$-$A'
 B'C'D'E'$. 也有用棱柱一条对角线的两
 个端点表示棱柱的，如图2.5可表示作五
 棱柱$A'C$. 
@@ -810,9 +842,56 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 
 
 图2.16是用第一种画法画出的正六棱锥的直观图．
-\begin{figure}[htp]
+\begin{figure}[ht]
     \centering
-\includegraphics[scale=.55]{fig/2-16.png}
+	\begin{tikzpicture}[scale=1]
+	   	\def\a{1.3}
+		\def\Yx{0.707}
+		\def\Yy{0.707}   		
+		\begin{scope}[yshift=0.5cm]
+			\draw (0:\a*0.9) \foreach \x in {60,120,...,360} {  -- (\x:\a*0.9) };
+			\draw[-latex] (-1.5,0)--(2,0) node[label=right:$X$] (xend) {}; 
+			\draw[-latex] (0,-1.5)--(0,2) node[label=above:$Y$] (yend) {};
+			\node[label={[label distance=-0.1cm]225:$O$}] at (0,0) {};
+		\end{scope}
+		\node at (0,-1.6) {(1)};
+		\begin{scope}[xshift=4.75cm]
+			\draw (\a,0) coordinate (C) -- ($({\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(D) -- ($({-\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(E) -- (-\a,0) coordinate(F) -- ($({-\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(A) -- ($({\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(B) -- cycle;
+			\draw[-latex] (-2,0)--(2.2,0) node[label=right:$X$] (xend) {}; 
+			\draw[-latex] (-\Yx,-\Yy)--(3*\Yx,3*\Yy) node[label=above:$Y$] (yend) {};
+			\draw[-latex] (0,0)--(0,3) node[label=above:$Z$] (zend){};
+			\node at (0,-0.2) {$O$};
+			\coordinate(S) at (0,2);
+			\draw (S)--(A) (S)--(B) (S)--(C) (S)--(D) (S)--(E) (S)--(F);
+			\node at (0,-1.6) {(2)};
+		\end{scope}	
+		
+		\begin{scope}[xshift=9.5cm]
+			\draw[dashed] (\a,0) coordinate (C) -- ($({\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(D) -- ($({-\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(E) -- (-\a,0) coordinate(F);
+			\draw (F) -- ($({-\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(A) -- ($({\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(B) -- (C);
+			\node at (-0.1,0) {$O$};
+			\coordinate(S) at (0,2);
+			\node[label=90:$S$] at (S) {};
+			\draw (S)--(A) (S)--(B) (S)--(C) (S)--(F);
+			\draw[dashed] (S)--(D) (S)--(E);
+			\node[label={[yshift=-0.6cm]$A$}] at (A) {};
+			\node[label={[yshift=-0.6cm]$B$}] at (B) {};
+			\node[label={[yshift=-0.6cm]$C$}] at (C) {};
+			\node[label={[xshift=0.2cm,yshift=-0.4cm]$D$}] at (D) {};
+			\node[label={[xshift=-0.1cm,yshift=-0.2cm]$E$}] at (E) {};
+			\node[label={[xshift=-0.2cm,yshift=-0.4cm]$F$}] at (F) {};
+			\coordinate (G) at ($(B)!0.5!(C)$);
+			\node[label={[yshift=-0.6cm]$G$}] at (G) {};
+			\draw (S)--(G);
+			\draw[dashed] (S)--(0,0)--(G);
+			\draw[dashed] (0,0)--(C);
+			
+			\coordinate (markSG) at ($(G)!4pt!(S)$);
+			\coordinate (markGC) at ($(G)!4pt!(C)$); 
+			\draw (markSG)--($(markSG) + (markGC) - (G)$) -- (markGC);
+			\node at (0,-1.6) {(3)};
+		\end{scope}
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -824,7 +903,7 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 
 因为全等的等腰三角形底边上的高都相等，所以正棱锥侧面的等腰三角形底边上的高都叫作
 正棱锥的\textbf{斜高}．例如图2.16(3)中$\triangle SBC$底边$BC$上的高$SG$就
-是正棱锥$S-AD$的斜高．
+是正棱锥$S$-$AD$的斜高．
 \item 正棱锥所有的斜高都相等．
 \item 正棱锥的棱、高、及棱在底上的射影以及斜高、高
 和斜高在底面上的射影分别组成一个直角三角形．
@@ -1847,8 +1926,7 @@ $n$&3&4&5&3&3\\
 这五种正多面体分别是正四面体、正六面体、正八面
 体、正十二面体和正20面体．（图2.35的(I)—(V)）
 \begin{figure}[htp]
-    \centering
-\includegraphics[scale=.6]{fig/2-35.png}
+    \centering\includegraphics[scale=.6]{fig/2-35.png}
     \caption{}
 \end{figure}
 \end{proof}
@@ -2169,7 +2247,7 @@ $B_1O_1\parallel B_0O_0\parallel B_2O_2$，故有
 
 
 \begin{example}
-    如图2.40, 球$O$和二面角$\alpha-AB-\beta$的两个面$\alpha$、$\beta$
+    如图2.40, 球$O$和二面角$\alpha$-$AB$-$\beta$的两个面$\alpha$、$\beta$
 分别相切于$C$、$D$两点，如$C,D$两点的距离为$\sqrt{3}a$, 并且
 $\angle DCO=30^{\circ}$, 求球$O$的半径及二面角的大小．
 \end{example}
@@ -2206,9 +2284,9 @@ $\therefore\quad OD=a$
 
 又：$O,C,D,E$四点共面，由(2.5), 有$\angle CED=60^{\circ}$,
 
-$\therefore\quad $二面角$\alpha-AB-\beta$为$60^{\circ}$.
+$\therefore\quad $二面角$\alpha$-$AB$-$\beta$为$60^{\circ}$.
 
-答：球$O$的半径为$a$, 二面角$\alpha-AB-\beta$为$60^{\circ}$.
+答：球$O$的半径为$a$, 二面角$\alpha$-$AB$-$\beta$为$60^{\circ}$.
 \end{solution}
 
 
@@ -2288,7 +2366,7 @@ $\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
 即\[R^2-\left(\frac{\sqrt{3}}{3}a\right)^2=\left(\frac{\sqrt{6}}{3}a-R\right)^2\]
 解得$R=\frac{\sqrt{6}}{4}a$
 
-答：棱长为$a$的正四面体的外接球的半径为$\frac{\sqrt{6}}{4}a$
+答：棱长为$a$的正四面体的外接球的半径为$\frac{\sqrt{6}}{4}a$.
 \end{solution}
 
 \section*{习题2.1}
@@ -4441,32 +4519,6 @@ $\therefore\quad S_1=S_2$
 \[V_{\text{圆锥}}=\frac{1}{3}S h\]
 其中$S=\pi r^2$.
 \end{blk}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \begin{example}
