@@ -721,7 +721,31 @@ $X$轴，垂足为$Q$点，并交大
 点$P$的轨迹叫做\textbf{旋轮线}（图7.14）．
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.7]{fig/7-14.png}
+	\begin{tikzpicture}[scale=1]
+		\coordinate (O) at (0,0);
+		\coordinate (Y) at (0,3);
+		\def\r{1.5} % radius
+		\def\p{1}
+		\coordinate (B) at (\r, \r);
+		\coordinate (A) at (\r, 0);
+		\coordinate (P) at ({\r * (\p - sin(\p*180/pi))}, {\r * (1 - cos(\p*180/pi))});
+		
+		\draw[-latex] (0,-0.5) -- (Y) node[anchor=west] {$Y$};
+		\draw[-latex] (-0.5,0) -- (2.4*pi*\r,0) node[anchor=west] {$X$};
+		\draw[domain=0:{2*pi},samples=50,variable=\t] plot ({\r * (\t - sin(\t*180/pi)))},{\r * (1 - cos(\t*180/pi)))});
+		\draw (B) circle (\r);
+		\draw (B)--(A) (B)--(0,\r) coordinate (F);
+		\draw (P) -- ({\r*(\p - sin(\p*180/pi))}, 0) coordinate (D);
+		\draw (P) -- (\r, {\r*(\p * (1- cos(\p*180/pi)))}) coordinate (C);
+		\draw (P) -- (B);
+		
+		\tkzLabelPoint[below left](O){$O$}
+		\tkzLabelPoints[below](D,A)	
+		\tkzLabelPoints[right](B,C)
+		\tkzLabelPoints[above](P)
+		\tkzMarkAngle[size=0.3](P,B,A) \tkzLabelAngle[pos=0.5](P,B,A){$\varphi$};
+		\tkzLabelSegment(B,F){$a$}
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -755,7 +779,35 @@ $X$轴，垂足为$Q$点，并交大
 这个圆叫做渐开线的\textbf{基圆}．
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.7]{fig/7-15.png}
+	\begin{tikzpicture}[scale=1]
+		\coordinate (O) at (0,0);
+		\coordinate (Y) at (0,3.5);
+		\def\r{1} % radius
+		\def\p{1.2	}
+		\coordinate (A) at (\r, 0);
+		\pgfmathsetmacro{\u}{\r*(cos(\p*180/pi)+\p*sin(\p*180/pi))}
+		\pgfmathsetmacro{\v}{\r * (sin(\p*180/pi) - \p*cos(\p*180/pi))}
+		\coordinate (B) at (\u,\v);
+		
+		\draw[-latex] (0,-1.5) -- (Y) ;
+		\draw[-latex] (-1.6*pi*\r,0) -- (2	*\r,0) ;
+		\draw[domain=0:{4.49341},samples=50,variable=\t] plot ({\r*(cos(\t*180/pi)+\t*sin(\t*180/pi))},{\r * (sin(\t*180/pi) - \t*cos(\t*180/pi))});
+		\draw (O) circle (\r);
+		
+		\pgfmathsetmacro{\uvsqsum}{\u * \u + \v * \v}
+		\pgfmathsetmacro{\Cx}{(\u - \v * sqrt(\uvsqsum - 1)) / \uvsqsum}
+		\pgfmathsetmacro{\Cy}{sqrt(1 - \Cx * \Cx)}
+		\coordinate (C) at (\Cx,\Cy);
+		\draw (B)--(C)--(O)--(B);
+		\tkzMarkAngle[size=0.3](A,O,B)
+		\tkzLabelSegment[above](O,C){$a$}
+		\tkzLabelSegment[above=-0.1](O,B){$r$}
+		\tkzMarkRightAngle(O,C,B)
+		\tkzLabelPoints[below right](A)
+		\tkzLabelPoints[right](B)
+		\tkzLabelPoints[above](C)
+		\tkzLabelPoints[below left](O)
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
