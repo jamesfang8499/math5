@@ -359,7 +359,39 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 画法（略）见图1.8.
 \begin{figure}[htp]
     \centering
-    \includegraphics[scale=.5]{fig/1-8.png}
+	\begin{tikzpicture}[scale=1]
+		\def\a{1.5}
+		\def\h{2.5}
+		\pgfmathsetmacro{\theta}{asin(\a/(\h*sqrt(2))};
+		\coordinate (A) at  (-\a*1.732,0);
+		\coordinate (C) at  (\a*1.732,0);
+		\coordinate (B) at  (0,-\a);
+		\coordinate (D) at  (0,\a);
+		\coordinate (P) at ($(D)!0.5!(A)$);
+		\coordinate (Q) at ($(C)!0.5!(D)$);
+		\coordinate (R) at ($(A)!0.5!(B)$);
+		\coordinate (S) at ($(B)!0.5!(C)$);
+		\draw[dashed] (A)--(B)--(C)--(D)--cycle;
+		\draw[dashed] (B)--(P)--(S)--(D)--(R)--(Q)--cycle;
+		\coordinate (U) at (180-\theta:\a*1.22474 and 0.707107*\a);
+		\coordinate (V) at (\theta:\a*1.22474 and 0.707107*\a);
+		\draw[dashed] (V) arc (\theta:180-\theta:\a*1.22474 and 0.707107*\a);
+		\draw (U) arc (-180-\theta:\theta:\a*1.22474 and 0.707107*\a);
+		\coordinate (H) at (0,\h);
+		\draw (H)--(U) (H)--(V);
+		\draw[dashed] (0,0)--(H); 
+		\draw[-latex] (H)--++(0,1) node[anchor=north west] {$Z'$};
+		\draw[-latex] (R)--++ ($(0,0)!0.8!(R)$) node[anchor=north] {$X'$};
+		\draw[-latex] (S)--++ ($(0,0)!0.8!(S)$) node[anchor=north] {$Y'$};
+		\draw (0,0) node[anchor=north] {$O'$};
+		
+		\draw[->,very thick] (3,0)--(4,0);
+		\def\xshift{6.5}
+		\draw[dashed] ($(V)+(\xshift,0)$) coordinate (V') arc (\theta:180-\theta:\a*1.22474 and 0.707107*\a);
+		\draw ($(U)+(\xshift,0)$) coordinate (U') arc (-180-\theta:\theta:\a*1.22474 and 0.707107*\a);
+		\coordinate (H') at ($(H)+(\xshift,0)$);
+		\draw (H')--(U') (H')--(V');
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 \end{example}
@@ -388,12 +420,30 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 
 \begin{figure}[htp]
     \centering
-    \begin{minipage}[t]{0.48\textwidth}
+    \begin{minipage}[t]{0.4\textwidth}
     \centering
-        \includegraphics[scale=.5]{fig/ch1-4ti.png}
+    \resizebox{\linewidth}{!}{
+    \begin{tikzpicture}[scale=1, node distance = 0pt, LAA/.style = {{Bar[width=5mm].Straight Barb[]}-{Straight Barb[].Bar[width=5mm]},  % <---
+    		shorten >=-0.5\pgflinewidth, shorten <=-0.5\pgflinewidth}]
+    	\draw (0,0)--(4,0) coordinate(P) --++(3*0.707,3*0.707) coordinate (Q);
+    	\draw[dashed] (0,0)--++(3*0.707,3*0.707) coordinate(S)--++(0,4) coordinate (R);
+    	\draw (0,0)--(0,4)--(3.2,4) coordinate(A)--++(3*0.707,3*0.707) coordinate(B) -- (R)--(0,4);
+    	\draw (P)--++(0,1.2) coordinate(P');
+    	\draw (Q)--++(0,1.2) coordinate(Q');
+    	\draw (A)--(P') (B)--(Q') (P')--(Q');
+    	\draw[dashed] (S)--(Q);
+    	\draw[LAA] (0,-0.3) -- node[fill=white, midway]{40} (4,-0.3);
+    	\draw[LAA] (-0.3,0) -- node[fill=white, midway,rotate=90]{40} (-0.3,4);
+    	\draw[LAA] ($(Q)+(0.3,0)$) --node[fill=white, midway,rotate=90]{12} ($(Q')+(0.3,0)$);
+    	\draw[<->] ($(P)+(0.5,0)$) --node[fill=white, midway,rotate=45]{30} ($(Q)+(0.5,0)$);\draw(P)--($(P)+(0.8,0)$); \draw(Q)--($(Q)+(0.8,0)$);
+    	\draw (R)--++(0.8*0.707,0.8*0.707) coordinate[pos=0.5](U);
+    	\draw (B)--++(0.8*0.707,0.8*0.707) coordinate[pos=0.5](V);
+    	\draw[<->] (U) -- node[fill=white, midway]{32} (V);
+    \end{tikzpicture}}
     \caption*{第4题}
     \end{minipage}
-    \begin{minipage}[t]{0.48\textwidth}
+	\hfill
+    \begin{minipage}[t]{0.4\textwidth}
     \centering
 \includegraphics[scale=.5]{fig/ch1-5ti.png}
     \caption*{第5题}
