@@ -426,8 +426,8 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \begin{tikzpicture}[scale=1, node distance = 0pt, LAA/.style = {{Bar[width=5mm].Straight Barb[]}-{Straight Barb[].Bar[width=5mm]},  % <---
     		shorten >=-0.5\pgflinewidth, shorten <=-0.5\pgflinewidth}]
     	\draw (0,0)--(4,0) coordinate(P) --++(3*0.707,3*0.707) coordinate (Q);
-    	\draw[dashed] (0,0)--++(3*0.707,3*0.707) coordinate(S)--++(0,4) coordinate (R);
-    	\draw (0,0)--(0,4)--(3.2,4) coordinate(A)--++(3*0.707,3*0.707) coordinate(B) -- (R)--(0,4);
+    	\draw[dashed] (0,0)--++(1.5*0.707,1.5*0.707) coordinate(S)--++(0,4) coordinate (R);
+    	\draw (0,0)--(0,4)--(3.2,4) coordinate(A)--++(1.5*0.707,1.5*0.707) coordinate(B) -- (R)--(0,4);
     	\draw (P)--++(0,1.2) coordinate(P');
     	\draw (Q)--++(0,1.2) coordinate(Q');
     	\draw (A)--(P') (B)--(Q') (P')--(Q');
@@ -442,10 +442,54 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \end{tikzpicture}}
     \caption*{第4题}
     \end{minipage}
-	\hfill
+	\vspace{0.15\textwidth}
     \begin{minipage}[t]{0.4\textwidth}
     \centering
-\includegraphics[scale=.5]{fig/ch1-5ti.png}
+    \resizebox{\linewidth}{!}{
+	\begin{tikzpicture}[scale=1, node distance = 0pt]
+		\def\a{3}
+		\coordinate (O) at (0,0);
+		\coordinate (A) at (-0.866*4, 0.5*4);
+		\coordinate (B) at (\a*0.866, \a*0.5);
+		\coordinate (O') at (0,1.5);
+		\draw (O)--(A)--++(0,5) coordinate (A')--++(B) coordinate(A'');
+		\draw (O)--(B)--++(O') coordinate (B');
+		\draw (O)--(O')--(B');
+		\draw (A')--++(1.5*0.866,-1.5*0.5) coordinate (L)--++(B) coordinate(L')--(A'');
+		\draw (L)--++(0,-3.5) coordinate(M)--(O');
+		\draw (L')--++(0,-3.5) coordinate(M')--(B');
+		\draw (M)--(M');
+		\coordinate (L1) at ($(L)!{1/3}!(L')$);
+		\coordinate (L2) at ($(L)!{2/3}!(L')$);
+		\coordinate (B1') at ($(O')!{1/3}!(B')$);
+		\coordinate (B2') at ($(O')!{2/3}!(B')$);
+		\draw[fill=white] (L1)--++(0,-3.5)--(B1')--cycle;
+		\draw[fill=white] (L2)--(B2')--(B1')--(L1)--cycle;
+		\draw[<->] ($(A)-(0.5*0.866,0.5*0.5)$) -- node[midway,fill=white,rotate=-30]{40} ($(O)-(0.5*0.866,0.5*0.5)$);
+		\draw[<->] ($(A)-(0.5*0.866,0.5*0.5)$) -- node[midway,fill=white,rotate=90]{50} ($(A')-(0.5*0.866,0.5*0.5)$);
+		\draw[<->] ($(M)-(0.35*0.866,0.35*0.5)$) -- node[midway,fill=white,rotate=-30]{25} ($(O')-(0.35*0.866,0.35*0.5)$);
+		\draw (A)--++(-0.8*0.866,-0.8*0.5);\draw (O)--++(-0.8*0.866,-0.8*0.5);\draw (A')--++(-0.8*0.866,-0.8*0.5);
+		\draw (O')--++(-0.6*0.866,-0.6*0.5);\draw (M)--++(-0.6*0.866,-0.6*0.5);
+		\draw[<->] ($(O)+(0.5*0.866,-0.5*0.5)$) -- node[midway,fill=white,rotate=3	0]{30} ($(B)+(0.5*0.866,-0.5*0.5)$);
+		\draw (O)--++(0.8*0.866,-0.8*0.5);\draw (B)--++(0.8*0.866,-0.8*0.5);
+		\draw (B')--++(1*0.866,1*0.5);\draw (B)--++(1*0.866,1*0.5);
+		\draw (O') --++ (0.7*0.866,-0.7*0.5);
+		\draw (B1') --++ (0.7*0.866,-0.7*0.5);
+		\draw (B2') --++ (0.7*0.866,-0.7*0.5);
+		\draw (B') --++ (0.7*0.866,-0.7*0.5);
+		\draw (L) --++ (0,0.8);
+		\draw (L1) --++ (0,0.8);
+		\draw (L2) --++ (0,0.8);
+		\draw (L') --++ (0,0.8);
+		\draw [<->] ($(O')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B1')+(0.3*0.866,-0.3*0.5)$);
+		\draw [<->] ($(B1')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B2')+(0.3*0.866,-0.3*0.5)$);
+		\draw [<->] ($(B2')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B')+(0.3*0.866,-0.3*0.5)$);
+		\draw [<->] ($(L)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L1)+(0,0.3)$);
+		\draw [<->] ($(L1)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L2)+(0,0.3)$);
+		\draw [<->] ($(L2)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L')+(0,0.3)$);
+		\draw[<->] ($(B')+(0.8*0.866,0.8*0.5)$) -- node[midway,fill=white,rotate=90]{15} ($(B)+(0.8*0.866,0.8*0.5)$);
+	\end{tikzpicture}
+	}
     \caption*{第5题}
     \end{minipage}
   \end{figure}
@@ -522,10 +566,82 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.55]{fig/1-10-1.png}
-    \includegraphics[scale=.55]{fig/1-10-2.png}
+    \resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[scale=1, node distance = 0pt]
+		\def\h{2.5}
+		\def\b{2}
+		\def\a{3.5}
+		\coordinate (O) at (0,0);
+		\coordinate (A) at (-\a,0);
+		\coordinate (B) at (\b*0.707,-\b*0.707);
+		\coordinate (C) at (0, \h);	
+		\draw (A)--(O)--(B) (O)--(C)--+(\b*0.707,-\b*0.707)--(B);
+		\draw (A)--++(C)--(C);
+		\draw (C)--++(2,0)--++(0, -\h) coordinate(Y)--++(-0.58,0);
+		\draw (Y)--++(B) coordinate (Yfront);
+		\draw (A)--++(B)--(Yfront);
+		\draw (0,-\b*0.707)--++(0,-0.5) node[anchor=north] {$Y'$}--++(-\a,0)--(A);
+		\draw (A)--++(-0.75*0.707,0.75*0.707)--++(0.75*0.707,0);
+		\draw (C)--++(-0.75*0.707,0.75*0.707)--++(0,-0.75*0.707);
+		\node[anchor=south] at (C) {$X'$};
+		\node[anchor=east] at (A) {$X$};
+		\node[anchor=west] at (Y) {$Y$};
+		\def\cylinderX{-2.5}
+		\def\cylinderY{0.8}
+		\def\cylinderZ{1.5}
+		\def\cylinderR{0.25}
+		\def\cylinderL{1.5}
+		\pgfmathsetmacro{\cylinderLeftX}{\cylinderX+\cylinderY*0.707}
+		\pgfmathsetmacro{\cylinderLeftY}{\cylinderZ-\cylinderY*0.707}
+		\pgfmathsetmacro{\cylinderA}{\cylinderR*0.5}
+		\pgfmathsetmacro{\cylinderB}{\cylinderR};
+		\draw (\cylinderLeftX,\cylinderLeftY) ellipse ({\cylinderA} and {\cylinderB});
+		\draw (\cylinderLeftX,{\cylinderLeftY+\cylinderB}) coordinate(W)--++(\cylinderL,0) coordinate (Z);
+		\draw (Z) arc (90:-90:{\cylinderA} and \cylinderB);
+		\draw[dashed] (Z) arc (90:270:{\cylinderA} and \cylinderB);
+		\draw (\cylinderLeftX,{\cylinderLeftY-\cylinderB}) coordinate(W')--++(\cylinderL,0) coordinate (Z');
+		\draw[dashed] (Z)--(\cylinderX+\cylinderL,\cylinderZ+\cylinderB) coordinate (Zproj);
+		\draw[dashed] (Z')--(\cylinderX+\cylinderL,\cylinderZ-\cylinderB) coordinate (Z'proj);
+		\draw[dashed] (W)--(\cylinderX,\cylinderZ+\cylinderB) coordinate (Wproj);
+		\draw[dashed] (W')--(\cylinderX,\cylinderZ-\cylinderB) coordinate (W'proj);
+		\draw[fill,pattern=north east lines] (Wproj) rectangle (Z'proj);
+		\draw[dashed] (\cylinderLeftX-\cylinderA,\cylinderLeftY)--({\cylinderX+\cylinderY*0.707-\cylinderA},{-\cylinderY*0.707+\cylinderA}) coordinate (P);
+		\draw[dashed] (\cylinderLeftX+\cylinderA,\cylinderLeftY)--({\cylinderX+\cylinderY*0.707+\cylinderA},{-\cylinderY*0.707-\cylinderA}) coordinate(P');
+		\draw[dashed] (\cylinderLeftX+\cylinderL-\cylinderA,\cylinderLeftY)--({\cylinderX+\cylinderL+\cylinderY*0.707-\cylinderA},{-\cylinderY*0.707+\cylinderA}) coordinate (Q);
+		\draw[dashed] (\cylinderLeftX+\cylinderL+\cylinderA,\cylinderLeftY)--({\cylinderX+\cylinderL+\cylinderY*0.707+\cylinderA},{-\cylinderY*0.707-\cylinderA}) coordinate(Q');
+		\draw[fill,pattern=north east lines] (P)--(P')--(Q')--(Q)--cycle;
+		\draw[dashed] (W'proj) -- ($(O)!(W'proj)!(A)$) -- (P);
+		\draw[dashed] (Z'proj) -- ($(O)!(Z'proj)!(A)$) -- (Q);
+		\def\distX{0.3};
+		\draw[dashed] (Z) -- ({\cylinderY/sqrt(2)},{\cylinderZ-\cylinderY/sqrt(2)+\cylinderB});
+		\draw[dashed] (Z') -- ({\cylinderY/sqrt(2)},{\cylinderZ-\cylinderY/sqrt(2)-\cylinderB});
+		\draw[fill,pattern=north east lines] ({\cylinderY/sqrt(2)},{\cylinderZ-\cylinderY/sqrt(2)}) ellipse ({\cylinderA} and {\cylinderB});
+		
+		\begin{scope}[xshift=6cm,yshift=0.1cm,scale=0.8]
+			\draw(-3,0)--(3,0);
+			\draw(0,-2.5)--(0,2.5);
+			\node[anchor=east] at (-3,0) {$X$};
+			\node[anchor=west] at (3,0) {$Y$};
+			\node[anchor=north] at (0,-2.5) {$Y'$};
+			\node[anchor=south] at (0,2.5) {$X'$};
+			\pgfmathsetmacro{\bigY}{\cylinderY+\cylinderB}
+			\pgfmathsetmacro{\smallY}{\cylinderY-\cylinderB}
+			\draw[fill,pattern=north east lines] (\cylinderX,\bigY)rectangle({\cylinderX+\cylinderL},\smallY);
+			\draw[fill,pattern=north east lines] (\cylinderX,-\bigY)rectangle({\cylinderX+\cylinderL},-\smallY);
+			\draw[dashed] ({\cylinderX+\cylinderL},\smallY)--({\cylinderX+\cylinderL},-\smallY);
+			\draw[dashed] ({\cylinderX},\smallY)--({\cylinderX},-\smallY);
+			\draw[dashed] ({\cylinderX+\cylinderL},-\smallY)--(0,-\smallY) arc (-90:0:\smallY) -- ++(0,\smallY+\cylinderR/2);
+			\draw[dashed] ({\cylinderX+\cylinderL},-\bigY)--(0,-\bigY) arc (-90:0:\bigY) -- ++(0,\smallY+\cylinderR/2);
+			\draw[fill,pattern=north east lines] ({(\smallY+\bigY)/2},{(\smallY+\bigY)/2}) circle (\cylinderR);
+			\draw[dashed] ({\cylinderX+\cylinderL},\bigY) -- ({(\smallY+\bigY+\cylinderR)/2},\bigY);
+			\draw[dashed] ({\cylinderX+\cylinderL},\smallY) -- ({(\smallY+\bigY+\cylinderR)/2},\smallY);
+			\node[anchor=south] at ({\cylinderX+\cylinderL/2},\bigY) {主视图};
+			\node[anchor=north] at ({\cylinderX+\cylinderL/2},-\bigY) {俯视图};
+			\node[anchor=west] at ({(\smallY+\bigY+\cylinderR)/2},{(\smallY+\bigY)/2}) {左视图};
+		\end{scope}
+	\end{tikzpicture}}
     \caption{}
-    \end{figure}
+\end{figure}
 
 
 主视图、俯视图、左视图三个视图统称三视图．
