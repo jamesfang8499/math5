@@ -20,7 +20,7 @@
 \usepackage{tikz}
 \usepackage{tikz-3dplot} 
 \usepackage{pgfplots}
-\usetikzlibrary{3d, calc, math, intersections, patterns}
+\usetikzlibrary{3d, calc, math, intersections, patterns, arrows.meta}
 
 \makeatletter
 \tikzoption{canvas is plane}[]{\@setOxy#1}
@@ -30,6 +30,12 @@
 	\def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
 	\tikz@canvas@is@plane
 }
+\def\td@RuleDist{5.00mm}
+\def\td@ArrowLength{2.50mm}
+\def\td@ArrowWidth{0.669873mm}
+\tikzstyle{tdDim} = [<->, >={Triangle[length=\td@ArrowLength, width=\td@ArrowWidth]}]
+\tikzstyle{tdSym} = [dash pattern=on 2.50mm off 0.50mm on 0.25mm off 0.50mm]
+\tikzstyle{tdDimUni} = [->, >={Triangle[length=\td@ArrowLength, width=\td@ArrowWidth]}]
 \makeatother  
 
 \tikzset{

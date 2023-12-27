@@ -359,6 +359,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 画法（略）见图1.8.
 \begin{figure}[htp]
     \centering
+    \resizebox{0.8\textwidth}{!}{
 	\begin{tikzpicture}[scale=1]
 		\def\a{1.5}
 		\def\h{2.5}
@@ -391,7 +392,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 		\draw ($(U)+(\xshift,0)$) coordinate (U') arc (-180-\theta:\theta:\a*1.22474 and 0.707107*\a);
 		\coordinate (H') at ($(H)+(\xshift,0)$);
 		\draw (H')--(U') (H')--(V');
-	\end{tikzpicture}
+	\end{tikzpicture}}
     \caption{}
 \end{figure}
 \end{example}
@@ -422,10 +423,10 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \centering
     \begin{minipage}[t]{0.4\textwidth}
     \centering
-    \resizebox{\linewidth}{!}{
+    \resizebox{0.8\linewidth}{!}{
     \begin{tikzpicture}[scale=1, node distance = 0pt, LAA/.style = {{Bar[width=5mm].Straight Barb[]}-{Straight Barb[].Bar[width=5mm]},  % <---
     		shorten >=-0.5\pgflinewidth, shorten <=-0.5\pgflinewidth}]
-    	\draw (0,0)--(4,0) coordinate(P) --++(3*0.707,3*0.707) coordinate (Q);
+    	\draw (0,0)--(4,0) coordinate(P) --++(1.5*0.707,1.5*0.707) coordinate (Q);
     	\draw[dashed] (0,0)--++(1.5*0.707,1.5*0.707) coordinate(S)--++(0,4) coordinate (R);
     	\draw (0,0)--(0,4)--(3.2,4) coordinate(A)--++(1.5*0.707,1.5*0.707) coordinate(B) -- (R)--(0,4);
     	\draw (P)--++(0,1.2) coordinate(P');
@@ -435,17 +436,17 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     	\draw[LAA] (0,-0.3) -- node[fill=white, midway]{40} (4,-0.3);
     	\draw[LAA] (-0.3,0) -- node[fill=white, midway,rotate=90]{40} (-0.3,4);
     	\draw[LAA] ($(Q)+(0.3,0)$) --node[fill=white, midway,rotate=90]{12} ($(Q')+(0.3,0)$);
-    	\draw[<->] ($(P)+(0.5,0)$) --node[fill=white, midway,rotate=45]{30} ($(Q)+(0.5,0)$);\draw(P)--($(P)+(0.8,0)$); \draw(Q)--($(Q)+(0.8,0)$);
+    	\draw[tdDim] ($(P)+(0.5,0)$) --node[fill=white, midway,rotate=45]{30} ($(Q)+(0.5,0)$);\draw(P)--($(P)+(0.8,0)$); \draw(Q)--($(Q)+(0.8,0)$);
     	\draw (R)--++(0.8*0.707,0.8*0.707) coordinate[pos=0.5](U);
     	\draw (B)--++(0.8*0.707,0.8*0.707) coordinate[pos=0.5](V);
-    	\draw[<->] (U) -- node[fill=white, midway]{32} (V);
+    	\draw[tdDim] (U) -- node[fill=white, midway]{32} (V);
     \end{tikzpicture}}
     \caption*{第4题}
     \end{minipage}
-	\vspace{0.15\textwidth}
+	\hspace{0.1\textwidth}
     \begin{minipage}[t]{0.4\textwidth}
     \centering
-    \resizebox{\linewidth}{!}{
+    \resizebox{0.8\linewidth}{!}{
 	\begin{tikzpicture}[scale=1, node distance = 0pt]
 		\def\a{3}
 		\coordinate (O) at (0,0);
@@ -465,12 +466,12 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 		\coordinate (B2') at ($(O')!{2/3}!(B')$);
 		\draw[fill=white] (L1)--++(0,-3.5)--(B1')--cycle;
 		\draw[fill=white] (L2)--(B2')--(B1')--(L1)--cycle;
-		\draw[<->] ($(A)-(0.5*0.866,0.5*0.5)$) -- node[midway,fill=white,rotate=-30]{40} ($(O)-(0.5*0.866,0.5*0.5)$);
-		\draw[<->] ($(A)-(0.5*0.866,0.5*0.5)$) -- node[midway,fill=white,rotate=90]{50} ($(A')-(0.5*0.866,0.5*0.5)$);
-		\draw[<->] ($(M)-(0.35*0.866,0.35*0.5)$) -- node[midway,fill=white,rotate=-30]{25} ($(O')-(0.35*0.866,0.35*0.5)$);
+		\draw[tdDim] ($(A)-(0.5*0.866,0.5*0.5)$) -- node[midway,fill=white,rotate=-30]{40} ($(O)-(0.5*0.866,0.5*0.5)$);
+		\draw[tdDim] ($(A)-(0.5*0.866,0.5*0.5)$) -- node[midway,fill=white,rotate=90]{50} ($(A')-(0.5*0.866,0.5*0.5)$);
+		\draw[tdDim] ($(M)-(0.35*0.866,0.35*0.5)$) -- node[midway,fill=white,rotate=-30]{25} ($(O')-(0.35*0.866,0.35*0.5)$);
 		\draw (A)--++(-0.8*0.866,-0.8*0.5);\draw (O)--++(-0.8*0.866,-0.8*0.5);\draw (A')--++(-0.8*0.866,-0.8*0.5);
 		\draw (O')--++(-0.6*0.866,-0.6*0.5);\draw (M)--++(-0.6*0.866,-0.6*0.5);
-		\draw[<->] ($(O)+(0.5*0.866,-0.5*0.5)$) -- node[midway,fill=white,rotate=3	0]{30} ($(B)+(0.5*0.866,-0.5*0.5)$);
+		\draw[tdDim] ($(O)+(0.5*0.866,-0.5*0.5)$) -- node[midway,fill=white,rotate=3	0]{30} ($(B)+(0.5*0.866,-0.5*0.5)$);
 		\draw (O)--++(0.8*0.866,-0.8*0.5);\draw (B)--++(0.8*0.866,-0.8*0.5);
 		\draw (B')--++(1*0.866,1*0.5);\draw (B)--++(1*0.866,1*0.5);
 		\draw (O') --++ (0.7*0.866,-0.7*0.5);
@@ -481,13 +482,13 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 		\draw (L1) --++ (0,0.8);
 		\draw (L2) --++ (0,0.8);
 		\draw (L') --++ (0,0.8);
-		\draw [<->] ($(O')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B1')+(0.3*0.866,-0.3*0.5)$);
-		\draw [<->] ($(B1')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B2')+(0.3*0.866,-0.3*0.5)$);
-		\draw [<->] ($(B2')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B')+(0.3*0.866,-0.3*0.5)$);
-		\draw [<->] ($(L)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L1)+(0,0.3)$);
-		\draw [<->] ($(L1)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L2)+(0,0.3)$);
-		\draw [<->] ($(L2)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L')+(0,0.3)$);
-		\draw[<->] ($(B')+(0.8*0.866,0.8*0.5)$) -- node[midway,fill=white,rotate=90]{15} ($(B)+(0.8*0.866,0.8*0.5)$);
+		\draw [tdDim] ($(O')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B1')+(0.3*0.866,-0.3*0.5)$);
+		\draw [tdDim] ($(B1')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B2')+(0.3*0.866,-0.3*0.5)$);
+		\draw [tdDim] ($(B2')+(0.3*0.866,-0.3*0.5)$) -- node[midway,fill=white,rotate=30,xshift=0.1*0.866cm,yshift=-0.4*0.5cm,inner sep=0pt]{10} ($(B')+(0.3*0.866,-0.3*0.5)$);
+		\draw [tdDim] ($(L)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L1)+(0,0.3)$);
+		\draw [tdDim] ($(L1)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L2)+(0,0.3)$);
+		\draw [tdDim] ($(L2)+(0,0.3)$) -- node[midway,fill=white,yshift=0.4cm,inner sep=0pt]{10} ($(L')+(0,0.3)$);
+		\draw [tdDim] ($(B')+(0.8*0.866,0.8*0.5)$) -- node[midway,fill=white,rotate=90]{15} ($(B)+(0.8*0.866,0.8*0.5)$);
 	\end{tikzpicture}
 	}
     \caption*{第5题}
@@ -661,7 +662,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 
 
 \begin{figure}[htp]\centering
-    \begin{minipage}[t]{0.48\textwidth}
+    \begin{minipage}[t]{0.43\textwidth}
     \centering
   \begin{tikzpicture}[>=latex, scale=1]
 \draw(0,6) rectangle (2,4);
@@ -680,22 +681,24 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \end{tikzpicture}
     \caption{}
     \end{minipage}
-    \begin{minipage}[t]{0.48\textwidth}
+	\hspace{0.1\textwidth}
+    \begin{minipage}[t]{0.43\textwidth}
     \centering
-    \begin{tikzpicture}[>=latex, scale=.8]
-\draw(0,0) rectangle (3,2); \node at (3,1)[right]{宽};
-\draw(1,0)--(1,2);\draw(2,0)--(2,2);
-    
-\draw(0,3)--(0,6)--(1,6)--(1,5)--(2,5)--(2,6)--(3,6)--node[right]{高}(3,3)--(0,3);
-
-\draw(4,6) rectangle (6,3);
-\draw[dashed](4,5)--(6,5);
-\node at (5,3)[below]{宽};\node at (6,4.5)[right]{高};
-
-    \end{tikzpicture}
+    \resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[>=latex]
+		\draw(0,0) rectangle (3.6,2); \node at (3.6,1)[right]{宽};
+		\draw(1.2,0)--(1.2,2);\draw(2.4,0)--(2.4,2);
+		
+		\draw(0,3)--(0,6.3)--(1.2,6.3)--(1.2,5.3)--(2.4,5.3)--(2.4,6.3)--(3.6,6.3)--node[right]{高}(3.6,3)--(0,3);
+		
+		\draw(4.5,6.3) rectangle (6.5,3);
+		\draw[dashed](4.5,5)--(6.5,5);
+		\node at (5.5,3)[below]{宽};\node at (6.5,4.5)[right]{高};
+	\end{tikzpicture}
+	}
     \caption{}
     \end{minipage}
-    \end{figure}
+\end{figure}
 
 
 画出图1.12的左视图，并把这个三视图所表示的立体的直观图画出来．
@@ -712,15 +715,55 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     首先分析观察视图所表示的组成形体的各部分形状，如1中所述的是一个大长方体挖去一个小长方体．然后，根据视图所给的长、宽、高画出这两个长方体的直观图，但要特别注意在视图上所反映的这两个长方体的相互位置关系，最后擦去不需要的线便得到视图所表示的立体的直观图．（见图1.13）
 \end{enumerate}
 
-\begin{figure}[htp]
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[scale=.6]{fig/1-13.png}
+    \resizebox{0.8\textwidth}{!}{
+    \begin{tikzpicture}[scale=1, node distance = 0pt]
+    	\def\a{3.6}
+    	\def\b{2}
+    	\def\h{3.3}
+    	\coordinate (O) at (0,0);
+    	\coordinate (A) at (-\b*0.866,-\b*0.5);
+    	\coordinate (B) at (\a*0.866,-\a*0.5);
+    	\coordinate (C) at (0,\h);
+    	\draw (O)--(C);
+    	\draw (O)--(A)--++(B)--(B)--cycle;
+    	\draw (A)--++($(O)!0.4!(A)$) node[anchor=north east] {$X'$};
+    	\draw (B)--++($(O)!0.4!(B)$) node[anchor=north west] {$Y'$};
+    	\draw (C)--++(0,0.8) node[anchor=north west] {$Z'$};
+    	\draw (A)--++(C) coordinate(A');
+    	\draw (B)--++(C) coordinate(B');
+    	\draw ($(A)+(B)$)--++(C) coordinate(AplusB');
+    	\draw (C)--++(A);
+    	\coordinate(step) at ({\a/3 * 0.866},{-\a/3 * 0.5});
+    	\draw (A')--++(step) coordinate(P1)--++(0,-1) coordinate(P2)--++(step)--++(0,1) coordinate(P3)--++(step);
+    	\draw (C)--++(step) coordinate(Q1)--++(0,-1) coordinate(Q2)--++(step)--++(0,1) coordinate(Q3)--++(step);
+    	\draw (P1)--(Q1) (P2)--(Q2);
+    	\draw[fill=white] (P3)--(Q3)--(B')--(AplusB')--cycle;
+    	
+    	\draw[very thick,->] (4,0)--(5.5,0);
+    	
+    	\coordinate (xshiftvec) at (8,0);
+    	\coordinate (nO) at ($(O)+(xshiftvec)$);
+    	\coordinate (nA) at ($(A)+(xshiftvec)$);
+    	\coordinate (nB) at ($(B)+(xshiftvec)$);
+    	\coordinate (nC) at ($(C)+(xshiftvec)$);
+    	\draw (nA)--++(B)--(nB);
+    	\draw (nA)--++(C) coordinate(nA');
+    	\draw (nB)--++(C) coordinate(nB');
+    	\draw ($(A)+(B)+(xshiftvec)$)--++(C) coordinate(nAplusB');
+    	\draw (nC)--++(A);
+    	\draw (nA')--++(step) coordinate(nP1)--++(0,-1) coordinate(nP2)--++(step)--++(0,1) coordinate(nP3)--++(step);
+    	\draw (nC)--++(step) coordinate(nQ1)--++(0,-1) coordinate(nQ2)--++(step)--++(0,1) coordinate(nQ3)--++(step);
+    	\draw (nP1)--(nQ1) (nP2)--(nQ2);
+    	\draw[fill=white] (nP3)--(nQ3)--(nB')--(nAplusB')--cycle;
+    \end{tikzpicture}}
     \caption{}
 \end{figure}
 
 \begin{ex}
     \begin{enumerate}
-    \item 根据下列各二视图想想立体是什么形状，并画出它
+    \item 根据下列各二视图想想立体是什么形状，并画出它们
     的直观图．
     \item 根据下列各投影图来想象立体的形状，并画出它们
     的直观图．
@@ -728,7 +771,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
 \end{enumerate}
 \end{ex}
 
-\begin{figure}[htp]
+\begin{figure}[htbp]
     \centering
 \begin{tikzpicture}[>=latex]
 \begin{scope}
@@ -759,7 +802,7 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \caption*{第1题}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[!htbp]
     \centering
 \begin{tikzpicture}[>=latex, scale=.65]
 \begin{scope}
@@ -809,48 +852,307 @@ $X'O'Y'$表示水平平面，$Y'O'Z'$平面和$X'O'Z'$平面都表
     \item 画出半径为2cm的球的三视图．
     \item 根据二视图，试
     补画出它的左视图，并画视图所表示的立体的直观图．
-\begin{figure}[htp]
-  \centering
-\includegraphics[scale=.4]{fig/ch1-tu2.png}
-  \caption*{第2题}
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=0.8]
+		\def\R{1}
+		\draw (0:\R) \foreach \x in {60,120,...,360} {  -- (\x:\R) };
+		\draw (-\R,1.5) rectangle (\R,{1.5+1.732*\R});
+		\draw (-\R/2,1.5)--++(0,1.732*\R);
+		\draw (\R/2,1.5)--++(0,1.732*\R);
+	\end{tikzpicture}
+	\caption*{第2题}
 \end{figure}
 
 
     \item 试回答下列二视图(1)—(4)中每一个是立
     体直观图(a)—(d)中的哪一个的视图．
-    \begin{figure}[htp]
+    
+    \begin{figure}[!ht]
       \centering
-    \includegraphics[scale=.5]{fig/ch1-tu3.png}
-    \end{figure}
-    \begin{figure}[htp]
-      \centering
-    \includegraphics[scale=.5]{fig/ch1-tu4.png}
+    	\begin{tikzpicture}[scale=1]
+    		\begin{scope}
+    			\def\vgap{0.4}
+    			\draw (0,0) rectangle (2.5,1.5);
+    			\draw (0,-\vgap)--++(2.5,0)--++(0,-1.5)--++(-0.4,-0.4)--++(-0.3,0)--(1.25,-\vgap-1.2);
+    			\draw (0,-\vgap)--++(0,-1.5)--++(0.4,-0.4)--++(0.3,0)--(1.25,-\vgap-1.2);
+    			\draw (0.4,0)--++(0,1.5);
+    			\draw (0.4+0.3,0)--++(0,1.5);
+    			\draw (1.25,0)--++(0,1.5);
+    			\draw (2.5-0.4,0)--++(0,1.5);
+    			\draw (2.5-0.4-0.3,0)--++(0,1.5);
+    		\end{scope}
+    		\node at (1.25,-3.5) {(1)};
+    		\begin{scope}[xshift=4.2cm,yshift =0.75cm,scale=0.9]
+    			\def\vgap{0.3}
+    			\draw (0,0) circle (1);	
+    			\draw (-0.5,-0.5) rectangle (0.5,0.5);
+    			\draw[tdSym] (-1.5,0)--(1.5,0);
+    			\draw[tdSym] (0,1.2)--(0,-4);
+    			\draw (-1,-1-\vgap) rectangle ++(2,-1);
+    			\draw (-0.5,-2-\vgap) rectangle ++(1,-1.5);
+    		\end{scope}
+    		\node at (4.2,-3.5) {(2)};
+    		\begin{scope}[xshift=7.5cm,yshift = 0.7cm,scale=0.9]
+    			\def\gap{1};
+    			\def\R{0.75};
+    			\draw (0,0) circle (\R);	
+    			\draw (-\R/2,-\R/2) rectangle (\R/2,\R/2);
+    			\draw[tdSym] (-1.5,0)--(5.5,0);
+    			\draw[tdSym] (0,1.3)--(0,-1.3);
+    			\draw (\R+\gap,\R)rectangle ++(3,-2*\R);
+    			\draw[dashed] (\R+\gap,\R/2)rectangle ++(3,0);
+    			\draw[dashed] (\R+\gap,-\R/2)rectangle ++(3,0);
+    		\end{scope}
+    		\node at (9.2,-0.7) {(3)};
+    		\begin{scope}[xshift=6.5cm,yshift = -2.65cm,scale=0.9]
+    			\def\gap{1};
+    			\draw (0,0) rectangle (2,0.5);	
+    			\draw (0,0.5)--++(0,1)--++(0.5,0)--++(0,-0.5) coordinate (P);
+    			\draw (2,0.5)--++(0,1)--++(-0.5,0)--++(0,-0.5) coordinate (Q);
+    			\draw (P)--(Q);
+    			\draw (2+\gap,1.5)--++(0,-1.5)--++(3,0)--++(0,0.5)--++(-2.5,0)--++(0,1)--cycle;
+    			\draw[dashed] (2+\gap,1)--++(0.5,0);
+    		\end{scope}
+    		\node at (9.2,-3.5) {(4)};
+    	\end{tikzpicture}
+
+      \begin{tikzpicture}[scale=1]
+      	\begin{scope}[scale=0.9]
+      		\draw (0,0.5)--++(0,1)--++(0.5,0)--++(0,-0.5) coordinate (P);
+      		\draw (2,0.5)--++(0,1)--++(-0.5,0)--++(0,-0.5) coordinate (Q);
+      		\draw (2,0.5)--++(-135:1.5) coordinate (R);
+      		\draw (2,0.5)--(0,0.5)--++(-135:1.5) coordinate (S);
+      		\draw (P)--(Q) (R)--(S) (S)--++(0,-0.5)--++(2,0)--++(0,0.5);
+      		\draw (2,0)--++(-135:1.5);
+      		\draw (0,1.5)--++(45:0.25)--++(0.5,0) coordinate(T)--++(-135:0.25);
+      		\draw (T)--++(0,-0.5) coordinate(U)--++(-135:0.25);
+      		\draw (U)--(1.5,1+0.25*0.707);
+      		\draw (1.5,1.5)--++(45:0.25)--++(0.5,0) coordinate(V)--++(-135:0.25);
+      		\draw (V)--++(0,-1.5)--++(-135:0.25);
+      	\end{scope}
+      	\node at (0.5,-1.5) {(a)};
+      	\begin{scope}[xshift=3.2cm,yshift = 1.25 cm,scale=0.9]
+      		\def\h{1.5}
+      		\draw (0,0)--(2,0);
+      		\draw (0,0)--++(-135:1) coordinate(J1)--++(0.4*0.707,-0.2*0.707) coordinate(K1)--++(0.3,0) coordinate (H1);
+      		\draw (2,0)--++(-135:1) coordinate(J2)--++(-0.4*0.707,-0.2*0.707) coordinate(K2)--++(-0.3,0) coordinate (H2);
+      		\coordinate (H3) at (1-0.5*0.707,-0.5*0.707);
+      		\draw (H1)--(H3)--(H2);
+      		\begin{scope}[yshift=-\h cm]
+      			\path (0,0)--++(-135:1) coordinate(J3);
+      			\draw (J3)--++(0.4*0.707,-0.2*0.707)--++(0.3,0) coordinate (H4);
+      			\draw (2,0)--++(-135:1)--++(-0.4*0.707,-0.2*0.707)--++(-0.3,0) coordinate (H5);
+      			\coordinate (H6) at (1-0.5*0.707,-0.5*0.707);
+      			\draw (H4)--(H6)--(H5);
+      		\end{scope}
+      		\draw (J1)--++(0,-\h);
+      		\draw (J2)--++(0,-\h);
+      		\draw (K1)--++(0,-\h);
+      		\draw (K2)--++(0,-\h);
+      		\draw (H1)--++(0,-\h);
+      		\draw (H2)--++(0,-\h);
+      		\draw (H3)--++(0,-\h);
+      		\draw (2,0)--++(0,-\h);
+      	\end{scope}
+      	\node at (3.5,-1.5) {(b)};
+      	\begin{scope}[xshift=7.5cm,yshift = -0.5cm,scale=0.9]
+      		\def\R{0.75};
+      		\draw (0,0) circle (\R);	
+      		\draw (-\R/2,-\R/2) rectangle (\R/2,\R/2);
+      		\draw (-\R/2,\R/2) -- (\R/2,-\R/2);
+      		\draw (-\R*0.707,-\R*0.707)--++(135:2.2);
+      		\draw (\R*0.707,\R*0.707)--++(135:2.2) coordinate (X);
+      		\draw (X) arc (45:225:\R);
+      	\end{scope}
+      	\node at (6.5,-1.5) {(c)};
+      	\begin{scope}[xshift=9.5cm,yshift = 0.5cm,scale=0.9]		
+      		\def\RR{1};
+      		\draw (0,0) circle (\RR);	
+      		\draw[fill=white] (-0.5,-0.5)--++(-45:1)--++(1,0)--++(0,1)--++(135:1)--++(-1,0)--cycle;
+      		\draw (-0.5,0.5)--++(-45:1) coordinate(Z);
+      		\draw (Z)--++(1,0) (Z)--++(0,-1);
+      		\draw (-\RR*0.707,-\RR*0.707)--++(135:0.5);
+      		\draw (\RR*0.707,\RR*0.707)--++(135:0.5) coordinate (Y);
+      		\draw (Y) arc (45:225:\RR);
+      	\end{scope}
+      	\node at (9.5,-1.5) {(d)};
+      \end{tikzpicture}
       \caption*{第3题}
+      （注：(2)与(3)中的点划线表示的是该视图所表示的立体的轴线及中心线）
     \end{figure}
-    （注：(2)与(3)中的点划线表示的是该视图所表示的
-    立体的轴线及中心线）
+  
+    
 
     \item 补全下列各视图的投影．
-    \begin{figure}[htp]
+    \begin{figure}[ht]
       \centering
-    \includegraphics[scale=.5]{fig/ch1-tu5.png}
+      \begin{tikzpicture}[scale=1]
+      	\begin{scope}[scale=0.9]
+      		\def\a{2.3}
+      		\def\h{2}
+      		\def\htwo{1.9}
+      		\def\hh{0.8}
+      		\def\w{0.8}
+      		\draw (0,0)--(\a,0)--++(0,\h)--++(-\w,0)--++(0,-0.3) coordinate (A);
+      		\draw (0,0)--++(0,\h)--++(\w,0)--++(0,-0.3)--(A);
+      		\draw (0,\hh)--++(45:0.6) coordinate (C);
+      		\draw (\a,\hh)--++(135:0.6)--(C);
+      		\begin{scope}[yshift = -2.5 cm]
+      			\draw (0,0) rectangle (\a,\htwo);
+      			\draw (0,0.6)--++(\a,0);
+      			\draw (0,1.3)--++(\a,0);
+      			\draw (0.6*0.707,0)--++(0,0.6);
+      			\draw (\a-0.6*0.707,0)--++(0,0.6);
+      			\draw (\hh,\htwo)--++(0,-0.6);
+      			\draw (\a-\hh,\htwo)--++(0,-0.6);
+      		\end{scope}
+      		\begin{scope}[xshift = 2.5 cm]
+      			\draw (0,0) --++ (0,\h) --++ (0.6,0) --++(0, {-\h+\hh}) --++ (0.7,0) --++(0, {0.6*0.707})--++(0.6,0) -- ({\htwo}, 0) -- (0,0);
+      		\end{scope}
+      	\end{scope}
+      	\node at (2.2,-3) {(1)};
+      	
+      	\begin{scope}[scale=0.9,xshift=7cm]
+      		\def\a{1.3}
+      		\def\h{1.8}
+      		\def\R{0.7}
+      		\coordinate (C1) at (-\R,\h);
+      		\draw (C1) arc (-180:0:\R) coordinate (C2);
+      		\draw (-\a,0)--(\a,0)--++(0,0.5)--++(-0.3,0)|-(C2);
+      		\draw (-\a,0)--++(0,0.5)--++(0.3,0)|-(C1);
+      		\begin{scope}[yshift = -2.5 cm]
+      			\draw (-\a,0) rectangle (\a,\h);
+      			\draw (-\a+0.3,0.3) rectangle (\a-0.3,\h-0.3);
+      		\end{scope}
+      		\draw[tdSym] (0,\h+0.3)--++(0,{-(2*\h+1.5)});
+      		\begin{scope}[xshift = 1.8cm]
+      			\draw (0,0) rectangle (\h,0.5);
+      			\draw (0.3,0.5) rectangle (\h-0.3,\h);
+      			\draw[dashed](0.3,\h-\R)--(\h-0.3,\h-\R);
+      		\end{scope}
+      	\end{scope}	
+      	\node at (7.5,-3) {(2)};
+      \end{tikzpicture}
     \end{figure}
-    \begin{figure}[htp]
+    \begin{figure}[ht]
       \centering
-    \includegraphics[scale=.5]{fig/ch1-tu6.png}
+      \begin{tikzpicture}[scale=0.8]
+      	\def\a{4.1}
+      	\def\h{2.4}
+      	\def\vgap{0.5}
+      	\def\hgap{0.5}
+      	\def\w{2}
+      	\begin{scope}[scale=0.9]
+      		\def\htwo{1.4}
+      		\def\hh{0.6}
+      		\draw (0,0)--++(\a,0)--++(90:\htwo)--++(135:1.4) coordinate(A);
+      		\draw (0,0)--++(90:\htwo)--++(45:1.4)--(A);
+      		\draw (0,-\vgap) rectangle (\a,-\vgap-\w);
+      		\draw (\a+\hgap,0) --++ (0,\h) --++ (0.55, 0) --++ (0, -\h+\hh) coordinate (B);
+      		\draw (\a+\hgap,0) --++ (\w,0) --++ (0,\h) --++ (-0.55, 0) |- (B);
+      	\end{scope}
+      	\node at (3.5,-3) {(3)};
+      	
+      	\begin{scope}[scale=0.9,xshift=8cm]
+      		\def\aa{1.6}
+      		\def\hthree{1.2}
+      		\draw (0,0) |- (\aa,\hthree) coordinate (C);
+      		\draw (0,0) -| (\a,\h) -| (C);
+      		\draw (0,-\vgap) rectangle (\a,-\vgap-\w);
+      		\coordinate (D) at (\a-0.9, -\vgap-\w/2+0.5);
+      		\coordinate (E) at (\a-0.9, -\vgap-\w/2-0.5);
+      		\draw (\hthree,-\vgap)--(D)--(E)--(\hthree,-\vgap-\w);
+      		\draw (\a+\hgap,0) rectangle (\a+\hgap+\w,\h);
+      	\end{scope}	
+      	\node at (10.7,-3) {(4)};
+      \end{tikzpicture}
       \caption*{第4题}
     \end{figure}   
 
 
     \item 根据三视图，用两种方法画出它们所表示的立体直观图．
-    \begin{figure}[htp]
-      \centering
-    \includegraphics[scale=.5]{fig/ch1-tu7.png}
+    
+    \begin{figure}[!htbp]
+    	\begin{minipage}[t]{0.44\textwidth}
+      		\centering
+      		\resizebox{\linewidth}{!}{
+      	    \begin{tikzpicture}[scale=1]
+		      	\draw (0,0)--++(2.5, 0)--++(0,1.5)--++(-2.5, 0)--++(0, -0.5)--++(1.4, 0)--++(0, -0.5)--++(-1.4,0)--cycle;
+		      	\draw (0,2) rectangle (2.5,3.5);
+		      	\draw (0,2)--(1.4,3.5); 
+		      	\draw[dashed] (1.4,2)--++(0,1.5);
+		      	\draw (3.5,2) rectangle ++(1.5,1.5); \draw(3.5+0.5,2)--++(0,1.5); \draw(3.5+1,2)--++(0,1.5);
+		      	\draw (0,0)--++(0,-1) (1.4,0)--++(0,-0.6) (2.5,0)--++(0,-1);
+		      	\draw[tdDim] (0,-0.7)--node[fill=white,midway]{50} ++(2.5,0);
+		      	\draw[tdDim] (1.4,-0.3)--node[fill=white,midway]{22} ++(1.1,0);
+		      	\draw (0,0)--++(-0.6,0);
+		      	\draw (0,0.5)--++(-0.6,0);
+		      	\draw (0,1.0)--++(-0.6,0);
+		      	\draw[tdDimUni] (-0.3,1.7)--(-0.3,1);
+		      	\draw[tdDimUni] (-0.3,-0.7)--(-0.3,0);
+		      	\node[anchor=east] at (0,0.25) {$10$};
+		      	\node[anchor=east] at (0,0.75) {$10$};
+		      	\draw[fill] (-0.3,0.5) circle (0.03);
+		      	\draw (2.5,3.5)--++(0.6,0);
+		      	\draw (2.5,2)--++(0.6,0);
+		      	\draw[tdDim] (2.8,2)--node[fill=white,midway,rotate=90]{30} ++(0,1.5);
+		    \end{tikzpicture}}
+	    	\caption*{(1)}
+    	\end{minipage}
+	  	\hspace{0.1\textwidth}
+	    \begin{minipage}[t]{0.44\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+			\begin{tikzpicture}[scale=1]
+				\draw (0,0) rectangle (0.75, 1.8);
+				\draw (0.75,0) rectangle ++(1, 1);
+				\draw (1.75,0) rectangle ++(0.75, 1.8);
+				\draw (0,0.5)--++(0.75,0);
+				\draw (1.75,0.5)--++(0.75,0);
+				\draw (4,0)--++(1.5,0)--++(0,0.5) coordinate(A);
+				\draw (4,0)--++(0,1.8)--++(0.5,0) --(A);
+				\draw[dashed] (4,1)--++(0.8,0)--++(0,-1);
+				\draw (0,-1) rectangle ++(0.75,-1.5);
+				\draw (1.75,-1) rectangle ++(0.75,-1.5) coordinate (B);
+				\draw (0.75,-1) rectangle ++(1,-0.8) ;	
+				\draw (0,-1-0.5) --++ (0.75,0);
+				\draw (1.75,-1-0.5) --++ (0.75,0);
+				
+				\draw (0,0)--++(-0.6,0) (0,1.8)--++(-0.6,0) (0,0)--++(0,-0.6) (2.5,0)--++(0,-0.6);
+				\draw[tdDim] (0,-0.3)--node[fill=white,midway]{50} ++(2.5,0);
+				\draw[tdDim] (-0.3,0)--node[fill=white,midway,rotate=90]{36} ++(0,1.8);
+				\draw(2.5,0)--++(0.6,0) (2.5,0.5)--++(0.6,0);
+				\draw[tdDimUni] (2.5+0.3,-0.7)--(2.5+0.3,0);
+				\draw[tdDimUni] (2.5+0.3,0.5+0.7)--(2.5+0.3,0.5);
+				\node at (2.5+0.3,0.25) {10};
+				\draw (4,0)--++(-0.6,0) (4,1)--++(-0.6,0) (4,0)--++(0,-0.6) (4.8,0)--++(0,-0.6);
+				\draw[tdDim] (4-0.3,0)--node[fill=white,midway,rotate=90]{20} ++(0,1);
+				\draw[tdDimUni] (4-0.7,-0.3)--(4,-0.3);
+				\draw[tdDimUni] (4.8+0.7,-0.3)--(4.8,-0.3);
+				\node at (4.4,-0.3) {16};
+				\draw (4,1.8)--++(0,0.6) (4.5,1.8)--++(0,0.6);
+				\draw[tdDimUni] (4-0.7,1.8+0.3)--(4,1.8+0.3);
+				\draw[tdDimUni] (4.5+0.7,1.8+0.3)--(4.5,1.8+0.3);
+				\node at (4.25,1.8+0.3) {10};
+				\draw (0,-1-1.5)--++(0,-0.6);
+				\draw (0.75,-1-1.5)--++(0,-0.6);
+				\draw (1.75,-1-1.5)--++(0,-0.6);
+				\draw[tdDim] (0.75,-1-1.5-0.3)--node[fill=white,midway]{20} ++(1,0);
+				\draw[tdDimUni] (-0.7,-1-1.5-0.3)--(0,-1-1.5-0.3);
+				\node at (0.375,-1-1.5-0.3) {$15$};	
+				\draw (B)--++(0.6,0);
+				\draw (2.5,-1)--++(0.6,0);
+				\draw[tdDim] (2.5+0.3,-1)--node[fill=white,midway,rotate=90]{30} ++(0,-1.5);
+			\end{tikzpicture}}
+	    	\caption*{(2)}
+	  	\end{minipage}	
       \caption*{第5题}
+      （注：图中尺寸单位为mm）
     \end{figure}
-    （注：图中尺寸单位为mm）
-\end{enumerate}
 
+    
+\end{enumerate}
 
 
 \section{集合运算}
