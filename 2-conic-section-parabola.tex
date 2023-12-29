@@ -1,0 +1,134 @@
+\documentclass[crop,tikz]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+\usepackage{tikz-3dplot} 
+\usetikzlibrary{3d,calc}
+\usepackage{pgfplots}
+\usetikzlibrary{intersections, patterns, patterns.meta, pgfplots.fillbetween, decorations.markings}
+\usepackage{tkz-euclide}
+\usetikzlibrary{fpu}
+\newcommand{\PgfmathsetmacroFPU}[2]{\begingroup% https://tex.stackexchange.com/a/503835
+	\pgfkeys{/pgf/fpu,/pgf/fpu/output format=fixed}%
+	\pgfmathsetmacro{#1}{#2}%
+	\pgfmathsmuggle#1\endgroup}%
+
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+{\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+	\def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+	\def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+	\tikz@canvas@is@plane
+}
+\makeatother  
+
+\tikzset{
+	mark position/.style args={#1(#2)}{
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position #1 with \coordinate (#2);
+			}
+		}
+	}
+}
+
+\begin{document}
+\tdplotsetmaincoords{80}{0}
+\begin{tikzpicture}[scale=1,tdplot_main_coords]
+	\def\b{4}
+	\def\h{5}
+	\pgfmathsetmacro{\rx}{\b/2}
+	\pgfmathsetmacro{\sinalpha}{\rx / sqrt(\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\cosalpha}{\h / sqrt(\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\tanalpha}{\rx / \h}
+	
+	\begin{scope}[canvas is xy plane at z = -\h]
+		\draw (-\rx,0) arc (-180:0:\rx);
+		\draw[dashed] (-\rx,0) arc (180:0:\rx);
+	\end{scope}
+	\node[label=left:$O$](O) at (0,0,0) {};
+	\draw (0,0,0)--(-\rx,0,-\h);
+	\draw (0,0,0)--(\rx,0,-\h);
+
+	
+	\def\parabolat{120};
+	\pgfmathsetmacro{\parabolatcos}{cos(\parabolat)}
+	\pgfmathsetmacro{\parabolatsin}{sin(\parabolat)}
+	\pgfmathsetmacro{\parabolaTmpB}{sqrt(1+\parabolatsin)}
+	\pgfmathsetmacro{\parabolaTmpC}{sqrt(1-\parabolatsin)}
+	\pgfmathsetmacro{\parabolaTmpXx}{\parabolatcos/\parabolaTmpB/sqrt(2)}
+	\pgfmathsetmacro{\parabolaTmpXy}{\parabolaTmpB/sqrt(2)}
+	\pgfmathsetmacro{\parabolaTmpOx}{\rx*\parabolatcos/2}
+	\pgfmathsetmacro{\parabolaTmpOy}{\rx*(\parabolatsin-1)/2}
+	\pgfmathsetmacro{\parabolaTmpYx}{sin(\parabolat/2 + 45) * \sinalpha}
+	\pgfmathsetmacro{\parabolaTmpYy}{-cos(\parabolat/2 + 45) * \sinalpha}
+	\pgfmathsetmacro{\parabolaTmpYz}{\cosalpha}
+
+	\pgfmathsetmacro{\ballz}{\h*(1-cos(135-\parabolat/2))/2}
+	\pgfmathsetmacro{\ballr}{\ballz * \sinalpha}
+	\pgfmathsetmacro{\ballTangent}{\ballz * \h * \h / (\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\ballTangentR}{\ballz * \h * \rx / (\rx*\rx + \h*\h)}
+
+	\pgfmathsetmacro{\lineY}{(\h-\ballTangent)/\parabolaTmpYz};
+	\pgfmathsetmacro{\Fdist}{\rx * cos(135-\parabolat/2)/\sinalpha + \ballz * \cosalpha}
+	\pgfmathsetmacro{\Fx}{\parabolaTmpOx + \Fdist * \parabolaTmpYx}
+	\pgfmathsetmacro{\Fy}{\parabolaTmpOy + \Fdist * \parabolaTmpYy}
+	\pgfmathsetmacro{\Fz}{-\h + \Fdist * \parabolaTmpYz}
+	\coordinate (F) at (\Fx,\Fy,\Fz);
+	\coordinate (P) at (0,-\rx,-\h);
+
+	\begin{scope}[canvas is plane={O(\parabolaTmpOx,\parabolaTmpOy,-\h)x(\parabolaTmpOx+\parabolaTmpXx,\parabolaTmpOy+\parabolaTmpXy,-\h)y(\parabolaTmpOx+\parabolaTmpYx,\parabolaTmpOy+\parabolaTmpYy,-\h+\parabolaTmpYz)}]
+		\pgfmathsetmacro{\xintercept}{\rx*(\parabolatsin+1)/\parabolaTmpXy/2};
+		\pgfmathsetmacro{\yintercept}{\h * (1+\parabolatsin) / 4 / (1 + cos(\parabolat/2 + 45)) ) / \cosalpha};
+		\pgfmathsetmacro{\parabolaCoeff}{-\yintercept/\xintercept/\xintercept};
+		\draw[thick] plot[variable=\x,domain={-\xintercept}:0,samples=90,smooth] ({\x},{\parabolaCoeff*\x*\x+\yintercept});
+		\draw[variable=\x,domain=0:\xintercept,smooth,dashed,thick] plot ({\x},{\parabolaCoeff*\x*\x+\yintercept});		
+		\draw[dashed] (-\xintercept,0)--(\xintercept,0);
+		
+		\draw (-\xintercept,0) -- (-3.5,0) -- (-3.5, 4.6) -- (2.5, 4.6) -- (2.5,4);
+		\draw[dashed] (2.5,4.6) -- (2.5,0) -- (\xintercept,0);
+		\draw (2,\lineY)--(-2.5,\lineY);
+		\node at (0,\lineY+0.15) {$p$};
+		\coordinate (R) at (-\xintercept,\lineY);
+		\draw (P)--(R);
+		\node at ($(R)+(-0.1,0.2)$) {$R$};
+	\end{scope}	
+
+	\coordinate (CCentre) at (0,0,-\ballz);
+%	\draw[->] (\parabolaTmpOx,\parabolaTmpOy,-\h)--++(\parabolaTmpXx,\parabolaTmpXy,0);
+%	\draw[->] (\parabolaTmpOx,\parabolaTmpOy,-\h)--++(\parabolaTmpYx,\parabolaTmpYy,\parabolaTmpYz);
+	\begin{scope}[canvas is xz plane at y = 0]
+		\draw[dashed] (CCentre) circle (\ballr);
+	\end{scope}
+	\coordinate (Q) at (0,-\ballTangentR,-\ballTangent);
+	\begin{scope}[canvas is xy plane at z = -\ballTangent]
+		\draw[color=white, pattern color = black, pattern = north east lines] (0,0) circle (\ballTangentR);
+		\draw (-\ballTangentR,0) arc (-180:0:\ballTangentR);
+		\draw[dashed] (-\ballTangentR,0) arc (180:0:\ballTangentR);
+		\draw (-0.5,2)--(-2,2)--(-1,-2.5)--(2.5,-2.5)--++(-1*0.6,4.5*0.6) coordinate[at end](I);
+		\draw[dashed] (-0.5,2)--(1.5,2)--(I);
+	\end{scope}
+
+	\node[label=below:$P$] at (P) {};
+	\draw[dashed] (P)--(F);
+	\begin{scope}[canvas is xz plane at y = \Fy]
+		\node[label={[xshift=0.1cm,yshift=-0.6cm]$F$}] at (F) {};
+		\draw[fill] (\Fx,\Fz) circle (0.03);
+	\end{scope}
+
+	\draw (O)--(P);
+	\node[fill=white,inner sep=0,outer sep=0] at ($(Q)+(-0.15,0,0.4)$) {$C$};
+	\node[fill=white,inner sep=0,outer sep=0] at ($(Q)+(-0.15,0,-0.2)$) {$Q$};
+	\coordinate (Pprime) at ({-\rx*cos(\parabolat/2-45)},{-\rx*sin(\parabolat/2-45)},-\h);
+%	\draw (O)--(\tmpone,\tmptwo,-\h);
+	\node[label=below:$P'$] at (Pprime) {};
+	\coordinate (Qprime) at ({-\ballTangentR*cos(\parabolat/2-45)},{-\ballTangentR*sin(\parabolat/2-45)},-\ballTangent);
+	\node[inner sep=0,outer sep=0] at ($(Qprime)+(-0.15,0,0.1)$) {$Q'$};
+	\draw (Qprime)--(Pprime);
+	\begin{scope}[canvas is xz plane at y = {-\ballTangentR*sin(\parabolat/2-45)}]
+		\draw[fill] (Qprime) circle (0.02);
+	\end{scope}
+%	\draw (\tmpone,\tmptwo,-\h)--(-\tmpone,-\tmptwo,-\h);
+	
+\end{tikzpicture}
+\end{document}

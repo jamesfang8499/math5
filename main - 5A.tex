@@ -18,7 +18,37 @@
 \usepackage[font=bf,labelfont=bf,labelsep=quad]{caption}
 
 \usepackage{tikz}
+\usepackage{tikz-3dplot} 
+\usepackage{pgfplots}
+\usetikzlibrary{3d, calc, math, intersections, patterns, arrows.meta}
 
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+{\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+	\def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+	\def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+	\tikz@canvas@is@plane
+}
+\def\td@RuleDist{5.00mm}
+\def\td@ArrowLength{2.50mm}
+\def\td@ArrowWidth{0.669873mm}
+\tikzstyle{tdDim} = [<->, >={Triangle[length=\td@ArrowLength, width=\td@ArrowWidth]}]
+\tikzstyle{tdSym} = [dash pattern=on 2.50mm off 0.50mm on 0.25mm off 0.50mm]
+\tikzstyle{tdDimUni} = [->, >={Triangle[length=\td@ArrowLength, width=\td@ArrowWidth]}]
+\makeatother  
+
+\tikzset{
+	mark position/.style args={#1(#2)}{
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position #1 with \coordinate (#2);
+			}
+		}
+	}
+}
 
 \usepackage{ntheorem}
 \theoremseparator{\;}
@@ -51,13 +81,13 @@
 \renewcommand{\proofname}{\bf 证明：}
 \newenvironment{proof}{{\noindent \bf 证明：}}{}%{\hfill $\square$\par}
 
-\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\E}{\mathbb{E}}
 \renewcommand{\Pr}{\mathbb{P}}
 \newcommand{\EP}{\mathbb{E}^{\mathbb{P}}}
 \newcommand{\EQ}{\mathbb{E}^{\mathbb{Q}}}
 \newcommand{\dif}{\,{\rm d}}
-\newcommand{\Var}{{\rm Var}}
-\newcommand{\Cov}{{\rm Cov}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
 \newcommand{\x}{\times}
 
 
@@ -70,12 +100,14 @@
 \newtcolorbox{ex}[1][]
   {colback = white, colframe = cyan!75!black, fonttitle = \bfseries,
     colbacktitle = cyan!85!black, enhanced,
+    parbox = false,
     attach boxed title to top center={yshift=-2mm},breakable, 
     title=练习, #1}
 
 \newtcolorbox{blk}[2][]
   {colback = white, colframe = magenta!75!black, fonttitle = \bfseries,
     colbacktitle = magenta!85!black, enhanced,
+    parbox = false,
     attach boxed title to top left={xshift=5mm, yshift=-2mm},breakable, 
     title=#2, #1}
 

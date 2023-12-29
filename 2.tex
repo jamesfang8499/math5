@@ -99,7 +99,28 @@
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.7]{fig/2-4.png}
+	\begin{tikzpicture}[scale=1]
+		\draw[dashed] (0,0) arc (90:-5:2 and 0.8) coordinate[pos=0.6](C2) coordinate[at end](X2);
+		\draw (X2) arc (-8:-105:2.5 and 1) coordinate[pos=0.5](P2) coordinate[at end](A2);
+		\draw[dashed] (0,0)--(A2);
+		\draw (0,2.5) arc (90:-5:2 and 0.8) coordinate[pos=0.6](C1) coordinate[at end](X1);
+		\draw (X1) arc (-8:-105:2.5 and 1) coordinate[pos=0.5](P1) coordinate[at end](A1);
+		\draw (0,2.5)--(A1);
+		\draw[dashed] (0,2.5)--(0,0) (C1)--(C2) (0,0)--(C2);
+		\draw (0,2.5)--(C1) (A1)--(A2) (P1)--(P2) (X1)--(X2);
+		\node[label=above:$B_1$] at (0,2.5) {};
+		\node[label={[xshift=-0.25cm,yshift=-0.2cm]$B_2$}] at (0,0) {};
+		\node[label=right:$C_1$] at (C1) {};
+		\node[label={[yshift=-0.6cm]$C_2$}] at (C2) {};
+		\node[label=above:$P_1$] at (P1) {};
+		\node[label=below:$P_2$] at (P2) {};
+		\node[label={[xshift=-0.15cm,yshift=0.5cm]$\ell$}] at (P2) {};
+		\node[label=left:$A_1$] at (A1) {};
+		\node[label=left:$A_2$] at (A2) {};
+		\node[label=left:$A_1$] at (A1) {};
+		\node[label={[xshift=0.45cm,yshift=-0.15cm]$\alpha_1	$}] at (A1) {};
+		\node[label={[xshift=0.45cm,yshift=-0.15cm]$\alpha_2$}] at (A2) {};
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -173,7 +194,40 @@ $\angle A_1B_1C_1=\angle A_2B_2C_2$．
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.7]{fig/2-5.png}
+	\tdplotsetmaincoords{70}{-7}
+	\begin{tikzpicture}[scale=1,tdplot_main_coords]
+		\def\a{1.3}
+		\coordinate (D) at ({\a*cos(18)},{\a*sin(18)},0);
+		\coordinate (E) at (0,\a,0);
+		\coordinate (A) at ({-\a*cos(18)},{\a*sin(18)},0);
+		\coordinate (B) at ({-\a*cos(54)},{-\a*sin(54)},0);
+		\coordinate (C) at ({\a*cos(54)},{-\a*sin(54)},0);
+		\draw (A)--(B)--(C)--(D);
+		\draw[dashed] (A)--(E)--(D);
+		\coordinate (shift) at (0.5,0,3);
+		\foreach \l in {A,B,...,E} {	\coordinate (\l') at ($(\l)+(shift)$); }
+		\draw (A')--(B')--(C')--(D')--(E')--cycle;
+		\draw (A)--(A') (B)--(B') (C)--(C') (D)--(D');
+		\draw[dashed] (E)--(E');
+		\node[label=left:$A$] at (A) {}; 
+		\node[label=below:$B$] at (B) {}; 
+		\node[label=below:$C$] at (C) {};
+		\node[label=right:$D$] at (D) {};
+		\node[label={[xshift=-0.13cm,yshift=-0.25cm]$E$}] at (E) {};
+		\node[label=left:$A'$] at (A') {};
+		\node[label={[xshift=-0.25cm,yshift=-0.6cm]$B'$}] at (B') {}; 
+		\node[label={[xshift=-0.2cm,yshift=-0.6cm]$C'$}] at (C') {};
+		\node[label=right:$D'$] at (D') {};
+		\node[label=above:$E'$] at (E') {};	
+		\draw[dashed] (A')--(C);
+		\coordinate (H) at (0.4,0,0);
+		\coordinate (H') at (0.4,0,3);
+		\draw[fill] (H) circle (0.05);
+		\draw[fill] (H') circle (0.05);
+		\draw[dashed] (H)--(H');
+		\node[label={[yshift=-0.6cm]$H$}] at (H) {};
+		\node[label={[xshift=0.2cm,yshift=-0.4cm]$H'$}] at (H') {};
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -183,8 +237,7 @@ $\angle A_1B_1C_1=\angle A_2B_2C_2$．
 线．
 
 棱柱的表示法是写出两个底面各顶点
-的字母，中间用一条短横线隔开，如图
-2.5的五棱柱就表示作棱柱$ABCDE$-$A'
+的字母，中间用一条短横线隔开，如图2.5的五棱柱就表示作棱柱$ABCDE$-$A'
 B'C'D'E'$. 也有用棱柱一条对角线的两
 个端点表示棱柱的，如图2.5可表示作五
 棱柱$A'C$. 
@@ -265,7 +318,7 @@ B'C'D'E'$. 也有用棱柱一条对角线的两
 面互相平行． 
 \end{blk}
 
-已知：图2.7平行六面体$ABCD-A_1B_1C_1D_1$中，四边形
+已知：图2.7平行六面体$ABCD$-$A_1B_1C_1D_1$中，四边形
 $ABB_1A_1$和$DCC_1D_1$是相对的两个面．
 
 求证：$\parallelogram ABB_1A\cong \parallelogram DCC_1D_1$且平面$A_1B\parallel \text{平面}D_1C$.
@@ -620,21 +673,79 @@ $\therefore\quad R\sqrt{3}\left(15-R\sqrt{3}\right)=54 \quad \Rightarrow\quad R^
     比．
 \end{blk}
 
-已知：锥面$S-ABC\cdots$, 平行平面$\alpha_1$与$\alpha_2$都不通过顶
+已知：锥面$S$-$ABC\cdots$, 平行平面$\alpha_1$与$\alpha_2$都不通过顶
 点$S$与锥面相交，得到截面图形$F_1$（在$\alpha_1$上）与$F_2$（在$\alpha_2$上），
-又$SO_1\bot\alpha_1$于$O_1$, $SO_2\bot\alpha_2$于$O_2$(图2.14)
+又$SO_1\bot\alpha_1$于$O_1$, $SO_2\bot\alpha_2$于$O_2$（图2.14）.
 
 求证：截面图形$F_1\backsim F_2$, 其相似比
-$K=\frac{SO_1}{SO_2}$
+$K=\frac{SO_1}{SO_2}$。
 
-\begin{figure}[htp]
+\begin{figure}[ht]
     \centering
-\includegraphics[scale=.6]{fig/2-14.png}
+	\tdplotsetmaincoords{75}{0}
+	\begin{tikzpicture}[scale=0.8,tdplot_main_coords]
+		\def\zone{1.5}
+		\def\ztwo{2.5}
+		\pgfmathsetmacro{\zratio}{\ztwo/\zone}
+		\coordinate (S) at (0,0,{-\zone + \zone*1.5/(\ztwo/\zone-1)});
+		\coordinate (O1) at (0,0,-\zone);
+		\coordinate (O2) at (0,0,-\ztwo*1.5);
+		\draw[dashed] (S)--($(S)!1.15!(O2)$);
+		\draw ($(S)!1.15!(O2)$)--($(S)!1.4!(O2)$);
+		\node[label=above:$S$] at (S) {};
+		\begin{scope}[canvas is xy plane at z={-\zone}]
+			\draw ({-1.5*\zratio},{2*\zratio})--({-2.5*\zratio},{-2*\zratio})--({1.5*\zratio},{-2*\zratio})--({2.5*\zratio},{2*\zratio})--cycle;
+			\draw[dashed] plot[domain=-1:1,variable=\t] (\t, {1+0.3*sin(\t*270-90)});
+			\draw[dashed] (-1,1) arc (-225:-180:1.4142) coordinate[at end](westend);
+			\draw[dashed] (1,1) arc (45:0:1.4142) coordinate[at end](eastend);
+			\draw (westend) arc (-180:0:1.4142) coordinate[pos=0.2](X1) coordinate[pos=0.6](Y1) coordinate[pos=0.7](Z1);
+			\draw[dashed] (O1)--(X1)--(Y1)--cycle;
+			\node[label={[xshift=-0.1cm,yshift=-0.6cm]$X_1$}] at (X1) {};
+			\node[label={[xshift=-0.2cm,yshift=-0.2cm]$O_1$}] at (O1) {};
+			\node[label={[xshift=0.2cm,yshift=-0.6cm]$Y_1$}] at (Y1) {};
+			\node[label=right:$F_1$] at (eastend) {};
+			\node[label={[xshift=-0.5cm,yshift=-0.55cm]$\alpha_1$}] at ({2.5*\zratio},{2*\zratio}) {};
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z={-\ztwo*1.5}]
+			\draw ({-2*\zratio},{2*\zratio})--({-3*\zratio},{-2*\zratio})--({2*\zratio},{-2*\zratio})--({3*\zratio},{2*\zratio})--cycle;
+			\draw[dashed] plot[domain={-\zratio}:\zratio,variable=\t] (\t, {(1+0.3*sin(\t/\zratio*270-90))*\zratio});
+			\draw[dashed] (-\zratio,1*\zratio) arc (-225:-180:{1.4142*\zratio}) coordinate[at end](westend2);
+			\draw[dashed] (\zratio,1*\zratio) arc (45:0:{1.4142*\zratio}) coordinate[at end](eastend2);
+			\draw (westend2) arc (-180:0:{1.4142*\zratio}) coordinate[pos=0.2](X2) coordinate[pos=0.6](Y2) coordinate[pos=0.7](Z2);
+			\draw[dashed] (O2)--(X2)--(Y2)--cycle;
+			\node[label={[xshift=-0.1cm,yshift=-0.6cm]$X_2$}] at (X2) {};
+			\node[label={[xshift=-0.3cm,yshift=-0.6cm]$O_2$}] at (O2) {};
+			\node[label={[xshift=0.2cm,yshift=-0.6cm]$Y_2$}] at (Y2) {};
+			\node[label=right:$F_2$] at (eastend2) {};
+			\node[label={[xshift=-0.5cm,yshift=-0.55cm]$\alpha_2$}] at ({3*\zratio},{2*\zratio}) {};
+		\end{scope}
+		\draw (S)--(westend);
+		\draw[dashed] (westend)--($(S)!1.15!(westend)$);
+		\draw ($(S)!1.15!(westend)$)--(westend2);
+		\draw[dashed] (westend2)--($(S)!1.15!(westend2)$);
+		\draw ($(S)!1.15!(westend2)$)--($(S)!1.5!(westend2)$) node[at end,below] (westendExt) {$A$};
+		
+		\draw (S)--(eastend);
+		\draw[dashed] (eastend)--($(S)!1.15!(eastend)$);
+		\draw ($(S)!1.15!(eastend)$)--(eastend2);
+		\draw[dashed] (eastend2)--($(S)!1.15!(eastend2)$);
+		\draw ($(S)!1.15!(eastend2)$)--($(S)!1.4!(eastend2)$) node[at end,below] (eastendExt) {$C$};
+		
+		\draw (S)--(X1);
+		\draw[dashed] (X1)--($(S)!1.1!(X1)$);
+		\draw ($(S)!1.1!(X1)$)--(X2);
+		\draw[dashed] (X2)--($(S)!1.1!(X2)$);
+		\draw ($(S)!1.1!(X2)$)--($(S)!1.4!(X2)$) node[at end,below] (XExt) {$X$};
+		
+		\draw (S)--(Y1); 	\draw[dashed] (Y1)--($(S)!1.06!(Y1)$);	\draw ($(S)!1.06!(Y1)$)--(Y2);	\draw[dashed] (Y2)--($(S)!1.06!(Y2)$);	\draw ($(S)!1.06!(Y2)$)--($(S)!1.35!(Y2)$) node[at end,below] (YExt) {$Y$};
+		
+		\draw (S)--(Z1); 	\draw[dashed] (Z1)--($(S)!1.15!(Z1)$);	\draw ($(S)!1.15!(Z1)$)--(Z2);	\draw[dashed] (Z2)--($(S)!1.08!(Z2)$);	\draw ($(S)!1.08!(Z2)$)--($(S)!1.35!(Z2)$)  node[at end,below] (ZExt) {$B$};;
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
 \begin{proof}
-任引锥面$S-ABC\cdots$的一条母线$SX$, 由于$F_1$
+任引锥面$S$-$ABC\cdots$的一条母线$SX$, 由于$F_1$
 和$F_2$都是锥面的截面，所以$SX$
 必与$F_1$和$F_2$分别交于$X_1$和$X_2$两
 点，这时，$X_2$可以看成$F_1$上$X_1$的
@@ -690,7 +801,7 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 锥的棱侧．
 
 如果棱锥的底面是三角形、四边形……$n$边形，那么棱锥
-就分别叫做\textbf{三棱锥，四棱锥，五棱锥……$n$棱锥}（见图2.15）、棱锥的表示法可以用表示顶点和底面顶点的
+就分别叫做\textbf{三棱锥、四棱锥、五棱锥……$n$棱锥}（见图2.15）、棱锥的表示法可以用表示顶点和底面顶点的
 几个字母来表示，例如棱锥$S-ACD$. 
 \end{blk}
 
@@ -731,9 +842,56 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 
 
 图2.16是用第一种画法画出的正六棱锥的直观图．
-\begin{figure}[htp]
+\begin{figure}[ht]
     \centering
-\includegraphics[scale=.55]{fig/2-16.png}
+	\begin{tikzpicture}[scale=1]
+	   	\def\a{1.3}
+		\def\Yx{0.707}
+		\def\Yy{0.707}   		
+		\begin{scope}[yshift=0.5cm]
+			\draw (0:\a*0.9) \foreach \x in {60,120,...,360} {  -- (\x:\a*0.9) };
+			\draw[-latex] (-1.5,0)--(2,0) node[label=right:$X$] (xend) {}; 
+			\draw[-latex] (0,-1.5)--(0,2) node[label=above:$Y$] (yend) {};
+			\node[label={[label distance=-0.1cm]225:$O$}] at (0,0) {};
+		\end{scope}
+		\node at (0,-1.6) {(1)};
+		\begin{scope}[xshift=4.75cm]
+			\draw (\a,0) coordinate (C) -- ($({\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(D) -- ($({-\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(E) -- (-\a,0) coordinate(F) -- ($({-\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(A) -- ($({\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(B) -- cycle;
+			\draw[-latex] (-2,0)--(2.2,0) node[label=right:$X$] (xend) {}; 
+			\draw[-latex] (-\Yx,-\Yy)--(3*\Yx,3*\Yy) node[label=above:$Y$] (yend) {};
+			\draw[-latex] (0,0)--(0,3) node[label=above:$Z$] (zend){};
+			\node at (0,-0.2) {$O$};
+			\coordinate(S) at (0,2);
+			\draw (S)--(A) (S)--(B) (S)--(C) (S)--(D) (S)--(E) (S)--(F);
+			\node at (0,-1.6) {(2)};
+		\end{scope}	
+		
+		\begin{scope}[xshift=9.5cm]
+			\draw[dashed] (\a,0) coordinate (C) -- ($({\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(D) -- ($({-\a/2},0)+(\Yx*0.353553,\Yy*0.353553)$) coordinate(E) -- (-\a,0) coordinate(F);
+			\draw (F) -- ($({-\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(A) -- ($({\a/2},0)-(\Yx*0.353553,\Yy*0.353553)$) coordinate(B) -- (C);
+			\node at (-0.1,0) {$O$};
+			\coordinate(S) at (0,2);
+			\node[label=90:$S$] at (S) {};
+			\draw (S)--(A) (S)--(B) (S)--(C) (S)--(F);
+			\draw[dashed] (S)--(D) (S)--(E);
+			\node[label={[yshift=-0.6cm]$A$}] at (A) {};
+			\node[label={[yshift=-0.6cm]$B$}] at (B) {};
+			\node[label={[yshift=-0.6cm]$C$}] at (C) {};
+			\node[label={[xshift=0.2cm,yshift=-0.4cm]$D$}] at (D) {};
+			\node[label={[xshift=-0.1cm,yshift=-0.2cm]$E$}] at (E) {};
+			\node[label={[xshift=-0.2cm,yshift=-0.4cm]$F$}] at (F) {};
+			\coordinate (G) at ($(B)!0.5!(C)$);
+			\node[label={[yshift=-0.6cm]$G$}] at (G) {};
+			\draw (S)--(G);
+			\draw[dashed] (S)--(0,0)--(G);
+			\draw[dashed] (0,0)--(C);
+			
+			\coordinate (markSG) at ($(G)!4pt!(S)$);
+			\coordinate (markGC) at ($(G)!4pt!(C)$); 
+			\draw (markSG)--($(markSG) + (markGC) - (G)$) -- (markGC);
+			\node at (0,-1.6) {(3)};
+		\end{scope}
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -745,7 +903,7 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
 
 因为全等的等腰三角形底边上的高都相等，所以正棱锥侧面的等腰三角形底边上的高都叫作
 正棱锥的\textbf{斜高}．例如图2.16(3)中$\triangle SBC$底边$BC$上的高$SG$就
-是正棱锥$S-AD$的斜高．
+是正棱锥$S$-$AD$的斜高．
 \item 正棱锥所有的斜高都相等．
 \item 正棱锥的棱、高、及棱在底上的射影以及斜高、高
 和斜高在底面上的射影分别组成一个直角三角形．
@@ -765,10 +923,10 @@ $\therefore\quad X_1O_1\parallel X_2O_2$
     \item 求这个三棱锥的高．
 \end{enumerate}
 
-已知：在棱锥$S-ABC$中，$AB=BC=CA=12$cm, 
+已知：在棱锥$S$-$ABC$中，$AB=BC=CA=12$cm, 
 面$SAB$、$SBC$、$SCA$都和底面$ABC$成$45^{\circ}$角．
 \begin{enumerate}
-    \item 求证：$S-ABC$是正三棱锥；
+    \item 求证：$S$-$ABC$是正三棱锥；
     \item 求三棱锥的高$SO$.
 \end{enumerate}
 \end{example}
@@ -785,7 +943,7 @@ $\therefore\quad \angle SDO=\angle SEO=\angle SFO=45^{\circ}$
 于是$OD=OE=OF$．
 
 即：$O$点是$\triangle ABC$的内心，又因为正三角形的内心、外
-心、重心、垂心重合，所以三棱锥$S-ABC$是正三棱锥．
+心、重心、垂心重合，所以三棱锥$S$-$ABC$是正三棱锥．
 
 又$OD=\frac{1}{3}CD=\frac{1}{3}\sqrt{CB^2-BD^2}=\frac{1}{3}\sqcup12^2-6^2=\frac{1}{3}\x 6\sqrt{3}=2\sqrt{3}$
 
@@ -844,7 +1002,7 @@ $\therefore\quad SO=OD=2\sqrt{3}$ (cm)
 叫做圆锥的顶点和轴，圆锥面母线夹在顶点和截面之间的部
 分叫做圆锥的母线．圆锥面夹在顶点和截面之间的部分叫作
 圆锥的侧面．圆锥可以用它的顶点以及它的底面上三个点的
-字母来表示，如图2.18的圆锥可以记作圆锥$S-ABC$, 也可
+字母来表示，如图2.18的圆锥可以记作圆锥$S$-$ABC$, 也可
 以简记作圆锥$S$.
 \end{blk}
 
@@ -860,7 +1018,7 @@ $\therefore\quad SO=OD=2\sqrt{3}$ (cm)
 圆锥的母线．显然圆锥的任一条母线$\ell$和高$h$, 以及这条母
 线$\ell$在底面上的射影即底面半径$r$组成一个直角三角形，根据
 勾股定理有：
-\[\ell^2=h^2+r^2\]
+\[\ell^2=h^2+r^2.\]
 
 圆锥有下面的一些性质：
 \begin{enumerate}
@@ -877,7 +1035,7 @@ $\therefore\quad SO=OD=2\sqrt{3}$ (cm)
 求证：与圆锥底面圆相切的直线，和过切点所作的
 母线互相垂直．
 
-已知：圆锥$V-ABC$, 底面圆的切线$AT$, 母线$VA$
+已知：圆锥$V$-$ABC$, 底面圆的切线$AT$, 母线$VA$
 （图2.19）
 
 \begin{figure}[htp]
@@ -1694,7 +1852,7 @@ $\angle AOB=50^{\circ}$, $AB=5\pi$cm. 设球的半
 
 
 多面体的面至少有四个顶点，多面体依照它的面数分别
-称为\textbf{四面体、五面体、……$n$面体}等等．
+称为\textbf{四面体、五面体、……、$n$面体}等等．
 
 多面体中最简单的是凸多面体，所谓凸多面体是指对它
 的每个面所在的平面来说，该多面体的其余所有各面都在这
@@ -1702,7 +1860,23 @@ $\angle AOB=50^{\circ}$, $AB=5\pi$cm. 设球的半
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.6]{fig/2-34.png}
+	\tdplotsetmaincoords{40}{0}
+	\begin{tikzpicture}[scale=0.8,tdplot_main_coords]
+		\begin{scope}[canvas is xy plane at z=0]
+			\draw[dashed] (0,0) -- (1,2) -- (2.5,2) -- (3.5, 0);
+			\draw (3.5,0) -- (2.2, 1) -- (1.3, 1) -- (0,0);
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z=3]
+			\draw (0,0) -- (1,2) -- (2.5,2) -- (3.5, 0) -- (2.2, 1) -- (1.3, 1) -- (0,0);
+		\end{scope}
+		\draw (0,0,0)--++(0,0,3) (3.5,0,0)--++(0,0,3) (2.2,1)--++(0,0,3) (1.3,1)--++(0,0,3);
+		\draw[dashed] (1,2,0)--++(0,0,3) (2.5,2,0)--++(0,0,3);
+		\foreach \i in {1,...,11} {
+			\draw (1.3, 1, \i*0.25) -- (0,0,\i*0.25);
+			\draw (1.3, 1, \i*0.25) -- (2.2, 1, \i*0.25);
+			\draw (3.5, 0, \i*0.25) -- (2.2, 1, \i*0.25);
+		}
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -1752,8 +1926,111 @@ $n$&3&4&5&3&3\\
 这五种正多面体分别是正四面体、正六面体、正八面
 体、正十二面体和正20面体．（图2.35的(I)—(V)）
 \begin{figure}[htp]
-    \centering
-\includegraphics[scale=.6]{fig/2-35.png}
+	\centering
+	\tdplotsetmaincoords{70}{10}
+	\begin{tikzpicture}[scale=1,tdplot_main_coords]
+		\begin{scope}[rotate=45]
+			\def\a{0.9}
+			\coordinate (A) at (\a,\a,\a);
+			\coordinate (B) at (\a,-\a,-\a);
+			\coordinate (C) at (-\a,\a,-\a);
+			\coordinate (D) at (-\a,-\a,\a);
+			\draw (A)--(B) (A)--(C) (A)--(D) (B)--(C) (C)--(D);
+			\draw[dashed] (B)--(D);
+		\end{scope}
+		
+		\begin{scope}[xshift = 4cm, yshift = 0.4cm]
+			\def\a{1.3}
+			\coordinate (A) at (\a,0,0);
+			\coordinate (A') at (-\a,0,0);
+			\coordinate (B) at (0,\a,0);
+			\coordinate (B') at (0,-\a,0);
+			\coordinate (C) at (0,0,\a);
+			\coordinate (C') at (0,0,-\a);
+			\draw[dashed] (A)--(B) (A')--(B) (B)--(C) (B)--(C') ;
+			\draw (A)--(C) (A)--(B') (A)--(C') 
+			(A')--(B') (A')--(C') (A')--(C)
+			(B')--(C) (B')--(C');
+		\end{scope}
+		
+		\begin{scope}[xshift = 8cm, yshift = 0.4cm, rotate around z=10]
+			\def\a{0.7}
+			\def\ph{1.6180}
+			\coordinate (A) at ( 0,  \a,  \ph*\a);
+			\coordinate (B) at ( 0,  \a, -\ph*\a);
+			\coordinate (C) at ( 0, -\a,  \ph*\a);
+			\coordinate (D) at ( 0, -\a, -\ph*\a);
+			\coordinate (E) at ( \a,  \ph*\a,  0);
+			\coordinate (F) at ( \a, -\ph*\a,  0);
+			\coordinate (G) at (-\a,  \ph*\a,  0);
+			\coordinate (H) at (-\a, -\ph*\a,  0);
+			\coordinate (I) at ( \ph*\a,  0,  \a);
+			\coordinate (J) at ( \ph*\a,  0, -\a);
+			\coordinate (K) at (-\ph*\a,  0,  \a);
+			\coordinate (L) at (-\ph*\a,  0, -\a);
+			\draw[dashed] (A)--(C) (I)--(C)--(K) (D)--(H)--(L) (D)--(F)--(H) (F)--(J) (C)--(H) (C)--(F)--(I) (K)--(H);
+			\draw (A)--(E) (A)--(G) (A)--(I) (A)--(K) (E)--(I) (G)--(K) (E)--(G)--(B);
+			\draw (E)--(B) (E)--(J) -- (B) -- (L) -- (G);
+			\draw (K)--(L) (I)--(J) (D)--(J) (D)--(B) (D)--(L) ;
+		\end{scope}
+		
+		\begin{scope}[xshift = 2cm, yshift = -3.4cm, rotate around z=-10]
+			\def\a{0.85}
+			\coordinate (A) at (\a,\a,\a);
+			\coordinate (A') at (\a,\a,-\a);
+			\coordinate (B) at (\a,-\a,\a);
+			\coordinate (B') at (\a,-\a,-\a);
+			\coordinate (C) at (-\a,-\a,\a);
+			\coordinate (C') at (-\a,-\a,-\a);
+			\coordinate (D) at (-\a,\a,\a);
+			\coordinate (D') at (-\a,\a,-\a);
+			\draw (C)--(D)--(A);
+			\draw[dashed] (A)--(B)--(C) (B)--(B');
+			\draw (A)--(A')--(B') (A')--(D') (D)--(D') (C)--(C') (B')--(C')--(D');
+		\end{scope}
+		
+		\begin{scope}[xshift = 6cm, yshift = -3.4cm, rotate around z=10, rotate around y=0, rotate around x = 11]
+			\def\a{0.7}
+			\def\ph{1.6180}
+			\coordinate (A) at (\a, \a, \a);
+			\coordinate (B) at (\a, \a, -\a);
+			\coordinate (C) at (\a, -\a, \a);
+			\coordinate (D) at (\a, -\a, -\a);
+			\coordinate (E) at (-\a, \a, \a);
+			\coordinate (F) at (-\a, \a, -\a);
+			\coordinate (G) at (-\a, -\a, \a);
+			\coordinate (H) at (-\a, -\a, -\a);
+			\coordinate (I) at (0, 1/\ph*\a, \ph*\a);
+			\coordinate (J) at (0, 1/\ph*\a, -\ph*\a);
+			\coordinate (K) at (0, -1/\ph*\a, \ph*\a);
+			\coordinate (L) at (0, -1/\ph*\a, -\ph*\a);
+			\coordinate (M) at (1/\ph*\a, \ph*\a, 0);
+			\coordinate (N) at (1/\ph*\a, -\ph*\a, 0);
+			\coordinate (O) at (-1/\ph*\a, \ph*\a, 0);
+			\coordinate (P) at (-1/\ph*\a, -\ph*\a, 0);
+			\coordinate (Q) at (\ph*\a, 0, 1/\ph*\a);
+			\coordinate (R) at (-\ph*\a, 0, 1/\ph*\a, 0);
+			\coordinate (S) at (\ph*\a, 0, -1/\ph*\a);
+			\coordinate (T) at (-\ph*\a, 0, -1/\ph*\a);
+			\draw (A)--(M)--(B)--(S)--(Q)--cycle;
+			\draw (M)--(O)--(F)--(J)--(B);
+			\draw (A)--(I)--(E)--(O);
+			\draw (J)--(L)--(D)--(S);
+			\draw (F)--(T)--(H)--(L);
+			\draw (E)--(R)--(T);
+			\draw[dashed] (C)--(K)--(G)--(P)--(N)--cycle;
+			\draw[dashed] (R)--(G) (P)--(H) (N)--(D) (C)--(Q) (I)--(K);
+		\end{scope}
+		
+		\begin{scope}
+			\node at (0.8,-3.8) {$\langle$I$\rangle$ 正四面体};
+			\node at (4.6,-3.1) {$\langle$II$\rangle$ 正八面体};
+			\node at (8.5,-2.4) {$\langle$III$\rangle$ 正二十面体}; 	
+			\node at (4.7,-14.4) {$\langle$IV$\rangle$ 正六面体}; 	
+			\node at (8.6,-13.7) {$\langle$V$\rangle$ 正十二面体}; 	
+		\end{scope}
+		
+	\end{tikzpicture}
     \caption{}
 \end{figure}
 \end{proof}
@@ -1840,7 +2117,7 @@ $\therefore\quad S_{\text{矩形}ADD_1A_1}=A_1A\cdot AD=a\cdot 2a=2a^2$
 
 
 \begin{example}
-    正三棱锥$V-ABC$中的底面边长为$a$, 侧棱和底
+    正三棱锥$V$-$ABC$中的底面边长为$a$, 侧棱和底
 面的夹角为$\alpha$, $D$为侧棱$VA$上一点，截面$DBC$与底面$ABC$
 所成的角等于侧棱和高所成的角，求
 此截面面积（图2.37）．
@@ -1887,7 +2164,7 @@ $\frac{\sqrt{3}}{4}a^2\sin\alpha$
 \end{solution}
 
 \begin{example}
-    正三棱锥$S-ABC$的底边
+    正三棱锥$S$-$ABC$的底边
     长为$a$, 侧棱长为$b$. 
     
 \begin{enumerate}
@@ -1987,10 +2264,10 @@ $\therefore\quad \frac{BC}{BC}=\frac{GD}{SC}$
 即
 \[\frac{a-x}{a}=\frac{x}{b}\quad \Rightarrow\quad x=\frac{ab}{a+b}\]
 所以正方形$DEFG$的面积
-\[S_{\text{正方形}DEFG}=\left(\frac{ab}{a+b}\right)^2\]
+\[S_{\text{正方形}DEFG}=\left(\frac{ab}{a+b}\right)^2.\]
 
 答：正方形$DEFG$的面积为
-$\left(\frac{ab}{a+b}\right)^2$
+$\left(\frac{ab}{a+b}\right)^2$.
 \end{enumerate}
 \end{solution}
 
@@ -2062,19 +2339,19 @@ $\left(\frac{ab}{a+b}\right)^2$
     锥的高$SO_2$, 交棱台上、下两底面于$O_1$和$O_2$交中截面于$O_0$,
     连$B_1O_1$、$B_0O_0$、$B_2O_2$，易知，
 $B_1O_1\parallel B_0O_0\parallel B_2O_2$，故有
-\[\frac{S_0}{S_1}=\frac{(a+h)^2}{a^2},\qquad \frac{S_2}{S_1}=\frac{(a+h)^2}{a^2}\]
+\[\frac{S_0}{S_1}=\frac{(a+h)^2}{a^2},\qquad \frac{S_2}{S_1}=\frac{(a+h)^2}{a^2}.\]
 即：
-\[\frac{\sqrt{S_0}}{\sqrt{S_1}}=\frac{a+h}{a}=1\x \frac{h}{a},\qquad \frac{\sqrt{S_2}}{\sqrt{S_1}}=\frac{a+2h}{a}=1+\frac{2h}{a}\]
+\[\frac{\sqrt{S_0}}{\sqrt{S_1}}=\frac{a+h}{a}=1 + \frac{h}{a},\qquad \frac{\sqrt{S_2}}{\sqrt{S_1}}=\frac{a+2h}{a}=1+\frac{2h}{a}.\]
 从两式中消去$\frac{h}{a}$，得
-\[\frac{2\sqrt{S_0}}{\sqrt{S_1}}-\frac{\sqrt{S_2}}{\sqrt{S_1}}=1\]
-因此：$\sqrt{S_0}=\frac{1}{2}\left(\sqrt{S_1}+\sqrt{S_2}\right)$
+\[\frac{2\sqrt{S_0}}{\sqrt{S_1}}-\frac{\sqrt{S_2}}{\sqrt{S_1}}=1.\]
+因此：$\sqrt{S_0}=\frac{1}{2}\left(\sqrt{S_1}+\sqrt{S_2}\right)$.
 
 同理可以证明圆台的中截面面积也为上式．
 \end{proof}
 
 
 \begin{example}
-    如图2.40, 球$O$和二面角$\alpha-AB-\beta$的两个面$\alpha$、$\beta$
+    如图2.40, 球$O$和二面角$\alpha$-$AB$-$\beta$的两个面$\alpha$、$\beta$
 分别相切于$C$、$D$两点，如$C,D$两点的距离为$\sqrt{3}a$, 并且
 $\angle DCO=30^{\circ}$, 求球$O$的半径及二面角的大小．
 \end{example}
@@ -2111,9 +2388,9 @@ $\therefore\quad OD=a$
 
 又：$O,C,D,E$四点共面，由(2.5), 有$\angle CED=60^{\circ}$,
 
-$\therefore\quad $二面角$\alpha-AB-\beta$为$60^{\circ}$.
+$\therefore\quad $二面角$\alpha$-$AB$-$\beta$为$60^{\circ}$.
 
-答：球$O$的半径为$a$, 二面角$\alpha-AB-\beta$为$60^{\circ}$.
+答：球$O$的半径为$a$, 二面角$\alpha$-$AB$-$\beta$为$60^{\circ}$.
 \end{solution}
 
 
@@ -2193,7 +2470,7 @@ $\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
 即\[R^2-\left(\frac{\sqrt{3}}{3}a\right)^2=\left(\frac{\sqrt{6}}{3}a-R\right)^2\]
 解得$R=\frac{\sqrt{6}}{4}a$
 
-答：棱长为$a$的正四面体的外接球的半径为$\frac{\sqrt{6}}{4}a$
+答：棱长为$a$的正四面体的外接球的半径为$\frac{\sqrt{6}}{4}a$.
 \end{solution}
 
 \section*{习题2.1}
@@ -2214,7 +2491,7 @@ $\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
     体．
     \item 底面是菱形的直棱柱对角线长分别是9cm和15cm, 侧棱
     是5cm, 求它的底面边长．
-    \item 在直平行六面体$ABCD-A_1B_1C_1D_1$中，若$AD=1$m,
+    \item 在直平行六面体$ABCD$-$A_1B_1C_1D_1$中，若$AD=1$m,
     $AB=2$m, $AA_1=3$m, $\angle DAB=60^{\circ}$，求对角线$BD_1$和$AC_1$
     的长．
     \item 圆柱有一个内接直三棱柱，直三棱柱的一个侧面经过连
@@ -2248,46 +2525,46 @@ $\therefore\quad OO_1=\frac{\sqrt{6}}{3}a-OA$
     \item 各侧面和底面所成的二面角相等．
 \end{enumerate}
 
-\item 已知正四棱锥的侧棱为15, 侧棱与底面所成的角为$45^{\circ}$，
+\item 已知正四棱锥的侧棱为15，侧棱与底面所成的角为$45^{\circ}$，
 画出正四棱锥的二视图与直观图．
-\item 已知圆锥底面半径为4cm, 母线与底面所成的角为$60^{\circ}$,
+\item 已知圆锥底面半径为4cm，母线与底面所成的角为$60^{\circ}$,
 求圆锥内接正四棱锥的斜高．
-\item 正六棱锥$S-ABCDEF$的侧棱为$4a$, 底面正六边形边长
-为$a$, 求过$SA$和$SC$的对角面的面积．
-\item 正三棱台的上、下两底的边长分别为2cm和6cm, 侧棱
+\item 正六棱锥$S$-$ABCDEF$的侧棱为$4a$，底面正六边形边长
+为$a$，求过$SA$和$SC$的对角面的面积．
+\item 正三棱台的上、下两底的边长分别为2cm和6cm，侧棱
 和底面成$60^{\circ}$角，求棱台的高和斜高．
-\item 正四棱台的上下底的边长是6cm和24cm, 斜高为15cm, 
+\item 正四棱台的上下底的边长是6cm和24cm，斜高为15cm，
 求这棱台的高．
-\item 圆台的高为$h$, 母线和底面成$30^{\circ}$角，求母线的长．
-\item 正四棱台上、下两底边长分别为$a$和$b$ ($a<b$), 侧棱和
+\item 圆台的高为$h$，母线和底面成$30^{\circ}$角，求母线的长．
+\item 正四棱台上、下两底边长分别为$a$和$b$ ($a<b$)，侧棱和
 底面成$45^{\circ}$角，求它的侧棱和斜高．
-\item 圆台的高是两个底面的面积分别是$3\pi h^2$和$12\pi h^2$, 求圆
+\item 圆台的高是两个底面的面积分别是$3\pi h^2$和$12\pi h^2$，求圆
 台的母线和底面所成的角．
-\item 台体上、下两底的面积各是$Q_1$和$Q_2$, 求证这台体的高
+\item 台体上、下两底的面积各是$Q_1$和$Q_2$，求证这台体的高
 和截得这台体的原锥体高的比是
 \[\frac{Q_2-\sqrt{Q_1\cdot Q_2}}{Q_2}\]
-\item 台体的两底面积分别是$9{\rm cm^2}$和$25{\rm cm^2}$, 求它的中截面的
+\item 台体的两底面积分别是$9{\rm cm^2}$和$25{\rm cm^2}$，求它的中截面的
 面积．
 \item 求证：球的任意两个大圆互相平分．
-\item 在半径是13cm的球面上，有$A,B,C$三点，$AB=6$cm, 
-$BC=8$cm, $CA=10$cm, 求经过这三点的截面和球心的
+\item 在半径是13cm的球面上，有$A,B,C$三点，$AB=6$cm，
+$BC=8$cm，$CA=10$cm，求经过这三点的截面和球心的
 距离．
-\item 在半径是$r$的球面上有两点$A$、$B$, 半径$OA$和$OB$的夹角
-是$n^{\circ}$($n^{\circ}<180^{\circ}$), 求$AB$两点间的球面距离．
+\item 在半径是$r$的球面上有两点$A$、$B$，半径$OA$和$OB$的夹角
+是$n^{\circ}$($n^{\circ}<180^{\circ}$)，求$AB$两点间的球面距离．
 \item 在北纬$30^{\circ}$圈上有甲、乙两地，它们的径度相差$120^{\circ}$,
 求这两地间纬度线的长．
 \item 一个球的两个切面所成的二面角（球在二面角内）是
-$120^{\circ}$, 这两个切点的球面距离是$12\pi$cm, 求这个球的半
+$120^{\circ}$，这两个切点的球面距离是$12\pi$cm，求这个球的半
 径．
-\item 一个圆锥的高为8cm, 母线为10cm, 求它的内切球的半
+\item 一个圆锥的高为8cm，母线为10cm，求它的内切球的半
 径．
 \item 两个底面半径分别为$r_1$和$r_2$圆台中有一个内切球，求这
 个内切球的半径．
-\item 已知两个球的半径分别是3cm和4cm, 球心连线长为
-5cm, 求这两个球交线圆的面积．
+\item 已知两个球的半径分别是3cm和4cm，球心连线长为
+5cm，求这两个球交线圆的面积．
 \item 试证：经过不在同一平面内的四个点的球面只有一个，
 并说明球面的作法．
-\item 已知正多面体的棱长为$a$, 那么
+\item 已知正多面体的棱长为$a$，那么
 \begin{enumerate}
 \item 求它的相邻两个
 面所成的角；
@@ -2626,7 +2903,7 @@ $\therefore\quad S_{\text{斜棱柱侧}}=p\cdot b=(\sqrt{2}+1)ab$
 
 
 \begin{example}
-    圆柱的轴截面的对角线为$d$, 它与底面所成的角为
+    圆柱的轴截面的对角线为$d$，它与底面所成的角为
 $\beta$,
 \begin{enumerate}
     \item 求圆柱的侧面积，
@@ -2809,7 +3086,7 @@ $\therefore\quad $当$\sin2\beta=1$时，即$2\beta=\frac{\pi}{2},\quad \beta=\f
 \end{blk}
 
 \begin{example}
-    已知三棱锥$V-ABC$中，直角$\triangle ABC$的两条直角
+    已知三棱锥$V$-$ABC$中，直角$\triangle ABC$的两条直角
 边$AB=6$cm, $BC=8$cm, 高$VO=12$cm, 并且$O$点是$\triangle ABC$的
 内心，求棱锥的全面积．
 \end{example}
@@ -2973,7 +3250,7 @@ $\therefore\quad \frac{\alpha}{2}=60^{\circ},\qquad \alpha=120^{\circ}$
     角．
     \item 求底面边长为$2a$, 高为$2a$的正四棱锥的内切圆锥的侧面
     积．
-    \item 已知正三棱锥$V-ABC$, 底
+    \item 已知正三棱锥$V$-$ABC$, 底
     面每边长为$a$, 侧棱和底面
     所成的角为$45^{\circ}$, 求它的全
     面积．
@@ -2982,7 +3259,35 @@ $\therefore\quad \frac{\alpha}{2}=60^{\circ},\qquad \alpha=120^{\circ}$
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.6]{fig/6ti.png}
+	\tdplotsetmaincoords{60}{-30}
+	\begin{tikzpicture}[scale=1,tdplot_main_coords]
+		\def\a{1.2}
+		\coordinate (A) at (-\a,\a,0);
+		\coordinate (B) at (-\a,-\a,0);
+		\coordinate (C) at (\a,-\a,0);
+		\coordinate (D) at (\a,\a,0);
+		\coordinate (O) at (0,0,0);
+		\coordinate (E) at (-\a,0,0);
+		\coordinate (F) at (\a,0,0);
+		\begin{scope}[canvas is xy plane at z=0]
+			\draw (A)--(B)--(C); \draw[dashed] (C)--(D)--(A);
+			\draw[dashed] (O) circle (\a);
+			\draw[dashed] (O)--(E);
+			\draw[dashed] (O)--(F);
+		\end{scope}
+		\coordinate (V) at (0,0,3);
+		\draw (V)--(A) (V)--(B) (V)--(E) (V)--(C);
+		\draw[dashed] (V)--(O) (V)--(F) (V)--(D);
+		\begin{scope}[canvas is xz plane at y=0]
+			\node[label=left:$A$] at (A) {};
+			\node[label=below left:$E$] at (E) {};
+			\node[label=below:$B$] at (B) {};
+			\node[label=right:$C$] at (C) {};
+			\node at ($(D)+(0.15,0.15)$) {$D$};
+			\node[label=above:$V$] at (V) {};
+			\node at ($(O)+(0,-0.25)$) {$O$};
+		\end{scope}
+	\end{tikzpicture}
     \caption*{第6题}
 \end{figure}
 
@@ -3434,7 +3739,7 @@ $\therefore\quad S_{\text{圆台侧}}=2\pi MR\cdot CD$
    \draw(2,0) arc (0:45:2); 
 \draw(-2,0) arc (180:135:2);
 \draw[dashed](0,0) ellipse [x radius=2, y radius=.4];
-\draw(0,1.414) ellipse [x radius=1.414, y radius=.3];
+\draw(0,1.414) ellipse [x radius=1.414, y radius=.2];
 \draw[dashed](0,0)--node[right]{$h$}(0,1.414);
 \draw(2,0)node[right]{$E$}  arc [start angle =0, end angle =-180, x radius=2, y radius=.4];
 \node at (1.414,1.414)[above]{$A$};
@@ -3780,11 +4085,7 @@ $\therefore\quad  V (B) > V (A)$
     \caption{}
 \end{figure}
 
-我国古数学家祖暅早在公元五世纪，便提出了性质
-3, 他说：“缘幂势既同，则积不容异”．并首先应用
-这个原理推得球体积的计算公式．因而我们把性质3叫
-做祖暅原理．在欧洲直到十七世纪才有意大利的卡发雷利提
-出这个事实．
+我国古数学家祖暅早在公元五世纪，便提出了性质3, 他说：“缘幂势既同，则积不容异”．并首先应用这个原理推得球体积的计算公式．因而我们把性质3叫做祖暅原理．在欧洲直到十七世纪才有意大利的卡瓦列里提出这个事实．
 
 \begin{blk}
    {定理} 长方体的体积等于它的长、宽、高的积．即
@@ -4173,12 +4474,54 @@ $\therefore\quad 2\pi R=3h\quad\Rightarrow\quad R=\frac{\sqrt{3}h}{2\pi}$
 \begin{figure}[htp]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.5]{fig/2-9ti-1.png}
+	\begin{tikzpicture}[scale=1]
+		\def\R{1.5}	
+		\def\a{0.75}
+		\def\h{2.25}
+		\draw (0,0) circle (\R);
+		\draw (-\a,-\a) rectangle (\a,\a);	
+		\draw (-\R,-\R-0.5) rectangle (\R,-\R-0.5-\h);
+		\draw[dashed] (-\a,-\R-0.5)--++(0,-\h);
+		\draw[dashed] (\a,-\R-0.5)--++(0,-\h);
+		\draw[tdSym] (0,-4.8)--(0,\R+0.3);
+		\draw (-\a,-\R-0.5-\h)--++(0,-0.6);
+		\draw (\a,-\R-0.5-\h)--++(0,-0.6);
+		\draw[tdDim] (-\a,-\R-0.8-\h) -- node[fill=white,midway]{20} ++(2*\a,0);
+		\draw (\a,\a)--++(1.5,0);
+		\draw (\a,-\a)--++(1.5,0);
+		\draw[tdDim] (\a+1.2,\a)--node[fill=white,midway,rotate=90]{20} (\a+1.2,-\a);
+		\draw (\R,-\R-0.5)--++(0.75,0);
+		\draw (\R,-\R-\h-0.5)--++(0.75,0);
+		\draw[tdDim] (\R+0.45,-\R-\h-0.5)--node[fill=white,midway,rotate=90]{30} ++(0,\h);
+		\draw[tdSym] (-\R-0.3,0)--(\R+0.1,0);
+		\draw[tdDim] (-\R/2,-0.866*\R)--(\R/2,0.866*\R);
+		\draw (\R/2,0.866*\R)--++(1,0) node[anchor=south east] {$\phi\, 40$};
+	\end{tikzpicture}
     \caption*{(1)}
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.5]{fig/2-9ti-2.png}
+	\begin{tikzpicture}[scale=1]
+		\def\R{1.5}	
+		\def\r{0.525}
+		\draw (0:\R) \foreach \x in {60,120,...,360} {  -- (\x:\R) };
+		\draw (0,0) circle (\r);
+		\draw[tdSym] (-1.2*\R,0)--(1.2*\R,0);
+		\draw[tdDim] ({-\R/2},{-\R*0.866-0.3})--node[fill=white,midway]{20} ({\R/2},{-\R*0.866-0.3});
+		\draw ({-\R/2},{-\R*0.866})--++(0,-0.5);
+		\draw ({\R/2},{-\R*0.866})--++(0,-0.5);
+		\draw[tdSym] (0,{-\R*0.866-0.15})--(0,3.7);	
+		\draw[tdDim] (-\r*0.707,-\r*0.707)--(\r*0.707,\r*0.707);
+		\draw (\r*0.707,\r*0.707)--++(45:1.2)--++(0.75,0) node[anchor=south east] {$\phi\, 14$};
+		\draw (-\R,2.2) rectangle (\R,{2.2+0.75*\R});
+		\draw ({-\R/2},2.2)--++(0,0.75*\R);
+		\draw ({\R/2},2.2)--++(0,0.75*\R);
+		\draw[dashed] (-\r,2.2)--++(0,0.75*\R);
+		\draw[dashed] (\r,2.2)--++(0,0.75*\R);
+		\draw (\R,2.2)--++(0.6,0);
+		\draw (\R,{2.2+0.75*\R})--++(0.6,0);
+		\draw[tdDim] ({\R+0.3},2.2) -- node[fill=white,midway,rotate=90]{15} ++(0,0.75*\R);
+	\end{tikzpicture}
     \caption*{(2)}
     \end{minipage}
     \caption*{第9题}
@@ -4193,14 +4536,59 @@ $\therefore\quad 2\pi R=3h\quad\Rightarrow\quad R=\frac{\sqrt{3}h}{2\pi}$
 成$n$片高为$\frac{h}{n}$
 的薄片，这些薄片
 的底面都是和侧棱相交的相似三角形．以这些三角形为底面作$n$
-个各有一部分在棱锥$S-ABC$外部的三棱柱，设这些三棱柱的体
+个各有一部分在棱锥$S$-$ABC$外部的三棱柱，设这些三棱柱的体
 积由顶点方向顺次为$V_1,V_2,V_3,\ldots,V_n$. 另外仍以平行于底
 面$\triangle ABC$的相似三角形为底在棱锥的内部作$(n-1)$个三
 棱柱，设这些棱柱的积由顶点的方向顺次为$V'_1,V'_2,\ldots,V_{n-1}'$.
 
 \begin{figure}[htp]
     \centering
-\includegraphics[scale=.6]{fig/2-69.png}
+	\tdplotsetmaincoords{55}{0}
+		\begin{tikzpicture}[scale=0.8,tdplot_main_coords]
+			\def\h{4};
+			\draw (-1,1)--(10.5,1)--(9.5,-3)--(-2,-3)--cycle;
+			\coordinate (A) at (0,0,0);
+			\coordinate (B) at (2,-2,0);
+			\coordinate (C) at (3,0,0);
+			\coordinate (S) at (1,0,\h);
+			\node[label=left:$A$] at (A){};
+			\node[label=below:$B$] at (B){};
+			\node[label=right:$C$] at (C){};
+			\node[label=above:$S$] at (S){};
+			\draw (A)--(B)--(C); \draw[dashed] (A)--(C);
+			\draw (S)--(A) (S)--(B); \draw[dashed] (S)--(C);
+			\foreach \i in {1,...,4} {
+				\draw ($(S)!{\i/5}!(A)$)--($(S)!{\i/5}!(B)$)--($(S)!{\i/5}!(C)$);
+				\draw[dashed] ($(S)!{\i/5}!(A)$)--($(S)!{\i/5}!(C)$);
+			}
+			\foreach \i in {1,...,5} {
+				\draw ($(S)!{\i/5}!(B)$)--++($(A)!{1/5}!(S)$) coordinate(P\i)--($(S)!{(\i-1)/5}!(B)$);
+				\draw ($(S)!{\i/5}!(C)$)--++($(A)!{1/5}!(S)$) coordinate(Q\i)--($(S)!{(\i-1)/5}!(C)$);
+				\draw (P\i)--(Q\i);
+			}
+			\def\deltax{6};
+			\coordinate (A') at (\deltax,0,0);
+			\coordinate (B') at (\deltax+2,-2,0);
+			\coordinate (C') at (\deltax+3,0,0);
+			\coordinate (S') at (\deltax+1,0,\h);
+			\node[label=left:$A$] at (A'){};
+			\node[label=below:$B$] at (B'){};
+			\node[label=right:$C$] at (C'){};
+			\node[label=above:$S$] at (S'){};
+			\draw (A')--(B')--(C'); \draw[dashed] (A')--(C');
+			\draw (S')--(A') (S')--(B') (S')--(C');
+			\draw[dashed] ($(S)-(0.5,0,0)$)--($(S')+(1,0,0)$);
+			\foreach \i in {1,...,4} {
+				\draw ($(S')!{\i/5}!(A')$)--($(S')!{\i/5}!(B')$)--($(S')!{\i/5}!(C')$);
+				\draw[dashed] ($(S')!{\i/5}!(A')$)--($(S')!{\i/5}!(C')$);
+			}
+			\coordinate (Delta) at ($(A)-($(A)!{1/5}!(S)$)$);
+			\foreach \i in {1,...,4} {
+				\draw ($(S')!{\i/5}!(B')$)--++(Delta) coordinate(U\i);
+				\draw[dashed] ($(S')!{\i/5}!(C')$)--++(Delta) coordinate(V\i);
+				\draw[dashed] (U\i)--(V\i);
+			}
+		\end{tikzpicture}
     \caption{}
 \end{figure}
 
@@ -4348,32 +4736,6 @@ $\therefore\quad S_1=S_2$
 \end{blk}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{example}
     已知：棱锥底面是面积为$Q$的矩形，矩形对角线交
 角为$60^{\circ}$, 棱锥侧棱与底面交角为$45^{\circ}$, 求这棱锥的体积．
@@ -4400,7 +4762,7 @@ $\therefore\quad S_1=S_2$
 \end{figure}
 
 \begin{solution}
-    设棱锥$S-ABCD$满足已知条件，并设棱锥底面矩形
+    设棱锥$S$-$ABCD$满足已知条件，并设棱锥底面矩形
 $ABCD$的对边$BC=AD=x$. 依
 题意则有棱锥的高$SO=x$, 底
 面对角线长为$2x$, 那么底面面
@@ -5169,7 +5531,7 @@ $b$、$c$, 求证：它的体积
 \[V=\frac{1}{12}\sqrt{16\ell^2 s(s-a)(s-b)(s-c)-a^2b^2c^2}\]
 其中$s=\frac{1}{2}(a+b+c)$
 
-\item 三棱锥$S-ABC$中，侧面$SCB\bot$侧面 $ABC$, 又$SC=SB
+\item 三棱锥$S$-$ABC$中，侧面$SCB\bot$侧面 $ABC$, 又$SC=SB
 =1$, 在顶点处的各面角等于$60^{\circ}$, 求这个三棱锥的体
 积．
 \item 已知棱台两底面面积分别为$245{\rm cm^2}$, $80{\rm cm^2}$, 截得棱台
@@ -5226,7 +5588,7 @@ $\frac{1}{2}$cm, 求截得球缺的球
     \item 证明：正$n$棱柱每相邻两个侧面所成面二面角等于
 \[\frac{(n-2)\x 180^{\circ}}{n}\]
 
-\item 直平行六面体$ABCD-A_1B_1C_1D_1$中已知下底$ABCD$的
+\item 直平行六面体$ABCD$-$A_1B_1C_1D_1$中已知下底$ABCD$的
 边$AB$及$AD$上的高$BE$分别等于26cm和24cm, 又$BE$分
 $AD$成2:3, 六面体的高$AA_1$等于45cm, 求这个六面体
 的截$ADC_1B_1$的面积．
@@ -5255,7 +5617,27 @@ $AA_1=h$, 求长方体的侧面积．
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[scale=.7]{fig/10ti.png}
+    \tdplotsetmaincoords{65}{0}
+    \begin{tikzpicture}[scale=1,tdplot_main_coords]
+    	\def\b{3}
+    	\def\h{4}
+    	\pgfmathsetmacro{\rx}{\b/2}
+    	
+    	\begin{scope}[canvas is xy plane at z = -\h]
+    		\draw (-\rx,0) arc (-180:0:\rx);
+    		\draw[dashed] (-\rx,0) arc (180:0:\rx);
+    	\end{scope}
+    	\coordinate (O) at (0,0,0);
+    	\node[label=above:$S$] at (O) {};
+    	\draw (O)--(-\rx,0,-\h);
+    	\draw (O)--(\rx,0,-\h);
+    	
+    	\def\rate{0.3}
+    	\draw plot[variable=\t,domain=-180:0] ({\rx*(1-(1+\t/180)*\rate)*cos(\t)}, {\rx*(1-(1+\t/180)*\rate)*sin(\t)}, {\h*((1 + \t/180)*\rate-1)});
+    	\draw[dashed] plot[variable=\t,domain=0:180] ({\rx*(1-(1+\t/180)*\rate)*cos(\t)}, {\rx*(1-(1+\t/180)*\rate)*sin(\t)}, {\h*((1 + \t/180)*\rate-1)}) coordinate(B);
+    	\node[label=left:$A$] at (-\rx,0,-\h){};
+    	\node[label=left:$B$] at (B){};
+    \end{tikzpicture}
     \caption*{第10题}
 \end{figure}
 
@@ -5301,7 +5683,7 @@ $a$、$b$、$c$, 这三条棱中每两条所成的角是$60^{\circ}$. 求平行�
 \item 一个棱锥的体积是$V$, 把棱锥的高三等分，过两个分点
 的平行于底面的截面将这个三棱锥分成三部分，求中间
 一部分的体积．
-\item 三棱锥$S-ABC$中，侧棱$SA$、$SB$、$SC$的长分别是$a$、
+\item 三棱锥$S$-$ABC$中，侧棱$SA$、$SB$、$SC$的长分别是$a$、
 $b$、$c$,又$\angle ASB=60^{\circ}$, $\angle ASC=\angle BSC=90^{\circ}$, 求这
 个棱锥的体积．
 \item 一个直角三角形的两条直角边为15cm和20cm, 以斜边
@@ -5348,7 +5730,37 @@ $V_2$.
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-      \includegraphics[scale=.7]{fig/41ti.png}
+	\tdplotsetmaincoords{70}{10}
+	\begin{tikzpicture}[scale=1,tdplot_main_coords]
+		\def\a{1.2}
+		\coordinate (A) at (\a,\a,\a);
+		\coordinate (B) at (\a,-\a,\a);
+		\coordinate (C) at (-\a,-\a,\a);
+		\coordinate (D) at (-\a,\a,\a);
+		\draw (A)--(B)--(C)--(D)--cycle;
+		\coordinate (A') at (\a,\a,-\a);
+		\coordinate (B') at (\a,-\a,-\a);
+		\coordinate (C') at (-\a,-\a,-\a);
+		\draw (A)--(A');
+		\draw (B)--(B');
+		\draw (C)--(C');
+		\draw (A')--(B')--(C');
+		\draw (\a/2,\a/2,\a)--(\a/2,-\a/2,\a)--(-\a/2,-\a/2,\a)--(-\a/2,\a/2,\a)--cycle;
+		\draw (\a/2,-\a,\a/2)--(\a/2,-\a,-\a/2)--(-\a/2,-\a,-\a/2)--(-\a/2,-\a,\a/2)--cycle;
+		\draw (\a,\a/2,\a/2)--(\a,\a/2,-\a/2)--(\a,-\a/2,-\a/2)--(\a,-\a/2,\a/2)--cycle;
+		\coordinate (F) at (\a*0.75,-\a*0.75,\a*0.75);
+		\draw (F)--(\a/2,-\a/2,\a) (F)--(\a/2,-\a,\a/2) (F)--(\a,-\a/2,\a/2);
+		\coordinate (G) at (\a*0.75,-\a*0.75,-\a*0.75);
+		\draw (G)--(\a/2,-\a,-\a/2) (G)--(\a,-\a/2,-\a/2);
+		\coordinate (H) at (-\a*0.75,-\a*0.75,-\a*0.75);
+		\draw (H)--(-\a/2,-\a,-\a/2);
+		\coordinate (I) at (-\a*0.75,-\a*0.75,\a*0.75);
+		\draw (I)--(-\a/2,-\a/2,\a) (I)--(-\a/2,-\a,\a/2);
+		\coordinate (J) at (\a*0.75,\a*0.75,\a*0.75);
+		\draw (J)--(\a/2,\a/2,\a) (J)--(\a,\a/2,\a/2);
+		\draw (G)--(\a/2,-\a/2,-\a)--(-\a/2,-\a/2,-\a)--(H);
+		\draw (H)--(I)--(-\a/2,\a/2,\a);
+	\end{tikzpicture}
     \caption*{第41题}
     \end{minipage}
     \end{figure}
@@ -5365,12 +5777,12 @@ $V_2$.
 \item 在母线长为$\ell$, 高在$\ell$与$\ell/2$
 之间的圆锥中，求侧面积最
 大的那个圆锥．
-\item 如图，将正方体的棱分为4等分，在1/4处，截去各棱角得到一个多面体，正方体的体积减少了几分之几？
+\item 如图\footnote{原图有误，45度斜视图不应看见右下角的面. 此处新作图放弃了45度斜视图，可见部分左上角的面.}，将正方体的棱分为4等分，在$1/4$处，截去各棱角得到一个多面体，正方体的体积减少了几分之几？
 \item 已知一个四面体，它的四个面都是各边长为$a$、$b$、$c$所
 组成的四个全等三角形，求此四面体的体积．
 \item 若$M$、$N$分别为立方体$ABCD-A_1B_1C_1D_1$的面$A_1C_1$和
 $B_1C$的中心，求$DM$和$AN$的距离．
-\item 正四棱锥$S-ABCD$中，底面的边长为$a$, 侧棱长为$b$,
+\item 正四棱锥$S$-$ABCD$中，底面的边长为$a$, 侧棱长为$b$,
 \begin{enumerate}
     \item 求这棱锥的体积；
     \item 求这棱锥的侧面积；
@@ -5401,25 +5813,82 @@ $B_1C$的中心，求$DM$和$AN$的距离．
 是一个圆；如果截平面与轴不垂
 直，则截痕是一个椭圆，那么如何描述它们的几何特性呢？
 
-若从圆柱的上方放入一个和圆柱等半径的球，它总是与
+若从圆柱的上方放入一个和圆柱等半径的球，它总是h与
 柱面相切，当小球下降到斜截面相切于一点后，就受阻而
 不再下降了，同样也可把一个与圆柱等半径的球由下方向
 上顶到和斜截面相切于一点的位置．如图2.81所示．设上球
 和斜截面相切于$F_1$点，和柱面相切于圆$C_1$, 下球和斜截面
 相切于一点$F_2$, 和柱面相切于圆$C_2$．
 
-\begin{figure}[htp]\centering
+\begin{figure}[ht]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.6]{fig/2-81.png}
+	\tdplotsetmaincoords{70}{0}
+	\begin{tikzpicture}[scale=1,tdplot_main_coords]
+		\def\b{3}
+		\def\h{4}
+		\pgfmathsetmacro{\rx}{\b/2}
+		
+		\def\ellipset{30}
+		\def\ellipsez{0}
+		\pgfmathsetmacro{\ellipsettan}{tan(\ellipset)}
+		\pgfmathsetmacro{\ellipsetsin}{sin(\ellipset)}
+		\pgfmathsetmacro{\ellipsetcos}{cos(\ellipset)}
+		\pgfmathsetmacro{\ballz}{\rx/\ellipsetcos}
+		
+		\begin{scope}[canvas is xy plane at z = \h]
+			\draw (0,0) circle (\rx);
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z = -\h]
+			\draw[dashed] (-\rx,0) arc (180:0:\rx);
+			\draw (-\rx,0) arc (-180:0:\rx);
+		\end{scope}
+		\draw (-\rx,0,\h)--(-\rx,0,-\h);
+		\draw (\rx,0,\h)--(\rx,0,-\h);
+		
+		\fill[color=white,fill,pattern=north west lines,pattern color=black] plot[variable=\t,domain=-180:180,samples=90] ({\rx*cos(\t)},{\rx*sin(\t)},{\rx*cos(\t)*\ellipsettan});
+		\draw plot[variable=\t,domain=-180:0,samples=90] ({\rx*cos(\t)},{\rx*sin(\t)},{\rx*cos(\t)*\ellipsettan});
+		\draw[dashed] plot[variable=\t,domain=0:180,samples=90] ({\rx*cos(\t)},{\rx*sin(\t)},{\rx*cos(\t)*\ellipsettan});
+		\node at (\rx*0.707,-\rx*0.707,\rx*0.707*\ellipsettan - 0.25) {$E$};
+		
+		\coordinate (C1Centre) at (0,0,\ballz);
+		\coordinate (C2Centre) at (0,0,-\ballz);
+		\coordinate (P) at (0,-\rx,0);
+		\coordinate (Q1) at ($(C1Centre)+(P)$);
+		\coordinate (Q2) at ($(C2Centre)+(P)$);
+		\begin{scope}[canvas is xz plane at y = 0]
+			\draw (C1Centre) circle (\rx);
+			\draw (C2Centre) circle (\rx);
+		\end{scope}
+		\draw (Q1)--(Q2);
+		\begin{scope}[canvas is xy plane at z = \ballz]
+			\draw (-\rx,0) arc (-180:0:\rx);
+			\draw[dashed] (-\rx,0) arc (180:0:\rx);
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z = -\ballz]
+			\draw (-\rx,0) arc (-180:0:\rx);
+			\draw[dashed] (-\rx,0) arc (180:0:\rx);
+		\end{scope}
+		\node at (-\rx*0.707,-\rx*0.707,\ballz + 0.2) {$C_1$};
+		\node at (-\rx*0.707,-\rx*0.707,-\ballz + 0.2) {$C_2$};
+		\node[above] at (Q1) {$Q_1$};
+		\node[below] at (Q2) {$Q_2$};
+		\node[right] at (P) {$P$};
+		
+		\coordinate (F1) at ($(\rx * \ellipsettan,0,\rx * \ellipsettan * \ellipsetsin)$);
+		\coordinate (F2) at ($(-\rx * \ellipsettan,0,-\rx * \ellipsettan * \ellipsetsin)$);
+		\draw (F2)--(P)--(F1);
+		\node[fill=white, inner sep =.5pt, outer sep = 0] at (F1) {$F_1$};
+		\node[fill=white, inner sep =.5pt, outer sep = 0] at (F2) {$F_2$};
+	\end{tikzpicture}
     \caption{}
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.6]{fig/2-82.png}
+    \includegraphics{2-conic-section-all.pdf}
     \caption{}
     \end{minipage}
-    \end{figure}
+\end{figure}
 
 设$P$是椭圆截痕上任一点，则过$P$点与轴线平行的直线
 全在柱面上，设它交圆$C_1$和圆$C_2$于$Q_1$和$Q_2$两点，则
@@ -5486,12 +5955,12 @@ $C_1$, 和截割平面相切于$F_1$点，
 \begin{figure}[htp]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.6]{fig/2-83.png}
+    \includegraphics{2-conic-section-ellipse.pdf}
     \caption{}
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.7]{fig/2-84.png}
+    \includegraphics{2-conic-section-hyperbola.pdf}
     \caption{}
     \end{minipage}
     \end{figure}
@@ -5519,10 +5988,10 @@ $C_1$, 和截割平面相切于$F_1$点，
 们只能作一个球，它和圆锥相交于$C$, 和截平面相切于$F$点．
 
 再者，圆$C$所在的平面和截平面相交于一条直线叫作
-准线，如图2.85所示．
-\begin{figure}[htp]
+准线，如图2.85所示\footnote{原课本插图中$P'Q'$为圆锥左侧母线，这不准确. 为使$P'Q'$与$PR$平行, $P'Q'$在底面上的投影须正交于截割平面与底面所交的线段, 故$P'Q'$不能为图示的左母线. 这已在新插图中订正.}．
+\begin{figure}[ht]
     \centering
-    \includegraphics[scale=.6]{fig/2-85.png}
+    \includegraphics{2-conic-section-parabola.pdf}
     \caption{}
 \end{figure}
 

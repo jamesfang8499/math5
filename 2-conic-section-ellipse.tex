@@ -1,0 +1,113 @@
+\documentclass[crop,tikz]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+\usepackage{tikz-3dplot} 
+\usetikzlibrary{3d,calc}
+\usepackage{pgfplots}
+\usetikzlibrary{intersections, patterns, patterns.meta, pgfplots.fillbetween, decorations.markings}
+\usepackage{tkz-euclide}
+\usetikzlibrary{fpu}
+\newcommand{\PgfmathsetmacroFPU}[2]{\begingroup% https://tex.stackexchange.com/a/503835
+	\pgfkeys{/pgf/fpu,/pgf/fpu/output format=fixed}%
+	\pgfmathsetmacro{#1}{#2}%
+	\pgfmathsmuggle#1\endgroup}%
+
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+{\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+	\def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+	\def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+	\tikz@canvas@is@plane
+}
+\makeatother  
+
+\tikzset{
+	mark position/.style args={#1(#2)}{
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position #1 with \coordinate (#2);
+			}
+		}
+	}
+}
+
+\begin{document}
+\tdplotsetmaincoords{70}{0}
+\begin{tikzpicture}[scale=1,tdplot_main_coords]
+	\def\b{3.5}
+	\def\h{7.5}
+	\def\p{0.3}
+	\pgfmathsetmacro{\rx}{\b/2}
+	
+	\begin{scope}[canvas is xy plane at z = -\h]
+		\draw (-\rx,0) arc (-180:0:\rx);
+		\draw[dashed] (-\rx,0) arc (180:0:\rx);
+	\end{scope}
+	\node[label=right:$O$](O) at (0,0,0) {};
+	\draw (0,0,0)--(-\rx,0,-\h);
+	\draw (0,0,0)--(\rx,0,-\h);
+	
+	\def\ellipset{45}
+	\def\ellipsez{3.5}
+	\pgfmathsetmacro{\ellipsettan}{tan(\ellipset)}
+	\pgfmathsetmacro{\ellipsetsin}{sin(\ellipset)}
+	\pgfmathsetmacro{\ellipsetcos}{cos(\ellipset)}
+	\pgfmathsetmacro{\ellipseTmpA}{\h*\h - \rx*\rx*\ellipsettan*\ellipsettan}
+	\pgfmathsetmacro{\ellipseTmpB}{\rx*\h*\ellipsez}
+	\pgfmathsetmacro{\ellipseTmpC}{\ellipseTmpB / \ellipseTmpA}
+	\pgfmathsetmacro{\ellipseTmpD}{\rx*\rx*\ellipsez*\ellipsettan}
+	\pgfmathsetmacro{\ellipseTmpE}{\ellipseTmpD / \ellipseTmpA}
+	\pgfmathsetmacro{\ellipseTmpF}{\rx*\ellipsez / sqrt(\ellipseTmpA)}             % ellipse semi-minor axis
+	\pgfmathsetmacro{\ellipseTmpG}{\h*\rx*\ellipsez / \ellipseTmpA / \ellipsetcos} % ellipse semi-major axis
+	\pgfmathsetmacro{\ellipseTmpH}{-\h*\h*\ellipsez / \ellipseTmpA}
+	% the parametric equations of the ellipse is
+	% x = (rx h z0)/(rx^2 - h^2 tan^2(theta)) cos(phi) + h^2 z0 tan(theta) / (rx^2 - h^2 tan^2(theta))
+	% y = h z_0 / sqrt(rx^2 - h^2 tan^2(theta)) sin(phi)
+	% z = tan(theta) * x - z0	
+	\begin{scope}[canvas is plane={O(-\ellipseTmpE,0,\ellipseTmpH)x(-\ellipseTmpE+\ellipsetcos,0,\ellipseTmpH+\ellipsetsin)y(-\ellipseTmpE,1,\ellipseTmpH)}]
+		\draw[color=white,fill,pattern=north west lines,pattern color=black] (0,0) ellipse ({\ellipseTmpG} and {\ellipseTmpF});
+		\draw (-\ellipseTmpG,0) arc (-180:0:{\ellipseTmpG} and {\ellipseTmpF}) coordinate (ellipseB);
+		\draw[dashed] (-\ellipseTmpG,0) arc (180:0:{\ellipseTmpG} and {\ellipseTmpF});
+	\end{scope}
+	
+	\pgfmathsetmacro{\sinalpha}{\rx / sqrt(\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\ballAz}{\ellipsez/(1+\sinalpha/\ellipsetcos)}
+	\pgfmathsetmacro{\ballBz}{\ellipsez/(1-\sinalpha/\ellipsetcos)}
+	\pgfmathsetmacro{\ra}{\ballAz * \sinalpha}
+	\pgfmathsetmacro{\rb}{\ballBz * \sinalpha}
+	\pgfmathsetmacro{\ballATangent}{\ballAz * \h * \h / (\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\ballBTangent}{\ballBz * \h * \h / (\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\ballATangentR}{\ballAz * \h * \rx / (\rx*\rx + \h*\h)}
+	\pgfmathsetmacro{\ballBTangentR}{\ballBz * \h * \rx / (\rx*\rx + \h*\h)}
+	\coordinate (C1Centre) at (0,0,-\ballAz);
+	\coordinate (C2Centre) at (0,0,-\ballBz);
+	\begin{scope}[canvas is xz plane at y = 0]
+		\draw (C1Centre) circle (\ra);
+		\draw (C2Centre) circle (\rb);
+	\end{scope}
+	\coordinate (Q1) at (0,-\ballATangentR,-\ballATangent);
+	\coordinate (Q2) at (0,-\ballBTangentR,-\ballBTangent);
+	\draw[dashed] (O)--(Q1);
+	\draw (Q1)--(Q2);
+	\begin{scope}[canvas is xy plane at z = -\ballATangent]
+		\draw (-\ballATangentR,0) arc (-180:0:\ballATangentR);
+		\draw[dashed] (-\ballATangentR,0) arc (180:0:\ballATangentR);
+	\end{scope}
+	\begin{scope}[canvas is xy plane at z = -\ballBTangent]
+		\draw (-\ballBTangentR,0) arc (-180:0:\ballBTangentR);
+		\draw[dashed] (-\ballBTangentR,0) arc (180:0:\ballBTangentR);
+	\end{scope}
+	\node[left] at (-\ballATangentR,0,-\ballAz) {$C_1$};
+	\node[above left] at (-\ballBTangentR,0,-\ballBz) {$C_2$};
+	\node[above] at (Q1) {$Q_1$};
+	\node[below] at (Q2) {$Q_2$};
+	\node[right] at (0, -\ellipsez * \rx / \h, -\ellipsez) {$P$};
+	
+	\coordinate (F1) at (\ra * \ellipsetsin,0, -\ballAz - \ra * \ellipsetcos);
+	\coordinate (F2) at (-\rb * \ellipsetsin,0, -\ballBz + \rb * \ellipsetcos);
+	\node[fill=white, inner sep = 0, outer sep = 0, right] at (F1) {$F_1$};
+	\node[fill=white, inner sep = 0, outer sep = 0, left] at (F2) {$F_2$};
+\end{tikzpicture}
+
+\end{document}

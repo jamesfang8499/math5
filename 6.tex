@@ -990,15 +990,32 @@ $e=1$时是抛物线}，定点叫做圆锥曲线的焦点，定直线叫做
 \begin{figure}[htp]\centering
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.7]{fig/6-16.png}
+	\begin{tikzpicture}[scale=1]
+		\draw (1.84, 7.52).. controls (2, 8.2) and (2.32, 8.6) .. (2.92, 8).. controls (3.36, 7.52) and (3.76, 8.28) .. (3.8, 
+		8.56).. controls (3.84, 9) and (3.76, 10.04) .. (5.04, 9.8);
+		\draw (1.28,7.56)--(5.08,10.34);
+		\draw (1.28,9)--(5.08, 9);
+		\node at (2.5,9.2) {$\ell_1$};
+		\node at (2,8.4) {$\ell_2$};
+	\end{tikzpicture}
     \caption{}
     \end{minipage}
     \begin{minipage}[t]{0.48\textwidth}
     \centering
-\includegraphics[scale=.7]{fig/6-17.png}
+	\begin{tikzpicture}[scale=1]
+		\begin{scope}[rotate = 50]
+			\draw plot[domain=-0.3:2.1,variable=\t] ({\t}, {\t*\t/2});
+			\draw (-0.5,0)--(2,0);
+			\node at (0.1,-0.3) {$P_1$};
+			\node at (1.2,-0.3) {$T$};	
+			\draw (-0.2,-0.14)--(1.4*1.5,1.96/2*1.5);
+			\draw (-0.2,-0.18)--(1.8*1.25,3.24/2*1.25);
+			\node at (1.8,1.96/2-0.1) {$P_2$};
+		\end{scope}
+	\end{tikzpicture}
     \caption{}
     \end{minipage}
-    \end{figure}
+\end{figure}
 
 下面我们来阐述一般曲线的切线的定义，并由这个定义
 推导圆锥曲线的切线方程．
